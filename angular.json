@@ -26,15 +26,29 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/scss/bootstrap.scss",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+              "src/assets/css/styles.css",
+              "src/assets/css/plugins.css",
+              "src/assets/search/search.css",
+              "src/assets/quform/css/base.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/bootstrap/scss/bootstrap.scss"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
               "node_modules/popper.js/dist/umd/popper.min.js",
-              "node_modules/jquery/dist/jquery.min.js"
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "src/assets/js/main.js",
+              "src/assets/js/core.min.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/quform/js/scripts.js",
+              "src/assets/quform/js/plugins.js",
+              "src/assets/search/search.js",
+              "node_modules/magnific-popup/dist/jquery.magnific-popup.js"
             ]
           },
+            
           "configurations": {
             "production": {
               "budgets": [
