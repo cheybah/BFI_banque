@@ -1,0 +1,221 @@
+/* Add this CSS to your stylesheet */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+#banner {
+    position: relative;
+    height: 100vh; /* 100% viewport height */
+    width: 100%; /* 100% width of viewport */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    opacity: 0.8; /* Set the opacity level */
+    margin-bottom: 0; /* Ensure no bottom margin */
+
+}
+
+
+#topbar {
+    background: #191919;
+    font-size: 15px;
+    height: 40px;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.6);
+    position: relative; /* Ensure proper stacking order */
+    z-index: 999; /* Ensure the topbar appears above other elements */
+}
+
+#topbar .contact-info a {
+    line-height: 0;
+    color: rgba(255, 255, 255, 0.6);
+    transition: 0.3s;
+}
+
+#topbar .contact-info a:hover {
+    color: #C2862D;
+}
+
+#topbar .contact-info i {
+    color: #C2862D;
+    line-height: 0;
+    margin-right: 5px;
+}
+
+#topbar .contact-info .phone-icon {
+    margin-left: 15px;
+}
+
+#topbar .social-links a {
+    color: rgba(255, 255, 255, 0.6);
+    padding: 4px 12px;
+    display: inline-block;
+    line-height: 1px;
+    transition: 0.3s;
+}
+
+#topbar .social-links a:hover {
+    color: #fff;
+}
+
+#copyright {
+    background: #191919;
+    font-size: 15px;
+    height: 40px;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.6);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+
+}
+
+#copyright i {
+    margin-right: 5px; /* Adjust margin between icon and text */
+}
+
+.min-vh-80{
+    min-height: 80vh
+}
+
+.box {
+    width: 500px;
+    padding: 40px;
+    margin-top: 0px;
+    border-radius: 25px;
+    background: rgba(25, 25, 25, 0.8);
+    text-align: center;
+    transition: 0.25s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+.box input[type="text"],
+.box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #e3e5e6;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500 ;
+    font-size: 40px; 
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+    width: 300px;
+    border-color: #C2862D
+}
+
+.box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #C2862D;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.box input[type="submit"]:hover {
+    background: #C2862D
+}
+
+.forgot {
+    text-decoration: underline
+}
+
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0
+}
+
+ul.social-network li {
+    display: inline;
+    margin: 0 5px
+}
+
+.social-network a.icoFacebook:hover {
+    background-color: #3B5998
+}
+
+.social-network a.icoTwitter:hover {
+    background-color: #33ccff
+}
+
+.social-network a.icoGoogle:hover {
+    background-color: #BD3518
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i {
+    color: #fff
+}
+
+a.socialIcon:hover,
+.socialHoverClass {
+    color: #44BCDD
+}
+
+.social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    border-radius: 50%;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px
+}
+
+.social-circle li i {
+    margin: 0;
+    line-height: 50px;
+    text-align: center
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+    transform: rotate(360deg);
+    transition: all 0.2s
+}
+
+.social-circle i {
+    color: #fff;
+    transition: all 0.8s;
+    transition: all 0.8s
+}
+
+.box-text{
+    color: white;
+    font-size: small;
+}
