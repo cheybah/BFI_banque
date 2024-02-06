@@ -4,6 +4,11 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientRoutingModule } from './client-routing.module';
+import { HomeModule } from '../home/home.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule} from "@angular/forms";
+
+
 
 
 
@@ -18,6 +23,9 @@ import { ClientRoutingModule } from './client-routing.module';
   imports: [
     CommonModule,
     ClientRoutingModule,
+    HomeModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class ClientModule { }
