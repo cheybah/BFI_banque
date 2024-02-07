@@ -13,17 +13,14 @@ import { MotDePasseComponent } from './dashboard/mot-de-passe/mot-de-passe.compo
 import { ValidationComponent } from './dashboard/validation/validation.component';
 
 const routes: Routes = [
-    { path: 'login', component: LoginComponent },
-    { path: 'signup', component: SignupComponent },
-    { path: '', redirectTo :'dash',pathMatch :'full' },
-    { path: 'dash', component: DashboardComponent },
+
     { path: 'adresse', component: AdresseComponent },
     { path: 'information-personelles', component: InformationsComponent },
     { path: 'offres', component: OffresEtDomicialisationComponent },
     { path: 'conditions', component: ConditionsGeneralesComponent },
     { path: 'autres informations', component: AutresInformationsComponent },
     { path: 'mot-de-passe', component: MotDePasseComponent },
-    { path: 'dash/validation', component: ValidationComponent },
+    { path: 'validation', component: ValidationComponent },
     
   ];
   @NgModule({
