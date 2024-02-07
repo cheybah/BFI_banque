@@ -6,6 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
+  currentYear!: number;
 
+
+  ngOnInit(): void {
+    this.getCurrentYear();
+  }
+
+  getCurrentYear(): void {
+    this.currentYear = new Date().getFullYear();
+  }
   
 }

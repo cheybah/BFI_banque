@@ -1,3 +1,22 @@
+#copyright {
+    background: #191919;
+    font-size: 15px;
+    height: 40px;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.6);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+
+}
+
+#copyright i {
+    margin-right: 5px; /* Adjust margin between icon and text */
+}
+
 
 #preloader {
     position: fixed;
