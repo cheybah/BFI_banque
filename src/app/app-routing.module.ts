@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ValidationComponent } from './client/dashboard/validation/validation.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-  { path: '**', redirectTo: '' },
+  { path: 'login', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) },
+//  { path: '**', redirectTo: '' },
+
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
