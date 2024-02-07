@@ -5,7 +5,7 @@ import { LoginComponent } from './client/login/login.component';
 import { SignupComponent } from './client/signup/signup.component';
 
 const routes: Routes = [
-  {path: 'home', children:[
+  {path: '', children:[
     {path: 'homepage',component:HomepageComponent},
   ]} ,
 

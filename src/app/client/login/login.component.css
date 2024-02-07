@@ -3,7 +3,6 @@ body, html {
     margin: 0;
     padding: 0;
 }
-
 #banner {
     position: relative;
     height: 100vh; /* 100% viewport height */
@@ -15,7 +14,6 @@ body, html {
     margin-bottom: 0; /* Ensure no bottom margin */
 
 }
-
 
 #topbar {
     background: #191919;
@@ -58,26 +56,6 @@ body, html {
 #topbar .social-links a:hover {
     color: #fff;
 }
-
-#copyright {
-    background: #191919;
-    font-size: 15px;
-    height: 40px;
-    padding: 0;
-    color: rgba(255, 255, 255, 0.6);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    display: flex;
-
-}
-
-#copyright i {
-    margin-right: 5px; /* Adjust margin between icon and text */
-}
-
 .min-vh-80{
     min-height: 80vh
 }
