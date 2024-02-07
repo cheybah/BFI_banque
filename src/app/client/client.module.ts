@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientRoutingModule } from './client-routing.module';
+
 import { BodyComponent } from './dashboard/body/body.component';
 import { SidenavComponent } from './dashboard/sidenav/sidenav.component';
 import { InformationsComponent } from './dashboard/informations/informations.component';
@@ -15,6 +16,10 @@ import { MotDePasseComponent } from './dashboard/mot-de-passe/mot-de-passe.compo
 import { ValidationComponent } from './dashboard/validation/validation.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HomeModule } from '../home/home.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -39,6 +44,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     BrowserModule,
     ClientRoutingModule,
+    HomeModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class ClientModule { }
