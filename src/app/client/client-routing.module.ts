@@ -13,15 +13,18 @@ import { MotDePasseComponent } from './dashboard/mot-de-passe/mot-de-passe.compo
 import { ValidationComponent } from './dashboard/validation/validation.component';
 
 const routes: Routes = [
-
-    { path: 'adresse', component: AdresseComponent },
-    { path: 'information-personelles', component: InformationsComponent },
-    { path: 'offres', component: OffresEtDomicialisationComponent },
-    { path: 'conditions', component: ConditionsGeneralesComponent },
-    { path: 'autres informations', component: AutresInformationsComponent },
-    { path: 'mot-de-passe', component: MotDePasseComponent },
-    { path: 'validation', component: ValidationComponent },
-    
+    { path: 'login', component: LoginComponent },
+    { path: 'signup', component: SignupComponent },
+    { path: '', redirectTo :'dash',pathMatch :'full' },
+    { path: 'dash', component: DashboardComponent, children: [
+      { path: 'validation', component: ValidationComponent }, 
+      { path: 'adresse', component: AdresseComponent },
+      { path: 'information-personelles', component: InformationsComponent },
+      { path: 'offres', component: OffresEtDomicialisationComponent },
+      { path: 'conditions', component: ConditionsGeneralesComponent },
+      { path: 'autres informations', component: AutresInformationsComponent },
+      { path: 'mot-de-passe', component: MotDePasseComponent },
+  ]},   
   ];
   @NgModule({
     imports: [RouterModule.forChild(routes)],

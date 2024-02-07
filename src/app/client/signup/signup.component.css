@@ -1,0 +1,127 @@
+
+#banner {
+    position: relative;
+    height: 100vh; /* 100% viewport height */
+    width: 100%; /* 100% width of viewport */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    opacity: 0.8; /* Set the opacity level */
+    margin-bottom: 0; /* Ensure no bottom margin */
+
+}
+
+#topbar {
+    background: #191919;
+    font-size: 15px;
+    height: 40px;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.6);
+    position: relative; /* Ensure proper stacking order */
+    z-index: 999; /* Ensure the topbar appears above other elements */
+}
+
+#topbar .contact-info a {
+    line-height: 0;
+    color: rgba(255, 255, 255, 0.6);
+    transition: 0.3s;
+}
+
+#topbar .contact-info a:hover {
+    color: #C2862D;
+}
+
+#topbar .contact-info i {
+    color: #C2862D;
+    line-height: 0;
+    margin-right: 5px;
+}
+
+#topbar .contact-info .phone-icon {
+    margin-left: 15px;
+}
+
+#topbar .social-links a {
+    color: rgba(255, 255, 255, 0.6);
+    padding: 4px 12px;
+    display: inline-block;
+    line-height: 1px;
+    transition: 0.3s;
+}
+
+#topbar .social-links a:hover {
+    color: #fff;
+}
+
+
+a {
+    text-decoration: none !important;
+}
+
+
+.card-title {
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.card-body {
+    text-align: center;
+    padding: 20px;
+}
+
+.row {
+    margin-top: 100px; /* Add margin to push the row down */
+}
+
+.a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+}
+
+
+.card:hover,.card:active,.card:focus {
+    background-color: #C2862D !important ;
+    color: #fff !important; /* Adjust text color as needed */
+}
+
+.main-card {
+    background-color: rgba(25, 25, 25, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.main-card h2 {
+    color: #fff;
+}
+
+.card {
+    background-color: rgb(194, 134, 45, 0.49);
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: background-color 0.5s ease, cubic-bezier(0.25, 0.1, 0.23, 0.35), color 0.5s ease; /* Smooth transition for background-color and color */
+}
+
+.card:hover {
+    background-color: #C2862D;
+}
+
+.card-title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card:hover .card-title {
+    color: #000; /* Change color on hover */
+}
+
+

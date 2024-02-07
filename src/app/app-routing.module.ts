@@ -10,7 +10,7 @@ import { DashboardComponent } from './client/dashboard/dashboard.component';
 
 
 const routes: Routes = [
-  {path: 'home', children:[
+  {path: '', children:[
     {path: 'homepage',component:HomepageComponent},
   ]} ,
 
