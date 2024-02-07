@@ -1,6 +1,6 @@
 export  const navbarData =  [
     {
-        routeLink : 'informations personnelles',
+        routeLink : 'informations-personnelles',
         icon : 'fal fa-user-circle',
         label: 'Informations Personnelles'
     },
@@ -10,27 +10,27 @@ export  const navbarData =  [
         label: 'Adresse'
     },
     {
-        routeLink : 'autres informations',
+        routeLink : 'autres-informations',
         icon : 'fal fa-info-circle',
         label: 'Autres informations'
     },
     {
-        routeLink : 'offres et domicialisation',
+        routeLink : 'offres-et-domicialisation',
         icon : 'fal fa-building',
         label: 'Offres et domicialisation'
     },
     {
-        routeLink : 'conditions Génèrales',
+        routeLink : 'conditions-generales',
         icon : 'fal fa-file-alt',
         label: 'Conditions Génèrales'
     },
     {
-        routeLink : 'dash/validation',
+        routeLink : 'validation',
         icon : 'fa fa-check-circle',
         label: 'Validation'
     },
     {
-        routeLink : 'mot de passe',
+        routeLink : 'mot-de-passe',
         icon : 'fa fa-lock',
         label: 'Mot de passe'
     },
