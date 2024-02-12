@@ -77,7 +77,7 @@ body, html {
 
 
 
-.box input[type="text"],
+.box input[type="login"],
 .box input[type="password"] {
     border: 0;
     background: none;
@@ -100,7 +100,7 @@ body, html {
     font-size: 40px; 
 }
 
-.box input[type="text"]:focus,
+.box input[type="login"]:focus,
 .box input[type="password"]:focus {
     width: 300px;
     border-color: #C2862D
@@ -197,3 +197,17 @@ a.socialIcon:hover,
     color: white;
     font-size: small;
 }
+.alert-danger {
+    color: rgb(255, 255, 255);
+    font-size: small;
+    background-color: rgb(110, 40, 40) !important;
+    margin-bottom: 10px;
+    border-radius: inherit;
+  }
+
+  .alert {
+    --bs-alert-bg: transparent;
+    --bs-alert-padding-x: 0.8rem !important; 
+    --bs-alert-padding-y: 0.3rem !important;
+  
+  }

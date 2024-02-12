@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from '../home/home.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import {FormsModule} from "@angular/forms";
+import { WelcomeClientComponent } from './welcome-client/welcome-client.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {FormsModule} from "@angular/forms";
     OffresEtDomicialisationComponent,
     ConditionsGeneralesComponent,
     MotDePasseComponent,
-    ValidationComponent
+    ValidationComponent,
+    WelcomeClientComponent
   ],
   exports: [
   ],

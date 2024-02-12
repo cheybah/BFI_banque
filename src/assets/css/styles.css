@@ -2660,7 +2660,7 @@ footer .newsletter-form input {
     overflow-y: auto;
     width: 100%;
     height: calc(100vh - 110px);
-    background: url ("../img/banner/slide1.jpg") top center !important;
+    background: url ("../img/banner/slide1.png") top center !important;
     background-size: cover;
     position: relative;
   }
