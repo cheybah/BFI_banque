@@ -32,9 +32,7 @@
               "src/assets/quform/css/base.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "node_modules/bootstrap/scss/bootstrap.scss",
-              "src/assets/css/style.css"
-
-              
+              "node_modules/intl-tel-input/build/css/intlTelInput.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

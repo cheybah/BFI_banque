@@ -3,13 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient  } from "@angular/common/http";
 import { TranslateModule, TranslateLoader  } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
-import { ClientModule } from './client/client.module';
 import { FormsModule } from '@angular/forms';
+import { ClientModule } from './client/client.module';
 
 
 export function HttpLoaderFactory(http: HttpClient) {

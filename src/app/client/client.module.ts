@@ -22,9 +22,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule } from '@angular/common/http';
 import { WelcomeClientComponent } from './welcome-client/welcome-client.component';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 @NgModule({
+  
   declarations: [
     LoginComponent,
     SignupComponent,
@@ -54,6 +57,8 @@ import { WelcomeClientComponent } from './welcome-client/welcome-client.componen
     FormsModule,
     GoogleMapsModule,
     HttpClientModule ,
-  ]
+    NgxIntlTelInputModule,
+    BsDropdownModule.forRoot(),
+  ],
 })
 export class ClientModule { }
