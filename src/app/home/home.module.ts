@@ -13,6 +13,7 @@ import { PartnersComponent } from './partners/partners.component';
 import { CounterComponent } from './counter/counter.component';
 import { DetailsComponent } from './details/details.component';
 import { PacksComponent } from './packs/packs.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -29,7 +30,8 @@ import { PacksComponent } from './packs/packs.component';
     PartnersComponent,
     CounterComponent,
     DetailsComponent,
-    PacksComponent
+    PacksComponent,
+  
   ],
   exports: [
     TopbarComponent
@@ -37,6 +39,7 @@ import { PacksComponent } from './packs/packs.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
+    TranslateModule
   ]
 })
 export class HomeModule { }
