@@ -19,11 +19,13 @@ const routes: Routes = [
     { path: 'dash', component: DashboardComponent, children: [
       { path: 'validation', component: ValidationComponent }, 
       { path: 'adresse', component: AdresseComponent },
-      { path: 'information-personelles', component: InformationsComponent },
-      { path: 'offres', component: OffresEtDomicialisationComponent },
-      { path: 'conditions', component: ConditionsGeneralesComponent },
-      { path: 'autres informations', component: AutresInformationsComponent },
+      { path: 'informations-personelles', component: InformationsComponent },
+      { path: 'offres-et-domicialisation', component: OffresEtDomicialisationComponent },
+      { path: 'conditions-generales', component: ConditionsGeneralesComponent },
+      { path: 'autres-informations', component: AutresInformationsComponent },
       { path: 'mot-de-passe', component: MotDePasseComponent },
+
+      
   ]},   
   ];
   @NgModule({

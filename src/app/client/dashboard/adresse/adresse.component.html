@@ -1,6 +1,42 @@
 <div class="card">
-    <div class="card-head"></div>
+    <div class="card-head">
+        <h4>Adresse</h4>
+    </div>
+
     <div class="card-body">
-        corpos de adresse
+        <form class="row g-3" #form="ngForm">
+                <div class="col-12">
+                    <label for="pays">Pays de Résidence :</label>
+                    <input type="text" id="pays" name="pays">
+                </div>
+            
+            <div class="map-container">
+                <google-map height="300px"
+                            width="100%"
+                            [center]="center"
+                            [zoom]="zoom"
+                            (mapClick)="addMarker($event)">
+                    <map-marker *ngFor="let markerPosition of markerPositions"
+                                [position]="markerPosition"
+                                [options]="markerOptions"
+                                (mapClick)="fillFormWithCountry(getCountryName(markerPosition) || '')">
+                    </map-marker>
+                </google-map>
+            </div>
+            <div class="col-md-12">
+                <label for="ville">Ville :</label>
+                <input type="text" id="ville" name="ville" >
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col text-start">
+                        <button class="btn btn-secondary" (click)="Retour()">Retour</button>
+                    </div>
+                    <div class="col text-end">
+                        <button class="btn btn-dark" (click)="Suivant()">Suivant</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

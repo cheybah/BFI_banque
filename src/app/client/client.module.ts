@@ -18,8 +18,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HomeModule } from '../home/home.module';
-import { ReactiveFormsModule } from '@angular/forms';
-import {FormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import {FormsModule} from "@angular/forms";
     OffresEtDomicialisationComponent,
     ConditionsGeneralesComponent,
     MotDePasseComponent,
-    ValidationComponent
+    ValidationComponent,
   ],
   exports: [
   ],
@@ -47,6 +48,8 @@ import {FormsModule} from "@angular/forms";
     HomeModule,
     ReactiveFormsModule,
     FormsModule,
+    GoogleMapsModule,
+    HttpClientModule ,
   ]
 })
 export class ClientModule { }
