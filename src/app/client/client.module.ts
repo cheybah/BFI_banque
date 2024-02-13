@@ -22,6 +22,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule} from "@angular/forms";
+import { WelcomeClientComponent } from './welcome-client/welcome-client.component';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +41,9 @@ import { HttpClientModule } from '@angular/common/http';
     ConditionsGeneralesComponent,
     MotDePasseComponent,
     ValidationComponent,
+
+    WelcomeClientComponent
+
   ],
   exports: [
   ],

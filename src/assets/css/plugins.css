@@ -4341,7 +4341,7 @@ textarea.form-control-lg {
 }
 
 .navbar-dark .navbar-brand {
-    color: #fff
+    color: #0c0c0c
 }
 
 .navbar-dark .navbar-brand:focus,.navbar-dark .navbar-brand:hover {
@@ -4419,10 +4419,7 @@ textarea.form-control-lg {
     border-top: 0
 }
 
-.card-body {
-    flex: 1 1 auto;
-    padding: 1rem 1rem
-}
+
 
 .card-title {
     margin-bottom: .5rem
@@ -25174,7 +25171,7 @@ section.md {
 }
 
 .banner{
-    background-image: url("../img/banner/slide1.jpg")!important;
+    background-image: url("../img/banner/slide1.png")!important;
 }
 .banner2{
     background-image: url("../img/bg/bg-01.jpg")!important;
@@ -36306,7 +36303,7 @@ header {
     }
 
     .menu_area-light .navbar-nav>li>a {
-        color: #fff
+        color: white;    /* nav bar colors */
     }
 
     .menu_area-light .navbar-nav li>ul {

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './home/homepage/homepage.component';
 import { LoginComponent } from './client/login/login.component';
 import { SignupComponent } from './client/signup/signup.component';
@@ -11,6 +12,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {path: '', children:[
+    { path: '', redirectTo: '/homepage', pathMatch: 'full' }, // Redirect empty path to '/homepage'
     {path: 'homepage',component:HomepageComponent},
   ]} ,
 

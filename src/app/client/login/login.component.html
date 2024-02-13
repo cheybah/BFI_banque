@@ -13,22 +13,34 @@
     </div>
   </section>
 
-  <section id="banner" class="bg-img cover-background full-screen p-0 banner" data-overlay-dark="2" data-background="../../../assets/img/banner/slide1.jpg">
+  <section id="banner" class="bg-img cover-background full-screen p-0 banner" data-overlay-dark="2" data-background="../../../assets/img/banner/slide1.png">
     <div class="container d-flex flex-column">
         <div class="row align-items-center min-vh-80">
             <div class="row"> 
                 <div class="col-md-6">
                      <div>
-                         <form onsubmit="event.preventDefault()" class="box">
-                             <h1>Login</h1>
-                              <p class="box-text">
-                                 Please enter your login and password!</p> 
-                                 <input type="text" name="" placeholder="Username"> 
-                                 <input type="password" name="" placeholder="Password"> 
-                                 <a class="forgot box-text" href="#">Forgot password?</a> 
-                                 <input type="submit" name="" value="Login" href="#"> 
-                                 <div class="col-md-12"> <ul class="social-network social-circle"> 
-                                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li> <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li> <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li> </ul> </div> </form> </div> </div> </div>
+                      <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm" class="box">
+                        <h1>Login</h1>
+                        <p class="box-text">Entrez vos coordonnées pour se connecter.</p> 
+                        <input type="login" id="loginName" name="login" [(ngModel)]="login" placeholder="Identifiant"> 
+                        <input type="password" id="loginPassword" name="password" [(ngModel)]="password" placeholder="Mot de passe"> 
+                        <div *ngIf="authenticationError" class="alert alert-danger" role="alert">
+                          Vérifiez vos coordonnées !
+                        </div>
+                        <a class="forgot box-text" href="#">Mot de passe oublié?</a> 
+                        <input type="submit" value="Login">
+                        <div class="col-md-12"> 
+                            <ul class="social-network social-circle"> 
+                                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li> 
+                                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li> 
+                                <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li> 
+                            </ul> 
+                        </div> 
+                        <p class="box-text">Vous n'avez pas de compte ? <a class="forgot box-text" href="/signup">Créer un compte</a></p>
+                    </form>
+                            </div> 
+                          </div> 
+                        </div>
         </div>
         </div>
 

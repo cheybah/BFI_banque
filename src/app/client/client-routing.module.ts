@@ -11,10 +11,12 @@ import { ConditionsGeneralesComponent } from './dashboard/conditions-generales/c
 import { AutresInformationsComponent } from './dashboard/autres-informations/autres-informations.component';
 import { MotDePasseComponent } from './dashboard/mot-de-passe/mot-de-passe.component';
 import { ValidationComponent } from './dashboard/validation/validation.component';
+import { WelcomeClientComponent } from './welcome-client/welcome-client.component';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
+    { path: 'welcome', component: WelcomeClientComponent },
     { path: '', redirectTo :'dash',pathMatch :'full' },
     { path: 'dash', component: DashboardComponent, children: [
       { path: 'validation', component: ValidationComponent }, 

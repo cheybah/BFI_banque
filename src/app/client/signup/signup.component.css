@@ -60,16 +60,19 @@ a {
 
 
 .card-title {
-    color: white;
+    color: #fff;
     text-align: center;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
-    margin-bottom: 20px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
 }
+
 
 .card-body {
     text-align: center;
-    padding: 20px;
+    padding: 0px;
+    width: 100%;
 }
 
 .row {
@@ -83,42 +86,38 @@ a {
 
 
 .card:hover,.card:active,.card:focus {
-    background-color: #C2862D !important ;
-    color: #fff !important; /* Adjust text color as needed */
+    background-color: wheat !important ;
 }
 
 .main-card {
     background-color: rgba(25, 25, 25, 0.8);
-    border-radius: 10px;
+    border-radius: 30px;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 70px;
     text-align: center;
 }
 
 .main-card h2 {
     color: #fff;
+    margin-bottom: 30px;
+    margin-top: 10px;
 }
 
 .card {
-    background-color: rgb(194, 134, 45, 0.49);
+    width: 80%; /* Ensure the cards take up the full width of the container */
+    background-color: rgba(170, 170, 170, 0.747);
     border: none;
     border-radius: 10px;
     padding: 20px;
-    margin-bottom: 20px;
-    text-align: center;
+    margin-left: 50px;
+    margin-right: 20px;
+    margin-bottom: 50px;
+    margin-top: 20px;
     transition: background-color 0.5s ease, cubic-bezier(0.25, 0.1, 0.23, 0.35), color 0.5s ease; /* Smooth transition for background-color and color */
 }
 
-.card:hover {
-    background-color: #C2862D;
-}
 
-.card-title {
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
+
 
 .card:hover .card-title {
     color: #000; /* Change color on hover */
