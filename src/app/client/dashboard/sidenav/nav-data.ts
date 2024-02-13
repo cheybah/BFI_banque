@@ -1,6 +1,7 @@
+
 export  const navbarData =  [
     {
-        routeLink : 'informations-personnelles',
+        routeLink : 'informations-personelles',
         icon : 'fal fa-user-circle',
         label: 'Informations Personnelles'
     },
