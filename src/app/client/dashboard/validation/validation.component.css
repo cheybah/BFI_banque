@@ -1,0 +1,13 @@
+input {
+	width: 100%;
+	padding: 10px;
+}
+.otpverify {
+	width: 100%;
+	display: flex;
+	gap: 20px;
+}
+
+.otpverify{
+	display: none;
+}
