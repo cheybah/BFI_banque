@@ -7,7 +7,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.required{
+    color: red;
+    font-weight: bold;
+}
 body {
     position: relative;
     font-family: 'Roboto', sans-serif;
@@ -50,7 +53,15 @@ select {
     border: 1px solid #ddd;
     border-radius: 4px;
 }
-
+input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
 button {
     background-color: #131518;
     color: #fff;

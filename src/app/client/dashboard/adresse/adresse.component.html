@@ -6,8 +6,8 @@
     <div class="card-body">
         <form class="row g-3" #form="ngForm">
             <div class="col-12">
-                <label for="pays">Entrer votre pays :</label>
-                <input type="text" id="pays" name="pays" (change)="locateCountry()">
+                <label for="pays">Entrer votre pays </label><span class="required">*</span>
+                <input type="text" id="pays" name="pays" (change)="locateCountry()" required>
             </div>
 
             <div class="map-container">
@@ -23,9 +23,23 @@
                     </map-marker>
                 </google-map>
             </div>
-            <div class="col-md-12">
-                <label for="ville">Ville :</label>
-                <input type="text" id="ville" name="ville">
+            <div class="col-md-6">
+                <label for="ville">Ville </label><span class="required">*</span>
+                <input type="text" id="ville" name="ville" >
+                 <!-- Ajoutez ici l'indicateur d'obligation -->
+
+            </div>
+            <div class="col-md-6">
+                <label for="quartier">Quartier </label>
+                <input type="text" id="quartier" name="quartier">
+            </div>
+            <div class="col-md-6">
+                <label for="adresse">Référence de votre adresse </label>
+                <input type="text" id="adresse" name="adresse">
+            </div>
+            <div class="col-md-6">
+                <label for="bp">BP </label>
+                <input type="text" id="bp" name="bp">
             </div>
             <div class="col-12">
                 <div class="row">
