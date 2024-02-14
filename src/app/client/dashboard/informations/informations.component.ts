@@ -28,7 +28,7 @@ export class InformationsComponent  {
     ) { 
     this.infoForm = this.formBuilder.group({
       genre: [null, Validators.required],
-      firstName: ['', [Validators.required, Validators.pattern('[a-zA-ZÀ-ÿ\s\-]{2,}')]],
+      firstName: ['', [Validators.required, Validators.minLength(2), noNumbersValidator()]],
       lastName: ['', [Validators.required, Validators.minLength(2), noNumbersValidator()]],
       formFile: [''],
       email: ['', [Validators.required, Validators.email]],

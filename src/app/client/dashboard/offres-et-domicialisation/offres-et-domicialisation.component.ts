@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-offres-et-domicialisation',
@@ -7,7 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./offres-et-domicialisation.component.css']
 })
 export class OffresEtDomicialisationComponent {
-  constructor(private router: Router) { }
+  offerForm: FormGroup;
+
+
+  constructor(private router: Router,
+    private formBuilder: FormBuilder){ 
+      this.offerForm = this.formBuilder.group({
+        agence: [null, Validators.required]
+      });
+     }
   comptes = [
     { label: 'Courant', value: 'Courant', packs: [
       { name: 'PACK ACTIVA', description: 'L\'offre jeune vous accompagne dans votre expérience bancaire.<br>- Dépôt initial (13 000 XAF)<br>- Dépôt /Retrait via Mobile Money<br>- Carte visa prépayée<br>- Online Banking<br>5950 Fcfa/ mois'}, 

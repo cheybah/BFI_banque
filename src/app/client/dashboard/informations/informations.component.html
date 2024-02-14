@@ -5,7 +5,7 @@
     <div class="card-body">
         <form [formGroup]="infoForm" class="row g-3 needs-validation" novalidate>
             <div class="col-12">
-                <label for="genre" class="form-label">Genre </label>
+                <label for="genre" class="form-label">Genre</label>
                 <select id="inputState" class="form-select" required formControlName="genre">
                     <option value="" disabled selected>Choisissez...</option>
                     <option value="monsieur">Monsieur</option>
@@ -16,7 +16,7 @@
                   </div>
             </div>
             <div class="col-md-6">
-                <label for="firstName" class="form-label">Nom </label><span class="required">*</span>
+                <label for="firstName" class="form-label">Nom</label><span class="required">*</span>
                 <input type="text" class="form-control" id="firstName" formControlName="firstName" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
                 <div *ngIf="infoForm.get('firstName')?.invalid && (infoForm.get('firstName')?.dirty || infoForm.get('firstName')?.touched)" class="text-danger">
                     <div *ngIf="infoForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez un nom valide</div>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <label for="lastName" class="form-label">Prénom </label><span class="required">*</span>
+                <label for="lastName" class="form-label">Prénom</label><span class="required">*</span>
                 <input type="text" class="form-control" id="lastName" formControlName="lastName" required
                        pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
                        <div *ngIf="infoForm.get('lastName')?.invalid && (infoForm.get('lastName')?.dirty || infoForm.get('lastName')?.touched)" class="text-danger">
@@ -33,18 +33,19 @@
                     </div>
             </div>
             <div class="mb-3">
-                <label for="formFile" class="form-label">Photo de profil </label><span class="required">*</span>
+                <label for="formFile" class="form-label">Photo de profil</label>
                 <input class="form-control" type="file" id="formFile">
             </div>
             <div class="col-md-6">
-                <label for="email" class="form-label">Email </label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email" required>
                 <div *ngIf="infoForm.get('email')?.invalid && (infoForm.get('email')?.dirty || infoForm.get('email')?.touched)" class="text-danger">
-                    <div *ngIf="infoForm.get('email')?.hasError('required')" style="margin-top: 3px;">Entrez un email valide</div>
-                  </div>
+                    <div *ngIf="infoForm.get('email')?.hasError('required')">Entrez un email valide</div>
+                    <div *ngIf="infoForm.get('email')?.hasError('email')">Entrez une adresse email valide</div>
+                </div>
             </div>
             <div class="col-md-6 telStyle">
-                <label for="phone" class="form-label">Téléphone </label><span class="required">*</span>
+                <label for="phone" class="form-label">Téléphone</label><span class="required">*</span>
                 <!-- Add the ngx-intl-tel-input component here -->
                 <ngx-intl-tel-input
                     [preferredCountries]="['tn']"
@@ -68,10 +69,10 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col text-start">
-                        <button class="btn btn-secondary" (click)="Retour()">Retour</button>
+                        <button class="btn btn-secondary butn" (click)="Retour()">Retour</button>
                     </div>
                     <div class="col text-end">
-                        <button class="btn btn-dark" (click)="Suivant()" [disabled]="!isFormValid()">Suivant</button>
+                        <button class="btn btn-secondary butn" (click)="Suivant()" [disabled]="!isFormValid()">Suivant</button>
                     </div>
                 </div>
             </div>
