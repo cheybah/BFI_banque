@@ -6,7 +6,7 @@
     position: relative;
     top: 0;
     transition: all .5s ease;
-    background-image: url('src/assets/img/banner/slide1.png');
+    background-image: none;
     background-size: cover;
     padding: 3rem;
     

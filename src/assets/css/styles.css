@@ -183,7 +183,7 @@ a:hover,a:active {
     overflow: hidden;
     border-radius: 5px;
     z-index: 1;
-    border: unset
+    border: 1px solid #B48F44 !important;
 }
 
 .butn:before {

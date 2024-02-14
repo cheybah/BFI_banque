@@ -1,15 +1,20 @@
 <div class="card">
-    <div class="card-head">
+    <div class="card-header">
         <h4>Offres et Domiciliation</h4>
     </div>
     <div class="card-body">
-        <form class="row g-3" #form="ngForm">
+        <form [formGroup]="offerForm" class="row g-3">
             <div class="col-12">
                 <p>Choisissez votre agence de préférence.</p>
-                <label for="agence">Agence :</label>
-                <select id="agence">
+                <label for="agence">Agence</label>
+                <select id="agence" class="form-select" required formControlName="agence">
+                    <option value="" disabled selected>Choisir votre agence</option>
                     <option value="agence_moanda">AGENCE DE MOANDA</option>
+                    <option value="agence_tun">AGENCE DE TUN</option>
                 </select>
+                <div *ngIf="offerForm.get('agence')?.invalid && (offerForm.get('agence')?.dirty || offerForm.get('agence')?.touched)" class="text-danger">
+                    <div *ngIf="offerForm.get('agence')?.hasError('required')" style="margin-top: 3px;">Veuillez choisir votre agence</div>
+                  </div>
             </div>
             
             <div class="col-12">
@@ -40,10 +45,10 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col text-start">
-                        <button class="butn" (click)="Retour()">Retour</button>
+                        <button class="btn btn-secondary butn" (click)="Retour()">Retour</button>
                     </div>
                     <div class="col text-end">
-                        <button class="butn" (click)="Suivant()">Suivant</button>
+                        <button class="btn btn-secondary butn" (click)="Suivant()">Suivant</button>
                     </div>
                 </div>
             </div>
