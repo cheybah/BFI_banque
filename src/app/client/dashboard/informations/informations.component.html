@@ -1,50 +1,44 @@
-<div class="card">
-    <div class="card-head">
-        <h4>Informations Personnelles</h4>
-    </div>
-    <div class="card-body">
-        <form class="row g-3">
-            <div class="col-12">
-                <label for="genre">Genre :</label>
-                <select id="inputState" class="form-select">
-                    <option value="monsieur">Monsieur</option>
-                    <option value="madame">Madame</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Nom :</label>
-                <input type="email" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Prénom :</label>
-                <input type="password" class="form-control" id="inputPassword4">
-            </div>
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Photo de profil :</label>
-                <input class="form-control" type="file" id="formFile">
-            </div>
-            <div class="col-md-6">
-                <label for="photo">Email :</label>
-                <input type="text" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" id="email" name="email">
-            </div>
-            <div class="col-md-6">
-                <label for="phone">Téléphone :</label>
-                <!-- Add the ngx-intl-tel-input component here -->
-                <ngx-intl-tel-input
-                    [preferredCountries]="['tn']"
-                    [enablePlaceholder]="true"
-                    [cssClass]="'form-control'"
-                    [searchCountryFlag]="true"
-                    [selectedCountryISO]="selectedCountryISO">
-                </ngx-intl-tel-input>
-            </div>
-            <div class="col-12">
-                <div class="row">
-                    <div class="col text-start">
-                        <button class="btn btn-secondary" (click)="Retour()">Retour</button>
-                    </div>
-                    <div class="col text-end">
-                        <button class="btn btn-dark" (click)="Suivant()">Suivant</button>
+
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <div class="card">
+        <div class="card-head">
+            <h4>Informations Personnelles</h4>
+        </div>
+        <div class="card-body">
+            
+            <form class="row g-3">
+                <div class="col-12">
+                    <label for="genre" >Genre :</label>
+                    <select id="inputState" class="form-select">
+                        <option value="monsieur">Monsieur</option>
+                        <option value="madame">Madame</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label">Nom :</label>
+                  <input type="email" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputPassword4" class="form-label">Prénom :</label>
+                  <input type="password" class="form-control" id="inputPassword4">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Photo de profil :</label>
+                    <input class="form-control" type="file" id="formFile">
+                </div>
+                <div class="col-md-6">
+                    <label for="photo">Email :</label>
+                    <input type="text" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" id="email" name="email">
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col text-start">
+                            <button class="butn" (click)="Retour()">Retour</button>
+                        </div>
+                        <div class="col text-end">
+                            <button class="butn" (click)="Suivant()">Suivant</button>
+                        </div>
+
                     </div>
                 </div>
             </div>

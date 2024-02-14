@@ -1,0 +1,52 @@
+
+.pack {
+    background-color:white; /* Gradient with gold, black, and white */
+    border: 2.7px solid rgb(194,134,45);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: box-shadow 0.3s ease; /* Animation for card hover effect */
+}
+
+/* Animation for compte */
+.compte {
+    background-color:white; /* Gradient with gold, black, and white */
+    border: 2.7px solid rgb(194,134,45);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: transform 0.3s ease; /* Animation for card transformation */
+}
+
+/* Hover effect for pack */
+.pack:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05); /* Scale up the card on hover */
+
+}
+
+/* Hover effect for compte */
+.compte:hover {
+    transform: scale(1.05); /* Scale up the card on hover */
+}
+
+/* Additional styling for card title */
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color:rgb(148, 101, 30);
+}
+
+/* Animation for check icon */
+.fa-check {
+    color: #28a745; /* Green color for check icon */
+    transition: opacity 0.3s ease; /* Fade-in animation for check icon */
+}
+
+/* Show check icon on hover */
+.pack:hover .fa-check {
+    opacity: 1;
+}
+.text{
+    font-size: 0.9rem;
+    font-weight: bold;
+    color:black;
+}

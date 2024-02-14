@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("this");
-
 // 253 countries
 const countries = [
     { name: "Afghanistan", code: "AF", phone: 93 },
