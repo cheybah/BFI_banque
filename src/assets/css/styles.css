@@ -1,3 +1,4 @@
+
 #copyright {
     background: #191919;
     font-size: 15px;
@@ -174,7 +175,7 @@ a:hover,a:active {
 
 .butn {
     color: #fff;
-    background: rgb(26, 26, 26);
+    background: linear-gradient(90deg, #493201, #B48F44);
     text-align: center !important;
     display: inline-block;
     padding: 13px 40px;
