@@ -26,13 +26,14 @@ export  const navbarData =  [
         label: 'Conditions Génèrales'
     },
     {
-        routeLink : 'validation',
-        icon : 'fa fa-check-circle',
-        label: 'Validation'
-    },
-    {
         routeLink : 'mot-de-passe',
         icon : 'fa fa-lock',
         label: 'Mot de passe'
     },
+    {
+        routeLink : 'validation',
+        icon : 'fa fa-check-circle',
+        label: 'Validation'
+    },
+   
 ]

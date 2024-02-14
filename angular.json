@@ -31,15 +31,16 @@
               "src/assets/search/search.css",
               "src/assets/quform/css/base.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
-              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/bootstrap/scss/bootstrap.scss"
+
               "node_modules/intl-tel-input/build/css/intlTelInput.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/popper.js/dist/umd/popper.min.js",
-              "src/assets/js/script.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/jquery.min.js",
+              "src/assets/js/script.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "src/assets/js/main.js",
               "src/assets/js/core.min.js",
