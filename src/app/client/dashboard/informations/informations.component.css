@@ -2,3 +2,7 @@
 :host ::ng-deep .iti__flag-container + input {
     padding-left: 40px; /* Adjust the padding-left value according to the width of the flag container */
   }
+
+  .telStyle{
+    margin-top: 50px;
+  }
