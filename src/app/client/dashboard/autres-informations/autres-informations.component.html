@@ -6,24 +6,24 @@
     <div class="card-body">
         <form action="#" method="post" class="row g-3">
             <div class="col-12">
-                <label for="type_particulier">Type de particulier :</label>
+                <label for="type_particulier">Type de particulier </label>
                 <input type="text" id="type_particulier" name="type_particulier">
             </div>
 
             <div class="col-4">
-                <label for="profession">Profession :</label>
+                <label for="profession">Profession </label><span class="required">*</span>
                 <input type="text" id="profession" name="profession">
             </div>
             <div class="col-4">
-                <label for="Type_piece">Type de la pièce :</label>
+                <label for="Type_piece">Type de la pièce </label><span class="required">*</span>
                 <input type="text" id="Type_piece" name="Type_piece">
             </div>
             <div class="col-4">
-                <label for="Numero_piece">Numéro de la pièce :</label>
+                <label for="Numero_piece">Numéro de la pièce </label><span class="required">*</span>
                 <input type="text" id="numero_piece" name="numero_piece">
             </div>
             <div class="col-12">
-                <label for="date_expiration">Date d'expiration de la pièce :</label>
+                <label for="date_expiration">Date d'expiration de la pièce</label><span class="required">*</span>
                 <div class="row">
                     <div class="col-4">
                         <input type="date" id="date_expiration" name="date_expiration" min="{{ today | date:'yyyy-MM-dd' }}">
@@ -33,12 +33,12 @@
             
             
             <div class="col-12">
-                <label for="photo_piece"  class="form-label">Photo de la pièce :</label>
+                <label for="photo_piece"  class="form-label">Photo de la pièce </label><span class="required">*</span>
                 <input class="form-control" name="photo_piece"type="file" id="photo_piece" >
                 
             </div>
             <div class="col-12">
-                <label for="code_parrainage">Code parrainage :</label>
+                <label for="code_parrainage">Code parrainage </label>
                 <input type="text" id="code_parrainage" name="code_parrainage">
             </div>
             <div class="col-12">
