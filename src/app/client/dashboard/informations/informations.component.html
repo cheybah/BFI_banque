@@ -1,44 +1,69 @@
-
-    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
-    <div class="card">
-        <div class="card-head">
-            <h4>Informations Personnelles</h4>
-        </div>
-        <div class="card-body">
-            
-            <form class="row g-3">
-                <div class="col-12">
-                    <label for="genre" >Genre :</label>
-                    <select id="inputState" class="form-select">
-                        <option value="monsieur">Monsieur</option>
-                        <option value="madame">Madame</option>
-                    </select>
+<div class="card">
+    <div class="card-header">
+        <h4>Informations Personnelles</h4>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="infoForm" class="row g-3 needs-validation" novalidate>
+            <div class="col-12">
+                <label for="genre" class="form-label">Genre :</label>
+                <select id="inputState" class="form-select" required formControlName="genre">
+                    <option value="" disabled selected>Choisissez...</option>
+                    <option value="monsieur">Monsieur</option>
+                    <option value="madame">Madame</option>
+                </select>
+                <div *ngIf="infoForm.get('genre')?.invalid && (infoForm.get('genre')?.dirty || infoForm.get('genre')?.touched)" class="text-danger">
+                    <div *ngIf="infoForm.get('genre')?.hasError('required')" style="margin-top: 3px;">Veuillez choisir votre genre</div>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <label for="firstName" class="form-label">Nom :</label>
+                <input type="text" class="form-control" id="firstName" formControlName="firstName" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
+                <div *ngIf="infoForm.get('firstName')?.invalid && (infoForm.get('firstName')?.dirty || infoForm.get('firstName')?.touched)" class="text-danger">
+                    <div *ngIf="infoForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez un nom valide</div>
+                    <div *ngIf="infoForm.get('firstName')?.hasError('pattern')" style="margin-top: 3px;">Le nom ne peut pas contenir de chiffres</div>
                 </div>
-                <div class="col-md-6">
-                  <label for="inputEmail4" class="form-label">Nom :</label>
-                  <input type="email" class="form-control" id="inputEmail4">
-                </div>
-                <div class="col-md-6">
-                  <label for="inputPassword4" class="form-label">Prénom :</label>
-                  <input type="password" class="form-control" id="inputPassword4">
-                </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label">Photo de profil :</label>
-                    <input class="form-control" type="file" id="formFile">
-                </div>
-                <div class="col-md-6">
-                    <label for="photo">Email :</label>
-                    <input type="text" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" id="email" name="email">
-                </div>
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col text-start">
-                            <button class="butn" (click)="Retour()">Retour</button>
-                        </div>
-                        <div class="col text-end">
-                            <button class="butn" (click)="Suivant()">Suivant</button>
-                        </div>
-
+            </div>
+            <div class="col-md-6">
+                <label for="lastName" class="form-label">Prénom :</label>
+                <input type="text" class="form-control" id="lastName" formControlName="lastName" required
+                       pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
+                       <div *ngIf="infoForm.get('lastName')?.invalid && (infoForm.get('lastName')?.dirty || infoForm.get('lastName')?.touched)" class="text-danger">
+                        <div *ngIf="infoForm.get('lastName')?.hasError('required')" class="text-danger">Entrez un prénom valide</div>
+                        <div *ngIf="infoForm.get('lastName')?.hasError('hasNumbers')" class="text-danger">Le prénom ne peut pas contenir de chiffres</div>                        
+                    </div>
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Photo de profil :</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email :</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                <div *ngIf="infoForm.get('email')?.invalid && (infoForm.get('email')?.dirty || infoForm.get('email')?.touched)" class="text-danger">
+                    <div *ngIf="infoForm.get('email')?.hasError('required')" style="margin-top: 3px;">Entrez un email valide</div>
+                  </div>
+            </div>
+            <div class="col-md-6 telStyle">
+                <label for="phone" class="form-label">Téléphone :</label>
+                <!-- Add the ngx-intl-tel-input component here -->
+                <ngx-intl-tel-input
+                    [preferredCountries]="['tn']"
+                    [enablePlaceholder]="true"
+                    [cssClass]="'form-control'"
+                    [searchCountryFlag]="true"
+                    [selectedCountryISO]="selectedCountryISO">
+                </ngx-intl-tel-input>
+                <div *ngIf="infoForm.get('firstName')?.invalid && (infoForm.get('firstName')?.dirty || infoForm.get('firstName')?.touched)" class="text-danger">
+                    <div *ngIf="infoForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez votre numéro</div>
+                  </div>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col text-start">
+                        <button class="btn btn-secondary" (click)="Retour()">Retour</button>
+                    </div>
+                    <div class="col text-end">
+                        <button class="btn btn-dark" (click)="Suivant()" [disabled]="!isFormValid()">Suivant</button>
                     </div>
                 </div>
             </div>
