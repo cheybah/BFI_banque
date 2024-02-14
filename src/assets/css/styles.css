@@ -617,9 +617,12 @@ a:hover,a:active {
     box-shadow: 8px 8px 30px 0 rgba(0,0,0,0.12);
     border-radius: 5px;
     position: relative
+
+
 }
 
 .card-style2 .card-body {
+    height: 400px; /* Adjust card height to be fixed */
     padding: 45px 30px 30px 40px
 }
 

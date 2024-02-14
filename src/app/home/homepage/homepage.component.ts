@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-homepage',
@@ -7,8 +8,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class HomepageComponent implements OnInit{
 
-  ngOnInit() {
+  constructor(private translate: TranslateService){
+    this.translate.setDefaultLang('fr');  //the default site's lang
+  }
 
+  ngOnInit() {
   }
 
   scrollToTop(sectionId: string) {

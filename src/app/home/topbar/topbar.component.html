@@ -32,15 +32,15 @@
 
                             <!-- menu area -->
                             <ul class="navbar-nav mx-auto" id="nav">
-                                <li><a href="">Home</a></li>
+                                <li><a href="">{{ 'homepage.topbar_component.home' | translate }}</a></li>
                                 <li>
-                                    <a href="#!">Pages</a>
+                                    <a href="#">Pages</a>
                                     <ul>
-                                        <li><a href="">About Us</a></li>
-                                        <li><a href="">How It Works</a></li>
-                                        <li><a href="">Testimonials</a></li>
-                                        <li><a href="">Team</a></li>
-                                        <li><a href="#!">Portfolio</a>
+                                        <li><a href="#">{{ 'homepage.topbar_component.pages.aboutUs' | translate }}</a></li>
+                                        <li><a href="#">{{ 'homepage.topbar_component.pages.howItWorks' | translate }}</a></li>
+                                        <li><a href="#">{{ 'homepage.topbar_component.pages.testimonials' | translate }}</a></li>
+                                        <li><a href="#">{{ 'homepage.topbar_component.pages.team' | translate }}</a></li>
+                                        <li><a href="#">Portfolio</a>
                                             <ul>
                                                 <li><a href="">Portfolio 1</a></li>
                                                 <li><a href="">Portfolio 2</a></li>
@@ -51,16 +51,16 @@
                                         <li><a href="">404 Page</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#!">Services</a>
+                                <li><a href="#">Services</a>
                                     <ul>
-                                        <li><a href="">Services</a></li>
-                                        <li><a href="">Personal Loan</a></li>
-                                        <li><a href="">Business Loan</a></li>
-                                        <li><a href="">Home Loan</a></li>
-                                        <li><a href="">Education Loan</a></li>
+                                        <li><a href="">{{ 'homepage.topbar_component.services.services' | translate }}</a></li>
+                                        <li><a href="">{{ 'homepage.topbar_component.services.personalLoan' | translate }}</a></li>
+                                        <li><a href="">{{ 'homepage.topbar_component.services.businessLoan' | translate }}</a></li>
+                                        <li><a href="">{{ 'homepage.topbar_component.services.homeLoan' | translate }}</a></li>
+                                        <li><a href="">{{ 'homepage.topbar_component.services.educationLoan' | translate }}</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#!">Elements</a>
+                                <li><a href="#">Elements</a>
                                     <ul class="row megamenu">
                                         <li class="col-lg-3">
                                             <span class="mb-0 mb-lg-3 d-block py-2 p-lg-0 px-4 px-lg-0 text-uppercase sub-title font-weight-600 display-30">Elements 01</span>
@@ -116,7 +116,7 @@
                                         <li><a href="">Blog Details</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="">Contact Us</a></li>
+                                <li><a href="">{{ 'homepage.topbar_component.contactUs' | translate }}</a></li>
                             </ul>
                             <!-- end menu area -->
 
@@ -124,7 +124,18 @@
                             <div class="attr-nav">
                                 <ul>
                                     <li class="search"><a href="#!"><i class="fas fa-search"></i></a></li>
-                                    <li class="d-none d-lg-inline-block"><a [routerLink]="['/login']" class="butn small">Apply Now</a></li>
+                                    <li class="d-none d-lg-inline-block"><a [routerLink]="['/login']" class="butn small">{{ 'homepage.topbar_component.smallBtn' | translate }}</a></li>
+                                    <!-- Flag Selector -->
+                                    <li class="dropdown" (click)="toggleDropdown($event)">
+                                        <a class="dropdown-toggle" data-toggle="dropdown">
+                                            <img [src]="'../../../assets/img/flags/' + selectedLanguage + '.png'" alt="{{ selectedLanguage }}" width="20" height="20">
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="#" (click)="changeLanguage('en')"><img src="../../../assets/img/flags/en.png" alt="English" width="20" height="20"> English</a></li>
+                                            <li><a href="#" (click)="changeLanguage('fr')"><img src="../../../assets/img/flags/fr.png" alt="French" width="20" height="20"> French</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- End Flag Selector -->
                                 </ul>
                             </div>
                             <!-- end attribute navigation -->

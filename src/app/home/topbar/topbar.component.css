@@ -1,0 +1,14 @@
+.dropdown-menu {  /* Styling for dropdown menu */
+    background-color: #F8F9FA !important; /* Off-white background */
+    border-radius: 50px;
+}
+
+.dropdown-menu li a {  /* Styling for dropdown menu lang names*/
+    color: #000 !important; /* Black text color */
+    font-weight: 500;
+    text-decoration: none !important;
+}
+
+.dropdown-menu li a:hover {  /* Styling for dropdown menu lang names on hover*/
+    color: #C2862D !important; /* Hover color */
+}
