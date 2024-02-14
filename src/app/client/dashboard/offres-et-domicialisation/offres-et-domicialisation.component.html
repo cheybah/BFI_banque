@@ -6,7 +6,7 @@
         <form [formGroup]="offerForm" class="row g-3">
             <div class="col-12">
                 <p>Choisissez votre agence de préférence.</p>
-                <label for="agence">Agence</label>
+                <label for="agence">Agence</label><span class="required">*</span>
                 <select id="agence" class="form-select" required formControlName="agence">
                     <option value="" disabled selected>Choisir votre agence</option>
                     <option value="agence_moanda">AGENCE DE MOANDA</option>

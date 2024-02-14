@@ -16,7 +16,7 @@
                   </div>
             </div>
             <div class="col-md-6">
-                <label for="firstName" class="form-label">Nom</label>
+                <label for="firstName" class="form-label">Nom</label><span class="required">*</span>
                 <input type="text" class="form-control" id="firstName" formControlName="firstName" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
                 <div *ngIf="infoForm.get('firstName')?.invalid && (infoForm.get('firstName')?.dirty || infoForm.get('firstName')?.touched)" class="text-danger">
                     <div *ngIf="infoForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez un nom valide</div>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <label for="lastName" class="form-label">Prénom</label>
+                <label for="lastName" class="form-label">Prénom</label><span class="required">*</span>
                 <input type="text" class="form-control" id="lastName" formControlName="lastName" required
                        pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
                        <div *ngIf="infoForm.get('lastName')?.invalid && (infoForm.get('lastName')?.dirty || infoForm.get('lastName')?.touched)" class="text-danger">
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="col-md-6 telStyle">
-                <label for="phone" class="form-label">Téléphone</label>
+                <label for="phone" class="form-label">Téléphone</label><span class="required">*</span>
                 <!-- Add the ngx-intl-tel-input component here -->
                 <ngx-intl-tel-input
                     [preferredCountries]="['tn']"
@@ -57,6 +57,14 @@
                 <div *ngIf="infoForm.get('firstName')?.invalid && (infoForm.get('firstName')?.dirty || infoForm.get('firstName')?.touched)" class="text-danger">
                     <div *ngIf="infoForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez votre numéro</div>
                   </div>
+            </div>
+            <div class="col-md-6">
+                <label for="date" class="form-label">Date de Naissance </label><span class="required">*</span>
+                <div class="row">
+                    <div class="col-4">
+                        <input type="date" id="date_naissance" name="date_naissance">
+                    </div>
+                </div>
             </div>
             <div class="col-12">
                 <div class="row">

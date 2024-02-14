@@ -9,6 +9,8 @@
     background-image: none;
     background-size: cover;
     padding: 3rem;
+    background-repeat: repeat;
+    overflow-y: auto;
     
 }
 .body-trimmed{
