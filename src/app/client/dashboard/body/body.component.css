@@ -9,6 +9,8 @@
     background-image: url('src/assets/img/banner/slide1.png');
     background-size: cover;
     padding: 3rem;
+    background-repeat: repeat;
+    overflow-y: auto;
     
 }
 .body-trimmed{
