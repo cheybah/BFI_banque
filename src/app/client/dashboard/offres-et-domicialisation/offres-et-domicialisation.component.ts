@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class OffresEtDomicialisationComponent {
   constructor(private router: Router) { }
+
   comptes = [
     { label: 'Courant', value: 'Courant', packs: [
       { name: 'PACK ACTIVA', description: 'L\'offre jeune vous accompagne dans votre expérience bancaire.<br>- Dépôt initial (13 000 XAF)<br>- Dépôt /Retrait via Mobile Money<br>- Carte visa prépayée<br>- Online Banking<br>5950 Fcfa/ mois'}, 
@@ -32,36 +33,40 @@ export class OffresEtDomicialisationComponent {
     ] },
   ];
   packsAffiches: { name: string, description: string }[] = [];
-  selectedPacks: string[] = [];
+  selectedPack: string | null = null;
   selectedPackDescription: string | null = null;
-
-togglePackSelection(value: string, description: string) {
-    const index = this.selectedPacks.indexOf(value);
-    if (index === -1) {
-        this.selectedPacks.push(value); // Ajoute le pack à la sélection si ce n'est pas déjà sélectionné
-    } else {
-        this.selectedPacks.splice(index, 1); // Retire le pack de la sélection s'il est déjà sélectionné
-    }
-    this.selectedPackDescription = this.selectedPacks.length > 0 ? description : null; // Met à jour la description en fonction des packs sélectionnés
-}
+  selectedCompte: string | null = null;
 
   selectCompte(value: string) {
     const compte = this.comptes.find(c => c.value === value);
     if (compte) {
-      this.packsAffiches = compte.packs;
+      // Si le compte sélectionné est le même que celui déjà sélectionné
+      // alors on efface la sélection du compte et les packs affichés
+      if (this.selectedCompte === value) {
+        this.selectedCompte = null;
+        this.packsAffiches = [];
+      } else {
+        // Sinon, on met à jour le compte sélectionné et les packs affichés
+        this.selectedCompte = value;
+        this.packsAffiches = compte.packs;
+      }
+      // On efface également la sélection du pack et sa description
+      this.selectedPack = null;
+      this.selectedPackDescription = null;
     }
   }
-  selectPack(value: string, description: string) {
-    const index = this.selectedPacks.indexOf(value);
-    if (index === -1) {
-        this.selectedPacks.push(value); // Ajoute le pack à la sélection si ce n'est pas déjà sélectionné
-    } else {
-        this.selectedPacks.splice(index, 1); // Retire le pack de la sélection s'il est déjà sélectionné
-    }
-}
 
-  isSelected(pack: string): boolean {
-    return this.selectedPacks.includes(pack);
+  selectPack(packName: string, description: string) {
+    this.selectedPack = this.selectedPack === packName ? null : packName;
+    this.selectedPackDescription = this.selectedPack === packName ? description : null;
+  }
+
+  isPackSelected(packName: string): boolean {
+    return this.selectedPack === packName;
+  }
+
+  isCompteSelected(value: string): boolean {
+    return this.selectedCompte === value;
   }
 
   Retour() {

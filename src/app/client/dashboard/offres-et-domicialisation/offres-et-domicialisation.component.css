@@ -1,4 +1,6 @@
-
+.centerpack{
+padding-top: 40%;
+}
 .pack {
     background-color:white; /* Gradient with gold, black, and white */
     border: 2.7px solid rgb(194,134,45);
