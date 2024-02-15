@@ -15,10 +15,10 @@
             <li>Site internet: <a href="www.ventis.group">www.ventis.group</a></li>
             <li>Tél: 011 73 58 20</li>
         </ul>
-        <input type="checkbox" id="conditions" name="conditions" [(ngModel)]="conditionsAccepted">
+        <input class="check_box" type="checkbox" id="conditions" name="conditions" [(ngModel)]="conditionsAccepted">
         <label for="conditions">J'accepte les conditions générales de vente et d'utilisation, et certifie la sincérité des informations transmises.</label><br>
         <div class="col-12">
-            <button type="button" class="butn" (click)="submitForm()">J'accepte</button>
+            <button type="button" class="btn btn-secondary butn" (click)="submitForm()">J'accepte</button>
             <p id="validationMessage" *ngIf="!conditionsAccepted && formSubmitted" style="color: red;">Veuillez d'abord accepter les conditions.</p>
         </div>
     </div>

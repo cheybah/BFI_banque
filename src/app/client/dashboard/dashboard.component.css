@@ -1,3 +1,58 @@
-.body{
-    background-image: none !important;
-}
+.screen {
+    background: linear-gradient(70deg, #ffe0a2, #ffffff);
+    position: relative;
+    box-shadow: 0px 0px 24px black;
+  }
+  
+  .screen__content {
+    z-index: 1;
+    position: relative;
+    height: 100%;
+  }
+  
+  .screen__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .screen__background__shape {
+    transform: rotate(45deg);
+    position: absolute;
+  }
+  
+  
+  .screen__background__shape2 {
+    height: 220px;
+    width: 220px;
+    background: #ecc984;
+    opacity: 0.4;
+    top: -172px;
+    right: 0;
+    border-radius: 32px;
+  }
+  
+  .screen__background__shape3 {
+    height: 540px;
+    width: 190px;
+    background: #ecc984;
+    opacity: 0.4;
+    top: -24px;
+    right: 0;
+    border-radius: 32px;
+  }
+  
+  .screen__background__shape4 {
+    height: 400px;
+    width: 200px;
+    background: #ecc984;
+    opacity: 0.4;
+    top: 420px;
+    right: 50px;
+    border-radius: 60px;
+  }
+  
