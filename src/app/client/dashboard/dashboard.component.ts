@@ -9,6 +9,7 @@ interface SidenavToggle{
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+  
   title='sidenav';
 
   isSideNavCollapsed=false;

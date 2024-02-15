@@ -17,7 +17,6 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'welcome', component: WelcomeClientComponent },
-    { path: '', redirectTo :'dash',pathMatch :'full' },
     { path: 'dash', component: DashboardComponent, children: [
       { path: 'validation', component: ValidationComponent }, 
       { path: 'adresse', component: AdresseComponent },

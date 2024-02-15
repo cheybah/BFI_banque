@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component  } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { CountryISO } from 'ngx-intl-tel-input';
+import { CountryISO, SearchCountryField  } from 'ngx-intl-tel-input';
 import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 
@@ -19,9 +19,11 @@ function noNumbersValidator(): ValidatorFn {
 })
 export class InformationsComponent  {
 
+  searchCountryFields: SearchCountryField[] =
+   [SearchCountryField.Name, SearchCountryField.Iso2, SearchCountryField.DialCode];
+
   infoForm: FormGroup;
-
-
+  selectedCountryISO: CountryISO = CountryISO.Tunisia; // Initialize with Tunisia as default country
 
   constructor(private router: Router,
     private formBuilder: FormBuilder
@@ -38,18 +40,18 @@ export class InformationsComponent  {
 
   
 
-  selectedCountryISO: CountryISO = CountryISO.Tunisia; // Initialize with Tunisia as default country
+  
 
   isFormValid(): boolean {
     const form = document.querySelector('.needs-validation') as HTMLFormElement;
     return form.checkValidity();
   }
-  
+
 
   Retour(){
-    this.router.navigate(['/dash/']); // Replace '/adresse' with the actual route path of your "Adresse" component
+    this.router.navigate(['/dash/']); 
   }
   Suivant(){
-    this.router.navigate(['/dash/adresse']); // Replace '/adresse' with the actual route path of your "Adresse" component
+    this.router.navigate(['/dash/adresse']); 
   }
 }

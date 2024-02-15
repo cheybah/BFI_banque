@@ -52,7 +52,9 @@
                     [enablePlaceholder]="true"
                     [cssClass]="'form-control'"
                     [searchCountryFlag]="true"
-                    [selectedCountryISO]="selectedCountryISO">
+                    [selectedCountryISO]="selectedCountryISO"
+                    [searchCountryPlaceholder]="'Recherchez un pays'"
+                    >
                 </ngx-intl-tel-input>
                 <div *ngIf="infoForm.get('firstName')?.invalid && (infoForm.get('firstName')?.dirty || infoForm.get('firstName')?.touched)" class="text-danger">
                     <div *ngIf="infoForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez votre numéro</div>
