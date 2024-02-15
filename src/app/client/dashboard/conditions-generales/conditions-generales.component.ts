@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-conditions-generales',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./conditions-generales.component.css']
 })
 export class ConditionsGeneralesComponent {
+
+  constructor(private router : Router) {}
   conditionsAccepted: boolean = false;
   formSubmitted: boolean = false;
 
@@ -17,5 +20,9 @@ export class ConditionsGeneralesComponent {
       } else {
           // Ne rien faire, car le formulaire n'est pas valide
       }
+  }
+
+  Suivant(){
+    this.router.navigate(['/dash/mot-de-passe']); // Replace '/adresse' with the actual route path of your "Adresse" component
   }
 }

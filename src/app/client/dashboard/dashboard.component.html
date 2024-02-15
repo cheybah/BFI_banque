@@ -5,11 +5,16 @@
       <span class="screen__background__shape screen__background__shape2"></span>
     </div>
     <div class="screen__content">
+        <!--<div class="dashboard-text">
+            <h1>Welcome to Your Dashboard</h1>
+            <p>Get started by filling out the forms below!</p>
+        </div>-->
         <app-sidenav (onToggleSideNav)="onToggleSideNav($event)">
         </app-sidenav>
         <app-body
             [collapsed]="isSideNavCollapsed"
             [screenWidth]="screenWidth">
         </app-body>
+
     </div>
   </div>

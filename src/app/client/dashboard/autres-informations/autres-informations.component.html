@@ -6,8 +6,12 @@
     <div class="card-body">
         <form action="#" method="post" class="row g-3">
             <div class="col-12">
-                <label for="type_particulier">Type de particulier </label>
-                <input type="text" id="type_particulier" name="type_particulier">
+                <label for="type_particulier">Type de particulier</label><span class="required">*</span>
+                <select id="type_particulier" name="type_particulier">
+                    <option value="" disabled selected>Veuillez choisir le type de particulier</option>
+                    <option value="sect_prv">Secteur Privé</option>
+                    <option value="sect_eta">Secteur Etatique</option>
+                </select>
             </div>
 
             <div class="col-4">
