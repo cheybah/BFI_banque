@@ -1,19 +1,19 @@
 <div class="card">
-    <div class="card-head">
+    <div class="card-header">
         <h4>Validation de l'Email </h4>
     </div>
     <div class="card-body">
         <div class="form">
-            <h1>Entrer votre Email à vérifier</h1>
+            <h4>Entrez votre email</h4>
             <div class="col-12">
-            <input type="text" id="email1" placeholder="Enter Email..." [(ngModel)]="email">
+            <input type="text" id="email1" placeholder="user@domain.com" [(ngModel)]="email">
             
             <div class="otpverify" [style.display]="otpVerifyDisplay">
                 <input type="text" id="otp_inp" placeholder="Enter the OTP sent to your Email..." [(ngModel)]="otpInput">
                 <button class="butn" (click)="verifyOTP()">vérifier</button>
             </div>
             <div class="col-md-12">
-            <button class="butn" (click)="sendOTP()">Envoyer OTP</button>
+            <button class="btn btn-secondary butn" (click)="sendOTP()">Envoyer OTP</button>
             </div>
             </div>
         </div>

@@ -1,4 +1,11 @@
 
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+
 #copyright {
     background: #191919;
     font-size: 15px;
@@ -183,7 +190,12 @@ a:hover,a:active {
     overflow: hidden;
     border-radius: 5px;
     z-index: 1;
-    border: unset
+    border: 1px solid #B48F44 !important;
+}
+
+.homebtn{
+    background: linear-gradient(90deg, #212529, #575c61) !important; 
+    border: #212529 !important;
 }
 
 .butn:before {

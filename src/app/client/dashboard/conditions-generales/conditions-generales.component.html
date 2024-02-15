@@ -1,11 +1,11 @@
 <div class="card">
-    <div class="card-head">
-        <h1>Conditions générales</h1>
-    </div>
+    <div class="card-header">
+        <h4>Conditions générales</h4>
+</div>
     
     <div class="card-body">
         <p>Ce document décrit les modalités d'utilisation de notre application web ou mobile Banking que nous désignons communément par le terme « plateforme ». Il permet ainsi de déterminer les responsabilités de chacun, mais vous renseigne également sur la propriété intellectuelle et la protection de vos données personnelles.</p>
-        <h2>Partenaire Technique</h2>
+        <h3>Partenaire Technique</h3>
         <p>Ventis Technologie</p>
         <ul>
             <li>Société par action Simplifiée au capital de 1 000 000 XAF</li>
@@ -15,10 +15,10 @@
             <li>Site internet: <a href="www.ventis.group">www.ventis.group</a></li>
             <li>Tél: 011 73 58 20</li>
         </ul>
-        <input type="checkbox" id="conditions" name="conditions" [(ngModel)]="conditionsAccepted">
+        <input class="check_box" type="checkbox" id="conditions" name="conditions" [(ngModel)]="conditionsAccepted">
         <label for="conditions">J'accepte les conditions générales de vente et d'utilisation, et certifie la sincérité des informations transmises.</label><br>
         <div class="col-12">
-            <button type="button" class="butn" (click)="submitForm()">J'accepte</button>
+            <button type="button" class="btn btn-secondary butn" (click)="submitForm()">J'accepte</button>
             <p id="validationMessage" *ngIf="!conditionsAccepted && formSubmitted" style="color: red;">Veuillez d'abord accepter les conditions.</p>
         </div>
     </div>
