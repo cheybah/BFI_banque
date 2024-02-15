@@ -22,7 +22,11 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+              "glob": "**/*",
+              "input": "node_modules/leaflet/dist/images/", 
+              "output": "./assets"}
             ],
             "styles": [
               "src/styles.css",
@@ -31,8 +35,9 @@
               "src/assets/search/search.css",
               "src/assets/quform/css/base.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
-              "node_modules/bootstrap/scss/bootstrap.scss"
-
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/leaflet/dist/leaflet.css",
+              "node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.css",
               "node_modules/intl-tel-input/build/css/intlTelInput.css"
             ],
             "scripts": [

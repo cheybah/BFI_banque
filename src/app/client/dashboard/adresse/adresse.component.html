@@ -1,3 +1,8 @@
+
+
+
+
+
 <div class="card">
     <div class="card-header">
         <h4>Adresse</h4>
@@ -11,24 +16,19 @@
             </div>
 
             <div class="map-container">
-                <google-map height="300px"
-                            width="100%"
-                            [center]="center"
-                            [zoom]="zoom"
-                            (mapClick)="addMarker($event)">
-                    <map-marker *ngFor="let markerPosition of markerPositions"
-                                [position]="markerPosition"
-                                [options]="markerOptions"
-                                (mapClick)="fillFormWithCountry(getCountryName(markerPosition) || '')">
-                    </map-marker>
-                </google-map>
+              
+                <div class="map-container">
+                    <div class="map-frame">
+                        <div id="map"></div>
+                    </div>
+                  </div>
             </div>
             <div class="col-md-6">
                 <label for="ville">Ville </label><span class="required">*</span>
-                <input type="text" id="ville" name="ville" >
-                 <!-- Ajoutez ici l'indicateur d'obligation -->
-
+                <input type="text" id="ville" name="ville" #villeInput>
+                <!-- Ajoutez ici l'indicateur d'obligation -->
             </div>
+            
             <div class="col-md-6">
                 <label for="quartier">Quartier </label>
                 <input type="text" id="quartier" name="quartier">

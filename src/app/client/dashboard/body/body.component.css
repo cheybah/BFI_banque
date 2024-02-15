@@ -21,3 +21,8 @@
     width: calc(100%-5rem);
     margin-left: 5rem;
 }
+.pack-description {
+    padding: 1rem; /* Ajoutez un espacement autour du descriptif */
+    background-color: #f8f9fa; /* Couleur de fond pour la section */
+    border-left: 1px solid #dee2e6; /* Bordure à gauche pour séparer du contenu principal */
+}
