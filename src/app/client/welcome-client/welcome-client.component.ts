@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
 import { AxiosService } from 'src/app/services/axios.service';
 
 @Component({
@@ -8,10 +10,41 @@ import { AxiosService } from 'src/app/services/axios.service';
 })
 export class WelcomeClientComponent {
 	data: string[] = [];
+  showAnimation: boolean = true;
+  animationTimer: any; // Timer to give the animation a deadline to complete
+  animationDuration: number = 6500; // Duration of the animation in milliseconds (7 seconds)
 
-  constructor(
+
+  options: AnimationOptions = {    
+    path: '/assets/lottie/hola-animation.json' 
+  };  
+
+  constructor(  
     private axiosService : AxiosService 
   ){}
+
+  ngOnDestroy(): void {
+    // Clean up resources when the component is destroyed
+    this.stopAnimationTimer();
+  }
+
+  onAnimate(animationItem: AnimationItem): void {    
+    // Start the animation timer when the animation begins
+    this.startAnimationTimer();
+  }
+
+  startAnimationTimer(): void {
+    // Set a timeout to hide the animation after the specified duration
+    this.animationTimer = setTimeout(() => {
+      this.showAnimation = false;
+    }, this.animationDuration);
+  }
+
+  stopAnimationTimer(): void {
+    // Clear the animation timer to avoid potential memory leaks
+    clearTimeout(this.animationTimer);
+  }
+
 
 
 

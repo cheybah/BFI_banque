@@ -119,7 +119,8 @@ a:hover,a:active {
 }
 
 .text-secondary {
-    color: #909090 !important
+    color: #909090 !important;
+    text-decoration: none !important;
 }
 
 .text-dark {
@@ -628,7 +629,7 @@ a:hover,a:active {
 }
 
 .card-style2 .card-body {
-    height: 400px; /* Adjust card height to be fixed */
+    height: 350px; /* Adjust card height to be fixed */
     padding: 45px 30px 30px 40px
 }
 .col-sm-6.col-xl-3.mt-2-9:hover{ 
