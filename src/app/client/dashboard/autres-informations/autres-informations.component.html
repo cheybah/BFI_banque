@@ -4,43 +4,60 @@
     </div>
 
     <div class="card-body">
-        <form action="#" method="post" class="row g-3">
+        <form [formGroup]="infoForm" class="row g-3">
             <div class="col-12">
                 <label for="type_particulier">Type de particulier </label>
-                <input type="text" id="type_particulier" name="type_particulier">
+                <input type="text" id="type_particulier" name="type_particulier" formControlName="type_particulier">
             </div>
 
             <div class="col-4">
                 <label for="profession">Profession </label><span class="required">*</span>
-                <input type="text" id="profession" name="profession">
-            </div>
-            <div class="col-4">
-                <label for="Type_piece">Type de la pièce </label><span class="required">*</span>
-                <input type="text" id="Type_piece" name="Type_piece">
-            </div>
-            <div class="col-4">
-                <label for="Numero_piece">Numéro de la pièce </label><span class="required">*</span>
-                <input type="text" id="numero_piece" name="numero_piece">
-            </div>
-            <div class="col-12">
-                <label for="date_expiration">Date d'expiration de la pièce</label><span class="required">*</span>
-                <div class="row">
-                    <div class="col-4">
-                        <input type="date" id="date_expiration" name="date_expiration" min="{{ today | date:'yyyy-MM-dd' }}">
-                    </div>
+                <input type="text" id="profession" name="profession" formControlName="profession" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
+                <div *ngIf="infoForm.get('profession')?.invalid && (infoForm.get('profession')?.dirty || infoForm.get('profession')?.touched)" class="text-danger">
+                    <div *ngIf="infoForm.get('profession')?.hasError('required')" style="margin-top: 3px;">Entrez une profession valide</div>
+                    <div *ngIf="infoForm.get('profession')?.hasError('pattern')" style="margin-top: 3px;">La profession nom ne peut pas contenir de chiffres</div>
                 </div>
             </div>
             
+            <div class="col-4">
+                <label for="Type_piece">Type de la pièce </label><span class="required">*</span>
+                <input type="text" id="Type_piece" name="Type_piece" formControlName="Type_piece" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
+                <div *ngIf="infoForm.get('Type_piece')?.invalid && (infoForm.get('Type_piece')?.dirty || infoForm.get('Type_piece')?.touched)" class="text-danger">
+                    <div *ngIf="infoForm.get('Type_piece')?.hasError('required')" style="margin-top: 3px;">Entrez un type valide</div>
+                    <div *ngIf="infoForm.get('Type_piece')?.hasError('pattern')" style="margin-top: 3px;">Le type de la pièce peut pas contenir de chiffres</div>
+                </div>
+            </div>
+            
+            <div class="col-4">
+                <label for="numero_piece">Numéro de la pièce </label><span class="required">*</span>
+                <input type="text" id="numero_piece" name="numero_piece" formControlName="numero_piece" required  pattern="\d{4} \d{4} \d{4} \d{4}" placeholder="0123 4567 8912 3456">
+                <div *ngIf="infoForm.get('numero_piece')?.invalid && (infoForm.get('numero_piece')?.dirty || infoForm.get('numero_piece')?.touched)" class="text-danger">
+                    <div *ngIf="infoForm.get('numero_piece')?.hasError('required')" style="margin-top: 3px;">Entrez un numéro valide</div>
+                    <div *ngIf="infoForm.get('numero_piece')?.hasError('pattern')" style="margin-top: 3px;">Le numéro de la pièce ne doit contenir que des chiffres et chaque groupe de quatre chiffres doit être séparé par un espace.</div>
+                </div>
+            </div>
             
             <div class="col-12">
-                <label for="photo_piece"  class="form-label">Photo de la pièce </label><span class="required">*</span>
-                <input class="form-control" name="photo_piece"type="file" id="photo_piece" >
-                
+                <label for="date_expiration">Date d'expiration de la pièce</label><span class="required">*</span>
+                <input type="date" id="date_expiration" name="date_expiration" formControlName="date_expiration" min="{{ today | date:'yyyy-MM-dd' }}">
             </div>
+            
+            <div class="col-12">
+                <label for="photo_piece">Photo de la pièce </label><span class="required">*</span>
+                <input type="file" id="photo_piece" name="photo_piece" formControlName="photo_piece" accept="png,.jpg, .jpeg,  .pdf">
+                <div *ngIf="infoForm.get('photo_piece')?.invalid && (infoForm.get('photo_piece')?.dirty || infoForm.get('photo_piece')?.touched)" class="text-danger">
+                    <div *ngIf="infoForm.get('photo_piece')?.hasError('required')" style="margin-top: 3px;">Les extensions valides sont : .jpg, .jpeg, .png, .pdf</div>
+                </div>
+            </div>
+            
             <div class="col-12">
                 <label for="code_parrainage">Code parrainage </label>
-                <input type="text" id="code_parrainage" name="code_parrainage">
+                <input type="text" id="code_parrainage" name="code_parrainage" formControlName="code_parrainage"  pattern="[0-9]{4}" placeholder="0123">
+                <div *ngIf="infoForm.get('code_parrainage')?.invalid && (infoForm.get('numero_piece')?.dirty || infoForm.get('code_parrainage')?.touched)" class="text-danger">
+                    <div *ngIf="infoForm.get('code_parrainage')?.hasError('pattern')" style="margin-top: 3px;">Le code doit contenir 4 chiffres</div>
+                </div>
             </div>
+
             <div class="col-12">
                 <div class="row">
                     <div class="col text-start">
@@ -51,7 +68,6 @@
                     </div>
                 </div>
             </div>
-       
         </form>
     </div>
 </div>

@@ -24,4 +24,6 @@ export class TopbarComponent {
     this.selectedLanguage = lang; // Update the selected language
 
   }
+
+  
 }
