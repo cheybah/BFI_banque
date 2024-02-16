@@ -24,6 +24,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { WelcomeClientComponent } from './welcome-client/welcome-client.component';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+export function playerFactory() {
+  return player;
+}
+
 
 
 @NgModule({
@@ -57,6 +64,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     HttpClientModule ,
     NgxIntlTelInputModule,
     BsDropdownModule.forRoot(),
+    LottieModule.forRoot({ player: playerFactory }),  
   ],
 })
 export class ClientModule { }

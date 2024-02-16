@@ -184,7 +184,7 @@
         }
       },
       "topbar_component": {
-        "home": "Home",
+        "home": "About Us",
         "pages": {
           "aboutUs": "About Us",
           "howItWorks": "How It Works",
@@ -209,7 +209,7 @@
         "elements": "elements",
         "blog": "Blog",
         "contactUs": "Contact Us",
-        "smallBtn" :"Create Account"
+        "smallBtn" :"Become A Client"
       }
     }
   }
