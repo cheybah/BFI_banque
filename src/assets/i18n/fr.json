@@ -184,7 +184,7 @@
             }
           },
           "topbar_component": {
-            "home": "Accueil",
+            "home": "A propos",
             "pages":{
               "aboutUs": "À propos de nous",
               "howItWorks": "Comment ça marche",
@@ -200,13 +200,13 @@
               "page404": "404 Page"
             },
             "services": {
-              "services": "Services",
+              "services": "Prêts",
               "personalLoan": "Prêt personnel",
               "businessLoan": "Prêt d'entreprise",
               "homeLoan": "Prêt immobilier",
               "educationLoan": "Prêt étudiant"
             },
-            "elements": "éléments",
+            "elements": "Services",
             "blog": "Blog",
             "contactUs": "Contactez-nous",
             "smallBtn" :"Créer un compte"
