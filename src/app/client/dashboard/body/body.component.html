@@ -1,4 +1,6 @@
 <div class="body" [ngClass]="getBodyClass()">
-    <router-outlet>     
-    </router-outlet>
+    <h1 *ngIf="dashmsgService.showMessage" [@fadeInOut]>Bienvenue chez BFI BANK!</h1>
+    <p *ngIf="dashmsgService.showMessage" [@fadeInOut]>Commencez dès maintenant en remplissant avec vos données.</p>
+    <button class="btn btn-secondary butn"  (click)="Suivant()" *ngIf="dashmsgService.showMessage" [@slideInFromLeft]>C'est parti !</button>
+    <router-outlet></router-outlet>
 </div>
