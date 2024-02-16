@@ -1,11 +1,5 @@
 
 
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-
-
 #copyright {
     background: #191919;
     font-size: 15px;
@@ -638,7 +632,10 @@ a:hover,a:active {
     height: 350px; /* Adjust card height to be fixed */
     padding: 45px 30px 30px 40px
 }
-
+.col-sm-6.col-xl-3.mt-2-9:hover{ 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    transform: scale(1.05); /* Scale up the card on hover */ 
+}
 .card-style2 span {
     position: absolute;
     right: 40px;
