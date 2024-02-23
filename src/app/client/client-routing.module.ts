@@ -12,11 +12,19 @@ import { AutresInformationsComponent } from './dashboard/autres-informations/aut
 import { MotDePasseComponent } from './dashboard/mot-de-passe/mot-de-passe.component';
 import { ValidationComponent } from './dashboard/validation/validation.component';
 import { WelcomeClientComponent } from './welcome-client/welcome-client.component';
+import { PasswordComponent } from './password/password.component';
+import { ResetComponent } from './reset/reset.component';
+import { UpdatedpasswordComponent } from './updatedpassword/updatedpassword.component';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'welcome', component: WelcomeClientComponent },
+    { path: 'password', component: PasswordComponent },
+    { path: 'updatedpassword', component: UpdatedpasswordComponent },
+
+    { path: 'reset', component: ResetComponent },
+
     { path: 'dash', component: DashboardComponent, children: [
       { path: 'validation', component: ValidationComponent }, 
       { path: 'adresse', component: AdresseComponent },

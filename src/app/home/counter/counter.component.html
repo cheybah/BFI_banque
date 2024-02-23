@@ -5,25 +5,25 @@
                 <div class="row mt-n1-9">
                     <div class="col-sm-6 col-lg-3 mt-1-9">
                         <div class="text-center">
-                            <h3 class="text-white h1 countup">3472</h3>
+                            <h3 class="text-white h1 countup">{{ counterData.projects }}</h3>
                             <span class="text-white">{{ 'homepage.counter.projectsDone' | translate }}</span>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3 mt-1-9">
                         <div class="text-center">
-                            <h3 class="text-white h1"><span class="countup">156</span>K</h3>
+                            <h3 class="text-white h1"><span class="countup">{{ counterData.loans }}</span>K</h3>
                             <span class="text-white">{{ 'homepage.counter.loanIncrease' | translate }}</span>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3 mt-1-9">
                         <div class="text-center">
-                            <h3 class="text-white h1"><span class="countup">5.60</span>%</h3>
+                            <h3 class="text-white h1"><span class="countup">{{ counterData.interest_rates }}</span>%</h3>
                             <span class="text-white">{{ 'homepage.counter.offerLowInterest' | translate }}</span>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3 mt-1-9">
                         <div class="text-center">
-                            <h3 class="text-white h1"><span class="countup">100</span>%</h3>
+                            <h3 class="text-white h1"><span class="countup">{{ counterData.satisfied_customers }}</span>%</h3>
                             <span class="text-white">{{ 'homepage.counter.happyClients' | translate }}</span>
                         </div>
                     </div>

@@ -26,6 +26,9 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { PasswordComponent } from './password/password.component';
+import { ResetComponent } from './reset/reset.component';
+import { UpdatedpasswordComponent } from './updatedpassword/updatedpassword.component';
 
 export function playerFactory() {
   return player;
@@ -48,7 +51,10 @@ export function playerFactory() {
     ConditionsGeneralesComponent,
     MotDePasseComponent,
     ValidationComponent,
-    WelcomeClientComponent
+    WelcomeClientComponent,
+    PasswordComponent,
+    ResetComponent,
+    UpdatedpasswordComponent
 
   ],
   exports: [

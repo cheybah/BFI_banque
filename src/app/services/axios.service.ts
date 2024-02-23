@@ -23,7 +23,6 @@ export class AxiosService {
     }
   }
 
-
   request(method: string, url: string, data: any): Promise<any> {
       let headers: any = {};
 
