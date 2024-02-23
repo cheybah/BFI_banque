@@ -79,3 +79,27 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
  }
 
+/* Apply dark mode styles */
+.dark-mode body {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .card {
+    background-color: black; /* Adjust card background color in dark mode */
+    color: #fff; /* Adjust card text color in dark mode */
+}
+
+.dark-mode input[type="text"],
+.dark-mode input[type="tel"],
+.dark-mode select {
+    border-color: #888; 
+}
+
+.dark-mode button:hover {
+    background-color: #555; 
+}
+body.dark-mode .screen {
+    background: #222121;
+    color: white;
+}
