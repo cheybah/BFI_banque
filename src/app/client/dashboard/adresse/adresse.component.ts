@@ -1,14 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Address } from '../models/Address';
+import { AdresseService } from '../../../services/adresse.service';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-adresse',
   templateUrl: './adresse.component.html',
   styleUrls: ['./adresse.component.css']
 })
+
+
 export class AdresseComponent {
+  @ViewChild('addressForm') addressForm!: NgForm;
+
+  address: Address = { country: '', city: '', neighbourhood: '', zipCode: '' }; // Initialize address object
+
   private map: any;
   center: { lat: number, lng: number } = { lat: 24, lng: 12 };
   zoom: number = 3;
@@ -20,16 +29,31 @@ export class AdresseComponent {
     iconAnchor: [16, 32]
   });
  
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    private adresseService: AdresseService) {}
+
 
   ngOnInit(): void {
     this.initMap();
   }
 
+  saveAddress(form: NgForm): void {
+    const formData = form.value; 
+    console.log('Form data:', formData);
+  
+    this.adresseService.saveAddress(formData).subscribe(
+      (response) => {
+        console.log('Address saved successfully:', response);
+      },
+      (error) => {
+        console.error('Error saving address:', error);
+      }
+    );
+  }
  
 
   async locateCountry(): Promise<void> {
-    const paysInput = document.getElementById('pays') as HTMLInputElement;
+    const paysInput = document.getElementById('country') as HTMLInputElement;
     const paysSaisi = paysInput.value.trim();
     console.log("Pays saisi:", paysSaisi);
 
@@ -145,6 +169,12 @@ Retour(): void {
 }
 
 Suivant(): void {
-  this.router.navigate(['/dash/autres-informations']);
+  if (this.addressForm && this.addressForm.valid) {
+    this.saveAddress(this.addressForm);
+    this.router.navigate(['/dash/autres-informations']);
+  } else {
+    console.error('Form is invalid or addressForm is not initialized.');
+  }
 }
+
 }

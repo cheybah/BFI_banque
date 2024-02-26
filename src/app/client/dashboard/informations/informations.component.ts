@@ -1,7 +1,7 @@
 import { Component  } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { CountryISO, SearchCountryField  } from 'ngx-intl-tel-input';
+import { AuthService } from '../../../services/auth.service';
+import { CountryISO  } from 'ngx-intl-tel-input';
 import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 
@@ -19,39 +19,69 @@ function noNumbersValidator(): ValidatorFn {
 })
 export class InformationsComponent  {
 
-  searchCountryFields: SearchCountryField[] =
-   [SearchCountryField.Name, SearchCountryField.Iso2, SearchCountryField.DialCode];
-
-  infoForm: FormGroup;
+  informationForm: FormGroup;
   selectedCountryISO: CountryISO = CountryISO.Tunisia; // Initialize with Tunisia as default country
+  personalInfo: any = {}; // Initialize variable to hold personal information
+
 
   constructor(private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
     ) { 
-    this.infoForm = this.formBuilder.group({
-      genre: [null, Validators.required],
+    this.informationForm = this.formBuilder.group({
+      gender: [null, Validators.required],
       firstName: ['', [Validators.required, Validators.minLength(2), noNumbersValidator()]],
       lastName: ['', [Validators.required, Validators.minLength(2), noNumbersValidator()]],
-      formFile: [''],
+      photo: [''],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required]
+      phoneNumber: ['', Validators.required],
+      dateOfBirth: ['', Validators.required]
     });
   }
 
-  
 
-  
-
-  isFormValid(): boolean {
-    const form = document.querySelector('.needs-validation') as HTMLFormElement;
-    return form.checkValidity();
+ isFormValid(): boolean { //to check if the form is valid
+  const form = document.querySelector('.needs-validation') as HTMLFormElement;
+  return form.checkValidity();
   }
+
+
 
 
   Retour(){
     this.router.navigate(['/dash/']); 
   }
-  Suivant(){
-    this.router.navigate(['/dash/adresse']); 
+
+  Suivant() {
+    // Check if informationForm is initialized and is valid
+    if (this.informationForm?.valid) {
+      // Extracting the formatted phone number from the phoneNumber FormControl
+      const formattedPhoneNumber = this.informationForm.get('phoneNumber')?.value.internationalNumber;
+  
+      if (formattedPhoneNumber) {
+        // Log the extracted phone number for debugging purposes
+        console.log('Formatted phone number:', formattedPhoneNumber);
+  
+        // Update the phoneNumber field in the form value object
+        this.informationForm.patchValue({ phoneNumber: formattedPhoneNumber });  
+        // Set temporary data for registration
+        this.authService.setTemporaryData(this.informationForm.value);
+        console.log('Temporary data saved:', this.informationForm.value); // Log the saved temporary data
+  
+        // Proceed to the next form or any other actions
+        // For example, navigate to the authentication form
+        this.router.navigate(['/dash/adresse']);
+      } else {
+        console.error('Phone number is null or undefined.');
+        // Handle null or undefined phone number
+      }
+    } else {
+      console.error('Form is invalid or informationForm is not initialized.');
+      // Handle invalid form or uninitialized informationForm
+    }
   }
+  
+  
+  
+
 }

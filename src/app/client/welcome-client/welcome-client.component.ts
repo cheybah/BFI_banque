@@ -12,11 +12,11 @@ export class WelcomeClientComponent {
 	data: string[] = [];
   showAnimation: boolean = true;
   animationTimer: any; // Timer to give the animation a deadline to complete
-  animationDuration: number = 6500; // Duration of the animation in milliseconds (7 seconds)
+  animationDuration: number = 4100; // Duration of the animation in milliseconds
 
 
   options: AnimationOptions = {    
-    path: '/assets/lottie/hola-animation.json' 
+    path: '/assets/lottie/welcome2-aniamtion.json' 
   };  
 
   constructor(  
@@ -46,14 +46,12 @@ export class WelcomeClientComponent {
   }
 
 
-
-
   ngOnInit(): void {
-    this.axiosService.request(
+    this.axiosService.request(  //test the messagescontroller to see if the user is authenticated
         "GET",
-        "/messages",
+        "/messages", //replace this with the correct endpoint
         {}).then(
-        (response) => {
+        (response) => { //if the user is authenticated, the server will return the messages
             this.data = response.data;
         }).catch(
         (error) => {

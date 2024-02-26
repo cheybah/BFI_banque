@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AdditionalInfo } from '../models/AdditionalInfo';
+import { AutresInformationsService } from '../../../services/autres-informations.service';
+
 
 @Component({
   selector: 'app-autres-informations',
@@ -10,25 +13,52 @@ import { Router } from '@angular/router';
 export class AutresInformationsComponent {
   
   infoForm: FormGroup;
-
   today: Date = new Date();
+
   constructor(private router: Router,
-  private formBuilder: FormBuilder) {
+  private formBuilder: FormBuilder,
+  private autresInformationsService: AutresInformationsService) {
+
   this.infoForm = this.formBuilder.group({
-  type_particulier: ['', Validators.required],
+  typeIndividual: ['', Validators.required],
   profession: ['', Validators.required],
-  Type_piece: ['', Validators.required],
-  numero_piece: ['', Validators.required],
-  date_expiration: ['', Validators.required],
-  photo_piece: ['', Validators.required],
-  code_parrainage: ['']
+  pieceType: ['', Validators.required],
+  pieceNumber: ['', Validators.required],
+  expirationDate: ['', Validators.required],
+  piecePhoto: ['', Validators.required],
+  referralCode: ['']
   });
 }  
+
+saveAdditionalInfo(): void {
+  if (this.infoForm.valid) {
+    const additionalInfoData = this.infoForm.value;
+    this.autresInformationsService.saveAdditionalInfo(additionalInfoData)
+      .subscribe(
+        response => {
+          console.log('Additional info saved successfully:', response);
+          // Optionally, you can reset the form or navigate to another page here
+        },
+        error => {
+          console.error('Error saving additional info:', error);
+        }
+      );
+  } else {
+    // Form is invalid, handle accordingly
+  }
+}
 
   Retour(){
     this.router.navigate(['/dash/adresse']); // Replace '/adresse' with the actual route path of your "Adresse" component
   }
-  Suivant(){
-    this.router.navigate(['/dash/offres-et-domicialisation']); // Replace '/adresse' with the actual route path of your "Adresse" component
+
+  Suivant(): void {
+    if (this.infoForm && this.infoForm.valid) {
+      const formData: FormGroup = this.infoForm; // Get the form group
+      this.saveAdditionalInfo(); // Pass the form values to saveAdditionalInfo method
+      this.router.navigate(['/dash/offres-et-domicialisation']);
+    } else {
+      console.error('Form is invalid or addressForm is not initialized.');
+    }
   }
 }

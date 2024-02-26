@@ -3,51 +3,51 @@
         <h4>Informations Personnelles</h4>
     </div>
     <div class="card-body">
-        <form [formGroup]="infoForm" class="row g-3 needs-validation" novalidate>
+        <form [formGroup]="informationForm" class="row g-3 needs-validation" novalidate>
             <div class="col-12">
-                <label for="genre" class="form-label">Genre</label>
-                <select id="inputState" class="form-select" required formControlName="genre">
+                <label for="gender" class="form-label">Civilité</label>
+                <select id="gender" name="gender" class="form-select" required formControlName="gender">
                     <option value="" disabled selected>Choisissez...</option>
-                    <option value="monsieur">Monsieur</option>
-                    <option value="madame">Madame</option>
+                    <option value="MONSIEUR">Monsieur</option>
+                    <option value="MADAME">Madame</option>
                 </select>
-                <div *ngIf="infoForm.get('genre')?.invalid && (infoForm.get('genre')?.dirty || infoForm.get('genre')?.touched)" class="text-danger">
-                    <div *ngIf="infoForm.get('genre')?.hasError('required')" style="margin-top: 3px;">Veuillez choisir votre genre</div>
+                <div *ngIf="informationForm.get('gender')?.invalid && (informationForm.get('gender')?.dirty || informationForm.get('gender')?.touched)" class="text-danger">
+                    <div *ngIf="informationForm.get('gender')?.hasError('required')" style="margin-top: 3px;">Veuillez choisir votre genre</div>
                   </div>
             </div>
             <div class="col-md-6">
-                <label for="firstName" class="form-label">Nom</label><span class="required">*</span>
-                <input type="text" class="form-control" id="firstName" formControlName="firstName" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
-                <div *ngIf="infoForm.get('firstName')?.invalid && (infoForm.get('firstName')?.dirty || infoForm.get('firstName')?.touched)" class="text-danger">
-                    <div *ngIf="infoForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez un nom valide</div>
-                    <div *ngIf="infoForm.get('firstName')?.hasError('pattern')" style="margin-top: 3px;">Le nom ne peut pas contenir de chiffres</div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <label for="lastName" class="form-label">Prénom</label><span class="required">*</span>
-                <input type="text" class="form-control" id="lastName" formControlName="lastName" required
+                <label for="lastName" class="form-label">Nom</label><span class="required">*</span>
+                <input type="text" name="lastName" class="form-control" id="lastName" formControlName="lastName" required
                        pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
-                       <div *ngIf="infoForm.get('lastName')?.invalid && (infoForm.get('lastName')?.dirty || infoForm.get('lastName')?.touched)" class="text-danger">
-                        <div *ngIf="infoForm.get('lastName')?.hasError('required')" class="text-danger">Entrez un prénom valide</div>
-                        <div *ngIf="infoForm.get('lastName')?.hasError('hasNumbers')" class="text-danger">Le prénom ne peut pas contenir de chiffres</div>                        
+                       <div *ngIf="informationForm.get('lastName')?.invalid && (informationForm.get('lastName')?.dirty || informationForm.get('lastName')?.touched)" class="text-danger">
+                        <div *ngIf="informationForm.get('lastName')?.hasError('required')" class="text-danger">Entrez un nom valide</div>
+                        <div *ngIf="informationForm.get('lastName')?.hasError('hasNumbers')" class="text-danger">Le nom ne peut pas contenir de chiffres</div>                        
                     </div>
             </div>
+            <div class="col-md-6">
+                <label for="firstName" class="form-label">Prénom</label><span class="required">*</span>
+                <input type="text" name="firstName" class="form-control" id="firstName" formControlName="firstName" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
+                <div *ngIf="informationForm.get('firstName')?.invalid && (informationForm.get('firstName')?.dirty || informationForm.get('firstName')?.touched)" class="text-danger">
+                    <div *ngIf="informationForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez un prénom valide</div>
+                    <div *ngIf="informationForm.get('firstName')?.hasError('pattern')" style="margin-top: 3px;">Le prénom ne peut pas contenir de chiffres</div>
+                </div>
+            </div>
             <div class="mb-3">
-                <label for="formFile" class="form-label">Photo de profil</label>
-                <input class="form-control" type="file" id="formFile">
+                <label for="photo" class="form-label">Photo de profil</label>
+                <input type="file" name="photo" class="form-control"id="photo" formControlName="photo">
             </div>
             <div class="col-md-6">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" formControlName="email" required>
-                <div *ngIf="infoForm.get('email')?.invalid && (infoForm.get('email')?.dirty || infoForm.get('email')?.touched)" class="text-danger">
-                    <div *ngIf="infoForm.get('email')?.hasError('required')">Entrez un email valide</div>
-                    <div *ngIf="infoForm.get('email')?.hasError('email')">Entrez une adresse email valide</div>
+                <input type="email" name="email" class="form-control" id="email" formControlName="email" required>
+                <div *ngIf="informationForm.get('email')?.invalid && (informationForm.get('email')?.dirty || informationForm.get('email')?.touched)" class="text-danger">
+                    <div *ngIf="informationForm.get('email')?.hasError('required')">Entrez un email valide</div>
+                    <div *ngIf="informationForm.get('email')?.hasError('email')">Entrez une adresse email valide</div>
                 </div>
             </div>
             <div class="col-md-6 telStyle">
-                <label for="phone" class="form-label">Téléphone</label><span class="required">*</span>
+                <label for="phoneNumber" name="phoneNumber" id="phoneNumber" class="form-label">Téléphone</label><span class="required">*</span>
                 <!-- Add the ngx-intl-tel-input component here -->
-                <ngx-intl-tel-input
+                <ngx-intl-tel-input formControlName="phoneNumber"  class="form-control"
                     [preferredCountries]="['tn']"
                     [enablePlaceholder]="true"
                     [cssClass]="'form-control'"
@@ -56,15 +56,15 @@
                     [searchCountryPlaceholder]="'Recherchez un pays'"
                     >
                 </ngx-intl-tel-input>
-                <div *ngIf="infoForm.get('firstName')?.invalid && (infoForm.get('firstName')?.dirty || infoForm.get('firstName')?.touched)" class="text-danger">
-                    <div *ngIf="infoForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez votre numéro</div>
+                <div *ngIf="informationForm.get('phoneNumber')?.invalid && (informationForm.get('phoneNumber')?.dirty || informationForm.get('phoneNumber')?.touched)" class="text-danger">
+                    <div *ngIf="informationForm.get('phoneNumber')?.hasError('required')" style="margin-top: 3px;">Entrez votre numéro</div>
                   </div>
             </div>
             <div class="col-md-6">
-                <label for="date" class="form-label">Date de Naissance </label><span class="required">*</span>
+                <label for="dateOfBirth" class="form-label">Date de Naissance </label><span class="required">*</span>
                 <div class="row">
                     <div class="col-4">
-                        <input type="date" id="date_naissance" name="date_naissance">
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" formControlName="dateOfBirth"  class="form-control">
                     </div>
                 </div>
             </div>
