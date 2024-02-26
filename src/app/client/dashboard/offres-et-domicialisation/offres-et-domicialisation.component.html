@@ -10,21 +10,22 @@
                 <form [formGroup]="offerForm" class="row g-3">
                     <div class="col-12">
                         <p>Choisissez votre agence de préférence.</p>
-                        <label for="agence">Agence</label><span class="required">*</span>
-                        <select id="agence" class="form-select" required formControlName="agence">
+                        <label for="agencyName">Agence</label><span class="required">*</span>
+                        <select id="agencyName" class="form-select" required formControlName="agencyName">
                             <option value="" disabled selected>Choisir votre agence</option>
-                            <option value="agence_moanda">AGENCE DE MOANDA</option>
-                            <option value="agence_tun">AGENCE DE TUN</option>
+                            <option value="AGENCE_TUNIS">AGENCE DE TUNIS</option>
+                            <option value="AGENCE_SFAX">AGENCE DE SFAX</option>
+                            <option value="AGENCE_DJERBA">AGENCE DE DJERBA</option>
                         </select>
-                        <div *ngIf="offerForm.get('agence')?.invalid && (offerForm.get('agence')?.dirty || offerForm.get('agence')?.touched)" class="text-danger" style="margin-top: 3px;">
-                            <div *ngIf="offerForm.get('agence')?.hasError('required')">Veuillez choisir votre agence</div>
+                        <div *ngIf="offerForm.get('agencyName')?.invalid && (offerForm.get('agencyName')?.dirty || offerForm.get('agence')?.touched)" class="text-danger" style="margin-top: 3px;">
+                            <div *ngIf="offerForm.get('agencyName')?.hasError('required')">Veuillez choisir votre agence</div>
                         </div>
                     </div>
                     <div class="col-12">
-                        <p>Choisissez votre compte</p>
+                        <label  formControlName="accountType" for="accountType">Choisissez votre compte</label><span class="required">*</span>
                         <div class="row">
                             <div class="col-md-4 mb-3" *ngFor="let compte of comptes">
-                                <div class="compte" (click)="selectCompte(compte.value)" [class.selected]="isCompteSelected(compte.value)">
+                                <div id="accountType" class="compte" (click)="selectCompte(compte.value)" [class.selected]="isCompteSelected(compte.value)">
                                     <div>
                                         <h5 class="card-title">{{ compte.label }}</h5>
                                         <i class="fas fa-check" *ngIf="isCompteSelected(compte.value)"></i>
@@ -34,7 +35,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 mb-3" *ngFor="let pack of packsAffiches">
-                        <div class="pack" (click)="selectPack(pack.name, pack.description)" [class.selected]="isPackSelected(pack.name)">
+                        <div id="packType" class="pack" (click)="selectPack(pack.name, pack.description)" [class.selected]="isPackSelected(pack.name)">
                             <div>
                                 <h5 class="card-title">{{ pack.name }}</h5>
                                 <i class="fas fa-check" *ngIf="isPackSelected(pack.name)"></i>

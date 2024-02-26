@@ -17,6 +17,7 @@ export class ConditionsGeneralesComponent {
       if (this.conditionsAccepted) {
           // Soumettre le formulaire ou effectuer d'autres actions
           console.log("Form submitted successfully!");
+          this.router.navigate(['/dash/mot-de-passe']);
       } else {
           // Ne rien faire, car le formulaire n'est pas valide
       }

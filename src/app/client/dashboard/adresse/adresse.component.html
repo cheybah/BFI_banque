@@ -1,18 +1,13 @@
-
-
-
-
-
 <div class="card">
     <div class="card-header">
         <h4>Adresse</h4>
     </div>
 
     <div class="card-body">
-        <form class="row g-3" #form="ngForm">
+        <form class="row g-3" #addressForm="ngForm" (ngSubmit)="saveAddress(addressForm)">
             <div class="col-12">
-                <label for="pays">Entrer votre pays </label><span class="required">*</span>
-                <input type="text" id="pays" name="pays" (change)="locateCountry()" required>
+                <label for="country">Entrer votre pays </label><span class="required">*</span>
+                <input type="text" id="country" name="country" (change)="locateCountry()" [(ngModel)]="address.country" required>
             </div>
 
             <div class="map-container">
@@ -24,22 +19,17 @@
                   </div>
             </div>
             <div class="col-md-6">
-                <label for="ville">Ville </label><span class="required">*</span>
-                <input type="text" id="ville" name="ville" #villeInput>
-                <!-- Ajoutez ici l'indicateur d'obligation -->
+                <label for="city">Ville</label><span class="required">*</span>
+                <input type="text" id="city" name="city" #villeInput [(ngModel)]="address.city">
             </div>
             
             <div class="col-md-6">
-                <label for="quartier">Quartier </label>
-                <input type="text" id="quartier" name="quartier">
+                <label for="neighbourhood">Quartier</label>
+                <input type="text" id="neighbourhood" name="neighbourhood" [(ngModel)]="address.neighbourhood">
             </div>
             <div class="col-md-6">
-                <label for="adresse">Référence de votre adresse </label>
-                <input type="text" id="adresse" name="adresse">
-            </div>
-            <div class="col-md-6">
-                <label for="bp">BP </label>
-                <input type="text" id="bp" name="bp">
+                <label for="zipCode">Code ZIP</label>
+                <input type="text" id="zipCode" name="zipCode"  [(ngModel)]="address.zipCode">
             </div>
             <div class="col-12">
                 <div class="row">

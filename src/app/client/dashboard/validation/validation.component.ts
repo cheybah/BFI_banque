@@ -1,4 +1,5 @@
-import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
+import {Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare let Email: any;
 
@@ -13,10 +14,12 @@ export class ValidationComponent {
     otpVerifyDisplay: string = 'none';
     otpValue: number = 0;
 
+    constructor(private router: Router) {}
+
     sendOTP() {
         this.otpValue = Math.floor(1000 + Math.random() * 9000); 
 
-        let emailbody = `<h2>Your OTP is </h2>${this.otpValue}`;
+        let emailbody = `<h2>Your OTP is</h2>${this.otpValue}`;
         Email.send({
             SecureToken: "01fe389d-7992-47a3-a455-62b0da19a126",
             To: this.email,
@@ -36,6 +39,8 @@ export class ValidationComponent {
     verifyOTP() {
         if (this.otpInput === this.otpValue.toString()) {
             alert("Email address verified...");
+            this.router.navigate(['/welcome']);
+
         } else {
             alert("Invalid OTP");
         }
