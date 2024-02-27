@@ -141,20 +141,20 @@ ul.social-network li {
     margin: 0 5px
 }
 
-.social-network a.icoFacebook:hover {
-    background-color: #3B5998
+.social-network a.icoWhatsapp:hover {
+    background-color: #42d325
 }
 
-.social-network a.icoTwitter:hover {
-    background-color: #33ccff
+.social-network a.icoSMS:hover {
+    background-color: #7d59b8
 }
 
 .social-network a.icoGoogle:hover {
     background-color: #BD3518
 }
 
-.social-network a.icoFacebook:hover i,
-.social-network a.icoTwitter:hover i,
+.social-network a.icoWhatsapp:hover i,
+.social-network a.icoSMS:hover i,
 .social-network a.icoGoogle:hover i {
     color: #fff
 }
