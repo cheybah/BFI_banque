@@ -10,18 +10,15 @@
                 <form [formGroup]="offerForm" class="row g-3">
                     <div class="col-12">
                         <p>Choisissez votre agence de préférence.</p>
-                        <label for="agence">Agence</label><span class="required">*</span>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="bi bi-building"></i></span> <!-- Icon added to the left of the label -->
-                            <select id="agencyName" class="form-select" required formControlName="agencyName">
-                                <option value="" disabled selected>Choisir votre agence</option>
-                                <option value="AGENCE_TUNIS">AGENCE DE TUNIS</option>
-                                <option value="AGENCE_SFAX">AGENCE_SFAX</option>
-                                <option value="AGENCE_DJERBA">AGENCE DE DJERBA</option>
-                            </select>
-                        </div>
-                        <div *ngIf="offerForm.get('agence')?.invalid && (offerForm.get('agence')?.dirty || offerForm.get('agence')?.touched)" class="text-danger" style="margin-top: 3px;">
-                            <div *ngIf="offerForm.get('agence')?.hasError('required')">Veuillez choisir votre agence</div>
+                        <label for="agencyName">Agence</label><span class="required">*</span>
+                        <select id="agencyName" class="form-select" required formControlName="agencyName">
+                            <option value="" disabled selected>Choisir votre agence</option>
+                            <option value="AGENCE_TUNIS">AGENCE DE TUNIS</option>
+                            <option value="AGENCE_SFAX">AGENCE DE SFAX</option>
+                            <option value="AGENCE_DJERBA">AGENCE DE DJERBA</option>
+                        </select>
+                        <div *ngIf="offerForm.get('agencyName')?.invalid && (offerForm.get('agencyName')?.dirty || offerForm.get('agence')?.touched)" class="text-danger" style="margin-top: 3px;">
+                            <div *ngIf="offerForm.get('agencyName')?.hasError('required')">Veuillez choisir votre agence</div>
                         </div>
                     </div>
                     <div class="col-12">
