@@ -6,25 +6,26 @@
     <div class="card-body">
         <form class="row g-3" #addressForm="ngForm" (ngSubmit)="saveAddress(addressForm)">
             <div class="col-12">
-                <label for="country">Entrer votre pays </label><span class="required">*</span>
+                <label for="country" class="form-label">Entrer votre pays </label><span class="required">*</span>
                 <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-flag-fill"></i></span> <!-- Icon added to the input group -->
-                    <input type="text" class="form-control" id="country" name="country" (change)="locateCountry()" required>
-                </div>            
+                    <span class="input-group-text"><i class="bi bi-flag-fill"></i></span>
+                    <input type="text" id="country" name="country" (change)="locateCountry()" [(ngModel)]="address.country" class="form-control" required>
+                </div>
             </div>
+
             <div class="map-container">
+              
                 <div class="map-container">
                     <div class="map-frame">
                         <div id="map"></div>
                     </div>
                   </div>
             </div>
-          
             <div class="col-md-6">
-                <label for="city">Ville </label><span class="required">*</span>
+                <label for="city">Ville</label><span class="required">*</span>
                 <div class="input-group">
-                      <label for="city">Ville</label><span class="required">*</span>
-                      <input type="text" id="city" name="city" #villeInput [(ngModel)]="address.city">
+                    <span class="input-group-text"><i class="bi bi-building"></i></span>
+                    <input type="text" id="city" name="city" #villeInput [(ngModel)]="address.city" class="form-control">
                 </div>
             </div>
             
@@ -32,26 +33,17 @@
                 <label for="neighbourhood">Quartier</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-house"></i></span> <!-- Icon added to the input group -->
-                    <input type="text" id="neighbourhood" name="neighbourhood" [(ngModel)]="address.neighbourhood">
-                </div>            
+                    <input type="text" id="neighbourhood" name="neighbourhood" [(ngModel)]="address.neighbourhood" class="form-control">
+                </div>  
             </div>
+            <div class="col-md-6">
+                <label for="zipCode">Code ZIP</label>
 
-            <div class="col-md-6">
-                <label for="adresse">Référence de votre adresse </label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-geo-alt"></i></span> <!-- Icon added to the input group -->
-                    <input type="text" class="form-control" id="adresse" name="adresse">
-                </div>            
-            </div>
-            <div class="col-md-6">
-                  <label for="zipCode">Code ZIP</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-envelope"></i></span> <!-- Icon added to the input group -->
-                   <input type="text" id="zipCode" name="zipCode"  [(ngModel)]="address.zipCode">
-                                 
-              </div>           
-             </div>
-          
+                    <input type="text" id="zipCode" name="zipCode"  [(ngModel)]="address.zipCode" class="form-control">                                
+                </div>   
+            </div>
             <div class="col-12">
                 <div class="row">
                     <div class="col text-start">

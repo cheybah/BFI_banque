@@ -53,19 +53,19 @@ export class AdresseComponent {
  
 
   async locateCountry(): Promise<void> {
-    const paysInput = document.getElementById('country') as HTMLInputElement;
-    const paysSaisi = paysInput.value.trim();
-    console.log("Pays saisi:", paysSaisi);
+    const countryInput = document.getElementById('country') as HTMLInputElement;
+    const countrySaisi = countryInput.value.trim();
+    console.log("country saisi:", countrySaisi);
 
-    if (paysSaisi) {
-        const coordonnees = await this.getCountryCoordinates(paysSaisi);
-        console.log("Coordonnées du pays:", coordonnees);
+    if (countrySaisi) {
+        const coordonnees = await this.getCountryCoordinates(countrySaisi);
+        console.log("Coordonnées du country:", coordonnees);
         
         if (coordonnees) {
             const newCenter = L.latLng(coordonnees.lat, coordonnees.lon);
             this.map.setView(newCenter, 6); // Zoom and center the map
         } else {
-            console.log("Coordonnées non trouvées pour le pays saisi");
+            console.log("Coordonnées non trouvées pour le country saisi");
         }
     }  
 }
@@ -106,7 +106,7 @@ fillCityFromCoordinates(coordinates: { lat: number, lng: number }): void {
     .then(response => response.json())
     .then(data => {
       if (data && data.address) {
-        const cityInput = document.getElementById('ville') as HTMLInputElement;
+        const cityInput = document.getElementById('city') as HTMLInputElement;
         if (cityInput) {
           const city = data.address.city || data.address.town || data.address.village || '';
           cityInput.value = city;
@@ -139,9 +139,9 @@ async getCountryName(coordinates: { lat: number, lng: number }): Promise<string 
 
 fillFormWithCountry(country: string): void {
     console.log("Filling form with country:", country);
-    const villeInput = document.getElementById('ville') as HTMLInputElement;
-    if (villeInput) {
-        villeInput.value = country;
+    const cityInput = document.getElementById('city') as HTMLInputElement;
+    if (cityInput) {
+        cityInput.value = country;
     }
 }
 
