@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AdditionalInfo } from '../models/AdditionalInfo';
 import { AutresInformationsService } from '../../../services/autres-informations.service';
-
 
 @Component({
   selector: 'app-autres-informations',
@@ -48,17 +46,17 @@ saveAdditionalInfo(): void {
   }
 }
 
-  Retour(){
-    this.router.navigate(['/dash/adresse']); // Replace '/adresse' with the actual route path of your "Adresse" component
-  }
+Retour(){
+  this.router.navigate(['/dash/adresse']); // Replace '/adresse' with the actual route path of your "Adresse" component
+}
 
-  Suivant(): void {
-    if (this.infoForm && this.infoForm.valid) {
-      const formData: FormGroup = this.infoForm; // Get the form group
-      this.saveAdditionalInfo(); // Pass the form values to saveAdditionalInfo method
-      this.router.navigate(['/dash/offres-et-domicialisation']);
-    } else {
-      console.error('Form is invalid or addressForm is not initialized.');
-    }
+Suivant(): void {
+  if (this.infoForm && this.infoForm.valid) {
+    const formData: FormGroup = this.infoForm; // Get the form group
+    this.saveAdditionalInfo(); // Pass the form values to saveAdditionalInfo method
+    this.router.navigate(['/dash/offres-et-domicialisation']);
+  } else {
+    console.error('Form is invalid or addressForm is not initialized.');
   }
+}
 }
