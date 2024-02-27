@@ -11,11 +11,15 @@
                     <div class="col-12">
                         <p>Choisissez votre agence de préférence.</p>
                         <label for="agence">Agence</label><span class="required">*</span>
-                        <select id="agence" class="form-select" required formControlName="agence">
-                            <option value="" disabled selected>Choisir votre agence</option>
-                            <option value="agence_moanda">AGENCE DE MOANDA</option>
-                            <option value="agence_tun">AGENCE DE TUN</option>
-                        </select>
+
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-building"></i></span> <!-- Icon added to the left of the label -->
+                            <select id="agence" class="form-select" required formControlName="agence">
+                                <option value="" disabled selected>Choisir votre agence</option>
+                                <option value="agence_moanda">AGENCE DE MOANDA</option>
+                                <option value="agence_tun">AGENCE DE TUN</option>
+                            </select>
+                        </div>
                         <div *ngIf="offerForm.get('agence')?.invalid && (offerForm.get('agence')?.dirty || offerForm.get('agence')?.touched)" class="text-danger" style="margin-top: 3px;">
                             <div *ngIf="offerForm.get('agence')?.hasError('required')">Veuillez choisir votre agence</div>
                         </div>

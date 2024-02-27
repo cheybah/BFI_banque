@@ -8,15 +8,16 @@
             <i class="fal fa-times close-icon"></i>
         </div>
     </div>
-    <ul class="sidenav-nav">
-        <li class="sidenav-nav-item" *ngFor="let data of navData">
-            <a href="" class="sidenav-nav-link" [routerLink]="data.routeLink"
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{exact : true}">
-                <i class="sidenav-link-icon" [class]="data.icon"></i>
-                <!-- Show label only when sidenav is collapsed -->
-                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">{{data.label}}</span>
-            </a>
-        </li>
-    </ul>
+ <!-- ... -->
+<ul class="sidenav-nav">
+    <li class="sidenav-nav-item" *ngFor="let data of navData; let i = index" [ngClass]="{'active': i === activeItemIndex, 'visited': data.visited}">
+      <a href="" class="sidenav-nav-link" [routerLink]="data.routeLink" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}"
+        (click)="setActiveItem(i); data.visited = true;" [class.disabled]="!isAccessible(i)">
+        <i class="sidenav-link-icon" [class]="data.icon"></i>
+        <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">{{data.label}}</span>
+      </a>
+    </li>
+  </ul>
+  <!-- ... -->
+  
 </div>
