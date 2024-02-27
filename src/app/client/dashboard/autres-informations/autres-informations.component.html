@@ -6,24 +6,22 @@
     <div class="card-body">
         <form [formGroup]="infoForm" class="row g-3" (ngSubmit)="saveAdditionalInfo()">
             <div class="col-12">
-              
                 <label for="typeIndividual">Type de particulier</label><span class="required">*</span>
 
                 <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-briefcase-fill"></i></span> <!-- Icon added to the left of the label -->
+                    <span class="input-group-text"><i class="bi bi-briefcase-fill"></i></span>
                     <select id="typeIndividual" name="typeIndividual" formControlName="typeIndividual" class="form-select">
                         <option value="" disabled selected>Veuillez choisir le type de particulier</option>
                         <option value="SECTEUR_PRIVE">Secteur Privé</option>
                         <option value="SECTEUR_ETATIQUE">Secteur Etatique</option>
                     </select>
                 </div>
-
             </div>
 
             <div class="col-4">
                 <label for="profession">Profession </label><span class="required">*</span>
                 <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-person-badge-fill"></i></span> <!-- Icon added to the left of the input field -->
+                    <span class="input-group-text"><i class="bi bi-person-badge-fill"></i></span>
                     <input type="text" id="profession" name="profession" formControlName="profession" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}" class="form-control">
                 </div> 
                 <div *ngIf="infoForm.get('profession')?.invalid && (infoForm.get('profession')?.dirty || infoForm.get('profession')?.touched)" class="text-danger">
@@ -35,8 +33,8 @@
             <div class="col-4">
                 <label for="pieceType">Type de la pièce </label><span class="required">*</span>               
                 <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-card-list"></i></span> <!-- Icon added to the left of the input field -->
-                    <select id="type_particulier" name="type_particulier" formControlName="type_particulier" class="form-select">
+                    <span class="input-group-text"><i class="bi bi-card-list"></i></span>
+                    <select id="type_particulier" name="type_particulier" formControlName="pieceType" class="form-select">
                         <option value="" disabled selected>Veuillez choisir le type de la pièce</option>
                         <option value="sect_prv">Carte d'identité nationale</option>
                         <option value="sect_eta">Passeport</option>
@@ -47,7 +45,7 @@
             <div class="col-4">
                 <label for="pieceNumber">Numéro de la pièce </label><span class="required">*</span>
                 <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-file-text"></i></span> <!-- Icon added to the left of the label -->
+                    <span class="input-group-text"><i class="bi bi-file-text"></i></span>
                     <input type="text" id="pieceNumber" name="pieceNumber" formControlName="pieceNumber" required  pattern="[0-9]*" class="form-control" >
                 </div>                
                 <div *ngIf="infoForm.get('pieceNumber')?.invalid && (infoForm.get('pieceNumber')?.dirty || infoForm.get('pieceNumber')?.touched)" class="text-danger">
@@ -72,7 +70,7 @@
             <div class="col-12">
                 <label for="referralCode">Code parrainage</label>
                 <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-shield-lock-fill"></i></span> <!-- Icon added to the left of the input field -->
+                    <span class="input-group-text"><i class="bi bi-shield-lock-fill"></i></span>
                     <input type="text" id="referralCode" name="referralCode" formControlName="referralCode"  pattern="[0-9]{4}" placeholder="0123" class="form-control">
                 </div>
                 <div *ngIf="infoForm.get('referralCode')?.invalid && (infoForm.get('numero_piece')?.dirty || infoForm.get('referralCode')?.touched)" class="text-danger">
