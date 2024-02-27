@@ -40,14 +40,7 @@
                         <div *ngIf="informationForm.get('lastName')?.hasError('hasNumbers')" class="text-danger">Le prénom ne peut pas contenir de chiffres</div>                        
                     </div>
             </div>
-            <div class="col-md-6">
-                <label for="firstName" class="form-label">Prénom</label><span class="required">*</span>
-                <input type="text" name="firstName" class="form-control" id="firstName" formControlName="firstName" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
-                <div *ngIf="informationForm.get('firstName')?.invalid && (informationForm.get('firstName')?.dirty || informationForm.get('firstName')?.touched)" class="text-danger">
-                    <div *ngIf="informationForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez un prénom valide</div>
-                    <div *ngIf="informationForm.get('firstName')?.hasError('pattern')" style="margin-top: 3px;">Le prénom ne peut pas contenir de chiffres</div>
-                </div>
-            </div>
+           
             <div class="mb-3">
                 <label for="photo" class="form-label">Photo de profil</label>
                 <input type="file" name="photo" class="form-control"id="photo" formControlName="photo">
