@@ -1,6 +1,7 @@
 
-#banner {
+#banner12 {
     position: relative;
+    background-image: url("../../../assets/img/banner/slide2.png")!important;
     height: 100vh; /* 100% viewport height */
     width: 100%; /* 100% width of viewport */
     background-size: cover; /* Cover the entire container */

@@ -14,8 +14,8 @@
                         <option value="MADAME">Madame</option>
                     </select>
                 </div>
-                <div *ngIf="infoForm.get('genre')?.invalid && (infoForm.get('genre')?.dirty || infoForm.get('genre')?.touched)" class="text-danger">
-                    <div *ngIf="infoForm.get('genre')?.hasError('required')" style="margin-top: 3px;">Veuillez choisir votre genre</div>
+                <div *ngIf="informationForm.get('genre')?.invalid && (informationForm.get('genre')?.dirty || informationForm.get('genre')?.touched)" class="text-danger">
+                    <div *ngIf="informationForm.get('genre')?.hasError('required')" style="margin-top: 3px;">Veuillez choisir votre genre</div>
                   </div>
             </div>
             <div class="col-md-6">
@@ -24,9 +24,9 @@
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                     <input type="text" class="form-control" id="firstName" formControlName="firstName" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
                 </div>
-                <div *ngIf="infoForm.get('firstName')?.invalid && (infoForm.get('firstName')?.dirty || infoForm.get('firstName')?.touched)" class="text-danger">
-                    <div *ngIf="infoForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez un nom valide</div>
-                    <div *ngIf="infoForm.get('firstName')?.hasError('pattern')" style="margin-top: 3px;">Le nom ne peut pas contenir de chiffres</div>
+                <div *ngIf="informationForm.get('firstName')?.invalid && (informationForm.get('firstName')?.dirty || informationForm.get('firstName')?.touched)" class="text-danger">
+                    <div *ngIf="informationForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez un nom valide</div>
+                    <div *ngIf="informationForm.get('firstName')?.hasError('pattern')" style="margin-top: 3px;">Le nom ne peut pas contenir de chiffres</div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -35,18 +35,10 @@
                     <span class="input-group-text"><i class="bi bi-person"></i></span> <!-- Replaced the icon class with Bootstrap's person icon -->
                     <input type="text" class="form-control" id="lastName" formControlName="lastName" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
                 </div>
-                       <div *ngIf="infoForm.get('lastName')?.invalid && (infoForm.get('lastName')?.dirty || infoForm.get('lastName')?.touched)" class="text-danger">
-                        <div *ngIf="infoForm.get('lastName')?.hasError('required')" class="text-danger">Entrez un prénom valide</div>
-                        <div *ngIf="infoForm.get('lastName')?.hasError('hasNumbers')" class="text-danger">Le prénom ne peut pas contenir de chiffres</div>                        
+                       <div *ngIf="informationForm.get('lastName')?.invalid && (informationForm.get('lastName')?.dirty || informationForm.get('lastName')?.touched)" class="text-danger">
+                        <div *ngIf="informationForm.get('lastName')?.hasError('required')" class="text-danger">Entrez un prénom valide</div>
+                        <div *ngIf="informationForm.get('lastName')?.hasError('hasNumbers')" class="text-danger">Le prénom ne peut pas contenir de chiffres</div>                        
                     </div>
-            </div>
-            <div class="col-md-6">
-                <label for="firstName" class="form-label">Prénom</label><span class="required">*</span>
-                <input type="text" name="firstName" class="form-control" id="firstName" formControlName="firstName" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
-                <div *ngIf="informationForm.get('firstName')?.invalid && (informationForm.get('firstName')?.dirty || informationForm.get('firstName')?.touched)" class="text-danger">
-                    <div *ngIf="informationForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez un prénom valide</div>
-                    <div *ngIf="informationForm.get('firstName')?.hasError('pattern')" style="margin-top: 3px;">Le prénom ne peut pas contenir de chiffres</div>
-                </div>
             </div>
             <div class="mb-3">
                 <label for="photo" class="form-label">Photo de profil</label>
@@ -58,9 +50,9 @@
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                     <input type="email" class="form-control" id="email" formControlName="email" required>
                 </div>
-                <div *ngIf="infoForm.get('email')?.invalid && (infoForm.get('email')?.dirty || infoForm.get('email')?.touched)" class="text-danger">
-                    <div *ngIf="infoForm.get('email')?.hasError('required')">Entrez un email valide</div>
-                    <div *ngIf="infoForm.get('email')?.hasError('email')">Entrez une adresse email valide</div>
+                <div *ngIf="informationForm.get('email')?.invalid && (informationForm.get('email')?.dirty || informationForm.get('email')?.touched)" class="text-danger">
+                    <div *ngIf="informationForm.get('email')?.hasError('required')">Entrez un email valide</div>
+                    <div *ngIf="informationForm.get('email')?.hasError('email')">Entrez une adresse email valide</div>
 
                 </div>
             </div>
