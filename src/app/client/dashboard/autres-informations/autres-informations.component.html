@@ -4,16 +4,16 @@
     </div>
 
     <div class="card-body">
-        <form [formGroup]="infoForm" class="row g-3">
+        <form [formGroup]="infoForm" class="row g-3" (ngSubmit)="saveAdditionalInfo()">
             <div class="col-12">
-                <label for="type_particulier">Type de particulier</label><span class="required">*</span>
+                <label for="typeIndividual">Type de particulier</label><span class="required">*</span>
 
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-briefcase-fill"></i></span> <!-- Icon added to the left of the label -->
-                    <select id="type_particulier" name="type_particulier" formControlName="type_particulier" class="form-select">
+                    <select id="typeIndividual" name="typeIndividual" formControlName="typeIndividual" class="form-select">
                         <option value="" disabled selected>Veuillez choisir le type de particulier</option>
-                        <option value="sect_prv">Secteur Privé</option>
-                        <option value="sect_eta">Secteur Etatique</option>
+                        <option value="SECTEUR_PRIVE">Secteur Privé</option>
+                        <option value="SECTEUR_ETATIQUE">Secteur Etatique</option>
                     </select>
                 </div>
             </div>
@@ -32,48 +32,47 @@
             </div>
             
             <div class="col-4">
-                <label for="Type_piece">Type de la pièce </label><span class="required">*</span>
-                
+                <label for="pieceType">Type de la pièce </label><span class="required">*</span>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-card-list"></i></span> <!-- Icon added to the left of the input field -->
                     <select id="type_particulier" name="type_particulier" formControlName="type_particulier" class="form-select">
                         <option value="" disabled selected>Veuillez choisir le type de la pièce</option>
                         <option value="sect_prv">Carte d'identité nationale</option>
                         <option value="sect_eta">Passeport</option>
-                    </select>
+                  </select>
+                
                 </div>
             </div>
             
             <div class="col-4">
-                <label for="numero_piece">Référence  de la pièce </label><span class="required">*</span>
+                <label for="pieceNumber">Numéro de la pièce </label><span class="required">*</span>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-file-text"></i></span> <!-- Icon added to the left of the label -->
-                    <input type="text" id="numero_piece" name="numero_piece" formControlName="numero_piece" class="form-control" required pattern="[A-Za-z0-9\s]">
+                <input type="text" id="pieceNumber" name="pieceNumber" formControlName="pieceNumber" required  pattern="[0-9]*" >
                 </div>                           
                 <div *ngIf="infoForm.get('numero_piece')?.invalid && (infoForm.get('numero_piece')?.dirty || infoForm.get('numero_piece')?.touched)" class="text-danger">
-                    <div *ngIf="infoForm.get('numero_piece')?.hasError('required')" style="margin-top: 3px;">Entrez une référence valide</div>
-                    <div *ngIf="infoForm.get('numero_piece')?.hasError('pattern')" style="margin-top: 3px;">La référence de la pièce doit contenir des lettres et des chiffres.</div>
+                    <div *ngIf="infoForm.get('numero_piece')?.hasError('required')" style="margin-top: 3px;">Entrez un numéro valide</div>
+                    <div *ngIf="infoForm.get('numero_piece')?.hasError('pattern')" style="margin-top: 3px;">Le numéro de la pièce ne doit contenir que des chiffres et chaque groupe de quatre chiffres doit être séparé par un espace.</div>
                 </div>
             </div>
             
             <div class="col-12">
-                <label for="date_expiration">Date d'expiration de la pièce</label><span class="required">*</span>
-                <input type="date" id="date_expiration" name="date_expiration" formControlName="date_expiration" min="{{ today | date:'yyyy-MM-dd' }}">
+                <label for="expirationDate">Date d'expiration de la pièce</label><span class="required">*</span>
+                <input type="date" id="expirationDate" name="expirationDate" formControlName="expirationDate" min="{{ today | date:'yyyy-MM-dd' }}">
             </div>
-            
-                <div class="mb-3">
-                    <label for="photo_piece" class="form-label">Photo de la pièce</label><span class="required">*</span>
-                    <input class="form-control" formControlName="photo_piece" name="photo_piece" type="file" id="photo_piece" accept="png,.jpg, .jpeg,  .pdf">
-                    <div *ngIf="infoForm.get('photo_piece')?.invalid && (infoForm.get('photo_piece')?.dirty || infoForm.get('photo_piece')?.touched)" class="text-danger">
+            <div class="mb-3">
+                    <label for="piecePhoto">Photo de la pièce</label><span class="required">*</span>
+                <input type="file" id="piecePhoto" name="piecePhoto" formControlName="piecePhoto" accept="png,.jpg, .jpeg,  .pdf">
+                      <div *ngIf="infoForm.get('photo_piece')?.invalid && (infoForm.get('photo_piece')?.dirty || infoForm.get('photo_piece')?.touched)" class="text-danger">
                         <div *ngIf="infoForm.get('photo_piece')?.hasError('required')" style="margin-top: 3px;">Les extensions valides sont : .jpg, .jpeg, .png, .pdf</div>
-                    </div>
-                </div>             
+                      </div>
+             </div>             
             
             <div class="col-12">
-                <label for="code_parrainage">Code parrainage </label>
+                <label for="referralCode">Code parrainage</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-shield-lock-fill"></i></span> <!-- Icon added to the left of the input field -->
-                    <input type="text" id="code_parrainage" name="code_parrainage" formControlName="code_parrainage" class="form-control" pattern="[0-9]{4}" placeholder="0123">
+                <input type="text" id="referralCode" name="referralCode" formControlName="referralCode"  pattern="[0-9]{4}" placeholder="0123">
                 </div>
                 <div *ngIf="infoForm.get('code_parrainage')?.invalid && (infoForm.get('numero_piece')?.dirty || infoForm.get('code_parrainage')?.touched)" class="text-danger">
                     <div *ngIf="infoForm.get('code_parrainage')?.hasError('pattern')" style="margin-top: 3px;">Le code doit contenir 4 chiffres</div>
