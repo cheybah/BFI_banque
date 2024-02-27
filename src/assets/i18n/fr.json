@@ -1,216 +1,219 @@
 {
-    "homepage": {
-      "heading": "Construire un brillant",
-      "subheading": "avenir monétaire",
-      "button":"En savoir plus",
-      "aboutUs": {
-        "title": "À propos de nous",
-        "subheading": "Garantir des transactions financières transparentes pour les besoins bancaires quotidiens",
-        "content": "BFI Bank s'engage à fournir des solutions bancaires innovantes adaptées aux besoins de nos clients. En mettant l’accent sur l’excellence et l’intégrité, nous offrons un service personnalisé et une expertise fiable pour aider les particuliers et les entreprises à atteindre leurs objectifs financiers.",
-        "professionalTeam": "Équipe professionnelle",
-        "professionalTeamDesc": "Chez BFI Bank, notre équipe professionnelle s’engage à fournir des services financiers de premier ordre adaptés à vos besoins. Avec des années d’expérience et d’expertise, nous garantissons un soutien et des conseils supérieurs pour votre réussite financière.",
-        "quickPayments": "Paiements rapides",
-        "quickPaymentsDesc": "Chez BFI Bank, nous accordons la priorité aux paiements rapides pour garantir des transactions fluides à nos clients. Grâce à nos systèmes de paiement efficaces, vous pouvez être sûr que vos transactions seront traitées rapidement et en toute sécurité, vous permettant ainsi de gérer vos finances avec facilité et commodité.",
-        "yearsOfExperience": "Années d'expérience"
-      },
-      "blog": {
-        "latestNews": "Dernières nouvelles",
-        "subheading": "Nous sommes ici pour partager des histoires et des nouvelles",
-        "flash": "Avances à des coûts de financement attrayants avec une qualification de crédit plus élevée et un EMI inférieur. Le crédit est le prêt d'argent par au moins une personne, une association ou différentes substances à d'autres, des associations. Postulez maintenant pour obtenir l'approbation rapide des meilleures administrations avancées."
-      },
-      "counter": {
-        "projectsDone": "Projets accomplis",
-        "loanIncrease": "Augmentation des prêts",
-        "offerLowInterest": "Faible taux d'intérêt",
-        "happyClients": "Clients satisfaits"
-      },
-      "details": {
-        "gettingLoan": "Obtenir un prêt",
-        "subheading": "Reconnu par les plus grands investisseurs du pays",
-        "description": "La grande majorité des clients accordent leur plus grande confiance à notre institution, nous reconnaissant comme la principale autorité en matière de fourniture de solutions de prêt sans précédent, adaptées à leurs besoins et aspirations financiers uniques.",
-        "checkYourRate": "Vérifiez votre taux",
-        "checkDesc":"Vous devriez tester votre cote de crédit avant de demander un prêt personnel.",
-        "chooseYourLoan": "Choisissez votre prêt",
-        "chooseDesc":"Choisissez l'offre avec les phrases qui vous conviennent.",
-        "getYourFunds": "Obtenez vos fonds",
-        "getDesc":"Votre argent va instantanément sur votre compte bancaire par dépôt direct."
-      },
-      "footer": {
-        "topText": "Abonnez-vous à notre newsletter",
-        "contactInfo": {
-          "about": {
-            "a_bout" : "À propos",
-            "description": "Nous fournissons des prêts, ainsi que des services de groupe et d'entreprise.",
-            "email": "contact@bfigroup.com",
-            "phone": "(+216) 99 777 888",
-            "address": "00 Boulevard d'Environement, Houmt Souk Djerba."
-          },
-          "links": {
-            "l_ink" :"Liens",
-            "about": "A Propos",
-            "howItWorks": "Comment Ça Marche",
-            "team": "Notre Equipe",
-            "faq": "FAQ",
-            "contact": "Contact"
-          },
-          "explore": {
-            "carLoan": "#!",
-            "personalLoan": "#!",
-            "businessLoan": "#!",
-            "educationLoan": "#!",
-            "homeEquity": "#!"
-          }
+  "homepage": {
+    "heading": "Construire un brillant",
+    "subheading": "avenir monétaire",
+    "button":"En savoir plus",
+    "aboutUs": {
+      "title": "À propos de nous",
+      "subheading": "Garantir des transactions financières transparentes pour les besoins bancaires quotidiens",
+      "content": "BFI Bank s'engage à fournir des solutions bancaires innovantes adaptées aux besoins de nos clients. En mettant l’accent sur l’excellence et l’intégrité, nous offrons un service personnalisé et une expertise fiable pour aider les particuliers et les entreprises à atteindre leurs objectifs financiers.",
+      "professionalTeam": "Équipe professionnelle",
+      "professionalTeamDesc": "Chez BFI Bank, notre équipe professionnelle s’engage à fournir des services financiers de premier ordre adaptés à vos besoins. Avec des années d’expérience et d’expertise, nous garantissons un soutien et des conseils supérieurs pour votre réussite financière.",
+      "quickPayments": "Paiements rapides",
+      "quickPaymentsDesc": "Chez BFI Bank, nous accordons la priorité aux paiements rapides pour garantir des transactions fluides à nos clients. Grâce à nos systèmes de paiement efficaces, vous pouvez être sûr que vos transactions seront traitées rapidement et en toute sécurité, vous permettant ainsi de gérer vos finances avec facilité et commodité.",
+      "yearsOfExperience": "Années d'expérience"
+    },
+    "blog": {
+      "latestNews": "Dernières nouvelles",
+      "subheading": "Nous sommes ici pour partager des histoires et des nouvelles",
+      "flash": "Avances à des coûts de financement attrayants avec une qualification de crédit plus élevée et un EMI inférieur. Le crédit est le prêt d'argent par au moins une personne, une association ou différentes substances à d'autres, des associations. Postulez maintenant pour obtenir l'approbation rapide des meilleures administrations avancées."
+    },
+    "counter": {
+      "projectsDone": "Projets accomplis",
+      "loanIncrease": "Augmentation des prêts",
+      "offerLowInterest": "Faible taux d'intérêt",
+      "happyClients": "Clients satisfaits"
+    },
+    "details": {
+      "gettingLoan": "Obtenir un prêt",
+      "subheading": "Reconnu par les plus grands investisseurs du pays",
+      "description": "La grande majorité des clients accordent leur plus grande confiance à notre institution, nous reconnaissant comme la principale autorité en matière de fourniture de solutions de prêt sans précédent, adaptées à leurs besoins et aspirations financiers uniques.",
+      "checkYourRate": "Vérifiez votre taux",
+      "simulateLoan": "Simuler un prêt",
+      "Rising":"Montant du prêt :",
+      "Periode":"Durée du prêt (en années):",
+      "Paiement":"Paiement mensuel estimé pour un taux d'intérêt de 5% :",
+      "checkDesc":"Vous devriez tester votre cote de crédit avant de demander un prêt personnel.",
+      "chooseYourLoan": "Choisissez votre prêt",
+      "chooseDesc":"Choisissez l'offre avec les phrases qui vous conviennent.",
+      "getYourFunds": "Obtenez vos fonds",
+      "getDesc":"Votre argent va instantanément sur votre compte bancaire par dépôt direct."
+    },
+    "footer": {
+      "topText": "Abonnez-vous à notre newsletter",
+      "contactInfo": {
+        "about": {
+          "a_bout" : "À propos",
+          "description": "Nous fournissons des prêts, ainsi que des services de groupe et d'entreprise.",
+          "email": "contact@bfigroup.com",
+          "phone": "(+216) 99 777 888",
+          "address": "00 Boulevard d'Environement, Houmt Souk Djerba."
         },
-        "recentNews": [
-          {
-            "title": "Nous proposons des services de qualité",
-            "date": "23 mars 2021",
-            "image": "../../../assets/img/content/footer-thumb1.jpg",
-            "link": "#!"
-          },
-          {
-            "title": "De grandes réflexions à partir des actifs de votre entreprise",
-            "date": "20 mars 2021",
-            "image": "../../../assets/img/content/footer-thumb2.jpg",
-            "link": "#!"
-          }
-        ],
-        "footerBar": {
-          "copyright": "&copy; <span class=\"current-year\"></span> Banque Propulsée Par <a href=\"https://bfigroupe.com/\" target=\"_blank\" class=\"colorban\">Groupe BFI</a>",
-          "socialMedia": {
-            "facebook": "https://www.facebook.com/bfigoupe",
-            "twitter": "#!",
-            "youtube": "#!",
-            "linkedin": "https://www.linkedin.com/company/bfigroupe/mycompany/"
-          }
+        "links": {
+          "l_ink" :"Liens",
+          "about": "A Propos",
+          "howItWorks": "Comment Ça Marche",
+          "team": "Notre Equipe",
+          "faq": "FAQ",
+          "contact": "Contact"
+        },
+        "explore": {
+          "carLoan": "#!",
+          "personalLoan": "#!",
+          "businessLoan": "#!",
+          "educationLoan": "#!",
+          "homeEquity": "#!"
         }
       },
-      "offers": {
-        "title1":"Approbations Rapides",
-        "title2":"300 000 Clients",
-        "title3":"Paiements Flexibles",
-        "title4":"Pas de Frais de Remboursement Anticipé"
-      },
-
-      "loanPacks": [
+      "recentNews": [
         {
-          "name": "Prêt Personnel",
-          "interestRate": "10,75%",
-          "image": "../../../assets/img/service/services-1.jpg",
-          "description": "Coût Faible",
-          "applyLink": "#!"
+          "title": "Nous proposons des services de qualité",
+          "date": "23 mars 2021",
+          "image": "../../../assets/img/content/footer-thumb1.jpg",
+          "link": "#!"
         },
         {
-          "name": "Prêt d'Entreprise",
-          "interestRate": "11,65%",
-          "image": "../../../assets/img/service/services-2.jpg",
-          "description": "Taux d'Intérêt le Plus Bas",
-          "applyLink": "#!"
-        },
-        {
-          "name": "Prêt Immobilier",
-          "interestRate": "7,75%",
-          "image": "../../../assets/img/service/services-3.jpg",
-          "description": "Taux d'Intérêt",
-          "applyLink": "#!"
-        },
-        {
-          "name": "Prêt Étudiant",
-          "interestRate": "5,15%",
-          "image": "../../../assets/img/service/services-4.jpg",
-          "description": "Coût Faible",
-          "applyLink": "#!"
+          "title": "De grandes réflexions à partir des actifs de votre entreprise",
+          "date": "20 mars 2021",
+          "image": "../../../assets/img/content/footer-thumb2.jpg",
+          "link": "#!"
         }
       ],
-      "partners": {
-        "title":"Nos partenaires",
-        "subheading":"Rencontrez Nos Partenaires Bancaires!",
-        "partner1" :{
-          "name": "STB Bank",
-          "role": "Société Tunisienne de Banque",
-          "testimonial": "STB Bank Tunisie se distingue par son excellence dans la fourniture de solutions financières sur mesure répondant à des besoins divers. Faites confiance à STB en tant que partenaire pour naviguer dans les complexités de la finance, où chaque décision est guidée par un engagement envers votre réussite et votre prospérité."
-        },
-        "partner2" :{
-          "name": "MicroCred",
-          "role": "Baobab Tunisie",
-          "testimonial": "Baobab offre ses services principalement à des particuliers, des micros et petites entreprises en Afrique et en Chine. Sa mission est d’offrir  des services financiers (micro crédits) simples et faciles d’utilisation."
-        },
-        "partner3" :{
-          "name": "BIAT Bank",
-          "role": "Banque Internationale Arabe de Tunisie",
-          "testimonial": "BIAT Tunisie se distingue en proposant des solutions financières complètes et parfaitement adaptées aux divers besoins. Avec un dévouement sans faille à la fiabilité et à la satisfaction de ses clients, BIAT veille à ce que chaque interaction bénéficie d'une attention personnalisée et de services innovants."
+      "footerBar": {
+        "copyright": "&copy; <span class=\"current-year\"></span> Banque Propulsée Par <a href=\"https://bfigroupe.com/\" target=\"_blank\" class=\"colorban\">Groupe BFI</a>",
+        "socialMedia": {
+          "facebook": "https://www.facebook.com/bfigoupe",
+          "twitter": "#!",
+          "youtube": "#!",
+          "linkedin": "https://www.linkedin.com/company/bfigroupe/mycompany/"
         }
+      }
+    },
+    "offers": {
+      "title1":"Approbations Rapides",
+      "title2":"300 000 Clients",
+      "title3":"Paiements Flexibles",
+      "title4":"Pas de Frais de Remboursement Anticipé"
+    },
+
+    "loanPacks": [
+      {
+        "name": "Prêt Personnel",
+        "interestRate": "10,75%",
+        "image": "../../../assets/img/service/services-1.jpg",
+        "description": "Coût Faible",
+        "applyLink": "#!"
       },
-      "applicationProcess": {
-        "title": "Processus d'adhésion",
-        "subheading": "Notre processus d'adhésion se déroule en 4 étapes simples" ,
-        "btn" : "Appliquer Maintenant",
-         "steps" :{
-          "online" :{
-            "step": "Appliquer en ligne",
-            "description": "Découvrez la commodité de créer votre compte d’un simple clic, éliminant ainsi le besoin de vous rendre dans une agence bancaire."
+      {
+        "name": "Prêt d'Entreprise",
+        "interestRate": "11,65%",
+        "image": "../../../assets/img/service/services-2.jpg",
+        "description": "Taux d'Intérêt le Plus Bas",
+        "applyLink": "#!"
+      },
+      {
+        "name": "Prêt Immobilier",
+        "interestRate": "7,75%",
+        "image": "../../../assets/img/service/services-3.jpg",
+        "description": "Taux d'Intérêt",
+        "applyLink": "#!"
+      },
+      {
+        "name": "Prêt Étudiant",
+        "interestRate": "5,15%",
+        "image": "../../../assets/img/service/services-4.jpg",
+        "description": "Coût Faible",
+        "applyLink": "#!"
+      }
+    ],
+    "partners": {
+      "title":"Nos partenaires",
+      "subheading":"Rencontrez Nos Partenaires Bancaires!",
+      "partner1" :{
+        "name": "STB Bank",
+        "role": "Société Tunisienne de Banque",
+        "testimonial": "STB Bank Tunisie se distingue par son excellence dans la fourniture de solutions financières sur mesure répondant à des besoins divers. Faites confiance à STB en tant que partenaire pour naviguer dans les complexités de la finance, où chaque décision est guidée par un engagement envers votre réussite et votre prospérité."
+      },
+      "partner2" :{
+        "name": "MicroCred",
+        "role": "Baobab Tunisie",
+        "testimonial": "Baobab offre ses services principalement à des particuliers, des micros et petites entreprises en Afrique et en Chine. Sa mission est d’offrir  des services financiers (micro crédits) simples et faciles d’utilisation."
+      },
+      "partner3" :{
+        "name": "BIAT Bank",
+        "role": "Banque Internationale Arabe de Tunisie",
+        "testimonial": "BIAT Tunisie se distingue en proposant des solutions financières complètes et parfaitement adaptées aux divers besoins. Avec un dévouement sans faille à la fiabilité et à la satisfaction de ses clients, BIAT veille à ce que chaque interaction bénéficie d'une attention personnalisée et de services innovants."
+      }
+    },
+    "applicationProcess": {
+      "title": "Processus d'adhésion",
+      "subheading": "Notre processus d'adhésion se déroule en 4 étapes simples" ,
+      "btn" : "Appliquer Maintenant",
+       "steps" :{
+        "online" :{
+          "step": "Appliquer en ligne",
+          "description": "Découvrez la commodité de créer votre compte d’un simple clic, éliminant ainsi le besoin de vous rendre dans une agence bancaire."
+        },
+        "form" :{
+          "step": "Remplir le formulaire",
+          "description": "Remplissez le formulaire en ligne avec les détails essentiels."
+        },
+        "submit" :{
+          "step": "Soumettre le formulaire",
+          "description": "Soumettez en toute sécurité votre formulaire complété en un seul clic."
+        },
+        "approve" :{
+          "step": "Obtenir l'approbation",
+          "description": "Attendez-vous à une approbation rapide une fois votre soumission reçue."
+        }
+    }},
+      "services_component": {
+          "whatWeOffer": "nos offres",
+          "accomplishYourGoals": "Vous pouvez atteindre vos objectifs financiers.",
+          "loanDescription": "Nos banques offrent des comptes sur mesure pour répondre à divers besoins financiers: des comptes personnels pour les particuliers, comptes professionnels pour les entreprises et comptes éducatifs pour les étudiants.",
+          "personalLoan": {
+            "title": "Compte Personnel",
+            "description": "Un compte personnel offre des solutions bancaires polyvalentes sans nécessiter de garantie, offrant aux particuliers un accès pratique aux services financiers.",
+            "readMore": "En savoir plus"
           },
-          "form" :{
-            "step": "Remplir le formulaire",
-            "description": "Remplissez le formulaire en ligne avec les détails essentiels."
+          "educationLoan": {
+            "title": "Compte Educatif",
+            "description": "Un compte éducatif répond aux besoins financiers uniques des étudiants, en leur fournissant des services et des avantages spécialisés pour soutenir leurs efforts académiques sans compromettre leur stabilité financière.",
+            "readMore": "En savoir plus"
           },
-          "submit" :{
-            "step": "Soumettre le formulaire",
-            "description": "Soumettez en toute sécurité votre formulaire complété en un seul clic."
-          },
-          "approve" :{
-            "step": "Obtenir l'approbation",
-            "description": "Attendez-vous à une approbation rapide une fois votre soumission reçue."
+          "businessLoan": {
+            "title": "Compte Professionnel",
+            "description": "Un compte professionnel offre des solutions financières sur mesure aux entreprises, leur permettant de bénéficier de services bancaires spécialisés pour soutenir leur croissance et leurs opérations.",
+            "readMore": "En savoir plus"
           }
-      }},
-        "services_component": {
-            "whatWeOffer": "nos offres",
-            "accomplishYourGoals": "Vous pouvez atteindre vos objectifs financiers.",
-            "loanDescription": "Nos banques offrent des comptes sur mesure pour répondre à divers besoins financiers: des comptes personnels pour les particuliers, comptes professionnels pour les entreprises et comptes éducatifs pour les étudiants.",
-            "personalLoan": {
-              "title": "Compte Personnel",
-              "description": "Un compte personnel offre des solutions bancaires polyvalentes sans nécessiter de garantie, offrant aux particuliers un accès pratique aux services financiers.",
-              "readMore": "En savoir plus"
+        },
+        "topbar_component": {
+          "home": "A Propos",
+          "pages":{
+            "aboutUs": "À propos de nous",
+            "howItWorks": "Comment ça marche",
+            "testimonials": "Témoignages",
+            "team": "Équipe",
+            "portfolio": {
+              "title": "Portfolio",
+              "portfolio1": "Portfolio 1",
+              "portfolio2": "Portfolio 2",
+              "portfolioDetails": "Détails du portfolio"
             },
-            "educationLoan": {
-              "title": "Compte Educatif",
-              "description": "Un compte éducatif répond aux besoins financiers uniques des étudiants, en leur fournissant des services et des avantages spécialisés pour soutenir leurs efforts académiques sans compromettre leur stabilité financière.",
-              "readMore": "En savoir plus"
-            },
-            "businessLoan": {
-              "title": "Compte Professionnel",
-              "description": "Un compte professionnel offre des solutions financières sur mesure aux entreprises, leur permettant de bénéficier de services bancaires spécialisés pour soutenir leur croissance et leurs opérations.",
-              "readMore": "En savoir plus"
-            }
+            "faq": "FAQ",
+            "page404": "404 Page"
           },
-          "topbar_component": {
-            "home": "A Propos",
-            "pages":{
-              "aboutUs": "À propos de nous",
-              "howItWorks": "Comment ça marche",
-              "testimonials": "Témoignages",
-              "team": "Équipe",
-              "portfolio": {
-                "title": "Portfolio",
-                "portfolio1": "Portfolio 1",
-                "portfolio2": "Portfolio 2",
-                "portfolioDetails": "Détails du portfolio"
-              },
-              "faq": "FAQ",
-              "page404": "404 Page"
-            },
-            "services": {
-              "services": "Actionnaires",
-              "personalLoan": "Prêt personnel",
-              "businessLoan": "Prêt d'entreprise",
-              "homeLoan": "Prêt immobilier",
-              "educationLoan": "Prêt étudiant"
-            },
-            "elements": "Services",
-            "blog": "Blog",
-            "contactUs": "Contactez-nous",
-            "smallBtn" :"Devenir Client"
-          }       
-    }
+          "services": {
+            "services": "Actionnaires",
+            "personalLoan": "Prêt personnel",
+            "businessLoan": "Prêt d'entreprise",
+            "homeLoan": "Prêt immobilier",
+            "educationLoan": "Prêt étudiant"
+          },
+          "elements": "Services",
+          "blog": "Blog",
+          "contactUs": "Contactez-nous",
+          "smallBtn" :"Devenir Client"
+        }       
   }
-  
+}

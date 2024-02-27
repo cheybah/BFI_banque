@@ -46,7 +46,6 @@ label {
 }
 
 input[type="text"],
-input[type="tel"],
 select {
     width: calc(100% - 10px);
     padding: 8px;

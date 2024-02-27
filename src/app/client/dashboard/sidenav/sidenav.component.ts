@@ -1,67 +1,77 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { navbarData } from './nav-data';
-import { animate, animation, keyframes, style, transition, trigger } from '@angular/animations';
+import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 
-interface SidenavToggle{
-
-  screenWidth :number;
+interface SidenavToggle {
+  screenWidth: number;
   collapsed: boolean;
 }
+
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css'],
-  animations :[
-    trigger('fadeInOut',[
-      transition(':enter',[
-        style({opacity : 0}),
-        animate('350ms',
-          style({opacity:1})
-        )
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('350ms', style({ opacity: 1 }))
       ]),
-      transition(':leave',[
-        style({opacity : 0}),
-        animate('350ms',
-          style({opacity:1})
-        )
+      transition(':leave', [
+        style({ opacity: 0 }),
+        animate('350ms', style({ opacity: 1 }))
       ])
     ]),
-    trigger('rotate',[
-      transition(':enter',[
-        animate('1000ms',
-          keyframes([
-            style({transform: 'rotate(0deg)',offset:'0'}),
-            style({transform: 'rotate(2turn)',offset:'1'})
-          ]))
+    trigger('rotate', [
+      transition(':enter', [
+        animate('1000ms', keyframes([
+          style({ transform: 'rotate(0deg)', offset: '0' }),
+          style({ transform: 'rotate(2turn)', offset: '1' })
+        ]))
       ])
     ])
   ]
 })
 export class SidenavComponent implements OnInit {
+  activeItemIndex: number = 0; // Commencez à partir de la première étape
+  screenWidth = 0;
+  collapsed = false;
+  navData = navbarData;
 
-  @Output() onToggleSideNav : EventEmitter<SidenavToggle>=new EventEmitter();
-  collapsed=false;
-  screenWidth=0;
-  navData=navbarData;
+  @Output() onToggleSideNav: EventEmitter<SidenavToggle> = new EventEmitter();
 
-  @HostListener('window:resize',['$event'])
-  onReceize(event:any){
-    this.screenWidth=window.innerWidth;
-    if(this.screenWidth<=900){
-      this.collapsed=false;
-      this.onToggleSideNav.emit({collapsed:this.collapsed,screenWidth:this.screenWidth});
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.screenWidth = window.innerWidth;
+    if (this.screenWidth <= 900) {
+      this.collapsed = false;
+      this.onToggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
     }
   }
+
   ngOnInit(): void {
-    this.screenWidth=window.innerWidth;
-    }
-
-  toggleCollapse():void{
-    this.collapsed=!this.collapsed;
-    this.onToggleSideNav.emit({collapsed: this.collapsed,screenWidth: this.screenWidth});
+    this.screenWidth = window.innerWidth;
   }
-  closeSidenav():void{
-    this.collapsed=false;
-    this.onToggleSideNav.emit({collapsed: this.collapsed,screenWidth: this.screenWidth});
+
+  toggleCollapse(): void {
+    this.collapsed = !this.collapsed;
+    this.onToggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
+  }
+
+  closeSidenav(): void {
+    this.collapsed = false;
+    this.onToggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
+  }
+
+  // Fonction pour définir l'étape active
+  setActiveItem(index: number): void {
+    if (index <= this.activeItemIndex + 1) { // Vérifiez si l'utilisateur peut accéder à cette étape
+      this.activeItemIndex = index;
+    }
+  }
+
+  // Fonction pour vérifier si l'étape est accessible ou non
+  isAccessible(index: number): boolean {
+    return index <= this.activeItemIndex + 1;
   }
 }

@@ -14,6 +14,7 @@ import { CounterComponent } from './counter/counter.component';
 import { DetailsComponent } from './details/details.component';
 import { PacksComponent } from './packs/packs.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -39,7 +40,8 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    TranslateModule
+    TranslateModule,
+    FormsModule
   ]
 })
 export class HomeModule { }

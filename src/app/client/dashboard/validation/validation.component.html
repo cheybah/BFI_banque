@@ -7,7 +7,6 @@
             <h4>Entrez votre email</h4>
             <div class="col-12">
             <input type="text" id="email1" placeholder="user@domain.com" [(ngModel)]="email">
-            
             <div class="otpverify" [style.display]="otpVerifyDisplay">
                 <input type="text" id="otp_inp" placeholder="Enter the OTP sent to your Email..." [(ngModel)]="otpInput">
                 <button class="butn" (click)="verifyOTP()">vérifier</button>

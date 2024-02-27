@@ -95,8 +95,30 @@ margin-bottom: 0.625rem;
 }
 .active{
 background-color: #fff;
+border-radius: 0.625rem;
+
 .sidenav-link-icon,
 .sidenav-link-text{
 color: #000;
 }
 }
+.sidenav-nav-item.visited {
+    background-color: #fff; /* Fond blanc pour les sections visitées */
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    text-decoration: none;
+    border-radius: 0.625rem;
+    transition: all .3s ease;
+    .sidenav-link-text{
+        color: #000; /* Texte noir pour les sections visitées */
+    }
+    .sidenav-link-icon{
+         color: #000;
+    }
+}
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  
