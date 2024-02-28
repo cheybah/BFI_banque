@@ -1,5 +1,6 @@
-import {Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 declare let Email: any;
 
@@ -29,7 +30,7 @@ export class ValidationComponent {
         }).then(
             ( message: string) => {
                 if (message === "OK") {
-                    alert("OTP sent to your email " + this.email);
+                    this.showSuccessAlert("OTP sent to your email " + this.email);
                     this.otpVerifyDisplay = "flex";
                 }
             }
@@ -38,11 +39,32 @@ export class ValidationComponent {
 
     verifyOTP() {
         if (this.otpInput === this.otpValue.toString()) {
-            alert("Email address verified...");
+            this.showSuccessAlert("Email address verified...");
             this.router.navigate(['/welcome']);
-
         } else {
-            alert("Invalid OTP");
+            this.showErrorAlert("Invalid OTP");
         }
+    }
+
+    // Fonction pour afficher une alerte de succès
+    showSuccessAlert(message: string): void {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: message,
+            confirmButtonColor:  '#B48F44',
+            timer: 3000 
+        });
+    }
+
+    // Fonction pour afficher une alerte d'erreur
+    showErrorAlert(message: string): void {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: message,
+            confirmButtonColor:  '#B48F44',
+            timer: 3000
+        });
     }
 }
