@@ -5,6 +5,7 @@ import { AdresseService } from '../../../services/adresse.service';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
 import { NgForm } from '@angular/forms';
+import { navbarData } from '../sidenav/nav-data';
 
 @Component({
   selector: 'app-adresse',
@@ -14,6 +15,8 @@ import { NgForm } from '@angular/forms';
 
 
 export class AdresseComponent {
+  navData = navbarData;
+
   @ViewChild('addressForm') addressForm!: NgForm;
 
   address: Address = { country: '', city: '', neighbourhood: '', zipCode: '' }; // Initialize address object
@@ -65,7 +68,7 @@ export class AdresseComponent {
             const newCenter = L.latLng(coordonnees.lat, coordonnees.lon);
             this.map.setView(newCenter, 6); // Zoom and center the map
         } else {
-            console.log("Coordonnées non trouvées pour le country saisi");
+            console.log("Coordonnées non trouvées pour le pays saisi");
         }
     }  
 }
@@ -164,17 +167,27 @@ async getCountryCoordinates(country: string): Promise<{ lat: number, lon: number
   }
 }
 
-Retour(): void {
-  this.router.navigate(['/dash/informations-personelles']);
+Retour(currentRoute: string): void {
+  const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
+  if (currentIndex >= 0) {
+    this.navData[currentIndex].visited = false;
+  }
+  window.history.back();
 }
 
-Suivant(): void {
+Suivant(currentRoute: string): void{
   if (this.addressForm && this.addressForm.valid) {
     this.saveAddress(this.addressForm);
-    this.router.navigate(['/dash/autres-informations']);
   } else {
     console.error('Form is invalid or addressForm is not initialized.');
   }
+  const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
+  if (currentIndex < this.navData.length - 1) {
+    this.navData[currentIndex].visited = true;
+    const nextComponent = this.navData[currentIndex ].routeLink;
+    this.router.navigate(['/dash/' + nextComponent]);
+  }
+
 }
 
 }

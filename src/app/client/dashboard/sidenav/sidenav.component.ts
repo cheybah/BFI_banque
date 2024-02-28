@@ -63,15 +63,4 @@ export class SidenavComponent implements OnInit {
     this.onToggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
   }
 
-  // Fonction pour définir l'étape active
-  setActiveItem(index: number): void {
-    if (index <= this.activeItemIndex + 1) { // Vérifiez si l'utilisateur peut accéder à cette étape
-      this.activeItemIndex = index;
-    }
-  }
-
-  // Fonction pour vérifier si l'étape est accessible ou non
-  isAccessible(index: number): boolean {
-    return index <= this.activeItemIndex + 1;
-  }
 }
