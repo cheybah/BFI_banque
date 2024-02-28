@@ -7605,10 +7605,12 @@ textarea.form-control-lg {
 }
 
 .text-start {
+    margin-top: 15px !important;
     text-align: left !important
 }
 
 .text-end {
+    margin-top: 15px !important;
     text-align: right !important
 }
 
@@ -25175,11 +25177,16 @@ section.md {
 }
 .banner12{
     background-image: url("../img/banner/slide2.png")!important;
-
 }
+
+.banner13{
+    background-image: url("../img/banner/slide3.jpg")!important;
+}
+
 .banner2{
     background-image: url("../img/bg/bg-01.jpg")!important;
 }
+
 .banner3{
     background-image: url("../img/bg/bg-05.jpg")!important;
 }

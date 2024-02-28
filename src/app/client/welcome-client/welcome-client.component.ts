@@ -47,9 +47,9 @@ export class WelcomeClientComponent {
 
 
   ngOnInit(): void {
-    this.axiosService.request(  //test the messagescontroller to see if the user is authenticated
+    this.axiosService.request(  
         "GET",
-        "/messages", //replace this with the correct endpoint
+        "", // Pass an empty string as the endpoint
         {}).then(
         (response) => { //if the user is authenticated, the server will return the messages
             this.data = response.data;
@@ -60,7 +60,7 @@ export class WelcomeClientComponent {
             } else {
                 this.data = error.response.code;
             }
-
+  
         }
     );
   }

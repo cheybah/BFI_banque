@@ -11,6 +11,20 @@ export class AdresseService {
 
   private apiUrl = 'http://localhost:8080/dash/adresse'; // Update the URL according to your backend endpoint
 
+  private temporaryAddressData: any;
+
+  setTemporaryAddressData(data: any): void {   //to store the data from informations form in the temporaryData variable
+    this.temporaryAddressData = data;
+  }
+
+  getTemporaryAddressData(): any { //to get the data from the temporaryData variable
+    return this.temporaryAddressData;
+  }
+
+  clearTemporaryAddressData(): void {
+    this.temporaryAddressData = null; // Reset temporary data to null
+  }
+
   constructor(private http: HttpClient) { }
 
   getAllAddresses(): Observable<Address[]> {
@@ -28,4 +42,5 @@ export class AdresseService {
   updateAddress(id: number, address: Address): Observable<Address> {
     return this.http.put<Address>(`${this.apiUrl}/${id}`, address);
   }
+
 }
