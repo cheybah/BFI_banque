@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { OffresDomiciliationService } from '../../../services/offres-domiciliation.service';
+import { navbarData } from '../sidenav/nav-data';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { OffresDomiciliationService } from '../../../services/offres-domiciliati
   styleUrls: ['./offres-et-domicialisation.component.css']
 })
 export class OffresEtDomicialisationComponent {
+  navData = navbarData;
 
   offerForm: FormGroup;
 
@@ -99,11 +101,16 @@ selectPack(packName: string, description: string) {
     return this.selectedCompte === value;
   }
 
-  Retour() {
-    this.router.navigate(['/dash/autres-informations']);
+  Retour(currentRoute: string): void {
+    const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
+    if (currentIndex >= 0) {
+      this.navData[currentIndex].visited = false;
+    }
+    window.history.back();
   }
+  
 
-  Suivant() {
+  Suivant(currentRoute: string): void{
     console.log('Account Offer to be saved:', this.offerForm.value); // Log the account offer object
     this.offresDomiciliationService.saveAccountOffer(this.offerForm.value)
       .subscribe(
@@ -116,6 +123,12 @@ selectPack(packName: string, description: string) {
           // Handle error appropriately
         }
       );
+      const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
+    if (currentIndex < this.navData.length - 1) {
+      this.navData[currentIndex].visited = true;
+      const nextComponent = this.navData[currentIndex].routeLink;
+      this.router.navigate(['/dash/' + nextComponent]);
+    }
   }
 
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutresInformationsService } from '../../../services/autres-informations.service';
+import { navbarData } from '../sidenav/nav-data';
 
 @Component({
   selector: 'app-autres-informations',
@@ -9,7 +10,8 @@ import { AutresInformationsService } from '../../../services/autres-informations
   styleUrls: ['./autres-informations.component.css']
 })
 export class AutresInformationsComponent {
-  
+  navData = navbarData;
+
   infoForm: FormGroup;
   today: Date = new Date();
 
@@ -46,17 +48,28 @@ saveAdditionalInfo(): void {
   }
 }
 
-Retour(){
-  this.router.navigate(['/dash/adresse']); // Replace '/adresse' with the actual route path of your "Adresse" component
+Retour(currentRoute: string): void {
+  const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
+  if (currentIndex >= 0) {
+    this.navData[currentIndex].visited = false;
+  }
+  window.history.back();
 }
 
-Suivant(): void {
+
+Suivant(currentRoute: string): void {
   if (this.infoForm && this.infoForm.valid) {
     const formData: FormGroup = this.infoForm; // Get the form group
     this.saveAdditionalInfo(); // Pass the form values to saveAdditionalInfo method
-    this.router.navigate(['/dash/offres-et-domicialisation']);
   } else {
     console.error('Form is invalid or addressForm is not initialized.');
+  
+}
+const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
+  if (currentIndex < this.navData.length - 1) {
+    this.navData[currentIndex].visited = true;
+    const nextComponent = this.navData[currentIndex ].routeLink;
+    this.router.navigate(['/dash/' + nextComponent]);
   }
 }
 }
