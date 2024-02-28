@@ -2,6 +2,7 @@ import { Component , OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { OffresDomiciliationService } from '../../../services/offres-domiciliation.service';
+import { navbarData } from '../sidenav/nav-data';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { OffresDomiciliationService } from '../../../services/offres-domiciliati
   styleUrls: ['./offres-et-domicialisation.component.css']
 })
 export class OffresEtDomicialisationComponent implements OnInit{
-
+  navData = navbarData;
   offerForm: FormGroup;
 
   constructor(private router: Router,
@@ -101,25 +102,32 @@ selectPack(packName: string, description: string) {
     return this.selectedCompte === value;
   }
 
-  Retour() {
-    this.router.navigate(['/dash/autres-informations']);
+  Retour(currentRoute: string): void {
+    const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
+    if (currentIndex >= 0) {
+      this.navData[currentIndex].visited = false;
+    }
+    window.history.back();
+  }
+  
+Suivant(currentRoute: string): void {
+  if (this.offerForm && this.offerForm.valid) {
+    const formData = this.offerForm.value;
+    // Instead of directly saving to the backend, store in temporary storage
+    this.offresDomiciliationService.setTemporaryOffersData(formData);
+    // Log the temporary saved data
+    console.log('Temporary data saved:', formData);
+  } else {
+    console.error('Form is invalid or offerForm is not initialized.');
+    return; // Exit the method if form is invalid or not initialized
   }
 
-  Suivant(): void {
-    if (this.offerForm && this.offerForm.valid) {
-      const formData = this.offerForm.value;
-      
-      // Instead of directly saving to the backend, store in temporary storage
-      this.offresDomiciliationService.setTemporaryOffersData(formData);
-  
-      // Log the temporary saved data
-      console.log('Temporary data saved:', formData);
-  
-      // Navigate to the next step
-      this.router.navigate(['/dash/conditions-generales']);
-    } else {
-      console.error('Form is invalid or offerForm is not initialized.');
-    }
-  }  
+  const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
+  if (currentIndex < this.navData.length - 1) {
+    this.navData[currentIndex].visited = true;
+    const nextComponent = this.navData[currentIndex + 1].routeLink; // Increment index to get the next component
+    this.router.navigate(['/dash/' + nextComponent]);
+  }
+}
 
 }

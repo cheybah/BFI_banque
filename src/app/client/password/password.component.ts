@@ -1,8 +1,8 @@
-
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from "@angular/router";
 import { AxiosService } from 'src/app/services/axios.service';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 
 declare let Email: any;
@@ -36,10 +36,10 @@ export class PasswordComponent  implements OnInit {
   }
  
 
-
   onSubmitReset(){
     if (!this.emailreset) {
-      alert("Veuillez saisir une adresse e-mail.");
+      // Utiliser une alerte stylisée
+      this.showAlert("Veuillez saisir une adresse e-mail.");
       return;
     }
     this.http.get<any>(`http://localhost:8080/check-email?email=${this.emailreset}`).subscribe(
@@ -49,7 +49,7 @@ export class PasswordComponent  implements OnInit {
           this.sendResetLink();
         } else {
           // Afficher un message d'erreur à l'utilisateur
-          alert("L'adresse e-mail n'existe pas.");
+          this.showAlert("L'adresse e-mail n'existe pas.");
         }
       },
       (error: any) => {
@@ -71,12 +71,12 @@ export class PasswordComponent  implements OnInit {
     }).then(
         ( message: string) => {
             if (message === "OK") {
-                alert("Lien de réinitialisation envoyé à votre email : " + this.emailreset);
+                // Utiliser une alerte stylisée
+                this.showAnimatedAlert("Lien de réinitialisation envoyé à votre email : " + this.emailreset);
             }
         }
-    );  }
-
-
+    );  
+  }
 
   getCurrentYear(): void {
     this.currentYear = new Date().getFullYear();
@@ -84,5 +84,26 @@ export class PasswordComponent  implements OnInit {
 
   goToHome(): void {
     this.router.navigate(['/homepage']);
+  }
+
+  showAlert(message: string): void {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: message,
+      confirmButtonColor:  '#B48F44',
+      timer: 3000
+  });  }
+
+  // Fonction pour afficher une alerte animée
+  showAnimatedAlert(message: string): void {
+ 
+    Swal.fire({
+      icon: 'success',
+      title: 'Succès!',
+      text: message,
+      confirmButtonColor:  '#B48F44',
+      timer: 3000 
+    });
   }
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { CountryISO  } from 'ngx-intl-tel-input';
 import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { navbarData } from '../sidenav/nav-data';
 
 
 function noNumbersValidator(): ValidatorFn {
@@ -53,11 +54,13 @@ export class InformationsComponent implements OnInit{
   }
 
 
+  navData = navbarData;
+
   Retour(){
     this.router.navigate(['/dash/']); 
   }
 
-  Suivant() {
+  Suivant(currentRoute: string): void {
     // Check if informationForm is initialized and is valid
     if (this.informationForm?.valid) {
       // Extracting the formatted phone number from the phoneNumber FormControl
@@ -72,10 +75,6 @@ export class InformationsComponent implements OnInit{
         // Set temporary data for registration
         this.authService.setTemporaryRegisterData(this.informationForm.value);
         console.log('Temporary data saved:', this.informationForm.value); // Log the saved temporary data
-  
-        // Proceed to the next form or any other actions
-        // For example, navigate to the authentication form
-        this.router.navigate(['/dash/adresse']);
       } else {
         console.error('Phone number is null or undefined.');
         // Handle null or undefined phone number
@@ -84,6 +83,14 @@ export class InformationsComponent implements OnInit{
       console.error('Form is invalid or informationForm is not initialized.');
       // Handle invalid form or uninitialized informationForm
     }
+
+    const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
+    if (currentIndex < this.navData.length - 1) {
+      this.navData[currentIndex].visited = true;
+      const nextComponent = this.navData[currentIndex ].routeLink;
+      this.router.navigate(['/dash/' + nextComponent]);
+    }
+
   }
   
   

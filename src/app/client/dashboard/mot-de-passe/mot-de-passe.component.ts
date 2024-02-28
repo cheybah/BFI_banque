@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
+import { navbarData } from '../sidenav/nav-data';
 
 
 
@@ -13,6 +14,7 @@ import { AuthService } from '../../../services/auth.service';
 export class MotDePasseComponent {
 
   authForm: FormGroup;
+  navData = navbarData;
 
 
   constructor(private router: Router,
@@ -24,7 +26,7 @@ export class MotDePasseComponent {
       });
     }
 
-    Suivant() {
+    Suivant(currentRoute: string): void{
       // Get the temporary data from the first form
       const temporaryData = this.authService.getTemporaryRegisterData();
       console.log('Temporary data:', temporaryData); // Log the temporary data for debugging
@@ -46,6 +48,13 @@ export class MotDePasseComponent {
         console.error('Temporary data not found.');
         // Handle missing temporary data
       }
+    
+      const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
+        this.navData[currentIndex].visited = true;
+        const nextComponent = this.navData[currentIndex ].routeLink;
+        this.router.navigate(['/dash/' + nextComponent]);
+      
+
     }
     
     

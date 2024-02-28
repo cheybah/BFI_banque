@@ -1,10 +1,10 @@
-import {Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service'; // Import the AuthService to access temporary stored data
 import { AdresseService } from '../../../services/adresse.service'; // Import the AdresseService to access temporary stored data
 import { AutresInformationsService } from '../../../services/autres-informations.service'; // Import the AutresInformationsService to access temporary stored data
 import { OffresDomiciliationService } from '../../../services/offres-domiciliation.service'; // Import the OffresDomiciliationService to access temporary stored data
-
+import Swal from 'sweetalert2';
 
 declare let Email: any;
 
@@ -45,7 +45,7 @@ export class ValidationComponent {
         }).then(
             ( message: string) => {
                 if (message === "OK") {
-                    alert("OTP sent to your email " + this.email);
+                    this.showSuccessAlert("OTP sent to your email " + this.email);
                     this.otpVerifyDisplay = "flex";
 
                     // Enable countdown and disable resend button
@@ -73,9 +73,7 @@ export class ValidationComponent {
     }
 
     verifyOTP() {
-        if (this.otpInput === this.otpValue.toString()) {
-            alert("Votre email a été vérifié avec succès!");
-            
+        if (this.otpInput === this.otpValue.toString()) {            
             // Retrieve all the forms data from temporary storage
             const combinedData = this.authService.getTemporaryRegisterData();
             const additionalInfoData = this.autresInformationsService.getTemporaryAdditionalInfoData();
@@ -126,11 +124,33 @@ export class ValidationComponent {
                 this.offresDomiciliationService.clearTemporaryOffersData();
                 this.adresseService.clearTemporaryAddressData();
             }
+            this.showSuccessAlert("Email address verified...");
 
             this.router.navigate(['/welcome']);
-
         } else {
-            alert("Invalid OTP");
+            this.showErrorAlert("Invalid OTP");
         }
+    }
+
+    // Fonction pour afficher une alerte de succès
+    showSuccessAlert(message: string): void {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: message,
+            confirmButtonColor:  '#B48F44',
+            timer: 3000 
+        });
+    }
+
+    // Fonction pour afficher une alerte d'erreur
+    showErrorAlert(message: string): void {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: message,
+            confirmButtonColor:  '#B48F44',
+            timer: 3000
+        });
     }
 }
