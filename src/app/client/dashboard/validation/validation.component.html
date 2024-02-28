@@ -4,16 +4,24 @@
     </div>
     <div class="card-body">
         <div class="form">
-            <h4>Entrez votre email</h4>
             <div class="col-12">
-            <input type="text" id="email1" placeholder="user@domain.com" [(ngModel)]="email">
-            <div class="otpverify" [style.display]="otpVerifyDisplay">
-                <input type="text" id="otp_inp" placeholder="Enter the OTP sent to your Email..." [(ngModel)]="otpInput">
-                <button class="butn" (click)="verifyOTP()">vérifier</button>
-            </div>
-            <div class="col-md-12">
-            <button class="btn btn-secondary butn" (click)="sendOTP()">Envoyer OTP</button>
-            </div>
+                <input type="text" id="email1" placeholder="user@domain.com" [(ngModel)]="email">
+                <div class="otpverify" [style.display]="otpVerifyDisplay">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" id="otp_inp" class="form-control" placeholder="Entrer OTP" [(ngModel)]="otpInput">
+                        </div>
+                        <div class="col-auto align-self-center">
+                            <button class="btn btn-secondary butn" (click)="verifyOTP()">Vérifier</button>
+                        </div>
+                    </div>
+                </div>                
+                <div class="col-md-12">
+                    <button class="btn btn-secondary butn" (click)="sendOTP()" [disabled]="resendButtonDisabled">{{ resendButtonText }}</button>
+                    <div *ngIf="showCountdown && countdown > 0" class="alert alert-danger">
+                        Vous pouvez re-enovyer le code OTP dans {{ countdown }} secondes
+                    </div>
+                 </div>
             </div>
         </div>
     </div>

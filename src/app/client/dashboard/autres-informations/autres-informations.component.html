@@ -4,7 +4,7 @@
     </div>
 
     <div class="card-body">
-        <form [formGroup]="infoForm" class="row g-3" (ngSubmit)="saveAdditionalInfo()">
+        <form [formGroup]="infoForm" class="row g-3" (ngSubmit)="saveAdditionalInfo(infoForm)">
             <div class="col-12">
                 <label for="typeIndividual">Type de particulier</label><span class="required">*</span>
 
@@ -31,19 +31,19 @@
             </div>
             
             <div class="col-4">
-                <label for="pieceType">Type de la pièce </label><span class="required">*</span>               
+                <label for="pieceType">Type de la pièce</label><span class="required">*</span>               
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-card-list"></i></span>
                     <select id="type_particulier" name="type_particulier" formControlName="pieceType" class="form-select">
                         <option value="" disabled selected>Veuillez choisir le type de la pièce</option>
-                        <option value="sect_prv">Carte d'identité nationale</option>
-                        <option value="sect_eta">Passeport</option>
+                        <option value="CIN">Carte d'identité nationale</option>
+                        <option value="PASSPORT">Passeport</option>
                   </select>  
                 </div>   
             </div>
             
             <div class="col-4">
-                <label for="pieceNumber">Numéro de la pièce </label><span class="required">*</span>
+                <label for="pieceNumber">Numéro de la pièce</label><span class="required">*</span>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-file-text"></i></span>
                     <input type="text" id="pieceNumber" name="pieceNumber" formControlName="pieceNumber" required  pattern="[0-9]*" class="form-control" >

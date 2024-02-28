@@ -212,10 +212,6 @@
                 delay: 25,
                 time: 2e3
             }),
-            e(".countdown").countdown({
-                date: "01 Jan 2024 00:01:00",
-                format: "on"
-            }),
             e(".calculator-loan").accrue()
         }),
         t.on("load", function() {

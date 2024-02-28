@@ -1,4 +1,4 @@
-import { Component  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { CountryISO  } from 'ngx-intl-tel-input';
@@ -17,7 +17,7 @@ function noNumbersValidator(): ValidatorFn {
   templateUrl: './informations.component.html',
   styleUrls: ['./informations.component.css']
 })
-export class InformationsComponent  {
+export class InformationsComponent implements OnInit{
 
   informationForm: FormGroup;
   selectedCountryISO: CountryISO = CountryISO.Tunisia; // Initialize with Tunisia as default country
@@ -39,13 +39,18 @@ export class InformationsComponent  {
     });
   }
 
+  ngOnInit(): void {
+    const storedInfoData = this.authService.getTemporaryRegisterData();
+    if (storedInfoData) {
+      this.informationForm.patchValue(storedInfoData);
+    }
+  }
+
 
  isFormValid(): boolean { //to check if the form is valid
   const form = document.querySelector('.needs-validation') as HTMLFormElement;
   return form.checkValidity();
   }
-
-
 
 
   Retour(){
@@ -65,7 +70,7 @@ export class InformationsComponent  {
         // Update the phoneNumber field in the form value object
         this.informationForm.patchValue({ phoneNumber: formattedPhoneNumber });  
         // Set temporary data for registration
-        this.authService.setTemporaryData(this.informationForm.value);
+        this.authService.setTemporaryRegisterData(this.informationForm.value);
         console.log('Temporary data saved:', this.informationForm.value); // Log the saved temporary data
   
         // Proceed to the next form or any other actions

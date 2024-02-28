@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { OffresDomiciliationService } from '../../../services/offres-domiciliation.service';
@@ -9,7 +9,7 @@ import { OffresDomiciliationService } from '../../../services/offres-domiciliati
   templateUrl: './offres-et-domicialisation.component.html',
   styleUrls: ['./offres-et-domicialisation.component.css']
 })
-export class OffresEtDomicialisationComponent {
+export class OffresEtDomicialisationComponent implements OnInit{
 
   offerForm: FormGroup;
 
@@ -22,24 +22,26 @@ export class OffresEtDomicialisationComponent {
         packType : [null, Validators.required]
       });
      }
+
+     ngOnInit(): void {
+      const storedOffersData = this.offresDomiciliationService.getTemporaryOffersData();
+      if (storedOffersData) {
+        this.offerForm.patchValue(storedOffersData);
+      }
+    }
   
   comptes = [
     { label: 'Courant', value: 'COURANT', packs: [
       { name: 'PACK_ACTIVIA', description: 'L\'offre jeune vous accompagne dans votre expérience bancaire.<br>- Dépôt initial (13 000 XAF)<br>- Dépôt /Retrait via Mobile Money<br>- Carte visa prépayée<br>- Online Banking<br>5950 Fcfa/ mois'}, 
       { name: 'PACK ALTITUDE CLASSIQUE', description: 'Description du PACK ALTITUDE CLASSIQUE' },
-      { name: 'PACK ALTITUDE PRIVILEGE', description: 'Description du PACK ALTITUDE PRIVILEGE' },
-      { name: 'PACK ALTITUDE STANDARD', description: 'Description du PACK ALTITUDE STANDARD' },
-      { name: 'PACK OVA', description: 'Description du PACK OVA' }
+      { name: 'PACK ALTITUDE PRIVILEGE', description: 'Description du PACK ALTITUDE PRIVILEGE' }
     ] },
     { label: 'Epargne', value: 'EPARGNE', packs: [
-      { name: 'PACK ACTIVA', description: 'L\'offre jeune vous accompagne dans votre expérience bancaire.<br>- Dépôt initial (13 000 XAF)<br>- Dépôt /Retrait via Mobile Money<br>- Carte visa prépayée<br>- Online Banking<br>5950 Fcfa/ mois'}, 
-      { name: 'PACK ALTITUDE CLASSIQUE', description: 'Description du PACK ALTITUDE CLASSIQUE' },
-      { name: 'PACK ALTITUDE PRIVILEGE', description: 'Description du PACK ALTITUDE PRIVILEGE' },
       { name: 'PACK ALTITUDE STANDARD', description: 'Description du PACK ALTITUDE STANDARD' },
       { name: 'PACK OVA', description: 'Description du PACK OVA' }
     ] },
     { label: 'Les deux', value: 'LES_DEUX', packs: [
-      { name: 'PACK ACTIVA', description: 'L\'offre jeune vous accompagne dans votre expérience bancaire.<br>- Dépôt initial (13 000 XAF)<br>- Dépôt /Retrait via Mobile Money<br>- Carte visa prépayée<br>- Online Banking<br>5950 Fcfa/ mois'}, 
+      { name: 'PACK_ACTIVIA', description: 'L\'offre jeune vous accompagne dans votre expérience bancaire.<br>- Dépôt initial (13 000 XAF)<br>- Dépôt /Retrait via Mobile Money<br>- Carte visa prépayée<br>- Online Banking<br>5950 Fcfa/ mois'}, 
       { name: 'PACK ALTITUDE CLASSIQUE', description: 'Description du PACK ALTITUDE CLASSIQUE' },
       { name: 'PACK ALTITUDE PRIVILEGE', description: 'Description du PACK ALTITUDE PRIVILEGE' },
       { name: 'PACK ALTITUDE STANDARD', description: 'Description du PACK ALTITUDE STANDARD' },
@@ -103,19 +105,21 @@ selectPack(packName: string, description: string) {
     this.router.navigate(['/dash/autres-informations']);
   }
 
-  Suivant() {
-    console.log('Account Offer to be saved:', this.offerForm.value); // Log the account offer object
-    this.offresDomiciliationService.saveAccountOffer(this.offerForm.value)
-      .subscribe(
-        response => {
-          console.log('Account Offer saved successfully:', response);
-          this.router.navigate(['/dash/conditions-generales']);
-        },
-        error => {
-          console.error('Error occurred while saving account offer:', error);
-          // Handle error appropriately
-        }
-      );
-  }
+  Suivant(): void {
+    if (this.offerForm && this.offerForm.valid) {
+      const formData = this.offerForm.value;
+      
+      // Instead of directly saving to the backend, store in temporary storage
+      this.offresDomiciliationService.setTemporaryOffersData(formData);
+  
+      // Log the temporary saved data
+      console.log('Temporary data saved:', formData);
+  
+      // Navigate to the next step
+      this.router.navigate(['/dash/conditions-generales']);
+    } else {
+      console.error('Form is invalid or offerForm is not initialized.');
+    }
+  }  
 
 }

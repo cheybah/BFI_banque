@@ -1,10 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit  } from '@angular/core';
 import { Router } from '@angular/router';
 import { Address } from '../models/Address';
 import { AdresseService } from '../../../services/adresse.service';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
 import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-adresse',
@@ -13,7 +14,7 @@ import { NgForm } from '@angular/forms';
 })
 
 
-export class AdresseComponent {
+export class AdresseComponent implements OnInit{
   @ViewChild('addressForm') addressForm!: NgForm;
 
   address: Address = { country: '', city: '', neighbourhood: '', zipCode: '' }; // Initialize address object
@@ -34,21 +35,22 @@ export class AdresseComponent {
 
 
   ngOnInit(): void {
+      const storedAddressData = this.adresseService.getTemporaryAddressData();
+    if (storedAddressData) {
+      this.address = storedAddressData;
+    }
     this.initMap();
   }
 
   saveAddress(form: NgForm): void {
     const formData = form.value; 
-    console.log('Form data:', formData);
+    console.log('Temporary form data:', formData);
   
-    this.adresseService.saveAddress(formData).subscribe(
-      (response) => {
-        console.log('Address saved successfully:', response);
-      },
-      (error) => {
-        console.error('Error saving address:', error);
-      }
-    );
+    // Instead of directly saving to backend, store in temporary storage
+    this.adresseService.setTemporaryAddressData(formData);
+  
+    // Navigate to the next step
+    this.router.navigate(['/dash/autres-informations']);
   }
  
 
