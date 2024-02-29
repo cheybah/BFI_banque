@@ -67,7 +67,7 @@ Retour(currentRoute: string): void {
 Suivant(currentRoute: string): void {
   if (this.infoForm && this.infoForm.valid) {
     const formData: FormGroup = this.infoForm; // Get the form group
-    this.saveAdditionalInfo(); // Pass the form values to saveAdditionalInfo method
+    this.saveAdditionalInfo(formData); // Pass the form values to saveAdditionalInfo method
 
     const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
     if (currentIndex < this.navData.length - 1) {

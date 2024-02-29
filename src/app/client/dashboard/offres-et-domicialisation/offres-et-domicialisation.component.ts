@@ -125,7 +125,7 @@ Suivant(currentRoute: string): void {
   const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
   if (currentIndex < this.navData.length - 1) {
     this.navData[currentIndex].visited = true;
-    const nextComponent = this.navData[currentIndex + 1].routeLink; // Increment index to get the next component
+    const nextComponent = this.navData[currentIndex].routeLink; // Increment index to get the next component
     this.router.navigate(['/dash/' + nextComponent]);
   }
 }

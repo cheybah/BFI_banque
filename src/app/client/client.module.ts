@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from '../home/home.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 import { WelcomeClientComponent } from './welcome-client/welcome-client.component';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
@@ -29,6 +30,7 @@ import player from 'lottie-web';
 import { PasswordComponent } from './password/password.component';
 import { ResetComponent } from './reset/reset.component';
 import { UpdatedpasswordComponent } from './updatedpassword/updatedpassword.component';
+
 
 export function playerFactory() {
   return player;
@@ -66,6 +68,7 @@ export function playerFactory() {
     ClientRoutingModule,
     HomeModule,
     ReactiveFormsModule,
+    NgxCaptchaModule,
     FormsModule,
     HttpClientModule ,
     NgxIntlTelInputModule,

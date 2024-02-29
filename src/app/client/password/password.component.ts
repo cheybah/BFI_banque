@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { AxiosService } from 'src/app/services/axios.service';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import necessary modules for reactive forms
 
 
 declare let Email: any;
@@ -15,6 +16,11 @@ export class PasswordComponent  implements OnInit {
 
   @Output() onSubmitLoginEvent = new EventEmitter();
   @Output() loginEvent = new EventEmitter();
+
+  passwordResetForm: FormGroup; 
+  siteKey: string = '6Lc-iIMpAAAAAAYogzu3h64YfwlAZfUjhItj1UZN'; // Add this variable for reCAPTCHA
+  captchaVerified: boolean = false;
+
   
   emailreset: string="";
   password: string="";
@@ -25,18 +31,35 @@ export class PasswordComponent  implements OnInit {
   currentYear!: number;
   data: string[] = [];
 
+
   constructor(
     private router: Router,
     private axiosService: AxiosService,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    private formBuilder: FormBuilder
+  ) {    
+    this.passwordResetForm = this.formBuilder.group({
+    emailreset: ['', [Validators.required, Validators.email]]
+  });
+}
 
-  ngOnInit(): void {
-    this.getCurrentYear();
-  }
+ngOnInit(): void {
+  this.getCurrentYear();
+  this.passwordResetForm = this.formBuilder.group({
+    recaptcha: ['', Validators.required],
+  });
+}
  
+handleSuccess(event: any) {
+  console.log('reCAPTCHA success:', event);
+  setTimeout(() => {
+    this.captchaVerified = true;
+  }, 750); 
+}
+
 
   onSubmitReset(){
+    console.log(this.passwordResetForm.value); // Example: Log form values to the console
     if (!this.emailreset) {
       // Utiliser une alerte stylisée
       this.showAlert("Veuillez saisir une adresse e-mail.");

@@ -11,6 +11,7 @@ import { ClientModule } from './client/client.module';
 
 
 
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http,  './assets/i18n/', '.json');
 }
