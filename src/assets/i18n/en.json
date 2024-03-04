@@ -215,6 +215,129 @@
         "contactUs": "Contact Us",
         "smallBtn" :"Become A Client"
       }
-    }
+    },
+
+    "login": {
+      "title": "Login",
+      "subheading": "Enter your credentials to log in.",
+      "username": "Username",
+      "password": "Password",
+      "alert": "Check your credentials!",
+      "forgotPassword": "Forgot Password?",
+      "login": "Login",
+      "register": "Don't have an account? ",
+      "registerLink": "Create an account"
+  },
+  
+  "register":{ 
+      "title":"Join us as a",
+      "type1": "Individual",
+      "type2": "Professional", 
+      "type3": "Organization"
+  },
+  
+  "password":{
+      "title":"Enter your Email to reset your password.",
+      "placeholder":"Your Email",
+      "resetbtn":"Reset"
+  },
+  
+  "reset":{
+      "title":"Reset your password",
+      "identifiant":"Username",
+      "password":"Password",
+      "resetbtn":"Reset"
+  },
+  
+  "updatedpassword":{
+      "title":"Your password has been successfully updated!",
+      "login":"Click here to log in."
+  },
+
+  "dash":{
+    "nextButton":"Next",
+    "backButton":"Back",
+    
+    "informations":{
+      "formTitle":"Personal Information",
+      "gender":"Civility",
+      "optionValue":"Choose..",
+      "option1":"Mr.",
+      "option2":"Mrs.",
+      "genderAlert":"Please select your gender",
+      "firstName":"First Name",
+      "firstNameAlert":"Enter a valid first name",
+      "firstNameAlert2":"First name cannot contain numbers",
+      "lastName":"Last Name",
+      "lastNameAlert":"Enter a valid last name",
+      "lastNameAlert2":"Last name cannot contain numbers",
+      "photo":"Profile Photo",
+      "email":"Email",
+      "emailAlert":"Enter a valid email",
+      "emailAlert2":"Enter a valid email address",
+      "phone":"Phone",
+      "phoneAlert":"Enter your phone number",
+      "bDay":"Date of Birth"
+    },
+
+      "address": {
+        "title": "Address",
+        "country": "Enter your country",
+        "city": "City",
+        "neighbourhood": "Neighbourhood",
+        "zipCode": "ZIP Code"
+      },
+      "additionalInfo": {
+        "title": "Additional Information",
+        "type_individual": "Type of Individual",
+        "select_individual_type": "Please select the type of individual",
+        "private_sector": "Private Sector",
+        "state_sector": "State Sector",
+        "profession": "Profession",
+        "enter_valid_profession": "Enter a valid profession",
+        "profession_cannot_contain_numbers": "Profession cannot contain numbers",
+        "piece_type": "Piece Type",
+        "select_piece_type": "Please select the type of piece",
+        "national_identity_card": "National Identity Card",
+        "passport": "Passport",
+        "piece_number": "Piece Number",
+        "enter_valid_number": "Enter a valid number",
+        "piece_number_should_contain_only_numbers": "Piece number should contain only numbers",
+        "expiration_date": "Expiration Date of the Piece",
+        "piece_photo": "Piece Photo",
+        "valid_extensions_are": "Valid extensions are: .jpg, .jpeg, .png, .pdf",
+        "referral_code": "Referral Code",
+        "code_should_contain_four_digits": "Code should contain four digits"
+      },
+      "general_conditions": {
+        "title": "General Conditions",
+        "general_conditions_description": "This document describes the terms of use of our web or mobile Banking application commonly referred to as the 'platform'. It determines the responsibilities of each party and informs you about intellectual property and the protection of your personal data.",
+        "technical_partner": "Technical Partner",
+        "ventis_technology": "Ventis Technology",
+        "simplified_joint_stock_company": "Simplified Joint Stock Company with a capital of 1,000,000 XAF",
+        "address_batterie_iv": "Battery IV, Libreville, Gabon",
+        "registered_commerce_registry_number": "Registered in the commerce registry under RCCM no. GA-LBV-01-2021-B16-00016",
+        "nif": "NIF: 202101003285-T",
+        "website": "Website",
+        "link": "www.ventis.group",
+        "tel": "Tel",
+        "accept_conditions_statement": "I accept the general terms and conditions of sale and use, and certify the accuracy of the information provided.",
+        "accept": "I Accept",
+        "accept_conditions_warning": "Please accept the conditions first."
+      },
+      "authentication": {
+        "title": "Your Authentication Details",
+        "login_placeholder": "Username",
+        "password_placeholder": "Password",
+        "send_button": "Send"
+      },
+      "emailVerif": {
+        "title": "Email Verification",
+        "otp_placeholder": "Enter OTP",
+        "verify_button": "Verify",
+        "resend_otp_info": "You can resend the OTP code in",
+        "time": " seconds"
+      }
+    }    
   }
   

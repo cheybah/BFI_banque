@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-signup',
@@ -7,6 +9,8 @@ import { Component } from '@angular/core';
 })
 export class SignupComponent {
   currentYear!: number;
+
+  constructor(private translate: TranslateService) {this.translate.setDefaultLang('fr');}
 
 
   ngOnInit(): void {

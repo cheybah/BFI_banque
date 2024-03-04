@@ -1,12 +1,12 @@
 <div class="card">
     <div class="card-header">
-        <h4>Adresse</h4>
+        <h4>{{ 'dash.address.title' | translate }}</h4>
     </div>
 
     <div class="card-body">
         <form class="row g-3" #addressForm="ngForm" (ngSubmit)="saveAddress(addressForm)">
             <div class="col-12">
-                <label for="country" class="form-label">Entrer votre pays </label><span class="required">*</span>
+                <label for="country" class="form-label">{{ 'dash.address.country' | translate }}</label><span class="required">*</span>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-flag-fill"></i></span>
                     <input type="text" id="country" name="country" (change)="locateCountry()" [(ngModel)]="address.country" class="form-control" required>
@@ -22,7 +22,7 @@
                   </div>
             </div>
             <div class="col-md-6">
-                <label for="city">Ville</label><span class="required">*</span>
+                <label for="city">{{ 'dash.address.city' | translate }}</label><span class="required">*</span>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-building"></i></span>
                     <input type="text" id="city" name="city" #villeInput [(ngModel)]="address.city" class="form-control">
@@ -30,14 +30,14 @@
             </div>
             
             <div class="col-md-6">
-                <label for="neighbourhood">Quartier</label>
+                <label for="neighbourhood">{{ 'dash.address.neighbourhood' | translate }}</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-house"></i></span> <!-- Icon added to the input group -->
                     <input type="text" id="neighbourhood" name="neighbourhood" [(ngModel)]="address.neighbourhood" class="form-control">
                 </div>  
             </div>
             <div class="col-md-6">
-                <label for="zipCode">Code ZIP</label>
+                <label for="zipCode">{{ 'dash.address.zipCode' | translate }}</label>
 
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-envelope"></i></span> <!-- Icon added to the input group -->
@@ -47,10 +47,10 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col text-start">
-                        <button class="btn btn-secondary butn" (click)="Retour('adresse')">Retour</button>      
+                        <button class="btn btn-secondary butn" (click)="Retour('adresse')">{{ 'dash.backButton' | translate }}</button>      
                     </div>
                     <div class="col text-end">
-                        <button class="btn btn-secondary butn" (click)="Suivant('autres-informations')" >Suivant</button>
+                        <button class="btn btn-secondary butn" (click)="Suivant('autres-informations')" >{{ 'dash.nextButton' | translate }}</button>
                     </div>
                 </div>
             </div>

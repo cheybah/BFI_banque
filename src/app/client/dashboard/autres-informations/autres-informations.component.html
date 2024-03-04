@@ -1,90 +1,90 @@
 <div class="card">
     <div class="card-header">
-        <h4>Autres informations</h4>
+        <h4>{{ 'dash.additionalInfo.title' | translate }}</h4>
     </div>
 
     <div class="card-body">
         <form [formGroup]="infoForm" class="row g-3" (ngSubmit)="saveAdditionalInfo(infoForm)">
             <div class="col-12">
-                <label for="typeIndividual">Type de particulier</label><span class="required">*</span>
+                <label for="typeIndividual">{{ 'dash.additionalInfo.type_individual' | translate }}</label><span class="required">*</span>
 
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-briefcase-fill"></i></span>
                     <select id="typeIndividual" name="typeIndividual" formControlName="typeIndividual" class="form-select">
-                        <option value="" disabled selected>Veuillez choisir le type de particulier</option>
-                        <option value="SECTEUR_PRIVE">Secteur Privé</option>
-                        <option value="SECTEUR_ETATIQUE">Secteur Etatique</option>
+                        <option value="" disabled selected>{{ 'dash.additionalInfo.select_individual_type' | translate }}</option>
+                        <option value="SECTEUR_PRIVE">{{ 'dash.additionalInfo.private_sector' | translate }}</option>
+                        <option value="SECTEUR_ETATIQUE">{{ 'dash.additionalInfo.state_sector' | translate }}</option>
                     </select>
                 </div>
             </div>
 
             <div class="col-4">
-                <label for="profession">Profession </label><span class="required">*</span>
+                <label for="profession">{{ 'dash.additionalInfo.profession' | translate }}</label><span class="required">*</span>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-person-badge-fill"></i></span>
                     <input type="text" id="profession" name="profession" formControlName="profession" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}" class="form-control">
                 </div> 
                 <div *ngIf="infoForm.get('profession')?.invalid && (infoForm.get('profession')?.dirty || infoForm.get('profession')?.touched)" class="text-danger">
-                    <div *ngIf="infoForm.get('profession')?.hasError('required')" style="margin-top: 3px;">Entrez une profession valide</div>
-                    <div *ngIf="infoForm.get('profession')?.hasError('pattern')" style="margin-top: 3px;">La profession nom ne peut pas contenir de chiffres</div>
+                    <div *ngIf="infoForm.get('profession')?.hasError('required')" style="margin-top: 3px;">{{ 'dash.additionalInfo.enter_valid_profession' | translate }}</div>
+                    <div *ngIf="infoForm.get('profession')?.hasError('pattern')" style="margin-top: 3px;">{{ 'dash.additionalInfo.profession_cannot_contain_numbers' | translate }}</div>
                 </div>
             </div>
             
             <div class="col-4">
-                <label for="pieceType">Type de la pièce</label><span class="required">*</span>               
+                <label for="pieceType">{{ 'dash.additionalInfo.piece_type' | translate }}</label><span class="required">*</span>               
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-card-list"></i></span>
                     <select id="type_particulier" name="type_particulier" formControlName="pieceType" class="form-select">
-                        <option value="" disabled selected>Veuillez choisir le type de la pièce</option>
-                        <option value="CIN">Carte d'identité nationale</option>
-                        <option value="PASSPORT">Passeport</option>
+                        <option value="" disabled selected>{{ 'dash.additionalInfo.select_piece_type' | translate }}</option>
+                        <option value="CIN">{{ 'dash.additionalInfo.national_identity_card' | translate }}</option>
+                        <option value="PASSPORT">{{ 'dash.additionalInfo.passport' | translate }}</option>
                   </select>  
                 </div>   
             </div>
             
             <div class="col-4">
-                <label for="pieceNumber">Numéro de la pièce</label><span class="required">*</span>
+                <label for="pieceNumber">{{ 'dash.additionalInfo.piece_number' | translate }}</label><span class="required">*</span>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-file-text"></i></span>
                     <input type="text" id="pieceNumber" name="pieceNumber" formControlName="pieceNumber" required  pattern="[0-9]*" class="form-control" >
                 </div>                
                 <div *ngIf="infoForm.get('pieceNumber')?.invalid && (infoForm.get('pieceNumber')?.dirty || infoForm.get('pieceNumber')?.touched)" class="text-danger">
-                    <div *ngIf="infoForm.get('pieceNumber')?.hasError('required')" style="margin-top: 3px;">Entrez un numéro valide</div>
-                    <div *ngIf="infoForm.get('pieceNumber')?.hasError('pattern')" style="margin-top: 3px;">Le numéro de la pièce ne doit contenir que des chiffres et chaque groupe de quatre chiffres doit être séparé par un espace.</div>
+                    <div *ngIf="infoForm.get('pieceNumber')?.hasError('required')" style="margin-top: 3px;">{{ 'dash.additionalInfo.enter_valid_number' | translate }}</div>
+                    <div *ngIf="infoForm.get('pieceNumber')?.hasError('pattern')" style="margin-top: 3px;">{{ 'dash.additionalInfo.piece_number_should_contain_only_numbers' | translate }}</div>
                 </div>
             </div>
             
             <div class="col-12">
-                <label for="expirationDate">Date d'expiration de la pièce</label><span class="required">*</span>
+                <label for="expirationDate">{{ 'dash.additionalInfo.expiration_date' | translate }}</label><span class="required">*</span>
                 <input type="date" id="expirationDate" name="expirationDate" formControlName="expirationDate" min="{{ today | date:'yyyy-MM-dd' }}">
             </div>
             
             <div class="col-12">
-                <label for="piecePhoto">Photo de la pièce</label><span class="required">*</span>
+                <label for="piecePhoto">{{ 'dash.additionalInfo.piece_photo' | translate }}</label><span class="required">*</span>
                 <input type="file" id="piecePhoto" name="piecePhoto" formControlName="piecePhoto" accept="png,.jpg, .jpeg,  .pdf" class="form-control">
                 <div *ngIf="infoForm.get('piecePhoto')?.invalid && (infoForm.get('piecePhoto')?.dirty || infoForm.get('piecePhoto')?.touched)" class="text-danger">
-                    <div *ngIf="infoForm.get('piecePhoto')?.hasError('required')" style="margin-top: 3px;">Les extensions valides sont : .jpg, .jpeg, .png, .pdf</div>
+                    <div *ngIf="infoForm.get('piecePhoto')?.hasError('required')" style="margin-top: 3px;">{{ 'dash.additionalInfo.valid_extensions_are' | translate }}</div>
                 </div>
             </div>
             
             <div class="col-12">
-                <label for="referralCode">Code parrainage</label>
+                <label for="referralCode">{{ 'dash.additionalInfo.referral_code' | translate }}</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-shield-lock-fill"></i></span>
                     <input type="text" id="referralCode" name="referralCode" formControlName="referralCode"  pattern="[0-9]{4}" placeholder="0123" class="form-control">
                 </div>
                 <div *ngIf="infoForm.get('referralCode')?.invalid && (infoForm.get('numero_piece')?.dirty || infoForm.get('referralCode')?.touched)" class="text-danger">
-                    <div *ngIf="infoForm.get('referralCode')?.hasError('pattern')" style="margin-top: 3px;">Le code doit contenir 4 chiffres</div>
+                    <div *ngIf="infoForm.get('referralCode')?.hasError('pattern')" style="margin-top: 3px;">{{ 'dash.additionalInfo.code_should_contain_four_digits' | translate }}</div>
                 </div>
             </div>
 
             <div class="col-12">
                 <div class="row">
                     <div class="col text-start">
-                        <button class="btn btn-secondary butn" (click)="Retour('autres-informations')">Retour</button>
+                        <button class="btn btn-secondary butn" (click)="Retour('autres-informations')">{{ 'dash.backButton' | translate }}</button>
                     </div>
                     <div class="col text-end">
-                        <button class="btn btn-secondary butn" (click)="Suivant('offres-et-domicialisation')" >Suivant</button>
+                        <button class="btn btn-secondary butn" (click)="Suivant('offres-et-domicialisation')" >{{ 'dash.nextButton' | translate }}</button>
                     </div>
                 </div>
             </div>

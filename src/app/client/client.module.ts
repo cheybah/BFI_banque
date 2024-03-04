@@ -30,6 +30,8 @@ import player from 'lottie-web';
 import { PasswordComponent } from './password/password.component';
 import { ResetComponent } from './reset/reset.component';
 import { UpdatedpasswordComponent } from './updatedpassword/updatedpassword.component';
+import { TranslateModule } from '@ngx-translate/core';
+
 
 
 export function playerFactory() {
@@ -71,6 +73,7 @@ export function playerFactory() {
     NgxCaptchaModule,
     FormsModule,
     HttpClientModule ,
+    TranslateModule,
     NgxIntlTelInputModule,
     BsDropdownModule.forRoot(),
     LottieModule.forRoot({ player: playerFactory }),  

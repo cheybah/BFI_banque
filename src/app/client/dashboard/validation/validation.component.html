@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h4>Validation de l'Email </h4>
+        <h4>{{ 'dash.emailVerif.title' | translate }}</h4>
     </div>
     <div class="card-body">
         <div class="form">
@@ -9,17 +9,17 @@
                 <div class="otpverify" [style.display]="otpVerifyDisplay">
                     <div class="row">
                         <div class="col">
-                            <input type="text" id="otp_inp" class="form-control" placeholder="Entrer OTP" [(ngModel)]="otpInput">
+                            <input type="text" id="otp_inp" class="form-control"  [placeholder]="'dash.emailVerif.otp_placeholder' | translate" [(ngModel)]="otpInput">
                         </div>
                         <div class="col-auto align-self-center">
-                            <button class="btn btn-secondary butn" (click)="verifyOTP()">Vérifier</button>
+                            <button class="btn btn-secondary butn" (click)="verifyOTP()">{{ 'dash.emailVerif.verify_button' | translate }}</button>
                         </div>
                     </div>
                 </div>                
                 <div class="col-md-12">
                     <button class="btn btn-secondary butn" (click)="sendOTP()" [disabled]="resendButtonDisabled">{{ resendButtonText }}</button>
                     <div *ngIf="showCountdown && countdown > 0" class="alert alert-danger">
-                        Vous pouvez re-enovyer le code OTP dans {{ countdown }} secondes
+                        {{ 'dash.emailVerif.resend_otp_info' | translate }} {{ countdown }} {{ 'dash.emailVerif.time' | translate }}
                     </div>
                  </div>
             </div>

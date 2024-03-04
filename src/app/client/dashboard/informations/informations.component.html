@@ -1,63 +1,63 @@
 <div class="card">
     <div class="card-header">
-        <h4>Informations Personnelles</h4>
+        <h4>{{ 'dash.informations.formTitle' | translate }}</h4>
     </div>
     <div class="card-body">
         <form [formGroup]="informationForm" class="row g-3 needs-validation" novalidate>
             <div class="col-12">
-                <label for="gender" class="form-label">Civilité </label>
+                <label for="gender" class="form-label">{{ 'dash.informations.gender' | translate }}</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
                     <select id="inputState" class="form-select" required formControlName="gender">
-                        <option value="" disabled selected>Choisissez...</option>
-                        <option value="MONSIEUR">Monsieur</option>
-                        <option value="MADAME">Madame</option>
+                        <option value="" disabled selected>{{ 'dash.informations.optionValue' | translate }}</option>
+                        <option value="MONSIEUR">{{ 'dash.informations.option1' | translate }}</option>
+                        <option value="MADAME">{{ 'dash.informations.option2' | translate }}</option>
                     </select>
                 </div>
                 <div *ngIf="informationForm.get('genre')?.invalid && (informationForm.get('genre')?.dirty || informationForm.get('genre')?.touched)" class="text-danger">
-                    <div *ngIf="informationForm.get('genre')?.hasError('required')" style="margin-top: 3px;">Veuillez choisir votre genre</div>
+                    <div *ngIf="informationForm.get('genre')?.hasError('required')" style="margin-top: 3px;">{{ 'dash.informations.genderAlert' | translate }}</div>
                   </div>
             </div>
             <div class="col-md-6">
-                <label for="firstName" class="form-label">Nom</label><span class="required">*</span>                
+                <label for="firstName" class="form-label">{{ 'dash.informations.firstName' | translate }}</label><span class="required">*</span>                
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                     <input type="text" class="form-control" id="firstName" formControlName="firstName" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
                 </div>
                 <div *ngIf="informationForm.get('firstName')?.invalid && (informationForm.get('firstName')?.dirty || informationForm.get('firstName')?.touched)" class="text-danger">
-                    <div *ngIf="informationForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">Entrez un nom valide</div>
-                    <div *ngIf="informationForm.get('firstName')?.hasError('pattern')" style="margin-top: 3px;">Le nom ne peut pas contenir de chiffres</div>
+                    <div *ngIf="informationForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">{{ 'dash.informations.firstNameAlert' | translate }}</div>
+                    <div *ngIf="informationForm.get('firstName')?.hasError('pattern')" style="margin-top: 3px;">{{ 'dash.informations.firstNameAlert2' | translate }}</div>
                 </div>
             </div>
             <div class="col-md-6">
-                <label for="lastName" class="form-label">Prénom</label><span class="required">*</span>
+                <label for="lastName" class="form-label">{{ 'dash.informations.lastName' | translate }}</label><span class="required">*</span>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-person"></i></span> <!-- Replaced the icon class with Bootstrap's person icon -->
                     <input type="text" class="form-control" id="lastName" formControlName="lastName" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
                 </div>
                        <div *ngIf="informationForm.get('lastName')?.invalid && (informationForm.get('lastName')?.dirty || informationForm.get('lastName')?.touched)" class="text-danger">
-                        <div *ngIf="informationForm.get('lastName')?.hasError('required')" class="text-danger">Entrez un prénom valide</div>
-                        <div *ngIf="informationForm.get('lastName')?.hasError('hasNumbers')" class="text-danger">Le prénom ne peut pas contenir de chiffres</div>                        
+                        <div *ngIf="informationForm.get('lastName')?.hasError('required')" class="text-danger">{{ 'dash.informations.lastNameAlert' | translate }}</div>
+                        <div *ngIf="informationForm.get('lastName')?.hasError('hasNumbers')" class="text-danger">{{ 'dash.informations.lastNameAlert2' | translate }}</div>                        
                     </div>
             </div>
             <div class="mb-3">
-                <label for="photo" class="form-label">Photo de profil</label>
+                <label for="photo" class="form-label">{{ 'dash.informations.photo' | translate }}</label>
                 <input type="file" name="photo" class="form-control"id="photo" formControlName="photo">
             </div>
             <div class="col-md-6">
-                <label for="email" class="form-label">Email</label>
+                <label for="email" class="form-label">{{ 'dash.informations.email' | translate }}</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                     <input type="email" class="form-control" id="email" formControlName="email" required>
                 </div>
                 <div *ngIf="informationForm.get('email')?.invalid && (informationForm.get('email')?.dirty || informationForm.get('email')?.touched)" class="text-danger">
-                    <div *ngIf="informationForm.get('email')?.hasError('required')">Entrez un email valide</div>
-                    <div *ngIf="informationForm.get('email')?.hasError('email')">Entrez une adresse email valide</div>
+                    <div *ngIf="informationForm.get('email')?.hasError('required')">{{ 'dash.informations.emailAlert' | translate }}</div>
+                    <div *ngIf="informationForm.get('email')?.hasError('email')">{{ 'dash.informations.emailAlert2' | translate }}</div>
 
                 </div>
             </div>
             <div class="col-md-6 telStyle">
-                <label for="phoneNumber" name="phoneNumber" id="phoneNumber" class="form-label">Téléphone</label><span class="required">*</span>
+                <label for="phoneNumber" name="phoneNumber" id="phoneNumber" class="form-label">{{ 'dash.informations.phone' | translate }}</label><span class="required">*</span>
                 <!-- Add the ngx-intl-tel-input component here -->
                 <ngx-intl-tel-input formControlName="phoneNumber"  class="form-control border-control"
                     [preferredCountries]="['tn']"
@@ -69,11 +69,11 @@
                     >
                 </ngx-intl-tel-input>
                 <div *ngIf="informationForm.get('phoneNumber')?.invalid && (informationForm.get('phoneNumber')?.dirty || informationForm.get('phoneNumber')?.touched)" class="text-danger">
-                    <div *ngIf="informationForm.get('phoneNumber')?.hasError('required')" style="margin-top: 3px;">Entrez votre numéro</div>
+                    <div *ngIf="informationForm.get('phoneNumber')?.hasError('required')" style="margin-top: 3px;">{{ 'dash.informations.phoneAlert' | translate }}</div>
                   </div>
             </div>
             <div class="col-md-6">
-                <label for="dateOfBirth" class="form-label">Date de Naissance </label><span class="required">*</span>
+                <label for="dateOfBirth" class="form-label">{{ 'dash.informations.bDay' | translate }}</label><span class="required">*</span>
                 <div class="row">
                     <div class="col-4">
                         <input type="date" id="dateOfBirth" name="dateOfBirth" formControlName="dateOfBirth"  class="form-control">
@@ -84,11 +84,10 @@
                 <div class="row">
                     <div class="col text-start">
 
-                        <button class="btn btn-secondary butn" (click)="Retour()">Retour</button>
+                        <button class="btn btn-secondary butn" (click)="Retour()">{{ 'dash.backButton' | translate }}</button>
                     </div>
                     <div class="col text-end">
-                            <button class="btn btn-secondary butn" (click)="Suivant('adresse')" [disabled]="!isFormValid()">Suivant</button>
-                        
+                            <button class="btn btn-secondary butn" (click)="Suivant('adresse')" [disabled]="!isFormValid()">{{ 'dash.nextButton' | translate }}</button>
                         
                     </div>
                 </div>

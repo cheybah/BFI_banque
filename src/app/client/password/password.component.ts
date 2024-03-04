@@ -4,6 +4,8 @@ import { AxiosService } from 'src/app/services/axios.service';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import necessary modules for reactive forms
+import { TranslateService } from '@ngx-translate/core';
+
 
 
 declare let Email: any;
@@ -36,8 +38,10 @@ export class PasswordComponent  implements OnInit {
     private router: Router,
     private axiosService: AxiosService,
     private http: HttpClient,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private translate: TranslateService
   ) {    
+    this.translate.setDefaultLang('fr');
     this.passwordResetForm = this.formBuilder.group({
     emailreset: ['', [Validators.required, Validators.email]]
   });

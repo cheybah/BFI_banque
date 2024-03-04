@@ -1,6 +1,6 @@
 <div class="body" [ngClass]="getBodyClass()">
-    <h1 *ngIf="dashmsgService.showMessage" [@fadeInOut]>Bienvenue chez BFI BANK!</h1>
-    <p *ngIf="dashmsgService.showMessage" [@fadeInOut]>Commencez dès maintenant en remplissant avec vos données.</p>
-    <button class="btn btn-secondary butn"  (click)="Suivant()" *ngIf="dashmsgService.showMessage" [@slideInFromLeft]>C'est parti !</button>
+    <h1 *ngIf="dashmsgService.showMessage" [@fadeInOut]>{{ 'dash.title' | translate }}</h1>
+    <p *ngIf="dashmsgService.showMessage" [@fadeInOut]>{{ 'dash.subheading' | translate }}</p>
+    <button class="btn btn-secondary butn"  (click)="Suivant()" *ngIf="dashmsgService.showMessage" [@slideInFromLeft]>{{ 'dash.welcomeButton' | translate }}</button>
     <router-outlet></router-outlet>
 </div>

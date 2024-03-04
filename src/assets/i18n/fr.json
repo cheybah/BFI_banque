@@ -215,5 +215,134 @@
           "contactUs": "Contactez-nous",
           "smallBtn" :"Devenir Client"
         }       
+  },
+
+  "login": {
+    "title": "Se connecter",
+    "subheading": "Entrez vos coordonnées pour se connecter.",
+    "username": "Identifiant",
+    "password": "Mot de passe",
+    "alert": "Vérifiez vos coordonnées !",
+    "forgotPassword": "Mot de passe oublié?",
+    "login": "Se connecter",
+    "register": "Vous n'avez pas de compte ? ",
+    "registerLink": "Créer un compte"
+  },
+
+  "register":{ 
+    "title":"Rejoignez-nous en tant que",
+    "type1": "Particulier",
+    "type2": "Professionnel", 
+    "type3": "Organisation"
+  },
+
+  "password":{
+    "title":"Entrez votre Email pour réinitialiser votre mot de passe.",
+    "placeholder":"Votre Email",
+    "resetbtn":"Réinitialiser"
+  },
+
+  "reset":{
+    "title":"Réinitialiser votre mot de passe",
+    "identifiant":"Identifiant",
+    "password":"Mot de passe",
+    "resetbtn":"Réinitialiser"
+  },
+
+  "updatedpassword":{
+    "title":"Votre mot de passe a étè modifié avec succées!",
+    "login":"Cliquer ici pour se connecter."
+  },
+
+  "dash":{
+    "title":"Bienvenue chez BFI BANK!",
+    "subheading":"Commencez dès maintenant en remplissant avec vos données.",
+    "welcomeButton":"C'est parti !",
+    "nextButton":"Suivant",
+    "backButton":"Retour",
+    
+    "informations":{
+      "formTitle":"Informations Personnelles",
+      "gender":"Civilité",
+      "optionValue":"Choisissez..",
+      "option1":"Monsieur",
+      "option2":"Madame",
+      "genderAlert":"Veuillez choisir votre genre",
+      "firstName":"Prénom",
+      "firstNameAlert":"Entrez un prénom valide",
+      "firstNameAlert2":"Le prénom ne peut pas contenir des chiffres",
+      "lastName":"Nom",
+      "lastNameAlert":"Entrez un nom valide",
+      "lastNameAlert2":"Le nom ne peut pas contenir des chiffres",
+      "photo":"Photo de profil",
+      "email":"Email",
+      "emailAlert":"Entrez un email valide",
+      "emailAlert2":"Entrez une adresse email valide",
+      "phone":"Téléphone",
+      "phoneAlert":"Entrez votre numéro",
+      "bDay":"Date de Naissance"
+    },
+    "address": {
+      "title": "Adresse",
+      "country": "Entrer votre pays",
+      "city": "Ville",
+      "neighbourhood": "Quartier",
+      "zipCode": "Code ZIP"
+    },
+
+    "additionalInfo":{
+      "title": "Autres informations",
+      "type_individual": "Type de particulier",
+      "select_individual_type": "Veuillez choisir le type de particulier",
+      "private_sector": "Secteur Privé",
+      "state_sector": "Secteur Etatique",
+      "profession": "Profession",
+      "enter_valid_profession": "Entrez une profession valide",
+      "profession_cannot_contain_numbers": "La profession ne peut pas contenir de chiffres",
+      "piece_type": "Type de la pièce",
+      "select_piece_type": "Veuillez choisir le type de la pièce",
+      "national_identity_card": "Carte d'identité nationale",
+      "passport": "Passeport",
+      "piece_number": "Numéro de la pièce",
+      "enter_valid_number": "Entrez un numéro valide",
+      "piece_number_should_contain_only_numbers": "Le numéro de la pièce ne doit contenir que des chiffres",
+      "expiration_date": "Date d'expiration de la pièce",
+      "piece_photo": "Photo de la pièce",
+      "valid_extensions_are": "Les extensions valides sont : .jpg, .jpeg, .png, .pdf",
+      "referral_code": "Code parrainage",
+      "code_should_contain_four_digits": "Le code doit contenir 4 chiffres"
+    },
+
+    "general_conditions": {
+      "title": "Conditions générales",
+      "general_conditions_description": "Ce document décrit les modalités d'utilisation de notre application web ou mobile Banking que nous désignons communément par le terme « plateforme ». Il permet ainsi de déterminer les responsabilités de chacun, mais vous renseigne également sur la propriété intellectuelle et la protection de vos données personnelles.",
+      "technical_partner": "Partenaire Technique",
+      "ventis_technology": "Ventis Technologie",
+      "simplified_joint_stock_company": "Société par action Simplifiée au capital de 1 000 000 XAF",
+      "address_batterie_iv": "Batterie IV, Libreville, Gabon",
+      "registered_commerce_registry_number": "Immatriculée au registre de commerce sous le RCCM n° GA-LBV-01-2021-B16-00016",
+      "nif": "NIF: 202101003285-T",
+      "website": "Site internet",
+      "link": "www.ventis.group",
+      "tel": "Tél",
+      "accept_conditions_statement": "J'accepte les conditions générales de vente et d'utilisation, et certifie la sincérité des informations transmises.",
+      "accept": "J'accepte",
+      "accept_conditions_warning": "Veuillez d'abord accepter les conditions."
+    },
+
+    "authentication":{
+      "title": "Vos coordonnées d'authentification",
+      "login_placeholder": "Identifiant",
+      "password_placeholder": "Mot de passe",
+      "send_button": "Envoyer"
+    },
+
+    "emailVerif":{  
+      "title": "Validation de l'Email",
+      "otp_placeholder": "Entrer OTP",
+      "verify_button": "Vérifier",
+      "resend_otp_info": "Vous pouvez re-envoyer le code OTP dans",
+      "time" : " secondes"
+    }
   }
 }
