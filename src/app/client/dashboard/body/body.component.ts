@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router, NavigationEnd, RouterEvent } from '@angular/router';
 import { DashMsgService } from 'src/app/services/dash-msg.service';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { TranslateService } from '@ngx-translate/core';
+
 
 
 
@@ -35,7 +37,10 @@ export class BodyComponent implements OnInit {
   @Input() screenWidth=0;
 
 
-  constructor(public dashmsgService: DashMsgService, private router: Router) { }
+  constructor(public dashmsgService: DashMsgService, private router: Router,
+    private translate: TranslateService) { 
+      this.translate.setDefaultLang('fr');
+    }
 
   ngOnInit(): void {
     // Show the message when the component is initialized

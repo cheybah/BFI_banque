@@ -4,6 +4,7 @@ import { AuthService } from '../../../services/auth.service';
 import { CountryISO  } from 'ngx-intl-tel-input';
 import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { navbarData } from '../sidenav/nav-data';
+import { TranslateService } from '@ngx-translate/core';
 
 
 function noNumbersValidator(): ValidatorFn {
@@ -27,8 +28,10 @@ export class InformationsComponent implements OnInit{
 
   constructor(private router: Router,
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private translate: TranslateService
     ) { 
+    this.translate.setDefaultLang('fr');
     this.informationForm = this.formBuilder.group({
       gender: [null, Validators.required],
       firstName: ['', [Validators.required, Validators.minLength(2), noNumbersValidator()]],

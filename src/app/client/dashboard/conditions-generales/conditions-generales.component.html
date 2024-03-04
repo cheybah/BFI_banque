@@ -1,25 +1,25 @@
 <div class="card">
     <div class="card-header">
-        <h4>Conditions générales</h4>
+        <h4>{{ 'dash.general_conditions.title' | translate }}</h4>
 </div>
     
     <div class="card-body">
-        <p>Ce document décrit les modalités d'utilisation de notre application web ou mobile Banking que nous désignons communément par le terme « plateforme ». Il permet ainsi de déterminer les responsabilités de chacun, mais vous renseigne également sur la propriété intellectuelle et la protection de vos données personnelles.</p>
-        <h3>Partenaire Technique</h3>
-        <p>Ventis Technologie</p>
+        <p>{{ 'dash.general_conditions.general_conditions_description' | translate }}</p>
+        <h3>{{ 'dash.general_conditions.technical_partner' | translate }}</h3>
+        <p>{{ 'dash.general_conditions.ventis_technology' | translate }}</p>
         <ul>
-            <li>Société par action Simplifiée au capital de 1 000 000 XAF</li>
-            <li>Batterie IV, Libreville, Gabon</li>
-            <li>Immatriculée au registre de commerce sous le RCCM n° GA-LBV-01-2021-B16-00016</li>
-            <li>NIF: 202101003285-T</li>
-            <li>Site internet: <a href="www.ventis.group">www.ventis.group</a></li>
-            <li>Tél: 011 73 58 20</li>
+            <li>{{ 'dash.general_conditions.simplified_joint_stock_company' | translate }}</li>
+            <li>{{ 'dash.general_conditions.address_batterie_iv' | translate }}</li>
+            <li>{{ 'dash.general_conditions.registered_commerce_registry_number' | translate }}</li>
+            <li>{{ 'dash.general_conditions.nif' | translate }}</li>
+            <li>{{ 'dash.general_conditions.website' | translate }}<a href="www.ventis.group">{{ 'dash.general_conditions.link' | translate }}</a></li>
+            <li>{{ 'dash.general_conditions.tel' | translate }}</li>
         </ul>
         <input class="check_box" type="checkbox" id="conditions" name="conditions" [(ngModel)]="conditionsAccepted">
-        <label for="conditions">J'accepte les conditions générales de vente et d'utilisation, et certifie la sincérité des informations transmises.</label><br>
+        <label for="conditions">{{ 'dash.general_conditions.accept_conditions_statement' | translate }}</label><br>
         <div class="col-12">
-            <button type="button" class="btn btn-secondary butn" (click)="submitForm('mot-de-passe')">J'accepte</button>
-            <p id="validationMessage" *ngIf="!conditionsAccepted && formSubmitted" style="color: red;">Veuillez d'abord accepter les conditions.</p>
+            <button type="button" class="btn btn-secondary butn" (click)="submitForm('mot-de-passe')">{{ 'dash.general_conditions.accept' | translate }}</button>
+            <p id="validationMessage" *ngIf="!conditionsAccepted && formSubmitted" style="color: red;">{{ 'dash.general_conditions.accept_conditions_warning' | translate }}</p>
         </div>
     </div>
 </div>

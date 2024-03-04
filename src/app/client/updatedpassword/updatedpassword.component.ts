@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-updatedpassword',
@@ -16,6 +17,10 @@ import { Component } from '@angular/core';
 })
 export class UpdatedpasswordComponent {
   currentYear!: number;
+
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('fr');
+  }
 
   getCurrentYear(): void {
     this.currentYear = new Date().getFullYear();

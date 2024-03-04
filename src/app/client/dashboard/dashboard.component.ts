@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
+
+
 interface SidenavToggle{
   screenWidth :number;
   collapsed: boolean;
@@ -9,6 +13,10 @@ interface SidenavToggle{
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('fr');
+  } 
   
   title='sidenav';
 

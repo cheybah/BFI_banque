@@ -20,10 +20,10 @@
                 <div class="col-md-6">
                      <div>
                       <form (ngSubmit)="onSubmitUpdatePassword()" #loginForm="ngForm" class="box">
-                        <p class="box-text">Entrez votre login et votre nouveau mot de passe désiré.</p> 
-                        <input type="login" id="loginName" name="login" [(ngModel)]="login" placeholder="Identifiant"> 
-                        <input type="password" id="newPassword" name="newpassword" [(ngModel)]="newpassword" placeholder="Mot de passe"> 
-                        <input type="submit" value="Confirmer">
+                        <p class="box-text">{{ 'reset.title' | translate }}</p> 
+                        <input type="login" id="loginName" name="login" [(ngModel)]="login" [placeholder]="'reset.identifiant' | translate"> 
+                        <input type="password" id="newPassword" name="newpassword" [(ngModel)]="newpassword" [placeholder]="'reset.password' | translate"> 
+                        <input type="submit" [value]="'reset.resetbtn' | translate">
                         <div class="col-md-12"> 
                             <ul class="social-network social-circle"> 
                                 <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li> 

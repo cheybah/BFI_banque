@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from "@angular/router";
 import { AxiosService } from 'src/app/services/axios.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -24,8 +25,9 @@ export class ResetComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private axiosService: AxiosService
-  ) {}
+    private axiosService: AxiosService,
+    private translate: TranslateService
+  ) { this.translate.setDefaultLang('fr');}
 
   ngOnInit(): void {
     this.getCurrentYear();
