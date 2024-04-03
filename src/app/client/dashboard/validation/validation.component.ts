@@ -23,7 +23,7 @@ export class ValidationComponent {
     resendButtonText: string = 'Envoyer OTP';
     resendButtonDisabled: boolean = false;
 
-    constructor(  //import the services to access the temporary stored data
+    constructor( 
         private router: Router,
         private authService: AuthService,
         private adresseService: AdresseService,
@@ -75,6 +75,7 @@ export class ValidationComponent {
     verifyOTP() {
         if (this.otpInput === this.otpValue.toString()) {            
             // Retrieve all the forms data from temporary storage
+            
             const combinedData = this.authService.getTemporaryRegisterData();
             const additionalInfoData = this.autresInformationsService.getTemporaryAdditionalInfoData();
             const offresDomiciliationData = this.offresDomiciliationService.getTemporaryOffersData();
@@ -132,7 +133,7 @@ export class ValidationComponent {
         }
     }
 
-    // Fonction pour afficher une alerte de succès
+    // Show success alert
     showSuccessAlert(message: string): void {
         Swal.fire({
             icon: 'success',
@@ -143,7 +144,7 @@ export class ValidationComponent {
         });
     }
 
-    // Fonction pour afficher une alerte d'erreur
+    // Show error alert
     showErrorAlert(message: string): void {
         Swal.fire({
             icon: 'error',

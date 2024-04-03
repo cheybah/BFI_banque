@@ -31,6 +31,7 @@ import { PasswordComponent } from './password/password.component';
 import { ResetComponent } from './reset/reset.component';
 import { UpdatedpasswordComponent } from './updatedpassword/updatedpassword.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { TopbarsComponent } from './topbars/topbars.component';
 
 
 
@@ -58,7 +59,8 @@ export function playerFactory() {
     WelcomeClientComponent,
     PasswordComponent,
     ResetComponent,
-    UpdatedpasswordComponent
+    UpdatedpasswordComponent,
+    TopbarsComponent
 
   ],
   exports: [

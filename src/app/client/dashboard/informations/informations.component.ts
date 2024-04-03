@@ -26,6 +26,7 @@ export class InformationsComponent implements OnInit{
   personalInfo: any = {}; // Initialize variable to hold personal information
 
 
+
   constructor(private router: Router,
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -93,10 +94,5 @@ export class InformationsComponent implements OnInit{
       const nextComponent = this.navData[currentIndex ].routeLink;
       this.router.navigate(['/dash/' + nextComponent]);
     }
-
   }
-  
-  
-  
-
 }

@@ -198,11 +198,10 @@ a.socialIcon:hover,
     font-size: small;
 }
 .alert-danger {
-    color: rgb(255, 255, 255);
+    border: none;
+    color: rgb(249 117 117);
     font-size: small;
-    background-color: rgb(110, 40, 40) !important;
     margin-bottom: 10px;
-    border-radius: inherit;
   }
 
   .alert {
