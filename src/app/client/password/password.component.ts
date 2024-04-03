@@ -66,7 +66,7 @@ handleSuccess(event: any) {
     console.log(this.passwordResetForm.value); // Example: Log form values to the console
     if (!this.emailreset) {
       // Utiliser une alerte stylisée
-      this.showAlert("Veuillez saisir une adresse e-mail.");
+      this.showAlert("Veuillez saisir une adresse e-mail valide.");
       return;
     }
     this.http.get<any>(`http://localhost:8080/check-email?email=${this.emailreset}`).subscribe(

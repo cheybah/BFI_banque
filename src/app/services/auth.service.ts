@@ -9,6 +9,16 @@ import { catchError } from 'rxjs/operators';
 export class AuthService {
   private baseUrl = 'http://localhost:8080';
   private temporaryData: any;
+  private userId!: number;
+
+  setUserId(userId: number) {
+    this.userId = userId;
+  }
+
+  getUserId(): number {
+    return this.userId;
+  }
+
 
   setTemporaryRegisterData(data: any): void {   //to store the data from informations form in the temporaryData variable
     this.temporaryData = data;

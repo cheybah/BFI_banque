@@ -1,0 +1,60 @@
+#topbar {
+    background: #191919;
+    font-size: 15px;
+    height: 40px;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.6);
+    position: relative; /* Ensure proper stacking order */
+    z-index: 999; /* Ensure the topbar appears above other elements */
+}
+
+#topbar .contact-info a {
+    line-height: 0;
+    color: rgba(255, 255, 255, 0.6);
+    transition: 0.3s;
+}
+
+#topbar .contact-info a:hover {
+    color: #C2862D;
+}
+
+#topbar .contact-info i {
+    color: #C2862D;
+    line-height: 0;
+    margin-right: 5px;
+}
+
+#topbar .contact-info .phone-icon {
+    margin-left: 15px;
+}
+
+#topbar .social-links a {
+    color: rgba(255, 255, 255, 0.6);
+    padding: 4px 12px;
+    display: inline-block;
+    line-height: 1px;
+    transition: 0.3s;
+}
+
+#topbar .social-links a:hover {
+    color: #fff;
+}
+
+.homepage{
+    margin-left: 40px;
+    position: relative; /* Required for positioning the arrow */
+}
+
+.homepage::after {
+    content: '←';
+    position: absolute;
+    top: 50%;
+    right: -5px; 
+    transform: translateY(-50%); 
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.homepage:hover::after {
+    opacity: 1;
+}
