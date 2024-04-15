@@ -38,7 +38,7 @@ export class AdresseComponent implements OnInit{
 
 
   ngOnInit(): void {
-      const storedAddressData = this.adresseService.getTemporaryAddressData();
+    const storedAddressData = this.adresseService.getTemporaryAddressData();
     if (storedAddressData) {
       this.address = storedAddressData;
     }
@@ -46,8 +46,10 @@ export class AdresseComponent implements OnInit{
   }
 
   saveAddress(form: NgForm): void {
+
     const formData = form.value; 
     console.log('Temporary form data:', formData);
+
   
     // Instead of directly saving to backend, store in temporary storage
     this.adresseService.setTemporaryAddressData(formData);

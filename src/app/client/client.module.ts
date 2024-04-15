@@ -39,6 +39,7 @@ import { OffresEtDomicialisationEntrepriseComponent } from './corporate-dashboar
 import { ConditionsGeneralesEntrepriseComponent } from './corporate-dashboard/conditions-generales-entreprise/conditions-generales-entreprise.component';
 import { MotDePasseEntrepriseComponent } from './corporate-dashboard/mot-de-passe-entreprise/mot-de-passe-entreprise.component';
 import { ValidationEntrepriseComponent } from './corporate-dashboard/validation-entreprise/validation-entreprise.component';
+import { TopbarsComponent } from './topbars/topbars.component';
 
 
 
@@ -75,6 +76,7 @@ export function playerFactory() {
     ConditionsGeneralesEntrepriseComponent,
     MotDePasseEntrepriseComponent,
     ValidationEntrepriseComponent
+    TopbarsComponent
 
   ],
   exports: [
