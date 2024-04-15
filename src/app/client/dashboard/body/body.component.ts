@@ -77,6 +77,12 @@ export class BodyComponent implements OnInit {
   }
 
   Suivant(){
-    this.router.navigate(['/dash/informations-personelles']); // Replace '/adresse' with the actual route path of your "Adresse" component
+    let nextRoute = '';
+    if (this.router.url === '/dash') {
+      nextRoute = '/dash/informations-personelles';
+    } else if (this.router.url === '/professionnel') {
+      nextRoute = '/professionnel/informations-du-mandataire';
+    }
+    this.router.navigate([nextRoute]);
   }
 }

@@ -1,0 +1,107 @@
+<div class="card">
+    <div class="card-header">
+        <h4>{{ 'professionnel.mand_informations.formTitle' | translate }}</h4>
+    </div>
+    <div class="card-body">
+        <h6>Pour commencer, nous avons besoin de quelques informations.</h6>
+        <form [formGroup]="entrepriseInformationForm" class="row g-3 needs-validation" novalidate>
+            <div class="col-12">
+                <label for="gender" class="form-label">{{ 'professionnel.mand_informations.gender' | translate }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
+                    <select id="inputState" class="form-select" required formControlName="gender">
+                        <option value="" disabled selected>{{ 'professionnel.mand_informations.optionValue' | translate }}</option>
+                        <option value="MONSIEUR">{{ 'professionnel.mand_informations.option1' | translate }}</option>
+                        <option value="MADAME">{{ 'professionnel.mand_informations.option2' | translate }}</option>
+                    </select>
+                </div>
+                <div *ngIf="entrepriseInformationForm.get('gender')?.invalid && (entrepriseInformationForm.get('gender')?.dirty || entrepriseInformationForm.get('gender')?.touched)" class="text-danger">
+                    <div *ngIf="entrepriseInformationForm.get('gender')?.hasError('required')" style="margin-top: 3px;">{{ 'professionnel.mand_informations.genderAlert' | translate }}</div>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <label for="firstName" class="form-label">{{ 'professionnel.mand_informations.firstName' | translate }}</label><span class="required">*</span>                
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="firstName" formControlName="firstName" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
+                </div>
+                <div *ngIf="entrepriseInformationForm.get('firstName')?.invalid && (entrepriseInformationForm.get('firstName')?.dirty || entrepriseInformationForm.get('firstName')?.touched)" class="text-danger">
+                    <div *ngIf="entrepriseInformationForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">{{ 'professionnel.mand_informations.firstNameAlert' | translate }}</div>
+                    <div *ngIf="entrepriseInformationForm.get('firstName')?.hasError('pattern')" style="margin-top: 3px;">{{ 'professionnel.mand_informations.firstNameAlert2' | translate }}</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="lastName" class="form-label">{{ 'professionnel.mand_informations.lastName' | translate }}</label><span class="required">*</span>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span> <!-- Replaced the icon class with Bootstrap's person icon -->
+                    <input type="text" class="form-control" id="lastName" formControlName="lastName" required pattern="[a-zA-ZÀ-ÿ\s\-']{2,}">
+                </div>
+                       <div *ngIf="entrepriseInformationForm.get('lastName')?.invalid && (entrepriseInformationForm.get('lastName')?.dirty || entrepriseInformationForm.get('lastName')?.touched)" class="text-danger">
+                        <div *ngIf="entrepriseInformationForm.get('lastName')?.hasError('required')" class="text-danger">{{ 'professionnel.mand_informations.lastNameAlert' | translate }}</div>
+                        <div *ngIf="entrepriseInformationForm.get('lastName')?.hasError('hasNumbers')" class="text-danger">{{ 'professionnel.mand_informations.lastNameAlert2' | translate }}</div>                        
+                    </div>
+            </div>
+            <div class="mb-3">
+                <label for="photo" class="form-label">{{ 'professionnel.mand_informations.photo' | translate }}</label>
+                <input type="file" name="photo" class="form-control"id="photo" formControlName="photo">
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">{{ 'professionnel.mand_informations.email' | translate }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input type="email" class="form-control" id="email" formControlName="email" required>
+                </div>
+                <div *ngIf="entrepriseInformationForm.get('email')?.invalid && (entrepriseInformationForm.get('email')?.dirty || entrepriseInformationForm.get('email')?.touched)" class="text-danger">
+                    <div *ngIf="entrepriseInformationForm.get('email')?.hasError('required')">{{ 'professionnel.mand_informations.emailAlert' | translate }}</div>
+                    <div *ngIf="entrepriseInformationForm.get('email')?.hasError('email')">{{ 'professionnel.mand_informations.emailAlert2' | translate }}</div>
+
+                </div>
+            </div>
+            <div class="col-md-6 telStyle">
+                <label for="phoneNumber" name="phoneNumber" id="phoneNumber" class="form-label">{{ 'professionnel.mand_informations.phone' | translate }}</label><span class="required">*</span>
+                <!-- Add the ngx-intl-tel-input component here -->
+                <ngx-intl-tel-input formControlName="phoneNumber"  class="form-control border-control"
+                    [preferredCountries]="['tn']"
+                    [enablePlaceholder]="true"
+                    [cssClass]="'form-control'"
+                    [searchCountryFlag]="true"
+                    [selectedCountryISO]="selectedCountryISO"
+                    [searchCountryPlaceholder]="'Recherchez un pays'"
+                    >
+                </ngx-intl-tel-input>
+                <div *ngIf="entrepriseInformationForm.get('phoneNumber')?.invalid && (entrepriseInformationForm.get('phoneNumber')?.dirty || entrepriseInformationForm.get('phoneNumber')?.touched)" class="text-danger">
+                    <div *ngIf="entrepriseInformationForm.get('phoneNumber')?.hasError('required')" style="margin-top: 3px;">{{ 'professionnel.mand_informations.phoneAlert' | translate }}</div>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <label for="TypeOfPiece" class="form-label">{{ 'professionnel.mand_informations.tPiece' | translate }}</label><span class="required">*</span>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    <select id="TypeOfPiece" name="TypeOfPiece" formControlName="TypeOfPiece" class="form-select">
+                        <option value="" disabled selected>{{ 'professionnel.mand_informations.selectTypeOfPiece' | translate }}</option>
+                        <option value="passport">{{ 'professionnel.mand_informations.passport' | translate }}</option>
+                        <option value="nationalID">{{ 'professionnel.mand_informations.nationalID' | translate }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="PieceIdentity" class="form-label">{{ 'professionnel.mand_informations.pIdentity' | translate }}</label><span class="required">*</span>
+                <input type="file" name="PieceIdentity" class="form-control"id="PieceIdentity" formControlName="PieceIdentity">
+                
+            </div>
+            
+            <div class="col-12">
+                <div class="row">
+                    <div class="col text-start">
+
+                        <button class="btn btn-secondary butn" (click)="Retour()">{{ 'professionnel.backButton' | translate }}</button>
+                    </div>
+                    <div class="col text-end">
+                            <button class="btn btn-secondary butn" (click)="Suivant('informations-entreprise')" [disabled]="!isFormValid()">{{ 'professionnel.nextButton' | translate }}</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

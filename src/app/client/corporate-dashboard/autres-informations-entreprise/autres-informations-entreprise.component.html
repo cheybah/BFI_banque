@@ -1,0 +1,93 @@
+<div class="card">
+    <div class="card-header">
+        <h4>{{ 'professionnel.additionalInfo.title' | translate }}</h4>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="infoForm" class="row g-3" (ngSubmit)="saveAdditionalInfo(infoForm)">
+            <div class="col-6">
+                <label for="NatureSecteur">{{ 'professionnel.additionalInfo.natureSecteur' | translate }}</label><span class="required">*</span>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-building"></i></span>
+                    <select id="NatureSecteur" name="NatureSecteur" formControlName="NatureSecteur" class="form-select">
+                        <option value="" disabled selected>{{ 'professionnel.additionalInfo.select_nature' | translate }}</option>
+                        <option value="Services financiers et bancaires">{{ 'professionnel.additionalInfo.bancaires' | translate }}</option>
+                        <option value="Santé et services médicaux">{{ 'professionnel.additionalInfo.santé' | translate }}</option>
+                        <option value="Transport et logistique">{{ 'professionnel.additionalInfo.transport' | translate }}</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <label for="domaine">{{ 'professionnel.additionalInfo.domaine' | translate }}</label><span class="required">*</span>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-briefcase-fill"></i></span>
+                    <select id="domaine" name="domaine" formControlName="domaine" class="form-select">
+                        <option value="" disabled selected>{{ 'professionnel.additionalInfo.select_domaine' | translate }}</option>
+                        <option value="Développement de logiciels et applications">{{ 'professionnel.additionalInfo.développement' | translate }}</option>
+                        <option value="Commerce électronique et marketing en ligne">{{ 'professionnel.additionalInfo.commerce' | translate }}</option>
+                        <option value="Gestion des ressources humaines">{{ 'professionnel.additionalInfo.ressources_humaines' | translate }}</option>
+
+                    </select>
+                </div>
+            </div>
+            
+            <div class="col-6">
+                <label for="taille">{{ 'professionnel.additionalInfo.taille' | translate }}</label><span class="required">*</span>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-people-fill"></i></span>
+                    <select id="taille" name="taille" formControlName="taille" class="form-select">
+                        <option value="" disabled selected>{{ 'professionnel.additionalInfo.select_taille' | translate }}</option>
+                        <option value="Petite entreprise">{{ 'professionnel.additionalInfo.petite' | translate }}</option>
+                        <option value="Moyenne entreprise">{{ 'professionnel.additionalInfo.moyenne' | translate }}</option>
+                        <option value="Grande entreprise">{{ 'professionnel.additionalInfo.grande' | translate }}</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-6">
+                <label for="pieceType">Type de la pièce </label><span class="required">*</span>               
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-card-list"></i></span>
+                    <select id="type_particulier" name="type_particulier" formControlName="pieceType" class="form-select">
+                        <option value="" disabled selected>{{ 'professionnel.additionalInfo.select_piece_type' | translate }}</option>
+                        <option value="Carte d'identité nationale">{{ 'professionnel.additionalInfo.national_identity_card' | translate }}</option>
+                        <option value="Passport">{{ 'professionnel.additionalInfo.passport' | translate }}</option>
+                  </select>  
+                </div>   
+            </div>
+            <div class="col-12">
+                <label for="juridiquePhoto">{{ 'professionnel.additionalInfo.juridique_photo' | translate }}</label><span class="required">*</span>
+                <input type="file" id="juridiquePhoto" name="juridiquePhoto" formControlName="juridiquePhoto" accept="png,.jpg, .jpeg,  .pdf" class="form-control">
+                <div *ngIf="infoForm.get('juridiquePhoto')?.invalid && (infoForm.get('juridiquePhoto')?.dirty || infoForm.get('juridiquePhoto')?.touched)" class="text-danger">
+                    <div *ngIf="infoForm.get('juridiquePhoto')?.hasError('required')" style="margin-top: 3px;">{{ 'professionnel.additionalInfo.valid_extensions_are' | translate }}</div>
+                </div>
+            </div>
+            
+            <div class="col-12">
+                <label for="referralCode">{{ 'professionnel.additionalInfo.referral_code' | translate }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-shield-lock-fill"></i></span>
+                    <input type="text" id="referralCode" name="referralCode" formControlName="referralCode"  pattern="[0-9]{4}" placeholder="0123" class="form-control">
+                </div>
+                <div *ngIf="infoForm.get('referralCode')?.invalid && (infoForm.get('numero_piece')?.dirty || infoForm.get('referralCode')?.touched)" class="text-danger">
+                    <div *ngIf="infoForm.get('referralCode')?.hasError('pattern')" style="margin-top: 3px;">{{ 'professionnel.additionalInfo.code_should_contain_four_digits' | translate }}</div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col text-start">
+                        <button class="btn btn-secondary butn" (click)="Retour('autres-informations-entreprise')">{{ 'professionnel.backButton' | translate }}</button>
+                    </div>
+                    <div class="col text-end">
+                        <button class="btn btn-secondary butn" (click)="Suivant('offres-et-domicialisation-entreprise')" >{{ 'professionnel.nextButton' | translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

@@ -1,0 +1,59 @@
+<div class="card">
+    <div class="card-header">
+        <h4>{{ 'professionnel.address.title' | translate }}</h4>
+    </div>
+
+    <div class="card-body">
+        <form class="row g-3" #addressForm="ngForm" (ngSubmit)="saveAddress(addressForm)">
+            <div class="col-12">
+                <label for="country" class="form-label">{{ 'professionnel.address.country' | translate }}</label><span class="required">*</span>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-flag-fill"></i></span>
+                    <input type="text" id="country" name="country" (change)="locateCountry()" [(ngModel)]="address.country" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="map-container">
+              
+                <div class="map-container">
+                    <div class="map-frame">
+                        <div id="map"></div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <label for="city">{{ 'professionnel.address.city' | translate }}</label><span class="required">*</span>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-building"></i></span>
+                    <input type="text" id="city" name="city" #villeInput [(ngModel)]="address.city" class="form-control">
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="neighbourhood">{{ 'professionnel.address.neighbourhood' | translate }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-house"></i></span> <!-- Icon added to the input group -->
+                    <input type="text" id="neighbourhood" name="neighbourhood" [(ngModel)]="address.neighbourhood" class="form-control">
+                </div>  
+            </div>
+            <div class="col-md-6">
+                <label for="zipCode">{{ 'professionnel.address.zipCode' | translate }}</label>
+
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope"></i></span> <!-- Icon added to the input group -->
+                    <input type="text" id="zipCode" name="zipCode"  [(ngModel)]="address.zipCode" class="form-control">                                
+                </div>   
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col text-start">
+                        <button class="btn btn-secondary butn" (click)="Retour('adresse-entreprise')">{{ 'professionnel.backButton' | translate }}</button>      
+                    </div>
+                    <div class="col text-end">
+                        <button class="btn btn-secondary butn" (click)="Suivant('autres-informations-entreprise')" >{{ 'professionnel.nextButton' | translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

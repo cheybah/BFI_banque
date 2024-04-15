@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     // Make a POST request to backend '/login' endpoint with login credentials
     this.axiosService.request(
       "POST",
-      "/login",
+      "/bfi/login",
       { login: this.login, password: this.password }
     ).then(
       (response: any) => {
