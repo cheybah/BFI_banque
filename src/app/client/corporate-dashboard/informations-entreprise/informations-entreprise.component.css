@@ -1,0 +1,9 @@
+
+:host ::ng-deep .iti__flag-container + input {
+    padding-left: 40px; /* Adjust the padding-left value according to the width of the flag container */
+  }
+
+  .border-control{
+    border: none !important;
+    margin-top: -5px;
+  }

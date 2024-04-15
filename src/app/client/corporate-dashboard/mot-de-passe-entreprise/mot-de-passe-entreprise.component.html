@@ -1,0 +1,74 @@
+<div class="card">
+    <div class="card-header">
+        <h4>{{ 'professionnel.authentication.title' | translate }}</h4>
+    </div>
+    <div class="card-body">
+        <h6>{{ 'professionnel.authentication.description' | translate }}</h6>
+        <form [formGroup]="authForm" >
+            <div class="row">
+
+                <div class="col-md-6">
+                    <label for="motDePasse" class="form-label">{{ 'professionnel.authentication.password' | translate }}</label><span class="required">*</span>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="motDePasse" formControlName="motDePasse" required pattern="[0-9a-zA-ZÀ-ÿ\s\-']{8,}">
+                    </div>
+                           <div *ngIf="authForm.get('motDePasse')?.invalid && (authForm.get('motDePasse')?.dirty || authForm.get('motDePasse')?.touched)" class="text-danger">
+                            <div *ngIf="authForm.get('motDePasse')?.hasError('required')" class="text-danger">{{ 'professionnel.authentication.passwordalerte' | translate }}</div>
+                            <div *ngIf="authForm.get('motDePasse')?.hasError('pattern')" class="text-danger">{{ 'professionnel.authentication.passwordalerte' | translate }}</div>                        
+                        </div>
+                </div>
+
+                
+                <div class="col-md-6">
+                    <label for="confirmMotDePasse" class="form-label">{{ 'professionnel.authentication.confirm_passwordalerte' | translate }}</label><span class="required">*</span>                
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="confirmMotDePasse" formControlName="confirmMotDePasse" required pattern="[0-9a-zA-ZÀ-ÿ\s\-']{8,}">
+                    </div>
+                    <div *ngIf="authForm.get('confirmMotDePasse')?.invalid && (authForm.get('confirmMotDePasse')?.dirty || authForm.get('confirmMotDePasse')?.touched)" class="text-danger">
+                        <div *ngIf="authForm.get('confirmMotDePasse')?.hasError('required')" style="margin-top: 3px;">{{ 'professionnel.authentication.confirm_passwordalerte' | translate }}</div>
+                        <div *ngIf="authForm.get('confirmMotDePasse')?.hasError('pattern')" style="margin-top: 3px;">{{ 'professionnel.authentication.confirm_passwordalerte1' | translate }}</div>
+                    </div>
+                </div>
+                
+                    <div class="col-md-6">
+                        <label for="qest1">{{ 'professionnel.authentication.condsec1' | translate }}</label><span class="required">*</span>               
+                        <div class="input-group">
+                            <select id="qest1" name="qest1" formControlName="qest1" class="form-select">
+                                <option value="" disabled selected>{{ 'professionnel.authentication.select_question1' | translate }}</option>
+                                <option value="Quel est le nom de votre mentor professionnel ?">{{ 'professionnel.authentication.cond1' | translate }}</option>
+                                <option value="Quel est le nom de votre premier client en tant qu'entreprise ?">{{ 'professionnel.authentication.cond2' | translate }}</option>
+                                <option value="Quel est le nom de votre cabinet d'audit ou de votre comptable ?">{{ 'professionnel.authentication.cond3' | translate }}</option>                
+                            </select>  
+                        </div>   
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="reponse1" class="form-label">{{ 'professionnel.authentication.rep1' | translate }}</label><span class="required">*</span>                
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="reponse1" >
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="qest2">{{ 'professionnel.authentication.condsec1' | translate }}</label><span class="required">*</span>               
+                        <div class="input-group">
+                            <select id="qest2" name="qest2" formControlName="qest2" class="form-select">
+                                <option value="" disabled selected>{{ 'professionnel.authentication.select_question2' | translate }}</option>
+                                <option value="Quel est le nom de votre mentor professionnel ?">{{ 'professionnel.authentication.cond1' | translate }}</option>
+                                <option value="Quel est le nom de votre premier client en tant qu'entreprise ?">{{ 'professionnel.authentication.cond2' | translate }}</option>
+                                <option value="Quel est le nom de votre cabinet d'audit ou de votre comptable ?">{{ 'professionnel.authentication.cond3' | translate }}</option>                
+                             </select>  
+                        </div>   
+                    </div>
+                    <div class="col-md-6">
+                        <label for="reponse2" class="form-label">{{ 'professionnel.authentication.rep2' | translate }}</label><span class="required">*</span>                
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="reponse2" >
+                        </div>
+                    </div>
+                    
+             </div>
+            <button type="button" class="btn btn-secondary butn" (click)="Suivant('validation-entreprise')">{{ 'professionnel.authentication.send_button' | translate }}</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="card">
+    <div class="card-header">
+        <h4>Offres et Domiciliation</h4>
+    </div>
+  
+    <div class="card-body">
+        <div class="row">
+            <!-- Column for selecting packs -->
+            <div class="col-md-{{ selectedPack ? '8' : '12' }}">
+                <form [formGroup]="offerForm" class="row g-3">
+                    <div class="col-12">
+                        <p>Choisissez votre agence de préférence.</p>
+                        <label for="agencyName">Agence</label><span class="required">*</span>                 
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-building"></i></span> <!-- Icon added to the left of the label -->
+                            <select id="agencyName" class="form-select" required formControlName="agencyName">
+                                <option value="" disabled selected>Choisir votre agence</option>
+                                <option value="AGENCE_TUNIS">AGENCE DE TUNIS</option>
+                                <option value="AGENCE_SFAX">AGENCE_SFAX</option>
+                                <option value="AGENCE_DJERBA">AGENCE DE DJERBA</option>
+                                <option value="AGENCE_GABES">AGENCE DE GABES</option>
+                            </select>
+                        </div>
+                        <div *ngIf="offerForm.get('agencyName')?.invalid && (offerForm.get('agencyName')?.dirty || offerForm.get('agence')?.touched)" class="text-danger" style="margin-top: 3px;">
+                            <div *ngIf="offerForm.get('agencyName')?.hasError('required')">Veuillez choisir votre agence</div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label  formControlName="accountType" for="accountType">Choisissez votre compte</label><span class="required">*</span>
+                        <div class="row">
+                            <div class="col-md-4 mb-3" *ngFor="let compte of comptes">
+                                <div id="accountType" class="compte" (click)="selectCompte(compte.value)" [class.selected]="isCompteSelected(compte.value)">
+                                    <div>
+                                        <h5 class="card-title">{{ compte.label }}</h5>
+                                        <i class="fas fa-check" *ngIf="isCompteSelected(compte.value)"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3" *ngFor="let pack of packsAffiches">
+                        <div id="packType" class="pack" (click)="selectPack(pack.name, pack.description)" [class.selected]="isPackSelected(pack.name)">
+                            <div>
+                                <h5 class="card-title">{{ pack.name }}</h5>
+                                <i class="fas fa-check" *ngIf="isPackSelected(pack.name)"></i>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Column to display the selected pack content -->
+            <div class="col-md-{{ selectedPack ? '4' : '0' }}">
+                <div class="centerpack">
+                    <div *ngIf="selectedPack" class="selected-pack">
+                        <div class="pack">
+                            <h5>Description du Pack</h5>
+                            <p [innerHTML]="selectedPackDescription"></p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="col-12">
+            <div class="row">
+                <div class="col text-start">
+                    <button class="btn btn-secondary butn" (click)="Retour('offres-et-domicialisation-entreprise')">Retour</button>
+                </div>
+                <div class="col text-end">
+                    <button class="btn btn-secondary butn" (click)="Suivant('conditions-generales-entreprise')" >Suivant</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -31,6 +31,14 @@ import { PasswordComponent } from './password/password.component';
 import { ResetComponent } from './reset/reset.component';
 import { UpdatedpasswordComponent } from './updatedpassword/updatedpassword.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { InformationsMandatairesComponent } from './corporate-dashboard/informations-mandataires/informations-mandataires.component';
+import { InformationsEntrepriseComponent } from './corporate-dashboard/informations-entreprise/informations-entreprise.component';
+import { AutresInformationsEntrepriseComponent } from './corporate-dashboard/autres-informations-entreprise/autres-informations-entreprise.component';
+import { AdresseEntrepriseComponent } from './corporate-dashboard/adresse-entreprise/adresse-entreprise.component';
+import { OffresEtDomicialisationEntrepriseComponent } from './corporate-dashboard/offres-et-domicialisation-entreprise/offres-et-domicialisation-entreprise.component';
+import { ConditionsGeneralesEntrepriseComponent } from './corporate-dashboard/conditions-generales-entreprise/conditions-generales-entreprise.component';
+import { MotDePasseEntrepriseComponent } from './corporate-dashboard/mot-de-passe-entreprise/mot-de-passe-entreprise.component';
+import { ValidationEntrepriseComponent } from './corporate-dashboard/validation-entreprise/validation-entreprise.component';
 import { TopbarsComponent } from './topbars/topbars.component';
 
 
@@ -60,6 +68,14 @@ export function playerFactory() {
     PasswordComponent,
     ResetComponent,
     UpdatedpasswordComponent,
+    InformationsMandatairesComponent,
+    InformationsEntrepriseComponent,
+    AutresInformationsEntrepriseComponent,
+    AdresseEntrepriseComponent,
+    OffresEtDomicialisationEntrepriseComponent,
+    ConditionsGeneralesEntrepriseComponent,
+    MotDePasseEntrepriseComponent,
+    ValidationEntrepriseComponent
     TopbarsComponent
 
   ],

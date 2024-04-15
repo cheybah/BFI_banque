@@ -1,6 +1,7 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
-import { navbarData } from './nav-data';
+import { navbarData, navproData } from './nav-data';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
+import { Router } from '@angular/router';
 
 interface SidenavToggle {
   screenWidth: number;
@@ -48,10 +49,16 @@ export class SidenavComponent implements OnInit {
       this.onToggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
     }
   }
+  constructor(private router: Router) {} // Injectez le Router
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
+    // Vérifiez la route actuelle et affectez navData en conséquence
+    if (this.router.url.startsWith('/professionnel')) {
+      this.navData = navproData;
+    }
   }
+
 
   toggleCollapse(): void {
     this.collapsed = !this.collapsed;

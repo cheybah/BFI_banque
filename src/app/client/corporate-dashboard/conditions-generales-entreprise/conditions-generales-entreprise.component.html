@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-header">
+        <h4>{{ 'professionnel.general_conditions.title' | translate }}</h4>
+</div>
+    
+    <div class="card-body">
+        <p>{{ 'professionnel.general_conditions.general_conditions_description' | translate }}</p>
+        <h3>{{ 'professionnel.general_conditions.technical_partner' | translate }}</h3>
+        <p>{{ 'professionnel.general_conditions.ventis_technology' | translate }}</p>
+        <ul>
+            <li>{{ 'professionnel.general_conditions.simplified_joint_stock_company' | translate }}</li>
+            <li>{{ 'professionnel.general_conditions.address_batterie_iv' | translate }}</li>
+            <li>{{ 'professionnel.general_conditions.registered_commerce_registry_number' | translate }}</li>
+            <li>{{ 'professionnel.general_conditions.nif' | translate }}</li>
+            <li>{{ 'professionnel.general_conditions.website' | translate }}<a href="www.ventis.group">{{ 'professionnel.general_conditions.link' | translate }}</a></li>
+            <li>{{ 'professionnel.general_conditions.tel' | translate }}</li>
+        </ul>
+        <input class="check_box" type="checkbox" id="conditions" name="conditions" [(ngModel)]="conditionsAccepted">
+        <label for="conditions">{{ 'professionnel.general_conditions.accept_conditions_statement' | translate }}</label><br>
+        <div class="col-12">
+            <button type="button" class="btn btn-secondary butn" (click)="submitedForm('mot-de-passe-entreprise')">{{ 'professionnel.general_conditions.accept' | translate }}</button>
+            <p id="validationMessage" *ngIf="!conditionsAccepted && formSubmitted" style="color: red;">{{ 'professionnel.general_conditions.accept_conditions_warning' | translate }}</p>
+        </div>
+    </div>
+</div>
