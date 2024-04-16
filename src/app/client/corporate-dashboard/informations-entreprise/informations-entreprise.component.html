@@ -58,7 +58,7 @@
 
             <div class="col-12">
                 <label for="creation_date">{{ 'professionnel.ent_informations.creation_date' | translate }}</label><span class="required">*</span>
-                <input type="date" id="creation_date" name="creation_date" formControlName="creation_date" >
+                <input type="date" id="creation_date" name="creation_date" formControlName="creation_date" [max]="getCurrentDate()">
             </div>
 
             <div class="col-md-6">

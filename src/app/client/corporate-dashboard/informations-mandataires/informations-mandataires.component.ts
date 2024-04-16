@@ -36,7 +36,7 @@ export class InformationsMandatairesComponent  implements OnInit {
       gender: [null, Validators.required],
       firstName: ['', [Validators.required, Validators.minLength(2), noNumbersValidator()]],
       lastName: ['', [Validators.required, Validators.minLength(2), noNumbersValidator()]],
-      photo: [''],
+      photo: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', Validators.required],
       TypeOfPiece:['', Validators.required],

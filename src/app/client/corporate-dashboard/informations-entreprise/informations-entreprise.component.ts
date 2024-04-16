@@ -20,7 +20,6 @@ function noNumbersValidator(): ValidatorFn {
 })
 export class InformationsEntrepriseComponent implements OnInit {
 
-  
   informationForm: FormGroup;
   selectedCountryISO: CountryISO = CountryISO.Tunisia; // Initialize with Tunisia as default country
   personalInfo: any = {}; // Initialize variable to hold personal information
@@ -49,8 +48,16 @@ export class InformationsEntrepriseComponent implements OnInit {
     if (storedInfoData) {
       this.informationForm.patchValue(storedInfoData);
     }
+
   }
 
+  getCurrentDate(): string {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = currentDate.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
 
  isFormValid(): boolean { //to check if the form is valid
   const form = document.querySelector('.needs-validation') as HTMLFormElement;
