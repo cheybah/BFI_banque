@@ -43,7 +43,10 @@
             </div>
             <div class="mb-3">
                 <label for="photo" class="form-label">{{ 'professionnel.mand_informations.photo' | translate }}</label>
-                <input type="file" name="photo" class="form-control"id="photo" formControlName="photo">
+                <input type="file" name="photo" class="form-control"id="photo" formControlName="photo" accept="png,.jpg, .jpeg,  .pdf">
+                <div *ngIf="entrepriseInformationForm.get('photo')?.invalid && (entrepriseInformationForm.get('photo')?.dirty || entrepriseInformationForm.get('photo')?.touched)" class="text-danger">
+                    <div *ngIf="entrepriseInformationForm.get('photo')?.hasError('required')" style="margin-top: 3px;">{{ 'dash.additionalInfo.valid_extensions_are' | translate }}</div>
+                </div>
             </div>
             <div class="col-md-6">
                 <label for="email" class="form-label">{{ 'professionnel.mand_informations.email' | translate }}</label>

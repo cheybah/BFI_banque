@@ -75,7 +75,7 @@ export function playerFactory() {
     OffresEtDomicialisationEntrepriseComponent,
     ConditionsGeneralesEntrepriseComponent,
     MotDePasseEntrepriseComponent,
-    ValidationEntrepriseComponent
+    ValidationEntrepriseComponent,
     TopbarsComponent
 
   ],
