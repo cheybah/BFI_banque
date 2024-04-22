@@ -20,13 +20,12 @@ export class MotDePasseEntrepriseComponent {
     private formBuilder: FormBuilder,
     private authService: AuthService){
       this.authForm = this.formBuilder.group({
-        quest1: ['', Validators.required],
-        quest2: ['', [Validators.required]],
+      
         confirmMotDePasse: ['', [Validators.required]],
         motDePasse: ['', [Validators.required]],
         reponse1: ['', [Validators.required]],
         reponse2: ['', [Validators.required]],
-      });
+      })
     }
 
     Suivant(currentRoute: string): void{
