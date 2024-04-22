@@ -22,7 +22,7 @@ export  const navbarData =  [
         nextComponent: 'offres-et-domicialisation'
     },
     {
-        routeLink : 'offres-et-domicialisation',
+        routeLink : 'offres-et-domiciliation',
         icon : 'fal fa-building',
         label: 'Offres et domicialiation',
         visited: false,
@@ -82,7 +82,7 @@ export  const navproData =  [
         nextComponent: 'offres-et-domicialisation-entreprise'
     },
     {
-        routeLink : 'offres-et-domicialisation-entreprise',
+        routeLink : 'offres-et-domiciliation-entreprise',
         icon : 'fal fa-building',
         label: 'Offres et domicialiation',
         visited: false,

@@ -10,8 +10,9 @@
   </div>
 <!-- ... -->
 <ul class="sidenav-nav">
-  <li class="sidenav-nav-item" *ngFor="let data of navData; let i = index" [ngClass]="{'active': i === activeItemIndex, 'visited': data.visited}">
-    <span class="sidenav-nav-link" >
+  <li class="sidenav-nav-item" *ngFor="let data of navData; let i = index"
+      [ngClass]="{'active': i === activeItemIndex, 'visited': data.visited, 'disabled': !data.visited && i !== 0}">
+    <span class="sidenav-nav-link" (click)="setActiveItem(i)">
       <i class="sidenav-link-icon" [class]="data.icon"></i>
       <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">{{data.label}}</span>
     </span>

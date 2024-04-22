@@ -90,7 +90,9 @@
             <div class="col-md-6">
                 <label for="PieceIdentity" class="form-label">{{ 'professionnel.mand_informations.pIdentity' | translate }}</label><span class="required">*</span>
                 <input type="file" name="PieceIdentity" class="form-control"id="PieceIdentity" formControlName="PieceIdentity">
-                
+                <div *ngIf="entrepriseInformationForm.get('PieceIdentity')?.invalid && (entrepriseInformationForm.get('PieceIdentity')?.dirty || entrepriseInformationForm.get('PieceIdentity')?.touched)" class="text-danger">
+                    <div *ngIf="entrepriseInformationForm.get('PieceIdentity')?.hasError('required')" style="margin-top: 3px;">{{ 'professionnel.additionalInfo.valid_extensions_are' | translate }}</div>
+                </div>
             </div>
             
             <div class="col-12">
