@@ -24,6 +24,7 @@ import { MotDePasseEntrepriseComponent } from './corporate-dashboard/mot-de-pass
 import { ValidationEntrepriseComponent } from './corporate-dashboard/validation-entreprise/validation-entreprise.component';
 import { ConditionsGeneralesEntrepriseComponent } from './corporate-dashboard/conditions-generales-entreprise/conditions-generales-entreprise.component';
 import { TransactionsdashComponent } from './transactionsDashboard/transactionsdash/transactionsdash.component';
+import { TransfertRapideComponent } from './transactionsDashboard/transfert-rapide/transfert-rapide.component';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -57,6 +58,8 @@ const routes: Routes = [
   ]}, 
 
   { path: 'transactions-dashboard', component: TransactionsdashComponent}, 
+  { path: 'transfert-rapide', component: TransfertRapideComponent}, 
+
   ];
   @NgModule({
     imports: [RouterModule.forChild(routes)],
