@@ -42,6 +42,7 @@ import { ValidationEntrepriseComponent } from './corporate-dashboard/validation-
 import { TopbarsComponent } from './topbars/topbars.component';
 import { TransactionsdashComponent } from './transactionsDashboard/transactionsdash/transactionsdash.component';
 import { TransfertRapideComponent } from './transactionsDashboard/transfert-rapide/transfert-rapide.component';
+import { TransactionNavComponent } from './transactionsDashboard/transaction-nav/transaction-nav.component';
 
 
 export function playerFactory() {
@@ -80,6 +81,8 @@ export function playerFactory() {
     TopbarsComponent,
     TransactionsdashComponent,
     TransfertRapideComponent,
+
+    TransactionNavComponent,
   ],
   exports: [
   ],
