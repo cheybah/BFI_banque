@@ -40,7 +40,7 @@ import { ConditionsGeneralesEntrepriseComponent } from './corporate-dashboard/co
 import { MotDePasseEntrepriseComponent } from './corporate-dashboard/mot-de-passe-entreprise/mot-de-passe-entreprise.component';
 import { ValidationEntrepriseComponent } from './corporate-dashboard/validation-entreprise/validation-entreprise.component';
 import { TopbarsComponent } from './topbars/topbars.component';
-
+import { TransactionsdashComponent } from './transactionsDashboard/transactionsdash/transactionsdash.component';
 
 
 export function playerFactory() {
@@ -76,8 +76,8 @@ export function playerFactory() {
     ConditionsGeneralesEntrepriseComponent,
     MotDePasseEntrepriseComponent,
     ValidationEntrepriseComponent,
-    TopbarsComponent
-
+    TopbarsComponent,
+    TransactionsdashComponent,
   ],
   exports: [
   ],

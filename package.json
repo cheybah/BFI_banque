@@ -36,6 +36,7 @@
     "lottie-web": "^5.12.2",
     "magnific-popup": "^1.1.0",
     "ng-recaptcha": "^13.2.1",
+    "ng-webcam": "^1.0.0",
     "ngx-bootstrap": "^12.0.0",
     "ngx-captcha": "^13.0.0",
     "ngx-intl-tel-input": "^3.2.0",

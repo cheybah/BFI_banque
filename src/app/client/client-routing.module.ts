@@ -23,6 +23,7 @@ import { OffresEtDomicialisationEntrepriseComponent } from './corporate-dashboar
 import { MotDePasseEntrepriseComponent } from './corporate-dashboard/mot-de-passe-entreprise/mot-de-passe-entreprise.component';
 import { ValidationEntrepriseComponent } from './corporate-dashboard/validation-entreprise/validation-entreprise.component';
 import { ConditionsGeneralesEntrepriseComponent } from './corporate-dashboard/conditions-generales-entreprise/conditions-generales-entreprise.component';
+import { TransactionsdashComponent } from './transactionsDashboard/transactionsdash/transactionsdash.component';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -43,16 +44,19 @@ const routes: Routes = [
       { path: 'mot-de-passe', component: MotDePasseComponent },  
   ]},   
   
-  { path: 'professionnel', component: DashboardComponent, children: [
-    { path: 'informations-du-mandataire', component: InformationsMandatairesComponent },
-    { path: 'informations-entreprise', component: InformationsEntrepriseComponent }, 
-    { path: 'adresse-entreprise', component: AdresseEntrepriseComponent },
-    { path: 'autres-informations-entreprise', component: AutresInformationsEntrepriseComponent },
-    { path: 'offres-et-domiciliation-entreprise', component: OffresEtDomicialisationEntrepriseComponent },
-    { path: 'conditions-generales-entreprise', component: ConditionsGeneralesEntrepriseComponent },
-    { path: 'mot-de-passe-entreprise', component: MotDePasseEntrepriseComponent },  
-    { path: 'validation-entreprise', component: ValidationEntrepriseComponent }, 
-]},  
+    { path: 'professionnel', component: DashboardComponent, children: [
+      { path: 'informations-du-mandataire', component: InformationsMandatairesComponent },
+      { path: 'informations-entreprise', component: InformationsEntrepriseComponent }, 
+      { path: 'adresse-entreprise', component: AdresseEntrepriseComponent },
+      { path: 'autres-informations-entreprise', component: AutresInformationsEntrepriseComponent },
+      { path: 'offres-et-domicialiation-entreprise', component: OffresEtDomicialisationEntrepriseComponent },
+      { path: 'conditions-generales-entreprise', component: ConditionsGeneralesEntrepriseComponent },
+      { path: 'mot-de-passe-entreprise', component: MotDePasseEntrepriseComponent },  
+      { path: 'validation-entreprise', component: ValidationEntrepriseComponent }, 
+
+  ]}, 
+
+  { path: 'transactions-dashboard', component: TransactionsdashComponent}, 
   ];
   @NgModule({
     imports: [RouterModule.forChild(routes)],

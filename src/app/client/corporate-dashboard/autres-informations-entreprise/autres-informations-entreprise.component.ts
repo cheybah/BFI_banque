@@ -45,7 +45,7 @@ saveAdditionalInfo(form: FormGroup): void {
     this.autresInformationsService.setTemporaryAdditionalInfoData(formData);
 
     // Navigate to the next step
-    this.router.navigate(['/professionnel/offres-et-domicialisation-entreprise']);
+    this.router.navigate(['/professionnel/offres-et-domicialiation-entreprise']);
   } else {
     console.error('Form is invalid.');
   }
