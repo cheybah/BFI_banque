@@ -41,6 +41,7 @@ import { MotDePasseEntrepriseComponent } from './corporate-dashboard/mot-de-pass
 import { ValidationEntrepriseComponent } from './corporate-dashboard/validation-entreprise/validation-entreprise.component';
 import { TopbarsComponent } from './topbars/topbars.component';
 import { TransactionsdashComponent } from './transactionsDashboard/transactionsdash/transactionsdash.component';
+import { TransfertRapideComponent } from './transactionsDashboard/transfert-rapide/transfert-rapide.component';
 import { TransactionNavComponent } from './transactionsDashboard/transaction-nav/transaction-nav.component';
 
 
@@ -79,6 +80,8 @@ export function playerFactory() {
     ValidationEntrepriseComponent,
     TopbarsComponent,
     TransactionsdashComponent,
+    TransfertRapideComponent,
+
     TransactionNavComponent,
   ],
   exports: [
