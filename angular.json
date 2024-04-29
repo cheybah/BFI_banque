@@ -53,7 +53,8 @@
               "src/assets/quform/js/scripts.js",
               "src/assets/quform/js/plugins.js",
               "src/assets/search/search.js",
-              "node_modules/magnific-popup/dist/jquery.magnific-popup.js"
+              "node_modules/magnific-popup/dist/jquery.magnific-popup.js",
+              "src/assets/js/loopple/loopple.js"
             ]
           },
             
