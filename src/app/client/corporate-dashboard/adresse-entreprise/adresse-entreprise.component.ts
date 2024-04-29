@@ -6,6 +6,7 @@ import * as L from 'leaflet';
 import 'leaflet-routing-machine';
 import { NgForm } from '@angular/forms';
 import { navproData } from '../../dashboard/sidenav/nav-data';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -32,7 +33,10 @@ export class AdresseEntrepriseComponent {
   });
  
   constructor(private router: Router,
-    private adresseService: AdresseService) {}
+    private adresseService: AdresseService,   
+    private translate: TranslateService
+  ) {    this.translate.setDefaultLang('fr');
+}
 
 
   ngOnInit(): void {
