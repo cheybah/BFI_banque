@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { AxiosService } from 'src/app/services/axios.service';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import necessary modules for reactive forms
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'; 
 import { TranslateService } from '@ngx-translate/core';
 
 

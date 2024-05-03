@@ -4,10 +4,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 
 
-
 .sidenav {
     height: 100vh; /* Prendre toute la hauteur de l'écran */
     overflow-x: hidden !important; 
     overflow-y: hidden !important; 
-    z-index : -999 !important;
 }

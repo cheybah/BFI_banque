@@ -1,0 +1,123 @@
+<!-- app.component.html -->
+<body class="g-sidenav-show bg-gray-100">  
+    <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100" id="sidenav-main">
+      <div class="sidenav-header">
+        <a class="navbar-brand m-0" href="#">
+          <span class="ms-1 font-weight-bold"><img id="logo" src="../../../assets/img/logos/logo.png"></span>
+        </a>
+      </div>
+      <hr class="horizontal dark mt-0">
+      <app-transaction-nav></app-transaction-nav> 
+    </div>
+  
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+        <div class="container-fluid py-1 px-3 bg-gray-100">
+          <nav aria-label="breadcrumb">
+            <h6 class="font-weight-bolder mb-0">Création utilisateur</h6>
+          </nav>
+          <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+              <div class="input-group">
+                <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" placeholder="Tapez ici...">
+              </div>
+            </div>
+            <ul class="navbar-nav justify-content-end">
+              <li class="nav-item d-flex align-items-center">
+                <a href="#" class="nav-link text-body font-weight-bold px-0">
+                  <i class="fa fa-user me-sm-1" aria-hidden="true"></i>
+                  <span class="d-sm-inline d-none">Se connecter</span>
+                </a>
+              </li>
+              <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                <a href="#" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                  <div class="sidenav-toggler-inner">
+                    <i class="sidenav-toggler-line"></i>
+                    <i class="sidenav-toggler-line"></i>
+                    <i class="sidenav-toggler-line"></i>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item px-3 d-flex align-items-center">
+                <a href="#" class="nav-link text-body p-0">
+                  <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                <a href="#" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa fa-bell cursor-pointer" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+                  <li class="mb-2">
+                    <a class="dropdown-item border-radius-md" href="#">
+                      <div class="d-flex py-1">
+                        <div class="my-auto">
+                          <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                        </div>
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="text-sm font-weight-normal mb-1">
+                            <span class="font-weight-bold">Nouveau message</span> de Laur
+                          </h6>
+                          <p class="text-xs text-secondary mb-0">
+                            <i class="fa fa-clock me-1" aria-hidden="true"></i>
+                            Il y a 13 minutes
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- Ajoutez des éléments de menu supplémentaires ici -->
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+      <div class="container-fluid">
+        <div class="row">
+          <div class="container-fluid">
+            <div class="tab-content mt-2">
+              <div class="tab-pane active" id="user-info">
+                <div class="row form-group">
+                  <div class="col-xl-6 col-md-6 col-12">
+                    <label class="form-label">Prénom</label> 
+                    <input type="text" class="form-control"  placeholder="Prénom" maxlength="50">
+                  </div>
+                  <div class="col-xl-6 col-md-6 col-12">
+                    <label class="form-label">Nom</label> 
+                    <input type="text" class="form-control"  placeholder="Nom" maxlength="50">
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-xl-6 col-md-6 col-12">
+                    <label class="form-label">E-mail</label>
+                    <input type="text" class="form-control"  placeholder="E-mail" maxlength="100">
+                  </div>
+                  <div class="col-xl-6 col-md-6 col-12">
+                    <label class="form-label">Téléphone</label> 
+                    <input type="text" class="form-control"  placeholder="N° de téléphone" maxlength="50">
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-xl-12 col-12">
+                    <label class="form-label">Adresse</label> 
+                    <textarea class="form-control" placeholder="Adresse" maxlength="100"></textarea>
+                  </div>
+                </div>
+                <div class="form-group row mt-2">
+                  <div class="col-12">
+                    <button type="button" class="btn btn-secondary butn float-right ng-binding" >
+                      Enregistrer
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  

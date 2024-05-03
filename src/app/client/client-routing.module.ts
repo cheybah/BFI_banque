@@ -25,6 +25,11 @@ import { ValidationEntrepriseComponent } from './corporate-dashboard/validation-
 import { ConditionsGeneralesEntrepriseComponent } from './corporate-dashboard/conditions-generales-entreprise/conditions-generales-entreprise.component';
 import { TransactionsdashComponent } from './transactionsDashboard/transactionsdash/transactionsdash.component';
 import { TransfertRapideComponent } from './transactionsDashboard/transfert-rapide/transfert-rapide.component';
+import { GestionUtilisateursComponent } from './transactionsDashboard/gestion-utilisateurs/gestion-utilisateurs.component';
+import { GestionProfilUtilisateursComponent } from './transactionsDashboard/gestion-profil-utilisateurs/gestion-profil-utilisateurs.component';
+import { CreateUserComponent } from './transactionsDashboard/create-user/create-user.component';
+import { RendezVousComponent } from './transactionsDashboard/rendez-vous/rendez-vous.component';
+import { ReclamationComponent } from './transactionsDashboard/reclamation/reclamation.component';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -59,6 +64,12 @@ const routes: Routes = [
 
   { path: 'transactions-dashboard', component: TransactionsdashComponent}, 
   { path: 'transfert-rapide', component: TransfertRapideComponent}, 
+  { path: 'administration/gestion-utilisateurs', component: GestionUtilisateursComponent}, 
+  { path: 'administration/gestion-profil-utilisateurs', component: GestionProfilUtilisateursComponent}, 
+  { path: 'administration/create-user', component: CreateUserComponent}, 
+  { path: 'service-client/rendez-vous', component: RendezVousComponent}, 
+  { path: 'service-client/reclamation', component: ReclamationComponent}, 
+
 
   ];
   @NgModule({
