@@ -25,6 +25,8 @@ import { ValidationEntrepriseComponent } from './corporate-dashboard/validation-
 import { ConditionsGeneralesEntrepriseComponent } from './corporate-dashboard/conditions-generales-entreprise/conditions-generales-entreprise.component';
 import { TransactionsdashComponent } from './transactionsDashboard/transactionsdash/transactionsdash.component';
 import { CreateBankAccountComponent } from './transactionsDashboard/create-bank-account/create-bank-account.component';
+import { TransfertRapideComponent } from './transactionsDashboard/transfert-rapide/transfert-rapide.component';
+
 
 const routes: Routes = [
     { path: 'bfi/login', component: LoginComponent },
@@ -60,6 +62,8 @@ const routes: Routes = [
   { path: 'transactions-dashboard', component: TransactionsdashComponent},
   {path: 'accounts-create', component: CreateBankAccountComponent},
   {path: 'transactions', component: TransactionsdashComponent},
+  { path: 'transfert-rapide', component: TransfertRapideComponent}, 
+
   ];
   @NgModule({
     imports: [RouterModule.forChild(routes)],
