@@ -1,1 +1,250 @@
-<p>transfert-rapide works!</p>
+<!-- app.component.html -->
+<body class="g-sidenav-show bg-gray-100">  
+  <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100" id="sidenav-main">
+      <div class="sidenav-header">
+          <a class="navbar-brand m-0" href="#">
+              <span class="ms-1 font-weight-bold">
+                  <img id="logo" src="assets/img/logos/logo.png">
+              </span>
+          </a>
+      </div>
+      <hr class="horizontal dark mt-0">
+      <app-transaction-nav></app-transaction-nav>
+  </div>
+
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+          <div class="container-fluid py-1 px-3 bg-gray-100">
+              <nav aria-label="breadcrumb">
+                  <h6 class="font-weight-bolder mb-0">Transfert Rapide</h6>
+              </nav>
+              <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                  <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                      <div class="input-group">
+                          <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                          <input type="text" class="form-control" placeholder="Tapez ici...">
+                      </div>
+                  </div>
+                  <ul class="navbar-nav justify-content-end">
+                      <li class="nav-item d-flex align-items-center">
+                          <a href="#" class="nav-link text-body font-weight-bold px-0">
+                              <i class="fa fa-user me-sm-1" aria-hidden="true"></i>
+                              <span class="d-sm-inline d-none">Se connecter</span>
+                          </a>
+                      </li>
+                      <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                          <a href="#" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                              <div class="sidenav-toggler-inner">
+                                  <i class="sidenav-toggler-line"></i>
+                                  <i class="sidenav-toggler-line"></i>
+                                  <i class="sidenav-toggler-line"></i>
+                              </div>
+                          </a>
+                      </li>
+                      <li class="nav-item px-3 d-flex align-items-center">
+                          <a href="#" class="nav-link text-body p-0">
+                              <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer" aria-hidden="true"></i>
+                          </a>
+                      </li>
+                      <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                          <a href="#" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                              <i class="fa fa-bell cursor-pointer" aria-hidden="true"></i>
+                          </a>
+                          <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+                              <li class="mb-2">
+                                  <a class="dropdown-item border-radius-md" href="#">
+                                      <div class="d-flex py-1">
+                                          <div class="my-auto">
+                                              <img src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/team-2.jpg" class="avatar avatar-sm me-3 ">
+                                          </div>
+                                          <div class="d-flex flex-column justify-content-center">
+                                              <h6 class="text-sm font-weight-normal mb-1">
+                                                  <span class="font-weight-bold">Nouveau message</span> de Laur
+                                              </h6>
+                                              <p class="text-xs text-secondary mb-0">
+                                                  <i class="fa fa-clock me-1" aria-hidden="true"></i>
+                                                  Il y a 13 minutes
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </a>
+                              </li>
+                              <!-- Ajoutez des entrées de menu supplémentaires ici -->
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+
+      <div class="card mb-4">
+          <div class="card-header pb-0">
+              <div class="row">
+                  <div class="col-8">
+                      <h6>Transfert Rapide</h6>
+                  </div>
+              </div>
+          </div>
+
+          <div class="card-body px-4 pb-2">
+              <p class="text-sm mb-0">
+                  <span class="font-weight-bold ms-1">Choisissez un canal de transfert.</span>
+              </p>
+
+              <!-- Section de transfert avec boutons -->
+              <div class="row pt-3 pb-3">
+                  <div class="col-lg-1 col-xl-1 pb-2"></div>
+                  <div class="col-lg-2 col-xl-2 pb-2">
+                      <button
+                          class="btn-retarit p-0"
+                          [ngClass]="{'selected': choix === 1}"
+                          (click)="choixTransfert(1)">
+                          <img
+                              src="../assets/img/canal/riaMoneyTransfer.png"
+                              class="img-fluid"
+                              style="height: 60px; width: 100px; background-color: white;">
+                      </button>
+                  </div>
+
+                  <div class="col-lg-2 col-xl-2 pb-2">
+                      <button
+                          class="btn-retarit p-0"
+                          [ngClass]="{'selected': choix === 2}"
+                          (click)="choixTransfert(2)">
+                          <img
+                              src="../assets/img/canal/Western-Union-logo.png"
+                              class="img-fluid"
+                              style="height: 60px; width: 100px; background-color: white;">
+                      </button>
+                  </div>
+
+                  <div class="col-lg-2 col-xl-2 pb-2">
+                      <button
+                          class="btn-retarit p-0"
+                          [ngClass]="{'selected': choix === 3}"
+                          (click)="choixTransfert(3)">
+                          <img
+                              src="../assets/img/canal/jubaExpress.png"
+                              class="img-fluid"
+                              style="height: 60px; width: 100px; background-color: white;">
+                      </button>
+                  </div>
+
+                  <div class="col-lg-2 col-xl-2 pb-2">
+                      <button
+                          class="btn-retarit p-0"
+                          [ngClass]="{'selected': choix === 4}"
+                          (click)="choixTransfert(4)">
+                          <img
+                              src="../assets/img/canal/small-world-money.png"
+                              class="img-fluid"
+                              style="height: 60px; width: 100px; background-color: white;">
+                      </button>
+                  </div>
+
+                  <div class="col-lg-2 col-xl-2 pb-2">
+                      <button
+                          class="btn-retarit p-0"
+                          [ngClass]="{'selected': choix === 5}"
+                          (click)="choixTransfert(5)">
+                          <img
+                              src="../assets/img/canal/koris.png"
+                              class="img-fluid"
+                              style="height: 60px; width: 100px; background-color: white;">
+                      </button>
+                  </div>
+
+                  <div class="col-lg-1 col-xl-1 pb-2"></div>
+              </div>
+
+              <!-- Section des champs de formulaire -->
+              <div class="row">
+                  <div class="col-12 col-lg-6">
+                      <div class="row">
+                          <div class="col-12">
+                              <label class="col-form-label">Détails de transfert</label>
+                          </div>
+                          <div class="col-12 col-lg-12">
+                              <label>Pays<span style="color:red;">*</span></label>
+                          </div>
+                          <div class="col-12 col-lg-12">
+                              <select class="form-control">
+                                  <option value="?">Sélectionnez un pays</option>
+                              </select>
+                          </div>
+                          <div class="col-12 col-lg-12">
+                              <label>Montant<span style="color:red;">*</span></label>
+                              <input type="text" class="form-control" inputmode="numeric">
+                          </div>
+                      </div>
+
+                      <div class="row mt-3">
+                          <div class="col-12 col-lg-12">
+                              <label>Frais</label>
+                              <input type="text" class="form-control">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-12 col-lg-6">
+                      <div class="row">
+                          <div class="col-12">
+                              <label class="col-form-label">Détails bénéficiaire</label>
+                          </div>
+                          <div class="col-12 col-lg-12">
+                              <label>Nom<span style="color:red;">*</span></label>
+                              <input type="text" class="form-control">
+                          </div>
+                          <div class="col-12 col-lg-12">
+                              <label>Prénom<span style="color:red;">*</span></label>
+                              <input type="text" class="form-control">
+                          </div>
+                          <div class="col-12 col-lg-12">
+                              <label>N° de téléphone</label>
+                              <input type="text" class="form-control">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row mt-3">
+                  <div class="col-12 col-lg-6">
+                      <div class="row">
+                          <div class="col-12">
+                              <label class="col-form-label">Autres détails (Facultatif)</label>
+                          </div>
+                          <div class="col-12 col-lg-12">
+                              <label>Question</label>
+                              <input type="text" class="form-control">
+                          </div>
+                          <div class="col-12 col-lg-12">
+                              <label>Réponse</label>
+                              <input type="text" class="form-control">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-12 col-lg-6">
+                      <div class="col-12">
+                          <label class="col-form-label">Téléverser votre pièce d'identité<span style="color:red;">*</span></label>
+                      </div>
+                      <div class="col-12 col-lg-6 text-center">
+                          <div class="card-body signin-card-body align-self-center signin-card-body-documentation card-doc" style="padding-bottom: 5px !important;">
+                              <input type="file" class="form-control">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row mt-3">
+                  <div class="col-12">
+                      <div class="row">
+                          <div class="col text-end">
+                              <button class="btn btn-secondary butn">Suivant</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </main>
+</body>

@@ -43,6 +43,12 @@ import { TopbarsComponent } from './topbars/topbars.component';
 import { TransactionsdashComponent } from './transactionsDashboard/transactionsdash/transactionsdash.component';
 import { TransfertRapideComponent } from './transactionsDashboard/transfert-rapide/transfert-rapide.component';
 import { TransactionNavComponent } from './transactionsDashboard/transaction-nav/transaction-nav.component';
+import { GestionUtilisateursComponent } from './transactionsDashboard/gestion-utilisateurs/gestion-utilisateurs.component';
+import { GestionProfilUtilisateursComponent } from './transactionsDashboard/gestion-profil-utilisateurs/gestion-profil-utilisateurs.component';
+import { CreateUserComponent } from './transactionsDashboard/create-user/create-user.component';
+import { RendezVousComponent } from './transactionsDashboard/rendez-vous/rendez-vous.component';
+import { ReclamationComponent } from './transactionsDashboard/reclamation/reclamation.component';
+
 import { CreateBankAccountComponent } from './transactionsDashboard/create-bank-account/create-bank-account.component';
 import { QRCodeModule } from 'angularx-qrcode';
 
@@ -83,8 +89,12 @@ export function playerFactory() {
     TopbarsComponent,
     TransactionsdashComponent,
     TransfertRapideComponent,
-
     TransactionNavComponent,
+    GestionUtilisateursComponent,
+    GestionProfilUtilisateursComponent,
+    CreateUserComponent,
+    RendezVousComponent,
+    ReclamationComponent,
     CreateBankAccountComponent,
   ],
   exports: [
