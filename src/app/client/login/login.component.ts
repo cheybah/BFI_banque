@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     ).then(
       (response: any) => {
         // Upon successful authentication, navigate to the welcome client component
-        this.router.navigate(['/welcome']);
+        this.router.navigate(['/transactions-dashboard']);
       }
     ).catch(
       (error: any) => {

@@ -9,3 +9,50 @@
     overflow-x: hidden !important; 
     overflow-y: hidden !important; 
 }
+
+
+.sidenav.navbar {
+    height: 100vh; /* Prendre toute la hauteur de l'écran */
+    z-index : -999 !important;
+    overflow-x: hidden !important;
+}
+.icon-inactive{
+    color: black !important;
+}
+
+.nav-item {
+    position: relative;
+  }
+
+  .submenu-list.active {
+    max-height: 500px; /* Adjust this value based on your needs */
+
+  }
+  
+  .submenu-list {
+    list-style-type: none;
+    padding-left: 1em;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out; /* Add transition for smooth animation */
+  }
+  /* 
+.submenu-item {
+    padding-left: 20px; /* Indent submenu items */
+  
+  /* 
+  .submenu-link {
+    text-decoration: none;
+    color: #282530;
+  }
+  
+  .has-submenu.active .submenu-list {
+    display: block; /* Show when active */
+  
+  /* 
+  .has-submenu.active .bi-chevron-down {
+    transform: rotate(180deg); /* Rotate caret when expanded */
+    
+
+
+

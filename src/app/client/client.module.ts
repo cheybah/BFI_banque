@@ -49,6 +49,9 @@ import { CreateUserComponent } from './transactionsDashboard/create-user/create-
 import { RendezVousComponent } from './transactionsDashboard/rendez-vous/rendez-vous.component';
 import { ReclamationComponent } from './transactionsDashboard/reclamation/reclamation.component';
 
+import { CreateBankAccountComponent } from './transactionsDashboard/create-bank-account/create-bank-account.component';
+import { QRCodeModule } from 'angularx-qrcode';
+
 
 export function playerFactory() {
   return player;
@@ -92,6 +95,7 @@ export function playerFactory() {
     CreateUserComponent,
     RendezVousComponent,
     ReclamationComponent,
+    CreateBankAccountComponent,
   ],
   exports: [
   ],
@@ -106,6 +110,7 @@ export function playerFactory() {
     FormsModule,
     HttpClientModule ,
     TranslateModule,
+    QRCodeModule,
     NgxIntlTelInputModule,
     BsDropdownModule.forRoot(),
     LottieModule.forRoot({ player: playerFactory }),  
