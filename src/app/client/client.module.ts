@@ -42,6 +42,8 @@ import { ValidationEntrepriseComponent } from './corporate-dashboard/validation-
 import { TopbarsComponent } from './topbars/topbars.component';
 import { TransactionsdashComponent } from './transactionsDashboard/transactionsdash/transactionsdash.component';
 import { TransactionNavComponent } from './transactionsDashboard/transaction-nav/transaction-nav.component';
+import { CreateBankAccountComponent } from './transactionsDashboard/create-bank-account/create-bank-account.component';
+import { QRCodeModule } from 'angularx-qrcode';
 
 
 export function playerFactory() {
@@ -80,6 +82,7 @@ export function playerFactory() {
     TopbarsComponent,
     TransactionsdashComponent,
     TransactionNavComponent,
+    CreateBankAccountComponent,
   ],
   exports: [
   ],
@@ -94,6 +97,7 @@ export function playerFactory() {
     FormsModule,
     HttpClientModule ,
     TranslateModule,
+    QRCodeModule,
     NgxIntlTelInputModule,
     BsDropdownModule.forRoot(),
     LottieModule.forRoot({ player: playerFactory }),  

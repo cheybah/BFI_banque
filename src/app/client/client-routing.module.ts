@@ -24,9 +24,10 @@ import { MotDePasseEntrepriseComponent } from './corporate-dashboard/mot-de-pass
 import { ValidationEntrepriseComponent } from './corporate-dashboard/validation-entreprise/validation-entreprise.component';
 import { ConditionsGeneralesEntrepriseComponent } from './corporate-dashboard/conditions-generales-entreprise/conditions-generales-entreprise.component';
 import { TransactionsdashComponent } from './transactionsDashboard/transactionsdash/transactionsdash.component';
+import { CreateBankAccountComponent } from './transactionsDashboard/create-bank-account/create-bank-account.component';
 
 const routes: Routes = [
-    { path: 'login', component: LoginComponent },
+    { path: 'bfi/login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'welcome', component: WelcomeClientComponent },
     { path: 'password', component: PasswordComponent },
@@ -56,7 +57,9 @@ const routes: Routes = [
 
   ]}, 
 
-  { path: 'transactions-dashboard', component: TransactionsdashComponent}, 
+  { path: 'transactions-dashboard', component: TransactionsdashComponent},
+  {path: 'accounts-create', component: CreateBankAccountComponent},
+  {path: 'transactions', component: TransactionsdashComponent},
   ];
   @NgModule({
     imports: [RouterModule.forChild(routes)],
