@@ -3,21 +3,10 @@
 @import url('https://demos.creative-tim.com/soft-ui-dashboard/assets/css/soft-ui-dashboard.min.css?v=1.0.2');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 
-
 .sidenav {
     height: 100vh; /* Prendre toute la hauteur de l'écran */
     overflow-x: hidden !important; 
     overflow-y: hidden !important; 
-}
-
-
-.sidenav.navbar {
-    height: 100vh; /* Prendre toute la hauteur de l'écran */
-    z-index : -999 !important;
-    overflow-x: hidden !important;
-}
-.icon-inactive{
-    color: black !important;
 }
 
 .nav-item {
@@ -25,7 +14,7 @@
   }
 
   .submenu-list.active {
-    max-height: 500px; /* Adjust this value based on your needs */
+    max-height: 500px;
 
   }
   

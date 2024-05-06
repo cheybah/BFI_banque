@@ -66,7 +66,6 @@ const routes: Routes = [
 
   { path: 'transactions-dashboard', component: TransactionsdashComponent},
   {path: 'accounts-create', component: CreateBankAccountComponent},
-  {path: 'transactions', component: TransactionsdashComponent},
   { path: 'transfert-rapide', component: TransfertRapideComponent}, 
   { path: 'administration/gestion-utilisateurs', component: GestionUtilisateursComponent}, 
   { path: 'administration/gestion-profil-utilisateurs', component: GestionProfilUtilisateursComponent}, 
