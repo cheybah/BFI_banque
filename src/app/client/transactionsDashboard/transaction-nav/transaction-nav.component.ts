@@ -1,98 +1,33 @@
-import { Component, ChangeDetectorRef  } from '@angular/core';
-import { SidebarItem } from './SidebarItem'; 
+import { Component } from '@angular/core';
+import { sidebar } from './sidebar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transaction-nav',
   templateUrl: './transaction-nav.component.html',
-  styleUrls: ['./transaction-nav.component.css']
+  styleUrls: ['./transaction-nav.component.css'],
 })
 export class TransactionNavComponent {
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  nav = sidebar;
 
+  activeItemIndex: number = 0; // Démarre par le premier élément
+ 
+  constructor(private router: Router) {}
 
- // Define the sidebar items
- sidebarItems: SidebarItem[] = [
-  {
-    title: 'Tableau de board',
-    icon: 'bi bi-shop', // Bootstrap icon
-    link: 'transactions-dashboard', // Optional link
-    isActive: true, // Indicate active item
-    isSubmenuVisible: false,
+  // Définit l'élément actif en fonction de l'index
+  setActiveItem(index: number): void {
+    // Désactive tous les éléments du menu
+    this.nav.forEach((item, i) => {
+      item.isActive = i === index; // Seul l'élément correspondant à l'index devient actif
+    });
 
-  },
-  {
-    title: 'Comptes',
-    icon: 'bi bi-person-vcard',
-    link: '/accounts/create',
-    isActive: false, // Set all other items as inactive by default
-    submenu: [
-      { title: 'Sub Item 1', icon: 'bi bi-file-earmark', link: '#' },
-      { title: 'Sub Item 2', icon: 'bi bi-folder', link: '#' },
-    ],
-    isSubmenuVisible: false, // Submenu initially hidden
-  },
-  {
-    title: 'Transactions',
-    icon: 'bi bi-credit-card',
-    link: '/transactions',
-    isActive: false,
-  },
-  {
-    title: 'Transfert Rapide',
-    icon: 'bi bi-arrow-left-right',
-    link: ' javascript:;',
-    isActive: false,
-  },
-  {
-    title: 'Historique',
-    icon: 'bi bi-clock-history',
-    link: 'javascript:;',
-    isActive: false,
-  },
-  {
-    title: 'Validations',
-    icon: 'bi bi-check-all',
-    link: 'javascript:;',
-    isActive: false,
-  },
-  {
-    title: 'Administration',
-    icon: 'bi bi-building',
-    link: 'javascript:;',
-    isActive: false,
-  },
-  {
-    title: 'Service Client',
-    icon: 'bi bi-headset',
-    link: 'javascript:;',
-    isActive: false,
-  },
-  {
-    title: 'Configurations',
-    icon: 'bi bi-gear',
-    link: 'javascript:;',
-    isActive: false,
-  },
-];
+    // Met à jour l'indice de l'élément actif
+    this.activeItemIndex = index;
 
-  // Store the current active item
-  activeItem: SidebarItem = this.sidebarItems[0]; // Default to the first item
-
-  toggleSubmenu(item: SidebarItem): void {
-    console.log('toggleSubmenu');
-    item.isSubmenuVisible = !item.isSubmenuVisible; // Toggle visibility
-    console.log('toggleSubmenu here');
-    this.setActiveItem(item);
+    // Navigue vers le lien de l'élément actif (facultatif)
+    if (this.nav[index].link) {
+      this.router.navigate([this.nav[index].link]);
+    }
   }
-
-  // Method to update the active item
-  setActiveItem(item: SidebarItem): void {
-    // Set isActive to false for all items
-    this.sidebarItems.forEach(i => i.isActive = false);
-  
-    // Set isActive to true for the clicked item
-    item.isActive = true;
-  }
-  
 }

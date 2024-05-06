@@ -7,14 +7,15 @@
   <hr class="horizontal dark mt-0">
 <hr class="horizontal dark mt-0">
 <ul class="navbar-nav">
-  <!-- Loop through sidebar items -->
-  <li *ngFor="let item of sidebarItems" class="nav-item">
-    <!-- Click event to set the active item -->
+
+  <li  *ngFor="let item of nav; index as i"
+  [class.nav-item]="true"
+    >
+
     <a 
       class="nav-link" 
-      [ngClass]="{ 'active': item.isActive }" 
-      (click)="setActiveItem(item)" 
-      [href]="item.link || '#'"
+      [ngClass]="{'active': i === activeItemIndex, 'visited': item.isActive}" 
+      (click)="setActiveItem(i);"
     >
       <!-- Icon with conditional style for active/inactive -->
       <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
