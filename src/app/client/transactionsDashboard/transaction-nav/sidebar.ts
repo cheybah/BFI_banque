@@ -1,4 +1,3 @@
-
 export  const sidebar =  [
     {
         title: 'Tableau de board',
@@ -10,13 +9,13 @@ export  const sidebar =  [
       {
         title: 'Comptes',
         icon: 'bi bi-person-vcard',
-        link: '/accounts-create',
+        link: '/accounts/create',
         isActive: false, // Set all other items as inactive by default
       },
       {
         title: 'Transactions',
         icon: 'bi bi-credit-card',
-        link: '/',
+        link: 'javascript:void(0)',
         isActive: false,
       },
       {
@@ -28,13 +27,13 @@ export  const sidebar =  [
       {
         title: 'Historique',
         icon: 'bi bi-clock-history',
-        link: '/',
+        link: 'javascript:void(0)',
         isActive: false,
       },
       {
         title: 'Validations',
         icon: 'bi bi-check-all',
-        link: '/',
+        link: 'javascript:void(0)',
         isActive: false,
       },
       {
@@ -49,22 +48,11 @@ export  const sidebar =  [
         link: '/administration/gestion-utilisateurs',
         isActive: false,
       },
-      {
-        title: 'Service Client',
-        icon: 'bi bi-headset',
-        link: '/service-client/rendez-vous',
-        isActive: false,
-      },
-      {
-        title: 'Service Client',
-        icon: 'bi bi-headset',
-        link: '/service-client/reclamation',
-        isActive: false,
-      },
+
       {
         title: 'Configurations',
         icon: 'bi bi-gear',
-        link: '',
+        link: 'javascript:void(0)',
         isActive: false,
       },
    

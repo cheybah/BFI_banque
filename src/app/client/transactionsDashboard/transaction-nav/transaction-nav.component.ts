@@ -11,23 +11,48 @@ export class TransactionNavComponent {
 
   nav = sidebar;
 
-  activeItemIndex: number = 0; // Démarre par le premier élément
+  activeItemIndex: number = 0; 
  
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    console.log('TransactionNavComponent initialized');
+    console.log('Initial active item index:', this.activeItemIndex);
+  }
+  
+  ngOnInit() {
+    console.log('TransactionNavComponent initialized');
+  
+    // Retrieve the stored active item index, if any
+    const storedIndex = localStorage.getItem('activeItemIndex');
+  
+    if (storedIndex !== null) {
+      this.activeItemIndex = parseInt(storedIndex, 10); // Convert to number
+      this.nav.forEach((item, i) => {
+        item.isActive = i === this.activeItemIndex;
+      });
+    } else {
+      // Default to the first item if no stored index
+      this.activeItemIndex = 0;
+      this.nav[0].isActive = true;
+    }
+  
+    console.log('Initial active item index:', this.activeItemIndex);
+  }
 
-  // Définit l'élément actif en fonction de l'index
   setActiveItem(index: number): void {
-    // Désactive tous les éléments du menu
+    console.log(`Setting active item to index: ${index}`);
+  
+    // Update the active state and local storage
     this.nav.forEach((item, i) => {
-      item.isActive = i === index; // Seul l'élément correspondant à l'index devient actif
+      item.isActive = i === index;
     });
-
-    // Met à jour l'indice de l'élément actif
+  
+    localStorage.setItem('activeItemIndex', index.toString()); // Store in local storage
     this.activeItemIndex = index;
-
-    // Navigue vers le lien de l'élément actif (facultatif)
+  
     if (this.nav[index].link) {
+      console.log(`Navigating to: ${this.nav[index].link}`);
       this.router.navigate([this.nav[index].link]);
     }
   }
+  
 }

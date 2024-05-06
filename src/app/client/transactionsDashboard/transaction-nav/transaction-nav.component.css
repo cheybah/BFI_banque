@@ -30,18 +30,29 @@
     position: relative;
   }
 
-  .submenu-list.active {
-    max-height: 500px;
+  .nav-link {
+    cursor: pointer; /* Makes the cursor a pointer on hover */
+  }
 
-  }
+  .nav-item {
+    /* Ensure pointer interactions work correctly */
+    &:hover {
+      background-color: rgb(255, 252, 252); /* Example hover effect */
+    }
+  }  
+
+.submenu-list.active {
+  max-height: 500px;
+
+}
   
-  .submenu-list {
-    list-style-type: none;
-    padding-left: 1em;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out; /* Add transition for smooth animation */
-  }
+.submenu-list {
+  list-style-type: none;
+  padding-left: 1em;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out; /* Add transition for smooth animation */
+}
   
   ::ng-deep .navbar-vertical .navbar-nav > .nav-item .nav-link.active .icon {
     background-image: linear-gradient(310deg, #c2862d, #3c2f1a); /* New gradient */
