@@ -16,7 +16,7 @@ export class TransactionNavComponent {
   {
     title: 'Tableau de board',
     icon: 'bi bi-shop', // Bootstrap icon
-    link: 'javascript:;', // Optional link
+    link: 'transactions-dashboard', // Optional link
     isActive: true, // Indicate active item
     isSubmenuVisible: false,
 
@@ -24,7 +24,7 @@ export class TransactionNavComponent {
   {
     title: 'Comptes',
     icon: 'bi bi-person-vcard',
-    link: '/accounts-create',
+    link: '/accounts/create',
     isActive: false, // Set all other items as inactive by default
     submenu: [
       { title: 'Sub Item 1', icon: 'bi bi-file-earmark', link: '#' },
@@ -36,12 +36,6 @@ export class TransactionNavComponent {
     title: 'Transactions',
     icon: 'bi bi-credit-card',
     link: '/transactions',
-    isActive: false,
-  },
-  {
-    title: 'Transactions',
-    icon: 'bi bi-credit-card',
-    link: ' javascript:;',
     isActive: false,
   },
   {

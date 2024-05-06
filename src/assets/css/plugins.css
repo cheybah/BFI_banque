@@ -20612,38 +20612,18 @@ textarea.form-control-lg {
     width: auto
 }
 
-@font-face {
-    font-family: "Font Awesome 5 Brands";
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-    /*src: url('../fonts/fa-brands-400.woff2') format("woff2");*/
-}
 
 
 .fab {
     font-family: "Font Awesome 5 Brands"
 }
 
-@font-face {
-    font-family: "Font Awesome 5 Free";
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-    src: url('../fonts/fa-regular-400.woff2') format("woff2");
-}
+
 
 .fab,.far {
     font-weight: 400
 }
 
-@font-face {
-    font-family: "Font Awesome 5 Free";
-    font-style: normal;
-    font-weight: 900;
-    font-display: block;
-    src: url('../fonts/fa-solid-900.woff2') format("woff2");
-}
 
 
 .fa,.far,.fas {
@@ -20654,12 +20634,7 @@ textarea.form-control-lg {
     font-weight: 900
 }
 
-@font-face {
-    font-family: 'themify';
-    src: url("../fonts/themify.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 [class^="ti-"],[class*=" ti-"] {
     font-family: 'themify';
@@ -22777,13 +22752,7 @@ img.mfp-img {
 }
 
 
-@font-face {
-    font-family: 'lg';
-    src: url("../fonts/lg.ttf?22t19m") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
+
 
 
 .lg-icon {
@@ -36873,3 +36842,4 @@ pre[class*="language-"] {
 .token.entity {
     cursor: help
 }
+

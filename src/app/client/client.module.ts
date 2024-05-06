@@ -51,6 +51,10 @@ import { ReclamationComponent } from './transactionsDashboard/reclamation/reclam
 
 import { CreateBankAccountComponent } from './transactionsDashboard/create-bank-account/create-bank-account.component';
 import { QRCodeModule } from 'angularx-qrcode';
+import { EDocumentsComponent } from './transactionsDashboard/e-documents/e-documents.component';
+import { NavbarComponent } from './transactionsDashboard/navbar/navbar.component';
+import { FilterPipe } from '../filter.pipe';
+
 
 
 export function playerFactory() {
@@ -96,6 +100,9 @@ export function playerFactory() {
     RendezVousComponent,
     ReclamationComponent,
     CreateBankAccountComponent,
+    EDocumentsComponent,
+    NavbarComponent,
+    FilterPipe
   ],
   exports: [
   ],

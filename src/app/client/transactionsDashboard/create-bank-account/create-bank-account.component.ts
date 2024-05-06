@@ -10,4 +10,6 @@ export class CreateBankAccountComponent {
   qrData = '400212410360'; // Your QR code data
 
 
+  
+
 }

@@ -3,6 +3,18 @@
 @import url('https://demos.creative-tim.com/soft-ui-dashboard/assets/css/soft-ui-dashboard.min.css?v=1.0.2');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 
+.bg-gradient-primary{
+  color: linear-gradient (90deg, #cca558, #8f7134) !important ;
+  background-color: linear-gradient (90deg, #cca558, #8f7134) !important;
+  background-image: linear-gradient (310deg, #cca558, #8f7134) !important;
+}
+
+
+/* Global override for z-index */
+::ng-deep #sidenav-main {
+  z-index: 0; 
+}
+
 
 .sidenav {
     height: 100vh; /* Prendre toute la hauteur de l'écran */
@@ -10,12 +22,6 @@
     overflow-y: hidden !important; 
 }
 
-
-.sidenav.navbar {
-    height: 100vh; /* Prendre toute la hauteur de l'écran */
-    z-index : -999 !important;
-    overflow-x: hidden !important;
-}
 .icon-inactive{
     color: black !important;
 }
@@ -36,23 +42,10 @@
     overflow: hidden;
     transition: max-height 0.5s ease-out; /* Add transition for smooth animation */
   }
-  /* 
-.submenu-item {
-    padding-left: 20px; /* Indent submenu items */
   
-  /* 
-  .submenu-link {
-    text-decoration: none;
-    color: #282530;
-  }
-  
-  .has-submenu.active .submenu-list {
-    display: block; /* Show when active */
-  
-  /* 
-  .has-submenu.active .bi-chevron-down {
-    transform: rotate(180deg); /* Rotate caret when expanded */
-    
+  ::ng-deep .navbar-vertical .navbar-nav > .nav-item .nav-link.active .icon {
+    background-image: linear-gradient(310deg, #c2862d, #3c2f1a); /* New gradient */
+}
 
 
 

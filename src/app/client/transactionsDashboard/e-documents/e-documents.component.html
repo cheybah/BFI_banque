@@ -1,0 +1,95 @@
+<body class="g-sidenav-show bg-gray-100">  
+    <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100 side" id="sidenav-main" >
+        <div class="sidenav-header">
+            <a class="navbar-brand m-0" href="javascript:;">
+                         
+                <span class="ms-1 font-weight-bold"><img  id="logo" src="../../../assets/img/logos/logo.png"> </span>
+            </a>
+        </div>
+        <hr class="horizontal dark mt-0">
+        <app-transaction-nav></app-transaction-nav>
+        </div>
+        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+            <app-navbar></app-navbar>
+            <div class="container">
+                <input class="search" type="text" [(ngModel)]="searchText" placeholder="Search documents">
+                
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Logo</th>
+                      <th>Document Name</th>
+                      <th>Description</th>
+                      <th>Key Words</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let doc of filteredDocuments()">
+                      <td><img [src]="getLogo(doc.extension)" alt="Document Logo" class="doc-logo"></td>
+                      <td>{{ doc.name }}</td>
+                      <td>{{ doc.description }}</td>
+                      <td>{{ doc.keywords }}</td>
+                      <td>
+                        <button class="actionbtn" (click)="deleteDoc(doc.id)"><i class="bi bi-trash"></i></button>
+                        <button  class="actionbtn" (click)="updateDoc(doc.id)"><i class="bi bi-pencil-square"></i></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+<!-- Button to Open the Modal -->
+                <button (click)="openModal()" class="btnopen-modal btnorange">Upload File</button>
+
+                <!-- Modal Content -->
+                <div *ngIf="showModal" class="modal">
+                <div class="modal-content">
+                    <!-- Close Button for the Modal -->
+                    <span class="close" (click)="closeModal()">&times;</span>
+
+                    <!-- File Input and Additional Fields -->
+                    <div class="file-input">
+                    <input
+                        type="file"
+                        (change)="onFileSelected($event)"
+                        multiple
+                    />
+
+                    <label class="label" for="doc-name">Document Name:</label>
+                    <input class="input-modal"
+                        type="text"
+                        id="doc-name"
+                        [(ngModel)]="documentName"
+                        placeholder="Enter document name"
+                    />
+
+                    <label class="label" for="doc-description">Description:</label>
+                    <textarea class="input-modal"
+                        id="doc-description"
+                        [(ngModel)]="documentDescription"
+                        placeholder="Enter document description"
+                    ></textarea>
+
+                    <label class="label" for="doc-keywords">Keywords:</label>
+                    <input class="input-modal"
+                        type="text"
+                        id="doc-keywords"
+                        [(ngModel)]="documentKeywords"
+                        placeholder="Enter keywords, separated by commas"
+                    />
+                    </div>
+
+                    <!-- Upload Button -->
+                    <button
+                    class="btnorange"
+                    (click)="uploadFiles()"
+                    [disabled]="!selectedFiles.length"
+                    >
+                    Upload
+                    </button>
+                </div>
+                </div>
+            </div>
+                         
+        </main>
+
+    </body>
