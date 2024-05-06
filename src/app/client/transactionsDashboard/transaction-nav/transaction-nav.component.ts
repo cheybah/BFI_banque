@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./transaction-nav.component.css'],
 })
 export class TransactionNavComponent {
+
   nav = sidebar;
 
   activeItemIndex: number = 0; // Démarre par le premier élément
