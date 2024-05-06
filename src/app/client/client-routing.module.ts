@@ -3,7 +3,6 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent} from "./dashboard/dashboard.component";
 import { RouterModule, Routes } from '@angular/router';
-import { HomepageComponent } from '../home/homepage/homepage.component';
 import { InformationsComponent } from './dashboard/informations/informations.component';
 import { ConditionsGeneralesComponent } from './dashboard/conditions-generales/conditions-generales.component';
 import { MotDePasseComponent } from './dashboard/mot-de-passe/mot-de-passe.component';
