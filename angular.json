@@ -21,8 +21,14 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
+              
               "src/favicon.ico",
               "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/ngx-scanner-qrcode/wasm/", 
+                "output": "./assets/wasm/"
+              },
               {
               "glob": "**/*",
               "input": "node_modules/leaflet/dist/images/", 
@@ -53,7 +59,8 @@
               "src/assets/quform/js/scripts.js",
               "src/assets/quform/js/plugins.js",
               "src/assets/search/search.js",
-              "node_modules/magnific-popup/dist/jquery.magnific-popup.js"
+              "node_modules/magnific-popup/dist/jquery.magnific-popup.js",
+              "src/assets/js/script.js"
             ]
           },
             

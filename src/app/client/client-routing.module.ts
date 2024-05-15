@@ -31,6 +31,8 @@ import { CreateUserComponent } from './transactionsDashboard/create-user/create-
 import { RendezVousComponent } from './transactionsDashboard/rendez-vous/rendez-vous.component';
 import { ReclamationComponent } from './transactionsDashboard/reclamation/reclamation.component';
 import { EDocumentsComponent } from './transactionsDashboard/e-documents/e-documents.component';
+import { MyContactsComponent } from './transactionsDashboard/my-contacts/my-contacts.component';
+import { MyContactsAddComponent } from './transactionsDashboard/my-contacts/my-contacts-add/my-contacts-add.component';
 
 
 const routes: Routes = [
@@ -67,6 +69,8 @@ const routes: Routes = [
   { path: 'transactions-dashboard', component: TransactionsdashComponent},
   {path: 'accounts/create', component: CreateBankAccountComponent},
   {path: 'accounts/e-docs', component: EDocumentsComponent},
+  {path: 'accounts/my-contacts', component: MyContactsComponent},
+  {path: 'accounts/my-contacts-add', component: MyContactsAddComponent},
   {path: 'transactions', component: TransactionsdashComponent},
   { path: 'transfert-rapide', component: TransfertRapideComponent}, 
   { path: 'administration/gestion-utilisateurs', component: GestionUtilisateursComponent}, 

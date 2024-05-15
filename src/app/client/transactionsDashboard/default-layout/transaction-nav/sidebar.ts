@@ -9,8 +9,19 @@ export  const sidebar =  [
       {
         title: 'Comptes',
         icon: 'bi bi-person-vcard',
-        link: '/accounts/create',
-        isActive: false, // Set all other items as inactive by default
+        link: 'javascript:void(0)', // Parent item
+        isActive: false,
+        expanded: false, // Parent item to be expanded/collapsed
+        subitems: [
+          {
+            title: 'Create Account',
+            link: '/accounts/create', // Subitem link
+          },
+          {
+            title: 'Manage Accounts',
+            link: '/accounts/manage', // Subitem link
+          },
+        ],
       },
       {
         title: 'Transactions',

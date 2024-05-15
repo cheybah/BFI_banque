@@ -1,0 +1,176 @@
+<link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+
+
+<body class="g-sidenav-show bg-gray-100">  
+    <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100 side" id="sidenav-main" >
+        <div class="sidenav-header">
+            <a class="navbar-brand m-0" href="javascript:;">
+                         
+                <span class="ms-1 font-weight-bold"><img  id="logo" src="../../../assets/img/logos/logo.png"> </span>
+            </a>
+        </div>
+        <hr class="horizontal dark mt-0">
+        <app-transaction-nav></app-transaction-nav>
+        </div>
+        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+            <app-navbar></app-navbar>  
+            <div class="container">
+                <div class="row"> <!-- Bootstrap row -->
+                  <!-- Table that takes up most of the space -->
+                  <div class="col-md-12"> 
+                    <div class="card-body px-0 pt-0 pb-2">
+                    <section class="multi_step_form card-body ">  
+                      <form id="msform"> 
+                        <!-- Tittle -->
+                        <div class="tittle">
+                          <h2>Add Contact</h2>
+                          <p>In order to use this service, you have to complete this verification process</p>
+                        </div>
+                        <!-- progressbar -->
+                        <ul id="progressbar">
+                          <li class="active">Account Information</li>  
+                          <li>Contact Information</li> 
+                          <li>Validation</li>
+                        </ul>
+              <!-- Fieldset 1: Account Information -->
+                        <fieldset>
+                          <h3>Enter below your contact's informations</h3>
+                          <div *ngFor="let card of accountCards; let i = index" class="card" style="background-color: #f5f5f5; padding: 15px; border-radius: 10px;">
+                            <i class="bi bi-x-circle icon-close" (click)="deleteCard(i)"></i> 
+                            <div class="form-group f1">
+                              <label>Type of Account:</label>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="accountType{{i}}" id="accountBamboo{{i}}" [(ngModel)]="card.accountType" value="Bamboo" />
+                                <label class="form-check-label" for="accountBamboo{{i}}">BAMBOO</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="accountType{{i}}" id="accountOtherBank{{i}}" [(ngModel)]="card.accountType" value="OtherBank" />
+                                <label class="form-check-label" for="accountOtherBank{{i}}">Other Bank</label>
+                              </div>
+                            </div>
+                            <div class="form-row form-card">
+                              <div class="form-group col-md-6">
+                                <label>RIB:</label>
+                                <input type="text" class="form-control" [(ngModel)]="card.rib" placeholder="Enter RIB" />
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label>Account Label:</label>
+                                <input type="text" class="form-control" [(ngModel)]="card.accountLabel" placeholder="Account Label" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <i class="bi bi-qr-code-scan" style="cursor: pointer;" (click)="toggleScanner()" [title]="scannerEnabled ? 'Stop Scanner' : 'Start Scanner'"></i>                        
+                            </div>
+                          </div>
+                        
+                          <div [style.display]="scannerEnabled ? 'block' : 'none'">
+                            <ngx-scanner-qrcode #scanner (data)="onScanResult($event)"></ngx-scanner-qrcode>
+                            <p *ngIf="scanner.isLoading">⌛ Loading...</p>
+                          </div>
+                        
+                          <div class="form-group">
+                            <button type="button" class="btn btn-secondary" id="addAccount" (click)="addAccount()">Add Account</button>
+                          </div>
+                        
+                          <button type="button" class="next action-button">Continue</button>
+                        </fieldset>
+
+                      <!-- Fieldset 2: Contact Information -->
+                        <fieldset>
+                          <h3>Add Contact Information</h3>
+                          <h6>Please upload any of these documents to verify their identity.</h6>
+                          <div class="row">
+                            <!-- Contact Type -->
+                            <div class="form-group col-md-6">
+                              <label for="contactType">Contact Type</label>
+                              <select class="form-control" id="contactType" [(ngModel)]="contactType">
+                                <option  data-display="Choose Contact Type" value="Choose Contact Type" disabled selected>Choose Contact Type</option>
+                                <option value="corporate">Corporate</option>
+                                <option value="individual">Individual</option>
+                              </select>
+                            </div>
+                            
+                            <!-- Contact Name -->
+                            <div class="form-group col-md-6">
+                              <label for="contactName">Contact Name</label>
+                              <input type="text" class="form-control" id="contactName" [(ngModel)]="contactName" placeholder="Enter contact name">
+                            </div>
+                          </div>
+                          
+                          <div class="row">
+                            <!-- Address -->
+                            <div class="form-group col-md-6">
+                              <label for="address">Address</label>
+                              <input type="text" class="form-control" id="address" [(ngModel)]="address" placeholder="Enter address">
+                            </div>
+                            
+                            <!-- Category -->
+                            <div class="form-group col-md-6">
+                              <label for="category">Category</label>
+                              <input type="text" class="form-control" id="category" [(ngModel)]="category" placeholder="Enter category (e.g., Family)">
+                            </div>
+                          </div>
+                          
+                          <div class="row">
+                            <!-- Favorites -->
+                            <div class="form-group col-md-6 d-flex align-items-center">
+                              <label for="favorites" class="mr-2">Favorites</label>
+                              <span id="favorites" (click)="toggleFavorite()" [class.favorited]="isFavorite" class="favorites-icon">
+                                <i class="bi bi-heart-fill" *ngIf="isFavorite"></i>
+                                <i class="bi bi-heart" *ngIf="!isFavorite"></i>
+                              </span>
+                            </div>
+                            
+                            <!-- File Upload -->
+                            <div class="form-group col-md-6">
+                              <div class="input-group">
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="upload" (change)="onFileChange($event)">
+                                  <label class="custom-file-label pad" for="upload">
+                                    <i class="ion-android-cloud-outline"></i>Upload picture
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <!-- Added Files Names -->
+                          <ul class="file_added" *ngIf="uploadedFileName">
+                            <li>File Added:</li>
+                            <li><a href="#"><i class="ion-paperclip"></i>{{ uploadedFileName }}</a></li>
+                          </ul>
+                          <button type="button" class="action-button previous previous_button">Back</button>
+                          <button type="button" class="next action-button">Continue</button>  
+                        </fieldset>  
+
+
+                        <fieldset>
+                          <h3>Create Security Questions</h3>
+                          <h6>Please update your account with security questions</h6> 
+                          <div class="form-group">
+                            <label>Contact Name:</label>
+                            <input type="text" class="form-control" [(ngModel)]="contactName" disabled>
+                          </div>
+                          <div class="form-group">
+                            <label>Address:</label>
+                            <input type="text" class="form-control" [(ngModel)]="address" disabled>
+                          </div>
+                          <div class="form-group">
+                            <label>RIB:</label>
+                            <input type="text" class="form-control" [(ngModel)]="ribValue" disabled>
+                          </div>                        
+                          <button type="button" class="action-button previous previous_button">Back</button> 
+                          <a class="action-button" (click)="finish()">Finish</a> 
+                        </fieldset>  
+                      </form>  
+                    </section> 
+                  </div>
+                  </div>
+                  
+                </div>
+              </div>
+        </main>
+ 
+    </body>
+
+ 

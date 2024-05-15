@@ -34,6 +34,8 @@
 }
 
 
-
+::ng-deep .bg-gradient-primary {
+    background-image: linear-gradient(310deg, #cca558, #8f7134) !important; /* Override with ng-deep */
+}
 
 
