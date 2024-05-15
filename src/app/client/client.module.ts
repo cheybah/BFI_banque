@@ -42,7 +42,7 @@ import { ValidationEntrepriseComponent } from './corporate-dashboard/validation-
 import { TopbarsComponent } from './topbars/topbars.component';
 import { TransactionsdashComponent } from './transactionsDashboard/transactionsdash/transactionsdash.component';
 import { TransfertRapideComponent } from './transactionsDashboard/transfert-rapide/transfert-rapide.component';
-import { TransactionNavComponent } from './transactionsDashboard/transaction-nav/transaction-nav.component';
+import { TransactionNavComponent } from './transactionsDashboard/default-layout/transaction-nav/transaction-nav.component';
 import { GestionUtilisateursComponent } from './transactionsDashboard/gestion-utilisateurs/gestion-utilisateurs.component';
 import { GestionProfilUtilisateursComponent } from './transactionsDashboard/gestion-profil-utilisateurs/gestion-profil-utilisateurs.component';
 import { CreateUserComponent } from './transactionsDashboard/create-user/create-user.component';
@@ -52,9 +52,17 @@ import { ReclamationComponent } from './transactionsDashboard/reclamation/reclam
 import { CreateBankAccountComponent } from './transactionsDashboard/create-bank-account/create-bank-account.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { EDocumentsComponent } from './transactionsDashboard/e-documents/e-documents.component';
-import { NavbarComponent } from './transactionsDashboard/navbar/navbar.component';
-import { FilterPipe } from '../filter.pipe';
+import { NavbarComponent } from './transactionsDashboard/default-layout/navbar/navbar.component';
+import { MyContactsComponent } from './transactionsDashboard/my-contacts/my-contacts.component';
 
+import { FilterPipe } from '../filter.pipe';
+import { MyContactsAddComponent } from './transactionsDashboard/my-contacts/my-contacts-add/my-contacts-add.component';
+import { NgxScannerQrcodeModule, LOAD_WASM } from 'ngx-scanner-qrcode';
+
+
+
+// Necessary to solve the problem of losing internet connection
+LOAD_WASM().subscribe();
 
 
 export function playerFactory() {
@@ -102,7 +110,9 @@ export function playerFactory() {
     CreateBankAccountComponent,
     EDocumentsComponent,
     NavbarComponent,
-    FilterPipe
+    FilterPipe,
+    MyContactsComponent,
+    MyContactsAddComponent
   ],
   exports: [
   ],
@@ -118,6 +128,7 @@ export function playerFactory() {
     HttpClientModule ,
     TranslateModule,
     QRCodeModule,
+    NgxScannerQrcodeModule,
     NgxIntlTelInputModule,
     BsDropdownModule.forRoot(),
     LottieModule.forRoot({ player: playerFactory }),  

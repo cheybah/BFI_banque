@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { sidebar } from './sidebar';
 import { Router } from '@angular/router';
 
@@ -7,13 +7,14 @@ import { Router } from '@angular/router';
   templateUrl: './transaction-nav.component.html',
   styleUrls: ['./transaction-nav.component.css'],
 })
-export class TransactionNavComponent {
+export class TransactionNavComponent implements OnInit {
 
   nav = sidebar;
 
   activeItemIndex: number = 0; 
+
  
-  constructor(private router: Router) {
+  constructor(public router: Router) {
     console.log('TransactionNavComponent initialized');
     console.log('Initial active item index:', this.activeItemIndex);
   }
@@ -38,6 +39,20 @@ export class TransactionNavComponent {
     console.log('Initial active item index:', this.activeItemIndex);
   }
 
+  toggleExpanded(index: number): void {
+    const item = this.nav[index];
+
+    // Toggle expanded state for the item
+    if (item.expanded !== undefined) {
+      item.expanded = !item.expanded;
+      return;
+    }
+
+    // If no expanded state, handle navigation
+    this.setActiveItem(index);
+  }
+
+
   setActiveItem(index: number): void {
     console.log(`Setting active item to index: ${index}`);
   
@@ -54,5 +69,4 @@ export class TransactionNavComponent {
       this.router.navigate([this.nav[index].link]);
     }
   }
-  
 }
