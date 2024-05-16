@@ -33,8 +33,9 @@ import { ReclamationComponent } from './transactionsDashboard/reclamation/reclam
 import { EDocumentsComponent } from './transactionsDashboard/e-documents/e-documents.component';
 import { MyContactsComponent } from './transactionsDashboard/my-contacts/my-contacts.component';
 import { MyContactsAddComponent } from './transactionsDashboard/my-contacts/my-contacts-add/my-contacts-add.component';
-
-
+import { ProfileSettingsComponent } from './transactionsDashboard/profile-settings/profile-settings.component';
+import { ProfileSettingsSecurityComponent } from './transactionsDashboard/profile-settings/profile-settings-security/profile-settings-security.component';
+import { ProfileSettingsNotificationsComponent } from './transactionsDashboard/profile-settings/profile-settings-notifications/profile-settings-notifications.component';
 const routes: Routes = [
     { path: 'bfi/login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
@@ -78,6 +79,10 @@ const routes: Routes = [
   { path: 'administration/create-user', component: CreateUserComponent}, 
   { path: 'service-client/rendez-vous', component: RendezVousComponent}, 
   { path: 'service-client/reclamation', component: ReclamationComponent}, 
+  {path: 'settings', component: ProfileSettingsComponent},
+  {path: 'settings/security', component: ProfileSettingsSecurityComponent},
+  {path: 'settings/notification', component: ProfileSettingsNotificationsComponent}
+
 
 
   ];

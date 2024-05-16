@@ -63,7 +63,7 @@ export  const sidebar =  [
       {
         title: 'Configurations',
         icon: 'bi bi-gear',
-        link: 'javascript:void(0)',
+        link: '/settings',
         isActive: false,
       },
    

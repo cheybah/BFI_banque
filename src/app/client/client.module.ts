@@ -58,6 +58,9 @@ import { MyContactsComponent } from './transactionsDashboard/my-contacts/my-cont
 import { FilterPipe } from '../filter.pipe';
 import { MyContactsAddComponent } from './transactionsDashboard/my-contacts/my-contacts-add/my-contacts-add.component';
 import { NgxScannerQrcodeModule, LOAD_WASM } from 'ngx-scanner-qrcode';
+import { ProfileSettingsComponent } from './transactionsDashboard/profile-settings/profile-settings.component';
+import { ProfileSettingsSecurityComponent } from './transactionsDashboard/profile-settings/profile-settings-security/profile-settings-security.component';
+import { ProfileSettingsNotificationsComponent } from './transactionsDashboard/profile-settings/profile-settings-notifications/profile-settings-notifications.component';
 
 
 
@@ -112,7 +115,10 @@ export function playerFactory() {
     NavbarComponent,
     FilterPipe,
     MyContactsComponent,
-    MyContactsAddComponent
+    MyContactsAddComponent,
+    ProfileSettingsComponent,
+    ProfileSettingsSecurityComponent,
+    ProfileSettingsNotificationsComponent
   ],
   exports: [
   ],
