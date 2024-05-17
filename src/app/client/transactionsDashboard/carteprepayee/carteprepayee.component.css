@@ -1,0 +1,140 @@
+.style,
+.style__chip {
+    overflow: hidden;
+    position: relative;
+}
+
+.style,
+.style__texture {
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.style {
+    margin-top: 10vh;
+    animation-name: rotate_500;
+    background-color: var(--primary);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('src/assets/img/carte1.jpeg');
+    border-radius: 0.5em;
+    box-shadow: 0 0 0 hsl(0, 0%, 80%),
+        0 0 0 hsl(0, 0%, 100%),
+        -0.2rem 0 0.75rem 0 hsla(0, 0%, 0%, 0.3);
+    color: hsl(0, 0%, 100%);
+    width: 25.3em;
+    height: 15.8em;
+    transform: translate3d(0, 0, 0);
+    /* margin-left: 10vw;
+  margin-top: -400px; */
+
+}
+
+@media screen and (max-width:510px) {
+    .style {
+        width: 10.3em;
+        height: 6.8em;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width:770px) {
+    .style {
+        margin-bottom: 20px;
+
+    }
+
+}
+
+
+.style__texture {
+    animation-name: texture;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+}
+
+
+
+.style__logo {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 35px;
+    width: 100%;
+    margin-top: 20px;
+
+}
+
+.style__chip {
+    background-image: linear-gradient(hsl(0, 0%, 70%), hsl(0, 0%, 80%));
+    border-radius: 0.2rem;
+    box-shadow: 0 0 0 0.05rem hsla(0, 0%, 0%, 0.5) inset;
+    width: 3.25rem;
+    height: 3.25rem;
+    transform: translate3d(0, 0, 0);
+}
+
+.style__chip-lines {
+    width: 100%;
+    height: auto;
+
+}
+
+.style__chip-texture {
+    background-image: linear-gradient(-80deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0.6) 48% 52%, hsla(0, 0%, 100%, 0));
+}
+
+.style__type {
+    align-self: flex-end;
+    margin-left: auto;
+    font-size: 30px;
+    font-family: 'Righteous', cursive;
+
+}
+
+
+
+/* Animation */
+@keyframes rotate_500 {
+
+    from,
+    to {
+        animation-timing-function: ease-in;
+        box-shadow: 0 0 0 hsl(0, 0%, 80%),
+            0.1rem 0 0 hsl(0, 0%, 100%),
+            -0.2rem 0 0.75rem 0 hsla(0, 0%, 0%, 0.3);
+        transform: rotateY(-10deg);
+    }
+
+    25%,
+    75% {
+        animation-timing-function: ease-out;
+        box-shadow: 0 0 0 hsl(0, 0%, 80%),
+            0 0 0 hsl(0, 0%, 100%),
+            -0.25rem -0.05rem 1rem 0.15rem hsla(0, 0%, 0%, 0.3);
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        animation-timing-function: ease-in;
+        box-shadow: -0.1rem 0 0 hsl(0, 0%, 80%),
+            0 0 0 hsl(0, 0%, 100%),
+            -0.3rem -0.1rem 1.5rem 0.3rem hsla(0, 0%, 0%, 0.3);
+        transform: rotateY(10deg);
+    }
+}
+
+@keyframes texture {
+
+    from,
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
