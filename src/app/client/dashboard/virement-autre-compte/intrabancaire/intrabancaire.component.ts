@@ -10,16 +10,4 @@ export class IntrabancaireComponent {
 
   constructor(private router: Router) { }
 
-  GoToMyContacts() {
-    this.router.navigate(['transactions/virement/my-contacts']);
-  }
-  GoToAutreCompte() {
-    this.router.navigate(['transactions/virement/autre-contact']);
-  }
-  GoToPermanent() {
-    this.router.navigate(['transactions/virement/permanent']);
-  }
-  GoToMultipleContact() {
-    this.router.navigate(['transactions/virement/multiple']);
-  }
 }

@@ -1,1 +1,74 @@
-<p>virement-multiple works!</p>
+<body class="g-sidenav-show bg-gray-100">
+    <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100"
+        id="sidenav-main">
+        <div class="sidenav-header">
+            <a class="navbar-brand m-0" href="#">
+                <span class="ms-1 font-weight-bold">
+                    <img id="logo" src="assets/img/logos/logo.png">
+                </span>
+            </a>
+        </div>
+        <hr class="horizontal dark mt-0">
+        <app-transaction-nav></app-transaction-nav>
+    </div>
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+        <app-navbar></app-navbar>
+
+                    <div class="row" style="margin-left:50px">
+
+                    <div class="col-md-12">
+                        <ul class="nav nav-pills flex-column flex-md-row mb-3">
+                            <li class="nav-item"><a class="nav-link " href="/transactions/virement">Vers mes contacts</a></li>
+                            <li class="nav-item"><a class="nav-link " href="/transactions/virement/autre-contact">Vers autre compte</a></li>
+                            <li class="nav-item"><a class="nav-link active " href="/transactions/virement/multiple">Multiple</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/transactions/virement/permanent">Permanent</a></li></ul>
+
+                          <div class="card-body">
+                            <div class="col-11">
+                              <div class="card">
+                                <div class="card-header">
+                                Cette transaction permet de virer un montant vers un compte au profit d'un bénéficiaire.
+                            </div>
+                            <div class="card-body card-body-principale pl-0 pr-0">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="row col-12 col-sm-12 col-md-12 col-log-12 col-xl-12 p-0 ng-scope">
+                                        <div class="col-12 text-center pb-1">
+                                            <h4 class="ng-binding">Virement vers un autre compte</h4>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-12 col-log-12 col-xl-12 text-center mb-2">
+                                            <p class="error font-size-16 bold ng-binding"></p>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pb-2 "
+                                            (click)="GoToNextStepBamboo()" style="cursor: pointer;">
+                                            <div class="card card-radius card-border welcome-card bg-light "
+                                                alt="BAMBOO" title="BAMBOO">
+                                                <p class="versement-text text-center pt-2 ">
+                                                    <i class="fas fa-file-invoice-dollar pr-2"
+                                                        style="color:  #493201 !important"></i> BAMBOO
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pb-2"
+                                            (click)="GoToNextStepAutre()" style="cursor: pointer;">
+                                            <div class="card card-radius card-border welcome-card bg-light"
+                                                alt="Autre Banque" title="Autre Banque">
+                                                <p class="versement-text text-center pt-2 ng-binding">
+                                                    <i class="fas fa-file-invoice-dollar pr-2"
+                                                        style="color: #493201 !important"></i> Autre Banque
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+               
+            </div>
+        </div>
+    </main>
+</body>

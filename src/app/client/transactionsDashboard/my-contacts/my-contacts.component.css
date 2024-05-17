@@ -1,0 +1,64 @@
+.search{
+    margin: 30px 0 10px 0 !important;
+    width: 80% !important;
+    border-radius: 10px !important;
+}
+
+.search-icon {
+    color: #888;
+    pointer-events: none;
+    margin-left: -30px;
+    font-size: 1.25rem;
+  }
+
+  .add-contact-container {
+    text-align: right; /* Align "Add Contact" button to the right */
+
+  }
+  
+  .contacts-container {
+    flex-grow: 1; /* Allow contacts to grow and take space */
+  }
+  
+  .contact-list {
+    list-style: none; /* Remove default list styling */
+  }
+  
+  .contact-list li {
+    display: flex; /* Arrange contact name and favorite button horizontally */
+    justify-content: space-between; /* Space between name and button */
+    padding: 10px; /* Padding for each list item */
+    border-bottom: 1px solid #ccc; /* Border for separation */
+  }
+  
+  .favorites-container {
+    text-align: right; /* Align favorites section to the right */
+  }
+  
+  .favorite-list {
+    list-style: none; /* Remove default list styling */
+  }
+  
+  .favorite-list li {
+    padding: 10px; /* Padding for each favorite item */
+  }
+
+  .btnorange{
+    color: #fff;
+    background: linear-gradient(90deg, #493201, #B48F44);
+    text-align: center !important;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    z-index: 1;
+    border: 1px solid #B48F44 !important;
+    margin-left: 50px;
+    margin-bottom: 0;
+}
+
+.card-header{
+    color: black;
+    font-weight: 700;
+}
+  

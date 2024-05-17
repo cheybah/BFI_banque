@@ -14,22 +14,21 @@
 
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
         <app-navbar></app-navbar>
-        <div class="card mb-4" style="background-color: #eeeeec !important;">
 
-            <div class="card-body px-4 pb-2">
-                <div class="row">
-                    <div class="col-2">
-                        <label style="cursor: pointer;" (click)="GoToMyContacts()">Vers mes comptes</label>
-                        <label>Effectuer un virement vers un de mes comptes bancaires</label>
-                        <label style="cursor: pointer;" (click)="GoToAutreCompte()">Vers autre compte</label>
-                        <label>Effectuer un virement simple vers un compte bancaire</label>
-                        <label style="cursor: pointer;" (click)="GoToMultipleContact()">Multiple</label>
-                        <label>Effectuer un virement multiple</label>
-                        <label style="cursor: pointer;" (click)="GoToPermanent()">Permanent</label>
-                        <label>Effectuer un virement permanent vers un compte bancaire</label>
-                    </div>
+        <div class="row" style="margin-left:50px">
 
-                    <div class="col-10">
+            <div class="col-md-12">
+                <ul class="nav nav-pills flex-column flex-md-row mb-3">
+                    <li class="nav-item"><a class="nav-link " href="/transactions/virement">Vers mes contacts</a></li>
+                    <li class="nav-item"><a class="nav-link " href="/transactions/virement/autre-contact">Vers autre
+                            compte</a></li>
+                    <li class="nav-item"><a class="nav-link " href="/transactions/virement/multiple">Multiple</a></li>
+                    <li class="nav-item"><a class="nav-link active"
+                            href="/transactions/virement/permanent">Permanent</a></li>
+                </ul>
+
+                <div class="card-body">
+                    <div class="col-11">
                         <div class="card">
                             <div class="card-header">
                                 Cette transaction permet de virer un montant vers un compte au profit d'un bénéficiaire.
@@ -38,15 +37,15 @@
                                 <div class="row d-flex justify-content-center">
                                     <div class="row col-12 col-sm-12 col-md-12 col-log-12 col-xl-12 p-0 ng-scope">
                                         <div class="col-12 text-center pb-1">
-                                            <h4 class="ng-binding">Virement vers un autre compte</h4>
+                                            <h4 class="ng-binding">Virement permanent vers un autre compte</h4>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12 col-log-12 col-xl-12 text-center mb-2">
                                             <p class="error font-size-16 bold ng-binding"></p>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pb-2 "
                                             (click)="GoToNextStepBamboo()" style="cursor: pointer;">
-                                            <div class="card card-radius card-border welcome-card bg-light" alt="BAMBOO"
-                                                title="BAMBOO">
+                                            <div class="card card-radius card-border welcome-card bg-light "
+                                                alt="BAMBOO" title="BAMBOO">
                                                 <p class="versement-text text-center pt-2 ">
                                                     <i class="fas fa-file-invoice-dollar pr-2"
                                                         style="color:  #493201 !important"></i> BAMBOO
@@ -71,10 +70,7 @@
                     </div>
 
                 </div>
-                <div *ngIf="successOperationMyAccount" class="text-center">
-                    <h1>Félicitations!</h1>
-                    <p>La transaction a été effectuée avec succès.</p>
-                </div>
+
             </div>
         </div>
     </main>

@@ -1,0 +1,30 @@
+<div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100" id="sidenav-main">
+  <div class="sidenav-header">
+      <a class="navbar-brand m-0" href="javascript:;">
+          <span class="ms-1 font-weight-bold"><img  id="logo" src="../../../assets/img/logos/logo.png"> </span>
+      </a>
+  </div>
+<hr class="horizontal dark mt-0">
+<ul class="navbar-nav">
+
+  <li  *ngFor="let item of nav; index as i"
+  [class.nav-item]="true" 
+    >
+
+    <a 
+      class="nav-link" 
+      [ngClass]="{'active': i === activeItemIndex, 'visited': item.isActive}" 
+      (click)="setActiveItem(i);"
+    >
+      <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+        <i 
+          [class]="item.icon" 
+          [style.color]="item.isActive ? 'white' : 'rgb(40, 37, 48)'" 
+          style="font-size: 18px;"
+        ></i>
+      </div>  
+      <span class="nav-link-text ms-1">{{ item.title }}</span>
+    </a>
+  </li>
+</ul>
+</div>

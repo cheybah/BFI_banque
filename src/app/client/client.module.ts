@@ -42,7 +42,7 @@ import { ValidationEntrepriseComponent } from './corporate-dashboard/validation-
 import { TopbarsComponent } from './topbars/topbars.component';
 import { TransactionsdashComponent } from './transactionsDashboard/transactionsdash/transactionsdash.component';
 import { TransfertRapideComponent } from './transactionsDashboard/transfert-rapide/transfert-rapide.component';
-import { TransactionNavComponent } from './transactionsDashboard/transaction-nav/transaction-nav.component';
+import { TransactionNavComponent } from './transactionsDashboard/default-layout/transaction-nav/transaction-nav.component';
 import { GestionUtilisateursComponent } from './transactionsDashboard/gestion-utilisateurs/gestion-utilisateurs.component';
 import { GestionProfilUtilisateursComponent } from './transactionsDashboard/gestion-profil-utilisateurs/gestion-profil-utilisateurs.component';
 import { CreateUserComponent } from './transactionsDashboard/create-user/create-user.component';
@@ -53,8 +53,15 @@ import { CreateBankAccountComponent } from './transactionsDashboard/create-bank-
 import { QRCodeModule } from 'angularx-qrcode';
 import { ExtraitComponent } from './transactionsDashboard/extrait/extrait.component';
 import { EDocumentsComponent } from './transactionsDashboard/e-documents/e-documents.component';
-import { NavbarComponent } from './transactionsDashboard/navbar/navbar.component';
+import { NavbarComponent } from './transactionsDashboard/default-layout/navbar/navbar.component';
+import { MyContactsComponent } from './transactionsDashboard/my-contacts/my-contacts.component';
+
 import { FilterPipe } from '../filter.pipe';
+import { MyContactsAddComponent } from './transactionsDashboard/my-contacts/my-contacts-add/my-contacts-add.component';
+import { NgxScannerQrcodeModule, LOAD_WASM } from 'ngx-scanner-qrcode';
+import { ProfileSettingsComponent } from './transactionsDashboard/profile-settings/profile-settings.component';
+import { ProfileSettingsSecurityComponent } from './transactionsDashboard/profile-settings/profile-settings-security/profile-settings-security.component';
+import { ProfileSettingsNotificationsComponent } from './transactionsDashboard/profile-settings/profile-settings-notifications/profile-settings-notifications.component';
 import { DemandeCarteComponent } from './dashboard/demande-carte/demande-carte.component';
 import { VirementComponent } from './dashboard/virement/virement.component';
 import { VirementMyContactsComponent } from './dashboard/virement-my-contacts/virement-my-contacts.component';
@@ -68,6 +75,10 @@ import { RechargeCarteComponent } from './transactionsDashboard/recharge-carte/r
 import { CarteprepayeeComponent } from './transactionsDashboard/carteprepayee/carteprepayee.component';
 import { PlacementsComponent } from './transactionsDashboard/placements/placements.component';
 
+
+
+// Necessary to solve the problem of losing internet connection
+LOAD_WASM().subscribe();
 
 
 export function playerFactory() {
@@ -117,6 +128,12 @@ export function playerFactory() {
     EDocumentsComponent,
     NavbarComponent,
     FilterPipe,
+    MyContactsComponent,
+    MyContactsAddComponent,
+    ProfileSettingsComponent,
+    ProfileSettingsSecurityComponent,
+    ProfileSettingsNotificationsComponent,
+    FilterPipe,
     DemandeCarteComponent,
     VirementComponent,
     VirementMyContactsComponent,
@@ -144,6 +161,7 @@ export function playerFactory() {
     HttpClientModule ,
     TranslateModule,
     QRCodeModule,
+    NgxScannerQrcodeModule,
     NgxIntlTelInputModule,
     BsDropdownModule.forRoot(),
     LottieModule.forRoot({ player: playerFactory }),  

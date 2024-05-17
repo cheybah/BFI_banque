@@ -14,24 +14,21 @@
 
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
         <app-navbar></app-navbar>
-        <div class="card mb-4" style="background-color: #eeeeec !important;">
 
-            <div class="card-body px-4 pb-2">
-                <div class="row">
-                    <div class="col-2">
-                        <label style="cursor: pointer;" (click)="GoToMyContacts()">Vers mes comptes</label>
-                        <label>Effectuer un virement vers un de mes comptes bancaires</label>
-                        <label style="cursor: pointer;" (click)="GoToAutreCompte()">Vers autre compte</label>
-                        <label>Effectuer un virement simple vers un compte bancaire</label>
-                        <label style="cursor: pointer;" (click)="GoToMultipleContact()">Multiple</label>
-                        <label>Effectuer un virement multiple</label>
-                        <label style="cursor: pointer;" (click)="GoToPermanent()">Permanent</label>
-                        <label>Effectuer un virement permanent vers un compte bancaire</label>
-                    </div>
+                    <div class="row" style="margin-left:50px">
 
-                    <div class="col-10">
-                        <div class="card">
-                            <div class="card-header">
+                    <div class="col-md-12">
+                        <ul class="nav nav-pills flex-column flex-md-row mb-3">
+                            <li class="nav-item"><a class="nav-link " href="/transactions/virement">Vers mes contacts</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="/transactions/virement/autre-contact">Vers autre compte</a></li>
+                            <li class="nav-item"><a class="nav-link " href="/transactions/virement/multiple">Multiple</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/transactions/virement/permanent">Permanent</a></li>
+                        </ul>
+
+                          <div class="card-body">
+                            <div class="col-11">
+                              <div class="card">
+                                <div class="card-header">
                                 Cette transaction permet de virer un montant vers un compte au profit d'un bénéficiaire.
                             </div>
                             <div class="card-body card-body-principale pl-0 pr-0">
@@ -71,10 +68,7 @@
                     </div>
 
                 </div>
-                <div *ngIf="successOperationMyAccount" class="text-center">
-                    <h1>Félicitations!</h1>
-                    <p>La transaction a été effectuée avec succès.</p>
-                </div>
+               
             </div>
         </div>
     </main>

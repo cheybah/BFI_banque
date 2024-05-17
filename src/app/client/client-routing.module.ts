@@ -31,6 +31,11 @@ import { CreateUserComponent } from './transactionsDashboard/create-user/create-
 import { RendezVousComponent } from './transactionsDashboard/rendez-vous/rendez-vous.component';
 import { ReclamationComponent } from './transactionsDashboard/reclamation/reclamation.component';
 import { EDocumentsComponent } from './transactionsDashboard/e-documents/e-documents.component';
+import { MyContactsComponent } from './transactionsDashboard/my-contacts/my-contacts.component';
+import { MyContactsAddComponent } from './transactionsDashboard/my-contacts/my-contacts-add/my-contacts-add.component';
+import { ProfileSettingsComponent } from './transactionsDashboard/profile-settings/profile-settings.component';
+import { ProfileSettingsSecurityComponent } from './transactionsDashboard/profile-settings/profile-settings-security/profile-settings-security.component';
+import { ProfileSettingsNotificationsComponent } from './transactionsDashboard/profile-settings/profile-settings-notifications/profile-settings-notifications.component';
 import { ExtraitComponent } from './transactionsDashboard/extrait/extrait.component';
 import { DemandeCarteComponent } from './dashboard/demande-carte/demande-carte.component';
 import { VirementComponent } from './dashboard/virement/virement.component';
@@ -78,6 +83,21 @@ const routes: Routes = [
   },
   { path: 'test', component: ComparaisonComponent },
 
+  { path: 'transactions-dashboard', component: TransactionsdashComponent},
+  {path: 'accounts/create', component: CreateBankAccountComponent},
+  {path: 'accounts/e-docs', component: EDocumentsComponent},
+  {path: 'accounts/my-contacts', component: MyContactsComponent},
+  {path: 'accounts/my-contacts-add', component: MyContactsAddComponent},
+  {path: 'transactions', component: TransactionsdashComponent},
+  { path: 'transfert-rapide', component: TransfertRapideComponent}, 
+  { path: 'administration/gestion-utilisateurs', component: GestionUtilisateursComponent}, 
+  { path: 'administration/gestion-profil-utilisateurs', component: GestionProfilUtilisateursComponent}, 
+  { path: 'administration/create-user', component: CreateUserComponent}, 
+  { path: 'service-client/rendez-vous', component: RendezVousComponent}, 
+  { path: 'service-client/reclamation', component: ReclamationComponent}, 
+  {path: 'settings', component: ProfileSettingsComponent},
+  {path: 'settings/security', component: ProfileSettingsSecurityComponent},
+  {path: 'settings/notification', component: ProfileSettingsNotificationsComponent},
   { path: 'transactions-dashboard', component: TransactionsdashComponent },
   { path: 'accounts/create', component: CreateBankAccountComponent },
   { path: 'accounts/e-docs', component: EDocumentsComponent },
