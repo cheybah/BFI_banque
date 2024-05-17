@@ -1,61 +1,63 @@
 <!-- app.component.html -->
-<body class="g-sidenav-show bg-gray-100">  
-    <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100" id="sidenav-main">
-      <div class="sidenav-header">
-        <a class="navbar-brand m-0" href="#">
-          <span class="ms-1 font-weight-bold"><img id="logo" src="../../../assets/img/logos/logo.png"></span>
-        </a>
-      </div>
-      <hr class="horizontal dark mt-0">
-      <app-transaction-nav></app-transaction-nav> 
+
+<body class="g-sidenav-show bg-gray-100">
+  <div
+    class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100"
+    id="sidenav-main">
+    <div class="sidenav-header">
+      <a class="navbar-brand m-0" href="#">
+        <span class="ms-1 font-weight-bold"><img id="logo" src="../../../assets/img/logos/logo.png"></span>
+      </a>
     </div>
-  
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-      <app-navbar></app-navbar>
-  
-      <div class="container-fluid">
-        <div class="row">
-          <div class="container-fluid">
-            <div class="tab-content mt-2">
-              <div class="tab-pane active" id="user-info">
-                <div class="row form-group">
-                  <div class="col-xl-6 col-md-6 col-12">
-                    <label class="form-label">Prénom</label> 
-                    <input type="text" class="form-control"  placeholder="Prénom" maxlength="50">
-                  </div>
-                  <div class="col-xl-6 col-md-6 col-12">
-                    <label class="form-label">Nom</label> 
-                    <input type="text" class="form-control"  placeholder="Nom" maxlength="50">
-                  </div>
+    <hr class="horizontal dark mt-0">
+    <app-transaction-nav></app-transaction-nav>
+  </div>
+
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <app-navbar></app-navbar>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="tab-content mt-2">
+            <div class="tab-pane active" id="user-info">
+              <div class="row form-group">
+                <div class="col-xl-6 col-md-6 col-12">
+                  <label class="form-label">Prénom</label>
+                  <input type="text" class="form-control" placeholder="Prénom" maxlength="50">
                 </div>
-                <div class="row form-group">
-                  <div class="col-xl-6 col-md-6 col-12">
-                    <label class="form-label">E-mail</label>
-                    <input type="text" class="form-control"  placeholder="E-mail" maxlength="100">
-                  </div>
-                  <div class="col-xl-6 col-md-6 col-12">
-                    <label class="form-label">Téléphone</label> 
-                    <input type="text" class="form-control"  placeholder="N° de téléphone" maxlength="50">
-                  </div>
+                <div class="col-xl-6 col-md-6 col-12">
+                  <label class="form-label">Nom</label>
+                  <input type="text" class="form-control" placeholder="Nom" maxlength="50">
                 </div>
-                <div class="row form-group">
-                  <div class="col-xl-12 col-12">
-                    <label class="form-label">Adresse</label> 
-                    <textarea class="form-control" placeholder="Adresse" maxlength="100"></textarea>
-                  </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-xl-6 col-md-6 col-12">
+                  <label class="form-label">E-mail</label>
+                  <input type="text" class="form-control" placeholder="E-mail" maxlength="100">
                 </div>
-                <div class="form-group row mt-2">
-                  <div class="col-12">
-                    <button type="button" class="btn btn-secondary butn float-right ng-binding" >
-                      Enregistrer
-                    </button>
-                  </div>
+                <div class="col-xl-6 col-md-6 col-12">
+                  <label class="form-label">Téléphone</label>
+                  <input type="text" class="form-control" placeholder="N° de téléphone" maxlength="50">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-xl-12 col-12">
+                  <label class="form-label">Adresse</label>
+                  <textarea class="form-control" placeholder="Adresse" maxlength="100"></textarea>
+                </div>
+              </div>
+              <div class="form-group row mt-2">
+                <div class="col-12">
+                  <button type="button" class="btn btn-secondary butn float-right ng-binding">
+                    Enregistrer
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </main>
-  </body>
-  
+    </div>
+  </main>
+</body>

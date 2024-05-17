@@ -1,5 +1,14 @@
 .selected {
-    border: 2px solid black;
-    border-radius: 5px; /* Pour des coins arrondis */
+  border: 2px solid black;
+  border-radius: 5px;
+  /* Pour des coins arrondis */
 
-  }
+}
+
+.dotted-border {
+  border-style: dotted;
+  border-radius: 10px;
+  /* Pour des coins arrondis */
+  height: 150px;
+  width: 380px;
+}

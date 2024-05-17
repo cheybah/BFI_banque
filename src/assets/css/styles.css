@@ -313,7 +313,9 @@ a:hover,a:active {
     z-index: 1;
     border: 1px solid #C2862D
 }
-
+.dotted-border {
+    border-style: dotted;
+}
 .navbar-nav li.current>a,.navbar-nav li.active>a {
     color: #C2862D
 }

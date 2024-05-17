@@ -15,13 +15,13 @@ export  const sidebar =  [
       {
         title: 'Transactions',
         icon: 'bi bi-credit-card',
-        link: 'javascript:void(0)',
+        link: 'transactions/virement',
         isActive: false,
       },
       {
         title: 'Transfert Rapide',
         icon: 'bi bi-arrow-left-right',
-        link: ' /transfert-rapide',
+        link: '/transfert-rapide',
         isActive: false,
       },
       {

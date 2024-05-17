@@ -1,0 +1,189 @@
+<!-- app.component.html -->
+<body class="g-sidenav-show bg-gray-100">  
+    <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100" id="sidenav-main">
+        <div class="sidenav-header">
+            <a class="navbar-brand m-0" href="#">
+                <span class="ms-1 font-weight-bold">
+                    <img id="logo" src="assets/img/logos/logo.png">
+                </span>
+            </a>
+        </div>
+        <hr class="horizontal dark mt-0">
+        <app-transaction-nav></app-transaction-nav>
+    </div>
+  
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+      <app-navbar></app-navbar>
+  
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <div class="row">
+                    <div class="col-8">
+                        <h6>Achat de carte prépayée</h6>
+                    </div>
+                </div>
+            </div>
+  
+            <div class="card-body px-4 pb-2">
+                
+                <div class="card-body card-body-principale">
+                    <div class="row d-flex justify-content-center">
+                      <!-- Page 1 -->
+                      <div class="row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        
+                  
+                        <div class="col-12 pl-0 pr-0">
+                          <div class="row col-12 pl-0 pr-0 pt-0">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                              <div class="form-group required">
+                                <div class="signin-control-field">
+                                  <label class="col-form-label creation-label" required>
+                                    Compte 
+                                    <span style="color:red;">*</span>
+                                  </label>
+                                  <select
+                                    [ngModel]="inquiry.account"
+                                    (ngModelChange)="onAccountChange($event)"
+                                    class="form-control"
+                                  >
+                                    <option [value]="null">-- Sélectionner --</option>
+                                    <option
+                                      *ngFor="let a of accts "
+                                      [ngValue]="a"
+                                    >
+                                      {{ a.accountDetails.description }} | {{ a.accountDetails.accountNumber }}
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                  
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                              <div class="form-group required">
+                                <div class="signin-control-field">
+                                  <label class="col-form-label creation-label">
+                                    Banque émettrice
+                                  </label><span style="color:red;"> *</span>
+                                  <select
+                                    [ngModel]="inquiry.bank"
+                                    (ngModelChange)="onBankChange($event)"
+                                    class="form-control"
+                                  >
+                                    <option [value]="null">-- Sélectionner --</option>
+                                    <option
+                                      *ngFor="let b of banks"
+                                      [ngValue]="b"
+                                    >
+                                      {{ b.fullName }}
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                  
+                          <div class="row col-12 pl-0 pr-0 pt-0">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                              <div class="form-group">
+                                <div class="signin-control-field">
+                                  <label class="col-form-label">
+                                    Avec livraison ?
+                                  </label><br>
+                                  <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                      <input
+                                        type="radio"
+                                        class="form-check-input"
+                                        [ngModel]="inquiry.withDelivery"
+                                        (ngModelChange)="onDeliveryChange($event)"
+                                        [value]="true"
+                                        name="deliveryOptions"
+                                        style="  border: 1px solid #344767; "
+                                      />
+                                      Oui
+                                    </label>
+                                  </div>
+                                  <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                      <input
+                                        type="radio"
+                                        class="form-check-input"
+                                        [ngModel]="inquiry.withDelivery"
+                                        (ngModelChange)="onDeliveryChange($event)"
+                                        [value]="false"
+                                        name="deliveryOptions"
+                                        style="  border: 1px solid #344767; "
+                                      />
+                                      Non
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                  
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                              <div class="form-group">
+                                <div class="signin-control-field">
+                                  <label class="col-form-label creation-label">
+                                    Frais TTC (XAF)
+                                  </label>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                  
+                          <div class="row col-12 pl-0 pr-0">
+                            <div class="col-12 col-sm-12 col-md-8 col-lg-8 align-self-center">
+                              <div class="form-check-inline">
+                                <label class="form-check-label">
+                                  <input
+                                    type="checkbox"
+                                    class="form-check-input"
+                                    [ngModel]="decision"
+                                    (ngModelChange)="onDecisionChange($event)"
+                                    style="  border: 1px solid #344767;margin-right: 8px; "
+                                  />
+                                  <span>J'accepte les conditions générales de </span>
+                                  <span style="text-decoration: underline;">
+                                    <a href="https://sfe-fid.com/cgv-carte-prepayee-liberte-orabank" target="_blank">
+                                      vente
+                                    </a>
+                                  </span>
+                                  et
+                                  <span style="text-decoration: underline;">
+                                    <a href="https://sfe-fid.com/cgu-carte-prepayee-liberte-orabank" target="_blank">
+                                      d'utilisation.
+                                    </a>
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                  
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                
+            
+  
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col text-end">
+                                <button class="btn btn-secondary butn">Suivant</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+  </body>
+  
+

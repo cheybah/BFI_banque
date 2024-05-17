@@ -51,9 +51,22 @@ import { ReclamationComponent } from './transactionsDashboard/reclamation/reclam
 
 import { CreateBankAccountComponent } from './transactionsDashboard/create-bank-account/create-bank-account.component';
 import { QRCodeModule } from 'angularx-qrcode';
+import { ExtraitComponent } from './transactionsDashboard/extrait/extrait.component';
 import { EDocumentsComponent } from './transactionsDashboard/e-documents/e-documents.component';
 import { NavbarComponent } from './transactionsDashboard/navbar/navbar.component';
 import { FilterPipe } from '../filter.pipe';
+import { DemandeCarteComponent } from './dashboard/demande-carte/demande-carte.component';
+import { VirementComponent } from './dashboard/virement/virement.component';
+import { VirementMyContactsComponent } from './dashboard/virement-my-contacts/virement-my-contacts.component';
+import { VirementAutreCompteComponent } from './dashboard/virement-autre-compte/virement-autre-compte.component';
+import { VirementMultipleComponent } from './dashboard/virement-multiple/virement-multiple.component';
+import { VirementPermanentComponent } from './dashboard/virement-permanent/virement-permanent.component';
+import { IntrabancaireComponent } from './dashboard/virement-autre-compte/intrabancaire/intrabancaire.component';
+import { InterbancaireComponent } from './dashboard/virement-autre-compte/interbancaire/interbancaire.component';
+import { ComparaisonComponent } from './dashboard/comparaison/comparaison.component';
+import { RechargeCarteComponent } from './transactionsDashboard/recharge-carte/recharge-carte.component';
+import { CarteprepayeeComponent } from './transactionsDashboard/carteprepayee/carteprepayee.component';
+import { PlacementsComponent } from './transactionsDashboard/placements/placements.component';
 
 
 
@@ -100,9 +113,22 @@ export function playerFactory() {
     RendezVousComponent,
     ReclamationComponent,
     CreateBankAccountComponent,
+    ExtraitComponent,
     EDocumentsComponent,
     NavbarComponent,
-    FilterPipe
+    FilterPipe,
+    DemandeCarteComponent,
+    VirementComponent,
+    VirementMyContactsComponent,
+    VirementAutreCompteComponent,
+    VirementMultipleComponent,
+    VirementPermanentComponent,
+    IntrabancaireComponent,
+    InterbancaireComponent,
+    ComparaisonComponent,
+    RechargeCarteComponent,
+    CarteprepayeeComponent,
+    PlacementsComponent
   ],
   exports: [
   ],

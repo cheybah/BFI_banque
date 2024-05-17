@@ -1,0 +1,55 @@
+<body class="g-sidenav-show bg-gray-100">
+    <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100"
+        id="sidenav-main">
+        <div class="sidenav-header">
+            <a class="navbar-brand m-0" href="#">
+                <span class="ms-1 font-weight-bold">
+                    <img id="logo" src="assets/img/logos/logo.png">
+                </span>
+            </a>
+        </div>
+        <hr class="horizontal dark mt-0">
+        <app-transaction-nav></app-transaction-nav>
+    </div>
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+        <app-navbar></app-navbar>
+        <div class="card mb-4" style="background-color: #eeeeec !important;">
+
+            <div class="card-body px-4 pb-2">
+                <div class="row">
+                    <div class="col-2">
+                        <label style="cursor: pointer;">Vers mes comptes</label>
+                        <label>Effectuer un virement vers un de mes comptes bancaires</label>
+
+                    </div>
+
+                    <div class="col-10">
+                        <div class="card ">
+                            <div class="card-header">
+                                Recharge de carte prépayée
+                            </div>
+                            <div class="card-body" style="margin-top: -30px;">
+                                <div class="row">
+                                    <div class="style card container col-lg-6 col-md-6 col-sm-12 col-12"
+                                        (click)="GoToRechargeMyCard()" style="cursor: pointer;">
+                                        <div class="style__logo"> Recharger ma carte</div>
+
+                                    </div>
+                                    <div class="style card container col-lg-6 col-md-6 col-sm-12 col-12"
+                                        (click)="GoToRechargeCardTiers()">
+                                        <div class="style__logo">Recharger la carte de tiers</div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
