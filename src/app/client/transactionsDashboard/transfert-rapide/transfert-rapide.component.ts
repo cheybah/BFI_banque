@@ -15,6 +15,9 @@ export class TransfertRapideComponent {
     this.choix = choix;
   }
   countries: string[] = ['Afghanistan', 'Afrique du Sud', 'Albanie', 'Algérie', 'Allemagne'];
+  // Dans votre composant TypeScript
+  selectedFileName: string | undefined;
+
 
   constructor(private formBuilder: FormBuilder) {
     this.transferForm = this.formBuilder.group({
@@ -29,7 +32,7 @@ export class TransfertRapideComponent {
       identityDocument: ['']
     });
   }
-  
+
   onSubmit() {
     if (this.transferForm.valid) {
       console.log('Form data:', this.transferForm.value);
@@ -37,5 +40,11 @@ export class TransfertRapideComponent {
       console.log('Invalid form');
     }
   }
-  
+
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFileName = file.name;
+    }
+  }
 }
