@@ -47,9 +47,21 @@ import { IntrabancaireComponent } from './dashboard/virement-autre-compte/intrab
 import { InterbancaireComponent } from './dashboard/virement-autre-compte/interbancaire/interbancaire.component';
 import { ComparaisonComponent } from './dashboard/comparaison/comparaison.component';
 import { CarteprepayeeComponent } from './transactionsDashboard/carteprepayee/carteprepayee.component';
+import { DepotReraitComponent } from './transactionsDashboard/depot-rerait/depot-rerait.component';
+
+
 
 
 const routes: Routes = [
+  { path: 'bfi/login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'welcome', component: WelcomeClientComponent },
+  { path: 'password', component: PasswordComponent },
+  { path: 'updatedpassword', component: UpdatedpasswordComponent },
+  { path: 'reset', component: ResetComponent },
+  {
+    path: 'dash', component: DashboardComponent, children: [
+      { path: 'validation', component: ValidationComponent },
   { path: 'bfi/login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'welcome', component: WelcomeClientComponent },
@@ -82,10 +94,12 @@ const routes: Routes = [
     ]
   },
   { path: 'test', component: ComparaisonComponent },
+    ]
+  },
+  { path: 'test', component: ComparaisonComponent },
 
   { path: 'transactions-dashboard', component: TransactionsdashComponent},
   {path: 'accounts/create', component: CreateBankAccountComponent},
-  {path: 'accounts/e-docs', component: EDocumentsComponent},
   {path: 'accounts/my-contacts', component: MyContactsComponent},
   {path: 'accounts/my-contacts-add', component: MyContactsAddComponent},
   {path: 'transactions', component: TransactionsdashComponent},
@@ -99,19 +113,16 @@ const routes: Routes = [
   {path: 'settings/security', component: ProfileSettingsSecurityComponent},
   {path: 'settings/notification', component: ProfileSettingsNotificationsComponent},
   { path: 'transactions-dashboard', component: TransactionsdashComponent },
-  { path: 'accounts/create', component: CreateBankAccountComponent },
   { path: 'accounts/e-docs', component: EDocumentsComponent },
   { path: 'transactions/virement', component: VirementComponent },
   { path: 'transactions/virement/my-contacts', component: VirementMyContactsComponent },
   { path: 'transactions/virement/autre-contact', component: VirementAutreCompteComponent },
   { path: 'transactions/virement/permanent', component: VirementPermanentComponent },
   { path: 'transactions/virement/multiple', component: VirementMultipleComponent },
+  { path: 'transactions/virement/depot-retrait', component: DepotReraitComponent },
   { path: 'transactions/virement/autre-contact/intrabancaire', component: IntrabancaireComponent },
   { path: 'transactions/virement/autre-contact/interbancaire', component: InterbancaireComponent },
   { path: 'carteprepayee', component: CarteprepayeeComponent },
-
-
-
   { path: 'transfert-rapide', component: TransfertRapideComponent },
   { path: 'administration/gestion-utilisateurs', component: GestionUtilisateursComponent },
   { path: 'administration/gestion-profil-utilisateurs', component: GestionProfilUtilisateursComponent },

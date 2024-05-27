@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-bank-account',
@@ -6,10 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-bank-account.component.css']
 })
 export class CreateBankAccountComponent {
-
-  qrData = '400212410360'; // Your QR code data
-
-
-  
-
+  compteType = "Compte Epargne";
+  ClientName = "Mme BAHROUN CheymaF"
+  qrData = '400212410360';
+  accountBalance = "0";
+  constructor(private router: Router) { }
+  GoToDepotRetrait(): void {
+    this.router.navigate(['/transactions/virement/depot-retrait']);
+  }
 }

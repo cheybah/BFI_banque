@@ -52,6 +52,7 @@ import { ReclamationComponent } from './transactionsDashboard/reclamation/reclam
 import { CreateBankAccountComponent } from './transactionsDashboard/create-bank-account/create-bank-account.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { ExtraitComponent } from './transactionsDashboard/extrait/extrait.component';
+import { ExtraitComponent } from './transactionsDashboard/extrait/extrait.component';
 import { EDocumentsComponent } from './transactionsDashboard/e-documents/e-documents.component';
 import { NavbarComponent } from './transactionsDashboard/default-layout/navbar/navbar.component';
 import { MyContactsComponent } from './transactionsDashboard/my-contacts/my-contacts.component';
@@ -74,6 +75,7 @@ import { ComparaisonComponent } from './dashboard/comparaison/comparaison.compon
 import { RechargeCarteComponent } from './transactionsDashboard/recharge-carte/recharge-carte.component';
 import { CarteprepayeeComponent } from './transactionsDashboard/carteprepayee/carteprepayee.component';
 import { PlacementsComponent } from './transactionsDashboard/placements/placements.component';
+import { DepotReraitComponent } from './transactionsDashboard/depot-rerait/depot-rerait.component';
 
 
 
@@ -125,6 +127,7 @@ export function playerFactory() {
     ReclamationComponent,
     CreateBankAccountComponent,
     ExtraitComponent,
+    ExtraitComponent,
     EDocumentsComponent,
     NavbarComponent,
     FilterPipe,
@@ -145,7 +148,8 @@ export function playerFactory() {
     ComparaisonComponent,
     RechargeCarteComponent,
     CarteprepayeeComponent,
-    PlacementsComponent
+    PlacementsComponent,
+    DepotReraitComponent
   ],
   exports: [
   ],
