@@ -19,7 +19,7 @@ export  const navbarData =  [
         icon : 'fal fa-info-circle',
         label: 'Autres informations',
         visited: false,
-        nextComponent: 'offres-et-domicialisation'
+        nextComponent: 'offres-et-domiciliation'
     },
     {
         routeLink : 'offres-et-domiciliation',

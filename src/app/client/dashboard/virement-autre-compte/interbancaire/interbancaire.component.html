@@ -1,0 +1,254 @@
+<body class="g-sidenav-show bg-gray-100">
+    <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100"
+        id="sidenav-main">
+        <div class="sidenav-header">
+            <a class="navbar-brand m-0" href="#">
+                <span class="ms-1 font-weight-bold">
+                    <img id="logo" src="assets/img/logos/logo.png">
+                </span>
+            </a>
+        </div>
+        <hr class="horizontal dark mt-0">
+        <app-transaction-nav></app-transaction-nav>
+    </div>
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+        <app-navbar></app-navbar>
+        <div class="row" style="margin-left:50px">
+
+            <div class="col-md-12">
+                <ul class="nav nav-pills flex-column flex-md-row mb-3">
+                    <li class="nav-item"><a class="nav-link " href="/transactions/virement">Vers mes contacts</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/transactions/virement/autre-contact">Vers autre compte</a></li>
+                    <li class="nav-item"><a class="nav-link " href="/transactions/virement/multiple">Multiple</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/transactions/virement/permanent">Permanent</a></li>
+</ul>
+
+                  <div class="card-body">
+                    <div class="col-11">
+                      <div class="card">
+                        <div class="card-header">
+                                Cette transaction permet de virer un montant vers un compte au profit d'un bénéficiaire.
+                            </div>
+                            <div class="card-body card-body-principale pl-0 pr-0">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="row col-12 pl-0 pr-0 ng-scope">
+
+                                        <div class="row col-12 p-0 text-align-center">
+                                            <div class="col-12 col-sm-12 col-md-12 col-log-6 col-xl-6 pl-0 pr-0">
+                                                <div class="form-group required">
+                                                    <div class="signin-control-field">
+
+                                                        <label class="col-form-label creation-label ng-binding">
+                                                            Compte à débiter
+                                                        </label>
+                                                        <select
+                                                            class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                                                            style="padding-bottom:5px">
+                                                            <option value="?" selected="selected"></option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-12 col-log-6 col-xl-6 pr-0 pl-0">
+                                                <div class="form-group required">
+                                                    <div class="signin-control-field">
+                                                        <label class="col-form-label creation-label ng-binding">
+                                                            Montant
+                                                        </label>
+                                                        <input inputmode="numeric" non-zero-input="" type="text"
+                                                            autocomplete="off"
+                                                            class="form-control ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty">
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" row col-12 p-0">
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pr-0 pl-0 ng-hide">
+                                                <div class="form-group">
+                                                    <div class="signin-control-field">
+                                                        <label class="col-form-label creation-label ng-binding">
+                                                            Compte du bénéficiaire
+                                                            <span style="color:red">*</span>
+                                                        </label>
+                                                        <div class="col-12 p-0"
+                                                            style="width:100%; display:inline-block">
+                                                            <div class=" p-0"
+                                                                style="width:calc(100% - 2.1rem) !important; float:left;">
+                                                                <select id="contactAccountCode1">
+                                                                    <option value="?" selected="selected"
+                                                                        data-select2-id="4"></option>
+                                                                </select><span
+                                                                    class="select2 select2-container select2-container--default"
+                                                                    dir="ltr" data-select2-id="3"
+                                                                    style="width: 100px;"><span class="selection"><span
+                                                                            class="select2-selection select2-selection--single"
+                                                                            role="combobox" aria-haspopup="true"
+                                                                            aria-expanded="false" tabindex="0"
+                                                                            aria-labelledby="select2-contactAccountCode1-container"><span
+                                                                                class="select2-selection__rendered"
+                                                                                id="select2-contactAccountCode1-container"
+                                                                                role="textbox" aria-readonly="true"
+                                                                                title=""></span><span
+                                                                                class="select2-selection__arrow"
+                                                                                role="presentation"><b
+                                                                                    role="presentation"></b></span></span></span><span
+                                                                        class="dropdown-wrapper"
+                                                                        aria-hidden="true"></span></span>
+
+
+
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-sm-12 col-md-12 col-log-6 col-xl-6 pl-0 pr-0">
+                                                <div class="form-group required">
+                                                    <div class="signin-control-field required">
+                                                        <div style="display:inline">
+                                                            <div style="float:left">
+                                                                <label class="col-form-label creation-label ng-binding"
+                                                                    style="width: 100%;">
+                                                                    Bénéficiaire
+                                                                </label>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <input type="text" autocomplete="off"
+                                                            class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                                                            style="display: none !important;">
+
+                                                        <input type="text" autocomplete="off" id="beneficiaryCode"
+                                                            class="form-control ng-pristine ng-untouched ng-valid ng-empty">
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row col-12 ng-hide">
+                                                <div class="col-12 col-sm-12 col-md-12 col-log-6 col-xl-6 pl-0 pr-0">
+                                                    <div class="form-group required">
+                                                        <div class="signin-control-field required">
+                                                            <div style="display:inline">
+                                                                <div style="float:left">
+                                                                    <label
+                                                                        class="col-form-label creation-label ng-binding"
+                                                                        style="width: 100%;">
+                                                                        Rib
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                            <input type="text" maxlength="23" inputmode="numeric"
+                                                                autocomplete="off"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-sm-12 col-md-12 col-log-6 col-xl-6 pl-0 pr-0">
+                                                    <div class="form-group required">
+                                                        <div class="signin-control-field required">
+                                                            <div style="display:inline">
+                                                                <div style="float:left">
+                                                                    <label
+                                                                        class="col-form-label creation-label ng-binding"
+                                                                        style="width: 100%;">
+                                                                        Nom et prénom
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                            <input type="text" autocomplete="off"
+                                                                ng-model="transfer.beneficiaryFullname"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12  pr-0 pl-0">
+                                                <div class="form-group required">
+                                                    <div class="form-group">
+                                                        <div class="signin-control-field">
+                                                            <label
+                                                                class="col-form-label creation-label ng-binding">Motif</label>
+
+                                                            <input type="text" name="commentaire" value=""
+                                                                autocomplete="off"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-12 col-log-12 col-xl-12  pr-0 pl-0">
+
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-12 col-log-12 col-xl-12  pr-0 pl-0">
+                                                <div class="card card-bgfi mt-1 ">
+                                                    <div class="card-header ng-binding"
+                                                        style="text-align: center;background-color:  #B48F44; color: black;">
+                                                        Attachements documents
+                                                    </div>
+                                                    <div class="card-body  dotted-border " style="text-align: center">
+                                                        <div class="col-md-12 ">
+                                                            <div class="form-group full-width ">
+                                                                <label for="fileInput" style="cursor: pointer;">
+                                                                    <div style="padding-top: 5px;">
+                                                                        Sélectionner
+                                                                        <span class="ng-binding">Déposer</span>
+                                                                        Fichier(s)
+                                                                        <br>
+                                                                        <span class="accaptedDocument ng-binding"
+                                                                            style="color: red;">N. B.:
+                                                                            Veuillez ne pas rattacher les états générés
+                                                                            à
+                                                                            partir de l'application</span>
+                                                                        <input type="file" id="fileInput"
+                                                                            class="form-control" style="display: none;">
+                                                                    </div>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div class="col text-end">
+                                                        <button class="btn btn-secondary butn">Suivant</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>

@@ -18,6 +18,23 @@
                         <div class="card mb-4">
                             <div class="card-body p-3">
                                 <div class="row">
+                                    <div (click)="goToExtrait()"class="col-8 mx-auto text-center" style="cursor: pointer;">
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                <span>COMPTE COURANT </span><br>
+                                                <span >N° 60072680201</span>
+                                            </div>
+                                            <div class="col-md-12 balance-col ">
+                                                <span style="font-size:20px"> 
+                                                    0 XAF
+                                                </span>
+                                            </div>              
+                                    </div>                                                                
+                                </div>   
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-body p-3">
+                                <div class="row">
                                     <div class="col-8">
                                         <div class="numbers">
                                             <p class="text-sm mb-0 text-capitalize font-weight-bold">Vous n'avez pas encore de cartes</p>
@@ -28,13 +45,13 @@
                                     </div>
                                     <div class="col-4 text-end">
                                         <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                          <i class="fa fa-plus text-lg opacity-10" aria-hidden="true"></i>
+                                          <i class="fa fa-plus text-lg opacity-10" aria-hidden="true"style="cursor:  pointer;"></i>
                                         </div>
-                                    </div>                                 
+                                    </div> 
                                 </div>
+                                
                             </div>
                         </div>
-                        
                         <div class="card mb-4">
                             <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100" style="background-image: url('../assets/img/ivancik.jpeg');">
                                 <span class="mask bg-gradient-dark"></span>
@@ -62,8 +79,8 @@
                                         </p>
                                     </div>
                                     <div class="col-4 text-end">
-                                        <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                          <i class="fa fa-plus text-lg opacity-10" aria-hidden="true"></i>
+                                        <div (click)="GoToContacts()" class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                          <i class="fa fa-plus text-lg opacity-10" aria-hidden="true" style="cursor:  pointer;"></i>
                                         </div>
                                     </div> 
     

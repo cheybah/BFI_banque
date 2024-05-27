@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,4 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class TransactionsdashComponent {
+  constructor( private router:Router){}
+  goToExtrait(): void {
+    this.router.navigate(['/transactions-dashboard/extrait']);
+  }
+  GoToContacts(){
+    this.router.navigate(['/transactions-dashboard/my-contacts']);
+  }
 }

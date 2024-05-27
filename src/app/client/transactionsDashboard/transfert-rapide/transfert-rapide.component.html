@@ -1,188 +1,186 @@
 <!-- app.component.html -->
-<body class="g-sidenav-show bg-gray-100">  
-  <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100" id="sidenav-main">
-      <div class="sidenav-header">
-          <a class="navbar-brand m-0" href="#">
-              <span class="ms-1 font-weight-bold">
-                  <img id="logo" src="assets/img/logos/logo.png">
-              </span>
-          </a>
-      </div>
-      <hr class="horizontal dark mt-0">
-      <app-transaction-nav></app-transaction-nav>
-  </div>
 
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
-    <app-navbar></app-navbar>
+<body class="g-sidenav-show bg-gray-100">
+    <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100"
+        id="sidenav-main">
+        <div class="sidenav-header">
+            <a class="navbar-brand m-0" href="#">
+                <span class="ms-1 font-weight-bold">
+                    <img id="logo" src="assets/img/logos/logo.png">
+                </span>
+            </a>
+        </div>
+        <hr class="horizontal dark mt-0">
+        <app-transaction-nav></app-transaction-nav>
+    </div>
 
-      <div class="card mb-4">
-          <div class="card-header pb-0">
-              <div class="row">
-                  <div class="col-8">
-                      <h6>Transfert Rapide</h6>
-                  </div>
-              </div>
-          </div>
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+        <app-navbar></app-navbar>
 
-          <div class="card-body px-4 pb-2">
-              <p class="text-sm mb-0">
-                  <span class="font-weight-bold ms-1">Choisissez un canal de transfert.</span>
-              </p>
+        <div class="card mb-4 col-11" style="margin-left:50px;">
+            <div class="card-header pb-0">
+                <div class="row">
+                    <div class="col-8">
+                        <h6>Transfert Rapide</h6>
+                    </div>
+                </div>
+            </div>
 
-              <!-- Section de transfert avec boutons -->
-              <div class="row pt-3 pb-3">
-                  <div class="col-lg-1 col-xl-1 pb-2"></div>
-                  <div class="col-lg-2 col-xl-2 pb-2">
-                      <button
-                          class="btn-retarit p-0"
-                          [ngClass]="{'selected': choix === 1}"
-                          (click)="choixTransfert(1)">
-                          <img
-                              src="../assets/img/canal/riaMoneyTransfer.png"
-                              class="img-fluid"
-                              style="height: 60px; width: 100px; background-color: white;">
-                      </button>
-                  </div>
+            <div class="card-body px-4 pb-2">
+                <p class="text-sm mb-0">
+                    <span class="font-weight-bold ms-1">Choisissez un canal de transfert.</span>
+                </p>
 
-                  <div class="col-lg-2 col-xl-2 pb-2">
-                      <button
-                          class="btn-retarit p-0"
-                          [ngClass]="{'selected': choix === 2}"
-                          (click)="choixTransfert(2)">
-                          <img
-                              src="../assets/img/canal/Western-Union-logo.png"
-                              class="img-fluid"
-                              style="height: 60px; width: 100px; background-color: white;">
-                      </button>
-                  </div>
+                <div class="row pt-3 pb-3">
+                    <div class="col-lg-1 col-xl-1 pb-2"></div>
+                    <div class="col-lg-2 col-xl-2 pb-2">
+                        <button class="btn-retarit p-0" [ngClass]="{'selected': choix === 1}"
+                            (click)="choixTransfert(1)">
+                            <img src="../assets/img/canal/riaMoneyTransfer.png" class="img-fluid"
+                                style="height: 60px; width: 100px; background-color: white;">
+                        </button>
+                    </div>
 
-                  <div class="col-lg-2 col-xl-2 pb-2">
-                      <button
-                          class="btn-retarit p-0"
-                          [ngClass]="{'selected': choix === 3}"
-                          (click)="choixTransfert(3)">
-                          <img
-                              src="../assets/img/canal/jubaExpress.png"
-                              class="img-fluid"
-                              style="height: 60px; width: 100px; background-color: white;">
-                      </button>
-                  </div>
+                    <div class="col-lg-2 col-xl-2 pb-2">
+                        <button class="btn-retarit p-0" [ngClass]="{'selected': choix === 2}"
+                            (click)="choixTransfert(2)">
+                            <img src="../assets/img/canal/Western-Union-logo.png" class="img-fluid"
+                                style="height: 60px; width: 100px; background-color: white;">
+                        </button>
+                    </div>
 
-                  <div class="col-lg-2 col-xl-2 pb-2">
-                      <button
-                          class="btn-retarit p-0"
-                          [ngClass]="{'selected': choix === 4}"
-                          (click)="choixTransfert(4)">
-                          <img
-                              src="../assets/img/canal/small-world-money.png"
-                              class="img-fluid"
-                              style="height: 60px; width: 100px; background-color: white;">
-                      </button>
-                  </div>
+                    <div class="col-lg-2 col-xl-2 pb-2">
+                        <button class="btn-retarit p-0" [ngClass]="{'selected': choix === 3}"
+                            (click)="choixTransfert(3)">
+                            <img src="../assets/img/canal/jubaExpress.png" class="img-fluid"
+                                style="height: 60px; width: 100px; background-color: white;">
+                        </button>
+                    </div>
 
-                  <div class="col-lg-2 col-xl-2 pb-2">
-                      <button
-                          class="btn-retarit p-0"
-                          [ngClass]="{'selected': choix === 5}"
-                          (click)="choixTransfert(5)">
-                          <img
-                              src="../assets/img/canal/koris.png"
-                              class="img-fluid"
-                              style="height: 60px; width: 100px; background-color: white;">
-                      </button>
-                  </div>
+                    <div class="col-lg-2 col-xl-2 pb-2">
+                        <button class="btn-retarit p-0" [ngClass]="{'selected': choix === 4}"
+                            (click)="choixTransfert(4)">
+                            <img src="../assets/img/canal/small-world-money.png" class="img-fluid"
+                                style="height: 60px; width: 100px; background-color: white;">
+                        </button>
+                    </div>
 
-                  <div class="col-lg-1 col-xl-1 pb-2"></div>
-              </div>
+                    <div class="col-lg-2 col-xl-2 pb-2">
+                        <button class="btn-retarit p-0" [ngClass]="{'selected': choix === 5}"
+                            (click)="choixTransfert(5)">
+                            <img src="../assets/img/canal/koris.png" class="img-fluid"
+                                style="height: 60px; width: 100px; background-color: white;">
+                        </button>
+                    </div>
 
-              <!-- Section des champs de formulaire -->
-              <div class="row">
-                  <div class="col-12 col-lg-6">
-                      <div class="row">
-                          <div class="col-12">
-                              <label class="col-form-label">Détails de transfert</label>
-                          </div>
-                          <div class="col-12 col-lg-12">
-                              <label>Pays<span style="color:red;">*</span></label>
-                          </div>
-                          <div class="col-12 col-lg-12">
-                              <select class="form-control">
-                                  <option value="?">Sélectionnez un pays</option>
-                              </select>
-                          </div>
-                          <div class="col-12 col-lg-12">
-                              <label>Montant<span style="color:red;">*</span></label>
-                              <input type="text" class="form-control" inputmode="numeric">
-                          </div>
-                      </div>
+                    <div class="col-lg-1 col-xl-1 pb-2"></div>
+                </div>
 
-                      <div class="row mt-3">
-                          <div class="col-12 col-lg-12">
-                              <label>Frais</label>
-                              <input type="text" class="form-control">
-                          </div>
-                      </div>
-                  </div>
+                <!-- Section des champs de formulaire -->
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="col-form-label">Détails de transfert</label>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <label>Pays<span style="color:red;">*</span></label>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <select class="form-control">
+                                    <option value="?">Sélectionnez un pays</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <label>Montant<span style="color:red;">*</span></label>
+                                <input type="text" class="form-control" inputmode="numeric">
+                            </div>
+                        </div>
 
-                  <div class="col-12 col-lg-6">
-                      <div class="row">
-                          <div class="col-12">
-                              <label class="col-form-label">Détails bénéficiaire</label>
-                          </div>
-                          <div class="col-12 col-lg-12">
-                              <label>Nom<span style="color:red;">*</span></label>
-                              <input type="text" class="form-control">
-                          </div>
-                          <div class="col-12 col-lg-12">
-                              <label>Prénom<span style="color:red;">*</span></label>
-                              <input type="text" class="form-control">
-                          </div>
-                          <div class="col-12 col-lg-12">
-                              <label>N° de téléphone</label>
-                              <input type="text" class="form-control">
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                        <div class="row mt-3">
+                            <div class="col-12 col-lg-12">
+                                <label>Frais</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
 
-              <div class="row mt-3">
-                  <div class="col-12 col-lg-6">
-                      <div class="row">
-                          <div class="col-12">
-                              <label class="col-form-label">Autres détails (Facultatif)</label>
-                          </div>
-                          <div class="col-12 col-lg-12">
-                              <label>Question</label>
-                              <input type="text" class="form-control">
-                          </div>
-                          <div class="col-12 col-lg-12">
-                              <label>Réponse</label>
-                              <input type="text" class="form-control">
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-12 col-lg-6">
-                      <div class="col-12">
-                          <label class="col-form-label">Téléverser votre pièce d'identité<span style="color:red;">*</span></label>
-                      </div>
-                      <div class="col-12 col-lg-6 text-center">
-                          <div class="card-body signin-card-body align-self-center signin-card-body-documentation card-doc" style="padding-bottom: 5px !important;">
-                              <input type="file" class="form-control">
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="col-form-label">Détails bénéficiaire</label>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <label>Nom<span style="color:red;">*</span></label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <label>Prénom<span style="color:red;">*</span></label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <label>N° de téléphone</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-              <div class="row mt-3">
-                  <div class="col-12">
-                      <div class="row">
-                          <div class="col text-end">
-                              <button class="btn btn-secondary butn">Suivant</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </main>
+                <div class="row mt-3">
+                    <div class="col-12 col-lg-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="col-form-label">Autres détails (Facultatif)</label>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <label>Question</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <label>Réponse</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 dotted-border text-center offset-lg-1" style="margin-top: 30px">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-12">
+                                <label class="col-form-label">Téléverser votre pièce d'identité<span
+                                        style="color:red;">*</span></label>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="card-body signin-card-body align-self-center signin-card-body-documentation card-doc"
+                                    style="padding-bottom: 5px !important;">
+                                    <label for="fileInput" style="cursor: pointer;">
+                                        <img src="assets/img/icons/piece.png" alt="Téléverser une image"
+                                            style="max-height: 60px; max-width: 100px; background-color: white;"
+                                            class="mx-auto d-block">
+                                    </label>
+                                    <!-- Champ de type file pour téléverser l'image -->
+                                    <input type="file" id="fileInput" class="form-control" style="display: none;"
+                                        (change)="onFileSelected($event)">
+                                    <!-- Élément pour afficher le nom de l'image sélectionnée -->
+                                </div>
+
+                            </div>
+                            <p *ngIf="selectedFileName" class="mt-2">{{ selectedFileName }}</p>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col text-end">
+                                <button class="btn btn-secondary butn">Suivant</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
