@@ -59,15 +59,7 @@ const routes: Routes = [
   { path: 'password', component: PasswordComponent },
   { path: 'updatedpassword', component: UpdatedpasswordComponent },
   { path: 'reset', component: ResetComponent },
-  {
-    path: 'dash', component: DashboardComponent, children: [
-      { path: 'validation', component: ValidationComponent },
-  { path: 'bfi/login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'welcome', component: WelcomeClientComponent },
-  { path: 'password', component: PasswordComponent },
-  { path: 'updatedpassword', component: UpdatedpasswordComponent },
-  { path: 'reset', component: ResetComponent },
+     
   {
     path: 'dash', component: DashboardComponent, children: [
       { path: 'validation', component: ValidationComponent },
@@ -93,9 +85,7 @@ const routes: Routes = [
 
     ]
   },
-  { path: 'test', component: ComparaisonComponent },
-    ]
-  },
+
   { path: 'test', component: ComparaisonComponent },
 
   { path: 'transactions-dashboard', component: TransactionsdashComponent},
