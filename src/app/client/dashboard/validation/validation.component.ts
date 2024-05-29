@@ -19,7 +19,7 @@ export class ValidationComponent {
     otpVerifyDisplay: string = 'none';
     otpValue: number = 0;
     showCountdown: boolean = false;
-    countdown: number = 30;
+    countdown: number = 60;
     resendButtonText: string = 'Envoyer OTP';
     resendButtonDisabled: boolean = false;
 
@@ -127,7 +127,7 @@ export class ValidationComponent {
             }
             this.showSuccessAlert("Email address verified...");
 
-            this.router.navigate(['/welcome']);
+            this.router.navigate(['/transactions-dashboard']);
         } else {
             this.showErrorAlert("Invalid OTP");
         }

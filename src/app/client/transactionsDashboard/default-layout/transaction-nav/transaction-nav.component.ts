@@ -9,8 +9,7 @@ import { Router } from '@angular/router';
 })
 export class TransactionNavComponent implements OnInit {
 
-  nav = sidebar;
-
+   nav = sidebar;
   activeItemIndex: number = 0;
 
   constructor(public router: Router) {
@@ -29,7 +28,6 @@ export class TransactionNavComponent implements OnInit {
       this.nav[0].isActive = true;
     }
   }
-
   toggleExpanded(index: number): void {
     this.nav[index].expanded = !this.nav[index].expanded;
   }

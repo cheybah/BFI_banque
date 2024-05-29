@@ -15,6 +15,7 @@ export const sidebar = [
     subitems: [
       {
         title: 'Comptes',
+        
         link: '/accounts/create', 
         icon: 'bi bi-person-vcard',
       },
@@ -48,6 +49,14 @@ export const sidebar = [
         icon: 'bi bi-person-vcard',
 
       },
+    ],
+  },
+  {
+    title: 'Transactions',
+    icon: 'bi bi-credit-card',
+    link: 'transactions/virement',
+    isActive: false,
+    subitems: [
       {
         title: 'Dépôt/Retraits',
         link: '/accounts/manage',

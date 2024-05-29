@@ -21,9 +21,12 @@ export class MotDePasseComponent {
     private formBuilder: FormBuilder,
     private authService: AuthService){
       this.authForm = this.formBuilder.group({
-        login: [null, Validators.required],
-        password: ['', [Validators.required]],
-      });
+      
+        confirmMotDePasse: ['', [Validators.required]],
+        motDePasse: ['', [Validators.required]],
+        reponse1: ['', [Validators.required]],
+        reponse2: ['', [Validators.required]],
+      })
     }
 
     Suivant(currentRoute: string): void{
