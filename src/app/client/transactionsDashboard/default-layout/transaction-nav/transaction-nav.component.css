@@ -1,10 +1,10 @@
-@import url('https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-icons.css');
+/* Global override for z-index */@import url('https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-icons.css');
 @import url('https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-svg.css');
 @import url('https://demos.creative-tim.com/soft-ui-dashboard/assets/css/soft-ui-dashboard.min.css?v=1.0.2');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 
-.bg-gradient-primary{
-  color: linear-gradient (90deg, #cca558, #8f7134) !important ;
+.bg-gradient-primary {
+  color: linear-gradient (90deg, #cca558, #8f7134) !important;
   background-color: linear-gradient (90deg, #cca558, #8f7134) !important;
   background-image: linear-gradient (310deg, #cca558, #8f7134) !important;
 }
@@ -12,62 +12,69 @@
 
 /* Global override for z-index */
 ::ng-deep #sidenav-main {
-  z-index: 0; 
+  z-index: 0;
 }
-
 
 .sidenav {
-    height: 100vh; /* Prendre toute la hauteur de l'écran */
-    overflow-x: hidden !important; 
-    overflow-y: hidden !important; 
+  height: 100vh;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
 }
 
-.icon-inactive{
-    color: black !important;
+.nav-link {
+  cursor: pointer;
 }
 
-.nav-item {
-    position: relative;
-  }
-
-  .nav-link {
-    cursor: pointer; /* Makes the cursor a pointer on hover */
-  }
-
-  .nav-item {
-    /* Ensure pointer interactions work correctly */
-    &:hover {
-      background-color: rgb(255, 252, 252); /* Example hover effect */
-    }
-  }  
-
-.submenu-list.active {
-  max-height: 500px;
-
-}
-  
 .submenu-list {
   list-style-type: none;
   padding-left: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   max-height: 0;
+  background-color: transparent;
   overflow: hidden;
-  transition: max-height 0.5s ease-out; /* Add transition for smooth animation */
-}
-  
-  ::ng-deep .navbar-vertical .navbar-nav > .nav-item .nav-link.active .icon {
-    background-image: linear-gradient(310deg, #c2862d, #3c2f1a); /* New gradient */
-}
-
-.expandable-content {
-  transition: max-height 0.3s ease; /* Smooth transition for expansion/collapse */
-  max-height: 0; /* Collapsed state */
-  overflow: hidden; /* Hide overflow when collapsed */
+  transition: max-height 0.5s ease-out;
+  position: relative;
+  border: none;
+  box-shadow: none;
 }
 
-.navbar-nav .nav-item[ng-reflect-expanded="true"] .expandable-content {
-  max-height: 200px; /* Set a reasonable max-height when expanded */
+.submenu-list.active {
+  max-height: 500px;
 }
 
+.icon-inactive {
+  color: black !important;
+}
 
+::ng-deep .navbar-vertical .navbar-nav > .nav-item .nav-link.active .icon {
+  background-image: linear-gradient(310deg, #c2862d, #3c2f1a);
+}
 
+.sousitem a {
+  display: block;
+  pointer-events: none; /* Désactive les événements de souris */
+  cursor: default; /* Change le curseur de la souris */
+  background-color: black; /* Assure la couleur de fond */
+  color: inherit; /* Conserve la couleur de texte originale */
+  text-decoration: none; /* Supprime les soulignements */
+  transition: none; /* Désactive les transitions */
+  animation: none; /* Désactive les animations */
+}
 
+.sousitem a:hover {
+  background-color: black; /* Assure que la couleur de fond reste noire */
+  color: inherit; /* Conserve la couleur de texte originale */
+  pointer-events: none; /* Assure que les événements de souris restent désactivés */
+  transition: none; /* Désactive les transitions */
+  animation: none; /* Désactive les animations */
+}
+
+.submenu-list .sousitem a {
+  pointer-events: none;
+  cursor: default;
+  background-color: black;
+  color: inherit;
+  transition: none;
+  animation: none;
+}

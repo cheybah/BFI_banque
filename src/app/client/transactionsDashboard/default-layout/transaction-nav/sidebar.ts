@@ -1,70 +1,147 @@
-export  const sidebar =  [
-    {
-        title: 'Tableau de board',
-        icon: 'bi bi-shop', // Bootstrap icon
-        link: '/transactions-dashboard', // Optional link
-        isActive: false, // Indicate active item
-    
-      },
+export const sidebar = [
+  {
+    title: 'Tableau de board',
+    icon: 'bi bi-shop', // Bootstrap icon
+    link: '/transactions-dashboard', // Optional link
+    isActive: false, // Indicate active item
+
+  },
+  {
+    title: 'Comptes',
+    icon: 'bi bi-person-vcard',
+    link: 'javascript:void(0)', // Parent item
+    isActive: false,
+    expanded: false, // Parent item to be expanded/collapsed
+    subitems: [
       {
         title: 'Comptes',
+        link: '/accounts/create', // Subitem link
         icon: 'bi bi-person-vcard',
-        link: 'javascript:void(0)', // Parent item
-        isActive: false,
-        expanded: false, // Parent item to be expanded/collapsed
-        subitems: [
-          {
-            title: 'Create Account',
-            link: '/accounts/create', // Subitem link
-          },
-          {
-            title: 'Manage Accounts',
-            link: '/accounts/manage', // Subitem link
-          },
-        ],
-      },
-      {
-        title: 'Transactions',
-        icon: 'bi bi-credit-card',
-        link: 'transactions/virement',
-        isActive: false,
-      },
-      {
-        title: 'Transfert Rapide',
-        icon: 'bi bi-arrow-left-right',
-        link: '/transfert-rapide',
-        isActive: false,
-      },
-      {
-        title: 'Historique',
-        icon: 'bi bi-clock-history',
-        link: 'javascript:void(0)',
-        isActive: false,
-      },
-      {
-        title: 'Validations',
-        icon: 'bi bi-check-all',
-        link: 'javascript:void(0)',
-        isActive: false,
-      },
-      {
-        title: 'Administration',
-        icon: 'bi bi-building',
-        link: '/administration/gestion-profil-utilisateurs',
-        isActive: false,
-      },
-      {
-        title: 'Service Client',
-        icon: 'bi bi-headset',
-        link: '/administration/gestion-utilisateurs',
-        isActive: false,
-      },
 
-      {
-        title: 'Configurations',
-        icon: 'bi bi-gear',
-        link: '/settings',
-        isActive: false,
       },
-   
+      {
+        title: 'E-Documents',
+        link: '/accounts/e-docs', // Subitem link
+      },
+      {
+        title: 'Mes contacts',
+        link: 'accounts/my-contacts', // Subitem link
+      },
+    ],
+  },
+  {
+    title: 'Transactions',
+    icon: 'bi bi-credit-card',
+    link: 'transactions/virement',
+    isActive: false,
+    subitems: [
+      {
+        title: 'Virements',
+        link: 'transactions/virement', 
+      },
+      {
+        title: 'MassPay',
+        link: '/accounts/manage', 
+      },
+      {
+        title: 'Dépôt/Retraits',
+        link: '/accounts/manage',
+      },
+      {
+        title: 'Carte Prepayée',
+        link: '/carteprepayee',
+      },
+      {
+        title: 'Placements',
+        link: '/accounts/manage',
+      },
+      {
+        title: 'Moyen de paiement',
+        link: '/accounts/manage',
+      },
+    ],
+  },
+  {
+    title: 'Transfert Rapide',
+    icon: 'bi bi-arrow-left-right',
+    link: '/transfert-rapide',
+    isActive: false,
+  },
+  {
+    title: 'Historique',
+    icon: 'bi bi-clock-history',
+    link: 'javascript:void(0)',
+    isActive: false,
+    expanded: false, // Parent item to be expanded/collapsed
+    subitems: [
+      {
+        title: 'Comptes',
+        link: '/accounts/create', // Subitem link
+      },
+      {
+        title: 'E-Documents',
+        link: '/accounts/manage', // Subitem link
+      },
+      {
+        title: 'Mes contacts',
+        link: '/accounts/manage', // Subitem link
+      },
+    ],
+  },
+  {
+    title: 'Validations',
+    icon: 'bi bi-check-all',
+    link: 'javascript:void(0)',
+    isActive: false,
+  },
+  {
+    title: 'Administration',
+    icon: 'bi bi-building',
+    link: '/administration/gestion-profil-utilisateurs',
+    isActive: false,
+    expanded: false, // Parent item to be expanded/collapsed
+    subitems: [
+      {
+        title: 'Comptes',
+        link: '/accounts/create', 
+      },
+      {
+        title: 'E-Documents',
+        link: '/accounts/manage', 
+      },
+      {
+        title: 'Mes contacts',
+        link: '/accounts/manage', 
+      },
+    ],
+  },
+  {
+    title: 'Service Client',
+    icon: 'bi bi-headset',
+    link: '/administration/gestion-utilisateurs',
+    isActive: false,
+    expanded: false, // Parent item to be expanded/collapsed
+    subitems: [
+      {
+        title: 'Rendez-vous',
+        link: 'service-client/rendez-vous', // Subitem link
+      },
+      {
+        title: 'Réclamation',
+        link: 'service-client/reclamation', // Subitem link
+      },
+      {
+        title: 'Messageries',
+        link: '/accounts/manage', // Subitem link
+      },
+    ],
+  },
+
+  {
+    title: 'Configurations',
+    icon: 'bi bi-gear',
+    link: '/settings',
+    isActive: false,
+  },
+
 ]

@@ -1,1 +1,28 @@
-<p>validation-entreprise works!</p>
+<div class="card">
+    <div class="card-header">
+        <h4>{{ 'dash.emailVerif.title' | translate }}</h4>
+    </div>
+    <div class="card-body">
+        <div class="form">
+            <div class="col-12">
+                <input type="text" id="email1" placeholder="user@domain.com" [(ngModel)]="email">
+                <div class="otpverify" [style.display]="otpVerifyDisplay">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" id="otp_inp" class="form-control"  [placeholder]="'dash.emailVerif.otp_placeholder' | translate" [(ngModel)]="otpInput">
+                        </div>
+                        <div class="col-auto align-self-center">
+                            <button class="btn btn-secondary butn" (click)="verifyOTP()">{{ 'dash.emailVerif.verify_button' | translate }}</button>
+                        </div>
+                    </div>
+                </div>                
+                <div class="col-md-12">
+                    <button class="btn btn-secondary butn" (click)="sendOTP()" [disabled]="resendButtonDisabled">{{ resendButtonText }}</button>
+                    <div *ngIf="showCountdown && countdown > 0" class="alert alert-danger">
+                        {{ 'dash.emailVerif.resend_otp_info' | translate }} {{ countdown }} {{ 'dash.emailVerif.time' | translate }}
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
