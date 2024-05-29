@@ -49,6 +49,9 @@ import { ComparaisonComponent } from './dashboard/comparaison/comparaison.compon
 import { CarteprepayeeComponent } from './transactionsDashboard/carteprepayee/carteprepayee.component';
 import { DepotReraitComponent } from './transactionsDashboard/depot-rerait/depot-rerait.component';
 
+import { canDeactivateGuard } from '../services/can-deactivate.guard';
+
+
 
 
 
@@ -64,7 +67,7 @@ const routes: Routes = [
     path: 'dash', component: DashboardComponent, children: [
       { path: 'validation', component: ValidationComponent },
       { path: 'adresse', component: AdresseComponent },
-      { path: 'informations-personelles', component: InformationsComponent },
+      { path: 'informations-personelles', component: InformationsComponent, canDeactivate: [canDeactivateGuard] },
       { path: 'offres-et-domiciliation', component: OffresEtDomicialisationComponent },
       { path: 'conditions-generales', component: ConditionsGeneralesComponent },
       { path: 'autres-informations', component: AutresInformationsComponent },
