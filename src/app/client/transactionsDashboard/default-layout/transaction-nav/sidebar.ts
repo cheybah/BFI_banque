@@ -15,17 +15,19 @@ export const sidebar = [
     subitems: [
       {
         title: 'Comptes',
-        link: '/accounts/create', // Subitem link
+        
+        link: '/accounts/create', 
         icon: 'bi bi-person-vcard',
-
       },
       {
         title: 'E-Documents',
-        link: '/accounts/e-docs', // Subitem link
+        link: '/accounts/e-docs',
+        icon: 'bi bi-person-vcard',
       },
       {
         title: 'Mes contacts',
-        link: 'accounts/my-contacts', // Subitem link
+        link: 'accounts/my-contacts', 
+        icon: 'bi bi-person-vcard',
       },
     ],
   },
@@ -37,12 +39,24 @@ export const sidebar = [
     subitems: [
       {
         title: 'Virements',
-        link: 'transactions/virement', 
+        link: 'transactions/virement',
+        icon: 'bi bi-person-vcard',
+ 
       },
       {
         title: 'MassPay',
         link: '/accounts/manage', 
+        icon: 'bi bi-person-vcard',
+
       },
+    ],
+  },
+  {
+    title: 'Transactions',
+    icon: 'bi bi-credit-card',
+    link: 'transactions/virement',
+    isActive: false,
+    subitems: [
       {
         title: 'Dépôt/Retraits',
         link: '/accounts/manage',
@@ -70,7 +84,7 @@ export const sidebar = [
   {
     title: 'Historique',
     icon: 'bi bi-clock-history',
-    link: 'javascript:void(0)',
+    link: '/',
     isActive: false,
     expanded: false, // Parent item to be expanded/collapsed
     subitems: [
@@ -86,33 +100,29 @@ export const sidebar = [
         title: 'Mes contacts',
         link: '/accounts/manage', // Subitem link
       },
-    ],
+    ]
   },
   {
     title: 'Validations',
     icon: 'bi bi-check-all',
-    link: 'javascript:void(0)',
+    link: '/',
     isActive: false,
   },
   {
     title: 'Administration',
     icon: 'bi bi-building',
-    link: '/administration/gestion-profil-utilisateurs',
+    link: '',
     isActive: false,
     expanded: false, // Parent item to be expanded/collapsed
     subitems: [
       {
-        title: 'Comptes',
-        link: '/accounts/create', 
+        title: 'gestion utilisateurs',
+        link: '/gestion-utilisateurs', 
       },
       {
-        title: 'E-Documents',
-        link: '/accounts/manage', 
-      },
-      {
-        title: 'Mes contacts',
-        link: '/accounts/manage', 
-      },
+        title: 'gestion profils utilisateurs',
+        link: '//administration/gestion-profil-utilisateurs', 
+      }
     ],
   },
   {
@@ -121,14 +131,15 @@ export const sidebar = [
     link: '/administration/gestion-utilisateurs',
     isActive: false,
     expanded: false, // Parent item to be expanded/collapsed
+
     subitems: [
       {
         title: 'Rendez-vous',
-        link: 'service-client/rendez-vous', // Subitem link
+        link: '/service-client/rendez-vous', // Subitem link
       },
       {
         title: 'Réclamation',
-        link: 'service-client/reclamation', // Subitem link
+        link: '/service-client/reclamation', // Subitem link
       },
       {
         title: 'Messageries',

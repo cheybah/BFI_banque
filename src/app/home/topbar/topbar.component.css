@@ -1,14 +1,36 @@
+/* header.component.css */
 .dropdown-menu {  /* Styling for dropdown menu */
     background-color: #F8F9FA !important; /* Off-white background */
     border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for better visibility */
 }
 
-.dropdown-menu li a {  /* Styling for dropdown menu lang names*/
+.dropdown-menu li a {  /* Styling for dropdown menu lang names */
     color: #000 !important; /* Black text color */
     font-weight: 500;
     text-decoration: none !important;
+    display: block; /* Ensures full clickable area */
+    padding: 5px 10px; /* Adds padding for better clickability */
 }
 
-.dropdown-menu li a:hover {  /* Styling for dropdown menu lang names on hover*/
+.dropdown-menu li a:hover {  /* Styling for dropdown menu lang names on hover */
     color: #C2862D !important; /* Hover color */
+    background-color: #E9ECEF; /* Optional: Add hover background color for better visibility */
+}
+
+/* Add styles for dropdown and dropdown-toggle */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-left: 50px;
 }

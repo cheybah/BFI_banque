@@ -74,6 +74,7 @@ import { ComparaisonComponent } from './dashboard/comparaison/comparaison.compon
 import { RechargeCarteComponent } from './transactionsDashboard/recharge-carte/recharge-carte.component';
 import { CarteprepayeeComponent } from './transactionsDashboard/carteprepayee/carteprepayee.component';
 import { PlacementsComponent } from './transactionsDashboard/placements/placements.component';
+import { DepotReraitComponent } from './transactionsDashboard/depot-rerait/depot-rerait.component';
 
 
 
@@ -125,6 +126,7 @@ export function playerFactory() {
     ReclamationComponent,
     CreateBankAccountComponent,
     ExtraitComponent,
+    ExtraitComponent,
     EDocumentsComponent,
     NavbarComponent,
     FilterPipe,
@@ -145,7 +147,8 @@ export function playerFactory() {
     ComparaisonComponent,
     RechargeCarteComponent,
     CarteprepayeeComponent,
-    PlacementsComponent
+    PlacementsComponent,
+    DepotReraitComponent
   ],
   exports: [
   ],

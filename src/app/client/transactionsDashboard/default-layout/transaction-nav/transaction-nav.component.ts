@@ -30,22 +30,25 @@ export class TransactionNavComponent implements OnInit {
   }
   toggleExpanded(index: number): void {
     this.nav[index].expanded = !this.nav[index].expanded;
-}
+  }
 
-setActiveItem(index: number): void {
+  setActiveItem(index: number): void {
     this.nav.forEach((item, i) => {
-        item.isActive = i === index;
-        if (i !== index) {
-            item.expanded = false; // Collapse other items
-        }
+      item.isActive = i === index;
+      if (i !== index) {
+        item.expanded = false;
+      }
     });
     localStorage.setItem('activeItemIndex', index.toString());
     this.activeItemIndex = index;
 
     if (this.nav[index].link) {
-        this.router.navigate([this.nav[index].link]);
+      this.router.navigate([this.nav[index].link]);
     }
-}
-
-  
+  }
+  navigateTo(link: string): void {
+    if (link) {
+      this.router.navigate([link]);
+    }
+  }
 }
