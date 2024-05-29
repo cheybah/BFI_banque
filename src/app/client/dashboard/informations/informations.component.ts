@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener  } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { CountryISO  } from 'ngx-intl-tel-input';
 import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { navbarData } from '../sidenav/nav-data';
 import { TranslateService } from '@ngx-translate/core';
+import { CanComponentDeactivate } from '../../../services/can-deactivate.guard';
+import Swal from 'sweetalert2';
 
 
 function noNumbersValidator(): ValidatorFn {
@@ -57,6 +59,13 @@ export class InformationsComponent implements OnInit{
   return form.checkValidity();
   }
 
+
+  @HostListener('window:beforeunload', ['$event']) //to show a message when the user tries to leave the page
+  unloadNotification($event: any): void {
+    if (this.informationForm.dirty) {
+      $event.returnValue = true;
+    }
+  }
 
   navData = navbarData;
 

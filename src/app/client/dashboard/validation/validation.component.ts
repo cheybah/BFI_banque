@@ -33,6 +33,7 @@ export class ValidationComponent {
 
 
     sendOTP() {
+        console.log('Sending OTP to email:', this.email);
         this.otpValue = Math.floor(1000 + Math.random() * 9000); 
 
         let emailbody = `<h2>Your OTP is</h2>${this.otpValue}`;
@@ -125,6 +126,7 @@ export class ValidationComponent {
                 this.offresDomiciliationService.clearTemporaryOffersData();
                 this.adresseService.clearTemporaryAddressData();
             }
+            console.log('Email address verified...');
             this.showSuccessAlert("Email address verified...");
 
             this.router.navigate(['/transactions-dashboard']);

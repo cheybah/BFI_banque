@@ -20630,7 +20630,7 @@ textarea.form-control-lg {
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url('../fonts/fa-regular-400.woff2') format("woff2");
+    /*src: url('../fonts/fa-regular-400.woff2') format("woff2");*/
 }
 
 .fab,.far {
@@ -20642,7 +20642,7 @@ textarea.form-control-lg {
     font-style: normal;
     font-weight: 900;
     font-display: block;
-    src: url('../fonts/fa-solid-900.woff2') format("woff2");
+    /*src: url('../fonts/fa-solid-900.woff2') format("woff2");*/
 }
 
 
@@ -20656,7 +20656,7 @@ textarea.form-control-lg {
 
 @font-face {
     font-family: 'themify';
-    src: url("../fonts/themify.woff") format("woff");
+   /* src: url("../fonts/themify.woff") format("woff");*/
     font-weight: normal;
     font-style: normal;
 }
@@ -22779,7 +22779,7 @@ img.mfp-img {
 
 @font-face {
     font-family: 'lg';
-    src: url("../fonts/lg.ttf?22t19m") format("truetype");
+    /*src: url("../fonts/lg.ttf?22t19m") format("truetype");*/
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -57504,7 +57504,7 @@ textarea.form-control-lg {
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url('../fonts/fa-regular-400.woff2') format("woff2");
+   /* src: url('../fonts/fa-regular-400.woff2') format("woff2");*/
 }
 
 .fab,.far {
@@ -57516,7 +57516,7 @@ textarea.form-control-lg {
     font-style: normal;
     font-weight: 900;
     font-display: block;
-    src: url('../fonts/fa-solid-900.woff2') format("woff2");
+    /*src: url('../fonts/fa-solid-900.woff2') format("woff2");*/
 }
 
 
@@ -57530,7 +57530,7 @@ textarea.form-control-lg {
 
 @font-face {
     font-family: 'themify';
-    src: url("../fonts/themify.woff") format("woff");
+    /*src: url("../fonts/themify.woff") format("woff");*/
     font-weight: normal;
     font-style: normal;
 }
@@ -59653,7 +59653,7 @@ img.mfp-img {
 
 @font-face {
     font-family: 'lg';
-    src: url("../fonts/lg.ttf?22t19m") format("truetype");
+    /*src: url("../fonts/lg.ttf?22t19m") format("truetype");*/
     font-weight: normal;
     font-style: normal;
     font-display: block;
