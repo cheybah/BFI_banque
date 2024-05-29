@@ -6,7 +6,7 @@
     Version: 1.0
         
     ---------------------------------- */
-
+    document.addEventListener('DOMContentLoaded', function() {
 
     !function(e) {
         "use strict";
@@ -229,4 +229,4 @@
             t.stellar()
         })
     }(jQuery);
-    
+});
