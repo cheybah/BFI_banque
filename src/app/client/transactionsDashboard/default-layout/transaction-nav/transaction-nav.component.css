@@ -60,6 +60,4 @@
   overflow: hidden;
 }
 
-.navbar-nav .nav-item[ng-reflect-expanded="true"] .expandable-content {
-  max-height: 200px;
-}
+

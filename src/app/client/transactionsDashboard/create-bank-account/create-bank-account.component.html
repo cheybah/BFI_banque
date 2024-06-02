@@ -26,25 +26,29 @@
                 </div>
             </div>
         </div>
-        <div class="card-body p-3" style="max-width: 540px;">
+        <div class="card-body p-3" style="max-width: 450px;">
             <div class="row no-gutters">
                 <div class="col-md-6">
                     <div class="card-body">
                         <p class="mb-1 pt-2 text-bold">{{compteType}}</p>
-                        <h5 class="font-weight-bolder">{{ClientName}}</h5>
+                        <h5 class="font-weight-bolder">{{clientName}}</h5>
                         <p><strong>N° Compte :</strong> {{qrData}}</p>
                         <p><strong>Solde Compte :</strong> {{0 }} XAF</p>
-                        <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                            <i class="fas fa-credit-card" aria-hidden="true" (click)="GoToDepotRetrait()"></i><br>
-                            Déposer
-                        </a>
+                        <a href="javascript:;" class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto">
+                            <span class="icon-text">
+                              <i aria-hidden="true" class="fas fa-credit-card"></i> Déposer
+                            </span>
+                          </a>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card-img-right flex-grow-1 bg-transparent"
                         style="background-size: contain; background-repeat: no-repeat; background-position: center center;">
-                        <qrcode [qrdata]="qrData" [width]="256"></qrcode>
+                        <qrcode [qrdata]="qrData" [width]="200" [imageHeight]="200"></qrcode>
                     </div>
+                    <div class="icon-container">
+                        <i class="bi bi-cloud-download download-icon" title="Download PDF" (click)="downloadPDF()"></i>
+                    </div>                
                 </div>
             </div>
         </div>
