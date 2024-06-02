@@ -20,7 +20,7 @@
       </div>
       <div *ngIf="item.subitems" [ngClass]="{'submenu-list': true, 'active': item.expanded}">
         <div *ngFor="let subitem of item.subitems">
-          <a class="nav-link" (click)="navigateTo(subitem.link)">
+          <a class="nav-link" (click)="navigateTo(subitem.link ?? '')"> 
             <span class="nav-link-text ms-4">{{ subitem?.title }}</span>
           </a>
         </div>

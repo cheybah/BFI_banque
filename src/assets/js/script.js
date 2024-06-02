@@ -1,3 +1,6 @@
+
+document.addEventListener('DOMContentLoaded', function() {
+
 (function($) {
     "use strict";  
     
@@ -116,3 +119,4 @@
     phoneNoselect ();
     nice_Select ();
 })(jQuery);
+});

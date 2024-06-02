@@ -19,6 +19,8 @@ export class VirementComponent {
   verifpassword = false;
   isMobile = false;
   GoToMyContacts() {
+    window.location.reload();
+
     this.router.navigate(['transactions/virement/my-contacts']);
   }
   GoToAutreCompte() {

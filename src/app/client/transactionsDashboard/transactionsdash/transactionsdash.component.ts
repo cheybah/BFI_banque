@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
+import { AnimationOptions } from 'ngx-lottie'; // Import Lottie types
 
 
 @Component({
@@ -9,7 +10,19 @@ import { Router } from '@angular/router';
 })
 
 export class TransactionsdashComponent {
+
   constructor( private router:Router){}
+
+  lottieOptions: AnimationOptions = {
+    path: "/assets/lottie/dash-client.json", // Path to your Lottie JSON file
+  };
+  
+
+  // Function to handle animation creation event
+  animationCreated(animation: any) {
+    console.log('Lottie animation created:', animation);
+  }
+  
   goToExtrait(): void {
     this.router.navigate(['/transactions-dashboard/extrait']);
   }

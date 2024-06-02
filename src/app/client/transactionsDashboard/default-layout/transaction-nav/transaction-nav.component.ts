@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { sidebar } from './sidebar';
+import { sidebarPP } from './sidebar';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 })
 export class TransactionNavComponent implements OnInit {
 
-   nav = sidebar;
+  nav = sidebarPP;
   activeItemIndex: number = 0;
 
   constructor(public router: Router) {
-    console.log('TransactionNavComponent initialized');
+    console.log('TransactionNavComponent initialized'); //ensure this works for state 0
   }
 
   ngOnInit() {
@@ -33,15 +33,15 @@ export class TransactionNavComponent implements OnInit {
   }
 
   setActiveItem(index: number): void {
+    
     this.nav.forEach((item, i) => {
       item.isActive = i === index;
       if (i !== index) {
         item.expanded = false;
       }
     });
-    localStorage.setItem('activeItemIndex', index.toString());
     this.activeItemIndex = index;
-
+    localStorage.setItem('activeItemIndex', index.toString()); // this to maintain the correct item activation
     if (this.nav[index].link) {
       this.router.navigate([this.nav[index].link]);
     }
@@ -49,6 +49,9 @@ export class TransactionNavComponent implements OnInit {
   navigateTo(link: string): void {
     if (link) {
       this.router.navigate([link]);
+      console.log('we are here', link)
     }
   }
+
+  
 }
