@@ -1,6 +1,4 @@
 
-document.addEventListener('DOMContentLoaded', function() {
-
 (function($) {
     "use strict";  
     
@@ -101,13 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     }; 
     
-    //* Add Phone no select
-    function phoneNoselect(){
-        if ( $('#msform').length ){   
-            $("#phone").intlTelInput(); 
-            $("#phone").intlTelInput("setNumber", "+880"); 
-        };
-    }; 
     //* Select js
     function nice_Select(){
         if ( $('.product_select').length ){ 
@@ -116,7 +107,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }; 
     /*Function Calls*/  
     verificationForm ();
-    phoneNoselect ();
     nice_Select ();
 })(jQuery);
-});
