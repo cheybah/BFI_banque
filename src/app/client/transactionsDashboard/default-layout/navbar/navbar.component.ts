@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   page = "Page Name"
+  constructor(private router: Router) { }
+  logOut(): void {
+    localStorage.clear;
+    this.router.navigate(['/bfi/login']);
+  }
 }
