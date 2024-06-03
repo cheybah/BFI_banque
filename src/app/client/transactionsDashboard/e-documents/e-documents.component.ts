@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FilterPipe } from 'src/app/filter.pipe';
+import {Document} from './document';
 
 @Component({
   selector: 'app-e-documents',
@@ -13,9 +13,8 @@ export class EDocumentsComponent {
   documentName: string = '';
   documentDescription: string = '';
   documentKeywords: string = '';
-  documents = [
-    { id: '1', name: 'Example PDF', extension: 'pdf', description: 'Example description', keywords: 'example, pdf' },
-  ];
+  documents: Document[] = []; // Use the Document interface
+
 
   showModal = false; // Toggle modal visibility
 

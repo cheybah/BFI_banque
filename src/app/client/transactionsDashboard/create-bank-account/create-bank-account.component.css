@@ -25,6 +25,7 @@
 .icon {
     margin-top: 30px !important;
     margin-left: -10pc !important;
+    cursor: pointer;
 }
 
 .form-control-mvmt {
@@ -69,8 +70,7 @@
     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.3);
 }
 
-.modal {
-    display: none; /* Hidden by default */
+.modals {
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -88,7 +88,8 @@
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 50%; /* Could be more or less, depending on screen size */
+    border-radius: 15px;
   }
   
   /* The Close Button */
@@ -106,4 +107,17 @@
     cursor: pointer;
   }
   
+  .label{
+    color: #493201 !important; /* Override color */
+  }
+  .butn{
+    border-color:  #493201 !important;;
+  }
+
+  .input-modal{
+    margin-bottom: 6px;
+    border-color: #706e6a;
+    border-radius: 10px;
+    padding: revert;
+  }
   
