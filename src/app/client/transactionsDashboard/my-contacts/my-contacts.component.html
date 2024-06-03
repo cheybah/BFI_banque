@@ -1,123 +1,99 @@
-<body class="g-sidenav-show bg-gray-100">  
-    <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100 side" id="sidenav-main" >
-        <div class="sidenav-header">
-            <a class="navbar-brand m-0" href="javascript:;">
+<body class="g-sidenav-show bg-gray-100">
+  <div
+    class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100 side"
+    id="sidenav-main">
+    <div class="sidenav-header">
+      <a class="navbar-brand m-0" href="javascript:;">
+
+        <span class="ms-1 font-weight-bold"><img id="logo" src="../../../assets/img/logos/logo.png"> </span>
+      </a>
+    </div>
+    <hr class="horizontal dark mt-0">
+    <app-transaction-nav></app-transaction-nav>
+  </div>
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <app-navbar></app-navbar>
+    <div class="container">
+      <div class="input-with-icon"> 
+        <input class="search" type="text" [(ngModel)]="searchText" placeholder="Search contacts" />
+        <i class="bi bi-search search-icon"></i> 
+        <button class="add-contact-container" (click)="addContact()" class="btn btn-primary btnorange">Ajouter
+          Contact</button>
+      </div>
+      <div class="container">
+        <div class="row"> 
+          <div class="col-md-7"> 
+            <div class="card-body px-0 pt-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Full Name
+                      </th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">RIB
+                      </th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Type
+                        de Compte</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                
+                    <tr *ngFor="let contact of contacts">
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                           
+                            <img [src]="contact.imageContact" class="avatar avatar-sm me-3" alt="user">
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">{{ contact.fullName }}</h6>
                          
-                <span class="ms-1 font-weight-bold"><img  id="logo" src="../../../assets/img/logos/logo.png"> </span>
-            </a>
-        </div>
-        <hr class="horizontal dark mt-0">
-        <app-transaction-nav></app-transaction-nav>
-        </div>
-        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-            <app-navbar></app-navbar>  
-            <div class="container">
-                <div class="input-with-icon"> <!-- Wrap input and icon -->
-                  <input
-                    class="search"
-                    type="text"
-                    [(ngModel)]="searchText"
-                    placeholder="Search contacts"
-                  />
-                  <i class="bi bi-search search-icon"></i> <!-- Search icon placed inside container -->
-                  <button class="add-contact-container" (click)="addContact()" class="btn btn-primary btnorange">Add Contact</button>        
-                </div>
-            <!-- Card for "Favorites <3" under the search bar -->
-            <div class="container">
-                <div class="row"> <!-- Bootstrap row -->
-                  <!-- Table that takes up most of the space -->
-                  <div class="col-md-7"> <!-- About 58% of the width -->
-                    <div class="card-body px-0 pt-0 pb-2">
-                      <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
-                          <thead>
-                            <tr>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Full Name</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">RIB</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Account Label</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <!-- Row 2 -->
-                            <tr>
-                              <td>
-                                <div class="d-flex px-2 py-1">
-                                  <div>
-                                    <img src="../assets/img/team-1.jpg" class="avatar avatar-sm me-3" alt="user">
-                                  </div>
-                                  <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">Michael Johnson</h6>
-                                    <p class="text-xs text-secondary mb-0">michael@creative-tim.com</p>
-                                  </div>
-                                </div>
-                              </td>
-                              <td>
-                                <p class="text-xs font-weight-bold mb-0">RIB Bamboo</p>
-                                <p class="text-xs text-secondary mb-0">123456789</p>
-                              </td>
-                              <td class="align-middle text-center text-sm">
-                                <span class="badge badge-sm bg-gradient-success">Courant</span>
-                              </td>
-                            </tr>
-              
-                            <!-- Row 3 -->
-                            <tr>
-                              <td>
-                                <div class="d-flex px-2 py-1">
-                                  <div>
-                                    <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user">
-                                  </div>
-                                  <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">Jessica Doe</h6>
-                                    <p class="text-xs text-secondary mb-0">jessica@creative-tim.com</p>
-                                  </div>
-                                </div>
-                              </td>
-                              <td>
-                                <p class="text-xs font-weight-bold mb-0">RIB Bamboo</p>
-                                <p class="text-xs text-secondary mb-0">123456789</p>
-                              </td>
-                              <td class="align-middle text-center text-sm">
-                                <span class="badge badge-sm bg-gradient-warning">Epargne</span>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-5 ml-auto"> <!-- Positions card to the far right -->
-                    <div class="card">
-                      <div class="card-header">Favorites ❤️</div>
-                      <div class="card-body">
-                        <!-- Display Lottie animation when there are no favorites -->
-                        <ng-lottie
-                          [options]="lottieOptions"
-                          (animationCreated)="animationCreated($event)"
-                          *ngIf="favoriteContacts().length === 0" 
-                        ></ng-lottie>
-              
-                        <p *ngIf="favoriteContacts().length === 0">
-                          You don't have any favorite contacts yet. Add some to see them here!
-                        </p>
-              
-                        <!-- Display list of favorite contacts when there are some -->
-                        <ng-container *ngIf="favoriteContacts().length > 0">
-                          <ul>
-                            <li *ngFor="let contact of favoriteContacts()">
-                              {{ contact.name }}
-                            </li>
-                          </ul>
-                        </ng-container>
-                      </div>
-                    </div>
-                  </div>
-                  
-                </div>
+                            <p class="text-xs text-secondary mb-0">{{ contact.address }}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                      
+                        <p class="text-xs font-weight-bold mb-0">{{ contact.gender }}</p>
+                     
+                        <p class="text-xs text-secondary mb-0">{{ contact.categorie }}</p>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+               
+                        <span class="badge badge-sm bg-gradient-success">{{ contact.accountType }}</span>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
               </div>
-              
-              
-            
+            </div>
+          </div>
+          <div class="col-md-5 ml-auto"> 
+            <div class="card">
+              <div class="card-header">Favoris ❤️</div>
+              <div class="card-body">
+             
+                <ng-lottie [options]="lottieOptions" (animationCreated)="animationCreated($event)"
+                  *ngIf="favoriteContacts().length === 0"></ng-lottie>
+
+                <p *ngIf="favoriteContacts().length === 0">
+                  Vous n'avez pas encore de contacts favoris. Ajoutez-en pour les voir ici ! </p>
+
+             
+                <ng-container *ngIf="favoriteContacts().length > 0">
+                  <ul>
+                    <li *ngFor="let contact of favoriteContacts()">
+                      {{ contact.fullName }}
+                    </li>
+                  </ul>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+
         </div>
-    </main>
+      </div>
+    </div>
+  </main>
 </body>

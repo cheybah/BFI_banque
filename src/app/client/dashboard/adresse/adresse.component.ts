@@ -7,6 +7,7 @@ import 'leaflet-routing-machine';
 import { NgForm } from '@angular/forms';
 import { navbarData } from '../sidenav/nav-data';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -36,7 +37,7 @@ export class AdresseComponent implements OnInit{
  
   constructor(private router: Router,
     private adresseService: AdresseService,
-    private translate: TranslateService
+    private translate: TranslateService,  private authService:AuthService
   ) {
     this.translate.setDefaultLang('fr');
 
@@ -58,7 +59,7 @@ export class AdresseComponent implements OnInit{
 
   
     // Instead of directly saving to backend, store in temporary storage
-    this.adresseService.setTemporaryAddressData(formData);
+    this.authService.setTemporaryAddress(formData);
   
     // Navigate to the next step
     this.router.navigate(['/dash/autres-informations']);

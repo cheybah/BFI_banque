@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AutresInformationsService } from '../../../services/autres-informations.service';
 import { navbarData } from '../sidenav/nav-data';
 import * as Tesseract from 'tesseract.js';
+import { AuthService } from 'src/app/services/auth.service';
 
 declare const cv: any;
 
@@ -26,7 +27,9 @@ export class AutresInformationsComponent implements OnInit {
 
   constructor(private router: Router,
               private formBuilder: FormBuilder,
-              private autresInformationsService: AutresInformationsService) {
+              private autresInformationsService: AutresInformationsService,
+            private authService:AuthService
+        ) {
 
     this.infoForm = this.formBuilder.group({
       typeIndividual: ['', Validators.required],
@@ -183,7 +186,7 @@ export class AutresInformationsComponent implements OnInit {
     if (form.valid) {
       const formData = form.value;
       console.log('Temporary form data:', formData);
-      this.autresInformationsService.setTemporaryAdditionalInfoData(formData);
+      this.authService.setTemporaryAdditionalInfo(formData);
     } else {
       console.error('Form is invalid.');
     }

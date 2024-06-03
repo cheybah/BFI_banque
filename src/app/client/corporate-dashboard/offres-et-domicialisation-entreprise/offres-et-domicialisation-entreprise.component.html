@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <label  formControlName="accountType" for="accountType">Choisissez votre compte</label><span class="required">*</span>
+                        <label for="accountType">Choisissez votre compte</label><span class="required">*</span>
                         <div class="row">
                             <div class="col-md-4 mb-3" *ngFor="let compte of comptes">
                                 <div id="accountType" class="compte" (click)="selectCompte(compte.value)" [class.selected]="isCompteSelected(compte.value)">

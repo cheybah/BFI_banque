@@ -10,7 +10,7 @@ export class VirementPermanentComponent {
   successOperationMyAccount: boolean = false;
   constructor(private router: Router) { }
 
-  GoToNextStepBamboo() {
+  GoToNextStepDigiBank() {
   }
   GoToNextStepAutre() {
   }

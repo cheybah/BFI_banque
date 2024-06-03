@@ -70,7 +70,6 @@ import { VirementMultipleComponent } from './dashboard/virement-multiple/viremen
 import { VirementPermanentComponent } from './dashboard/virement-permanent/virement-permanent.component';
 import { IntrabancaireComponent } from './dashboard/virement-autre-compte/intrabancaire/intrabancaire.component';
 import { InterbancaireComponent } from './dashboard/virement-autre-compte/interbancaire/interbancaire.component';
-import { ComparaisonComponent } from './dashboard/comparaison/comparaison.component';
 import { RechargeCarteComponent } from './transactionsDashboard/recharge-carte/recharge-carte.component';
 import { CarteprepayeeComponent } from './transactionsDashboard/carteprepayee/carteprepayee.component';
 import { PlacementsComponent } from './transactionsDashboard/placements/placements.component';
@@ -144,7 +143,6 @@ export function playerFactory() {
     VirementPermanentComponent,
     IntrabancaireComponent,
     InterbancaireComponent,
-    ComparaisonComponent,
     RechargeCarteComponent,
     CarteprepayeeComponent,
     PlacementsComponent,

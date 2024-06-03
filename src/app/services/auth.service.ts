@@ -11,23 +11,64 @@ export class AuthService {
   private temporaryData: any;
   private userId!: number;
 
+ 
   setUserId(userId: number) {
-    this.userId = userId;
+    this.temporaryData.userId = userId;
   }
-
+  
   getUserId(): number {
-    return this.userId;
+    return this.temporaryData.userId;
   }
-
-
-  setTemporaryRegisterData(data: any): void {   //to store the data from informations form in the temporaryData variable
+  
+  setTemporaryRegisterData(data: any): void {
     this.temporaryData = data;
   }
-
-  getTemporaryRegisterData(): any { //to get the data from the temporaryData variable
+  
+  getTemporaryauthData(): any {
+    return this.temporaryData.authForm;
+  }
+  setTemporaryLogin(data: any): void {
+    this.temporaryData.authForm.login = data;
+  }
+  setTemporaryPassword(data: any): void {
+    this.temporaryData.authForm.pass = data;
+  }setTemporaryauthData(data: any): void {
+    this.temporaryData.authForm = data;
+  }
+  getTemporaryLogin(): any {
+    return this.temporaryData.authForm.login;
+  }
+   getTemporaryPassword(): any {
+    return this.temporaryData.authForm.password;
+  }
+  getTemporaryRegisterData(): any {
     return this.temporaryData;
   }
-
+  setTemporaryAdditionalInfo(data: any): void {
+    this.temporaryData.additionalInfo = data;
+  }
+  
+  getTemporaryAdditionalInfo(): any {
+    return this.temporaryData.additionalInfo;
+  }
+  
+  setTemporaryAddress(data: any): void {
+    this.temporaryData.address = data;
+  }
+  
+  getTemporaryAddress(): any {
+    return this.temporaryData.address;
+  }
+  
+  setTemporaryOffersData(data: any): void {
+    this.temporaryData.offersData = data;
+  }
+  
+  getTemporaryOffersData(): any {
+    return this.temporaryData.offersData;
+  }
+  
+ 
   setTemporaryCombinedData(data: any): void {
     // Merge the new data with the existing temporary data
     this.temporaryData = { ...this.temporaryData, ...data };
@@ -40,7 +81,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   register(user: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/dash/informations-personelles`, user)
+    return this.http.post<any>(`${this.baseUrl}/register/personne-physique`, user)
       .pipe(
         catchError(error => {
           throw error; 
@@ -48,16 +89,5 @@ export class AuthService {
       );
   }
 
-  /*uploadPhoto(file: File): Observable<any> {
-    const formData: FormData = new FormData();
-    formData.append('file', file);
 
-    return this.http.post<any>(`${this.baseUrl}/dash/informations-personelles/${userId}/photo`, formData)
-      .pipe(
-        catchError(error => {
-          throw error;
-        })
-      );
-  }*/
 }
-

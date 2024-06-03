@@ -45,7 +45,6 @@ import { VirementPermanentComponent } from './dashboard/virement-permanent/virem
 import { VirementAutreCompteComponent } from './dashboard/virement-autre-compte/virement-autre-compte.component';
 import { IntrabancaireComponent } from './dashboard/virement-autre-compte/intrabancaire/intrabancaire.component';
 import { InterbancaireComponent } from './dashboard/virement-autre-compte/interbancaire/interbancaire.component';
-import { ComparaisonComponent } from './dashboard/comparaison/comparaison.component';
 import { CarteprepayeeComponent } from './transactionsDashboard/carteprepayee/carteprepayee.component';
 import { DepotReraitComponent } from './transactionsDashboard/depot-rerait/depot-rerait.component';
 
@@ -89,7 +88,6 @@ const routes: Routes = [
     ]
   },
 
-  { path: 'test', component: ComparaisonComponent },
 
   { path: 'transactions-dashboard', component: TransactionsdashComponent},
   {path: 'accounts/create', component: CreateBankAccountComponent},

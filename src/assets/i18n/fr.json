@@ -6,11 +6,11 @@
     "aboutUs": {
       "title": "À propos de nous",
       "subheading": "Garantir des transactions financières transparentes pour les besoins bancaires quotidiens",
-      "content": "Bamboo s'engage à fournir des solutions bancaires innovantes adaptées aux besoins de nos clients. En mettant l’accent sur l’excellence et l’intégrité, nous offrons un service personnalisé et une expertise fiable pour aider les particuliers et les entreprises à atteindre leurs objectifs financiers.",
+      "content": "DigiBank s'engage à fournir des solutions bancaires innovantes adaptées aux besoins de nos clients. En mettant l’accent sur l’excellence et l’intégrité, nous offrons un service personnalisé et une expertise fiable pour aider les particuliers et les entreprises à atteindre leurs objectifs financiers.",
       "professionalTeam": "Équipe professionnelle",
-      "professionalTeamDesc": "Chez Bamboo, notre équipe professionnelle s’engage à fournir des services financiers de premier ordre adaptés à vos besoins. Avec des années d’expérience et d’expertise, nous garantissons un soutien et des conseils supérieurs pour votre réussite financière.",
+      "professionalTeamDesc": "Chez DigiBank, notre équipe professionnelle s’engage à fournir des services financiers de premier ordre adaptés à vos besoins. Avec des années d’expérience et d’expertise, nous garantissons un soutien et des conseils supérieurs pour votre réussite financière.",
       "quickPayments": "Paiements rapides",
-      "quickPaymentsDesc": "Chez Bamboo, nous accordons la priorité aux paiements rapides pour garantir des transactions fluides à nos clients. Grâce à nos systèmes de paiement efficaces, vous pouvez être sûr que vos transactions seront traitées rapidement et en toute sécurité, vous permettant ainsi de gérer vos finances avec facilité et commodité.",
+      "quickPaymentsDesc": "Chez DigiBank, nous accordons la priorité aux paiements rapides pour garantir des transactions fluides à nos clients. Grâce à nos systèmes de paiement efficaces, vous pouvez être sûr que vos transactions seront traitées rapidement et en toute sécurité, vous permettant ainsi de gérer vos finances avec facilité et commodité.",
       "yearsOfExperience": "Années d'expérience"
     },
     "blog": {
@@ -257,7 +257,7 @@
   },
 
   "dash":{
-    "title":"Bienvenue chez Bamboo!",
+    "title":"Bienvenue chez DigiBank!",
     "subheading":"Commencez dès maintenant en remplissant avec vos données.",
     "welcomeButton":"C'est parti !",
     "nextButton":"Suivant",
@@ -350,7 +350,7 @@
   }
 ,
   "professionnel":{
-    "title":"Bienvenue chez Bamboo!",
+    "title":"Bienvenue chez DigiBank!",
     "subheading":"Commencez dès maintenant en remplissant avec vos données.",
     "welcomeButton":"C'est parti !",
     "nextButton":"Suivant",

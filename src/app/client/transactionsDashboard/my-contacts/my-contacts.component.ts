@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AnimationOptions } from 'ngx-lottie'; // Import Lottie types
 import  { Router } from '@angular/router'; // Import Router
+import { AxiosService } from 'src/app/services/axios.service';
 
 
 @Component({
@@ -9,22 +10,43 @@ import  { Router } from '@angular/router'; // Import Router
   styleUrls: ['./my-contacts.component.css']
 })
 export class MyContactsComponent {
+  userId: string | null = null; // Déclaration de userId
+  contacts: any[] = [];
 
-  constructor(private router: Router) { } 
+  constructor(private router: Router,private axiosService :AxiosService) { } 
 
   lottieOptions: AnimationOptions = {
     path: "/assets/lottie/no-favs.json", 
   };
 
   searchText = ''; // Text for filtering contacts
-  contacts = [
+ /* contacts = [
     { id: 1, name: 'John Doe', favorite: false },
     { id: 2, name: 'Jane Smith', favorite: false },
     { id: 3, name: 'Peter Brown', favorite: false },
     { id: 4, name: 'Mounira Beltaief', favorite: false },
   ];
+*/
+  ngOnInit(): void {
+    // Récupérer l'ID de l'utilisateur depuis le localStorage
+    this.userId = localStorage.getItem('userId');
+    if (this.userId) {
+      // Si l'ID de l'utilisateur est disponible, charger les contacts
+      this.loadClientContacts(parseInt(this.userId)); // Convertir l'ID en nombre
+    } else {
+      console.error('User ID not found in local storage.');
+    }
+  }
 
-  // Function to filter contacts based on search text
+  loadClientContacts(clientId: number) {
+    this.axiosService.request('GET', `/clients/${clientId}/contacts`, null)
+      .then((response) => {
+        this.contacts = response.data;
+      })
+      .catch((error) => {
+        console.error('Error fetching client contacts:', error);
+      });
+  }// Function to filter contacts based on search text
   filteredContacts() {
     return this.contacts.filter(contact =>
       contact.name.toLowerCase().includes(this.searchText.toLowerCase())
