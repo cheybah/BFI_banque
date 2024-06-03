@@ -27,6 +27,8 @@ export class MotDePasseComponent {
     }
 
     Suivant(currentRoute: string): void{
+      const authForm = this.authForm.value;
+      this.authService.setTemporaryauthData(authForm);
       // Get the temporary data from the first form
       const temporaryData = this.authService.getTemporaryRegisterData();
       console.log('Temporary data:', temporaryData); // Log the temporary data for debugging
@@ -36,10 +38,7 @@ export class MotDePasseComponent {
         // Concatenate the JSON object from the second form with the one from the temporary storage
         const combinedData = { ...temporaryData, ...this.authForm.value };
         console.log('Combined data:', combinedData); // Log the combined data for debugging
-        
-        // Store the combined data in the temporary storage
-        this.authService.setTemporaryCombinedData(combinedData);
-        console.log('Temporary combined data stored:', combinedData); // Log the stored combined data for debugging
+       // Log the stored combined data for debugging
 
     
         // Navigate to the next step

@@ -40,7 +40,7 @@ export class MotDePasseEntrepriseComponent {
         console.log('Combined data:', combinedData); // Log the combined data for debugging
         
         // Store the combined data in the temporary storage
-        this.authService.setTemporaryCombinedData(combinedData);
+       this.authService.setTemporaryRegisterData(combinedData);
         console.log('Temporary combined data stored:', combinedData); // Log the stored combined data for debugging
 
     

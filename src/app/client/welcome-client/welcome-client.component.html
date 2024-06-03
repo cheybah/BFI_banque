@@ -1,14 +1,44 @@
-<div class="row justify-content-md-center">
-  <div class="lottie-animation mt-10 centerlottie" *ngIf="showAnimation">  
-    <ng-lottie [options]="options" (animationCreated)="onAnimate($event)"></ng-lottie>
-  </div>
-  
-  <div class="col-4" *ngIf="!showAnimation">
-    <div class="card" style="width: '18rem'">
-      <div class="card-body">
-        <h5 class="card-title">Welcome Bfi Client!</h5>
-        <p class="card-text"></p>
-      </div>
+<app-topbars></app-topbars>
+
+
+  <section id="banner" class="bg-img cover-background full-screen p-0 banner" data-overlay-dark="2" data-background="../../../assets/img/banner/slide1.png">
+    <div class="container d-flex flex-column">
+        <div class="row align-items-center min-vh-80">
+            <div class="row"> 
+                <div class="col-md-6">
+                     <div>
+                      <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm" class="box">
+                        <h2 style="color: white;">Votre Compte Client est créé avec succès</h2>
+                        <p class="box-text">{{ 'login.subheading' | translate }}</p> 
+                        <input type="login" id="loginName" name="login" [(ngModel)]="login" [placeholder]="'login.username' | translate"> 
+                        <input type="password" id="loginPassword" name="password" [(ngModel)]="password" [placeholder]="'login.password' | translate"> 
+                        <div *ngIf="authenticationError" class="alert alert-danger" role="alert">
+                          {{ 'login.alert' | translate }}
+                        </div>
+                        <input type="submit" [value]="'login.login' | translate">
+                        <div class="col-md-12"> 
+                            <ul class="social-network social-circle"> 
+                                <li><a href="#" class="icoWhatsapp" title="Whatsapp"><i class="fab fa-whatsapp"></i></a></li> 
+                                <li><a href="#" class="icoSMS" title="SMS"><i class="fab fa-viber"></i></a></li> 
+                                <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li> 
+                            </ul> 
+                        </div> 
+                        <p class="box-text"><a class="forgot box-text" href="/password">Changer votre mot de passe ?</a></p>
+                    </form>
+                            </div> 
+                          </div> 
+                        </div>
+        </div>
+        </div>
+
+</section>
+<section id="copyright" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+        <div id="copyright-content">
+            <i class="bi bi-c-circle"></i>
+            <span>{{ currentYear }}</span> DigiBank
+        </div>
     </div>
-  </div>
-</div>
+</section>
+
+

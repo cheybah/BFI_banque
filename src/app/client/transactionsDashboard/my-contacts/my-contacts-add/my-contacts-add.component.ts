@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgxScannerQrcodeComponent, ScannerQRCodeResult } from 'ngx-scanner-qrcode';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { AxiosService } from 'src/app/services/axios.service';
 
 @Component({
   selector: 'app-my-contacts-add',
@@ -13,20 +14,23 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
   scannerEnabled = false;
   scannedData: string | null = null;
   ribValue: string = '';
+  gender: string = '';
   accountCards: any[] = [];
   contactType: string = ''; // Contact type
-  contactName: string = ''; // Contact name
+  fullName: string = ''; // Contact name
   address: string = ''; // Address
   category: string = ''; // Category
   isFavorite: boolean = false; // Favorites
   uploadedFileName: string = ''; // Uploaded file name
+  imageContact: string = '';
 
-  
+
   @ViewChild('scanner', { static: false }) scanner!: NgxScannerQrcodeComponent; // Reference to the QR code scanner component
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private axiosService: AxiosService) { }
 
   ngOnInit(): void {
+
   }
 
   ngAfterViewInit(): void {
@@ -58,7 +62,7 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
     document.head.appendChild(script);
   }
 
-  
+
 
   // Toggle scanner visibility
   toggleScanner(): void {
@@ -78,11 +82,9 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
       } else {
         console.error('Cannot stop scanner because it is not defined.');
       }
-    }   
+    }
   }
-  
 
-  // Handle QR code scan result
   onScanResult(event: any): void {
     console.log('we are rib here now'); // Log the extracted RIB value
 
@@ -91,88 +93,83 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
 
       this.ribValue = event[0].value; // Store the scanned QR code value in ribValue
       this.scannerEnabled = false; // Hide the scanner after scanning
-      console.log('scanned rib value is',this.ribValue); // Log the extracted RIB value
+      console.log('scanned rib value is', this.ribValue); // Log the extracted RIB value
     }
   }
 
-    // Method to handle icon click
-    handleIconClick(): void {
-      if (this.scannerEnabled) {
-        this.scanner.stop(); // Stop the scanner if it's running
-        this.scannerEnabled = false; // Set to false to hide the scanner
-      } else {
-        this.scannerEnabled = true; // Set to true to show the scanner
-        this.scanner.start(); // Start the scanner
-      }
+  // Method to handle icon click
+  handleIconClick(): void {
+    if (this.scannerEnabled) {
+      this.scanner.stop(); // Stop the scanner if it's running
+      this.scannerEnabled = false; // Set to false to hide the scanner
+    } else {
+      this.scannerEnabled = true; // Set to true to show the scanner
+      this.scanner.start(); // Start the scanner
     }
+  }
 
-    addAccount() {
-      console.log('Adding account...');
-      this.accountCards.push({
-        accountType: '',
-        rib: '',
-        accountLabel: ''
+  addAccount() {
+    console.log('Adding account...');
+    this.accountCards.push({
+      accountType: '',
+      rib: '',
+      accountLabel: ''
+    });
+  }
+
+  deleteCard(index: number): void {
+    this.accountCards.splice(index, 1);
+  }
+
+  clearFormFields() {
+    this.ribValue = '';
+  }
+
+  toggleFavorite(): void {
+    this.isFavorite = !this.isFavorite;
+  }
+
+  onFileChange(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.uploadedFileName = file.name;
+    }
+  }
+  addContactToClient(clientId: number, contactData: any): Promise<any> {
+    return this.axiosService.request('POST', `/clients/${clientId}/contacts`, contactData);
+  }
+  finish(): void {
+    const contactData = {
+      gender: this.gender,
+      address: this.address,
+      imageContact: this.imageContact,
+      fullName: this.fullName,
+
+    };
+
+    const clientId = 2;
+    this.addContactToClient(clientId, contactData)
+      .then((response) => {
+        // Affichage d'une boîte de dialogue de succès
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Contact added successfully!',
+          confirmButtonColor: '#B48F44'
+        }).then(() => {
+          this.router.navigate(['/accounts/my-contacts']);
+        });
+      })
+      .catch((error) => {
+        console.error('Error adding contact:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Failed to add contact. Please try again later.',
+          confirmButtonColor: '#B48F44'
+        });
       });
-    }
-
-    deleteCard(index: number): void {
-      this.accountCards.splice(index, 1);
-    }
-
-    clearFormFields() {
-      // Clear the form fields after adding an account
-      this.ribValue = '';
-      // Add logic to clear other form fields if needed
-    }
-
-      // Toggle favorite status
-    toggleFavorite(): void {
-      this.isFavorite = !this.isFavorite;
-    }
-
-    // Handle file change event
-    onFileChange(event: any): void {
-      const file = event.target.files[0];
-      if (file) {
-        this.uploadedFileName = file.name;
-      }
-    }
-
-    finish(): void {
-      // Show confirmation dialog
-      Swal.fire({
-        title: 'Are you sure?',
-        text: 'Do you want to finish adding this contact?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, finish it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          // Show success message
-          Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: 'Contact added successfully!',
-            confirmButtonColor: '#B48F44'
-          }).then(() => {
-            // Navigate or perform any additional actions
-            this.router.navigate(['/accounts/my-contacts']);
-          });
-        } else {
-          // Show cancellation message
-          Swal.fire({
-            icon: 'error',
-            title: 'Cancelled',
-            text: 'Contact adding is cancelled',
-            confirmButtonColor: '#B48F44'
-          });
-        }
-      });
-    }
-  
-
+  }
 
 }
 

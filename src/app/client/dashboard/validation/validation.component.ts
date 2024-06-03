@@ -9,9 +9,9 @@ import Swal from 'sweetalert2';
 declare let Email: any;
 
 @Component({
-  selector: 'app-validation',
-  templateUrl: './validation.component.html',
-  styleUrls: ['./validation.component.css']
+    selector: 'app-validation',
+    templateUrl: './validation.component.html',
+    styleUrls: ['./validation.component.css']
 })
 export class ValidationComponent {
     email: string = '';
@@ -23,17 +23,28 @@ export class ValidationComponent {
     resendButtonText: string = 'Envoyer OTP';
     resendButtonDisabled: boolean = false;
 
-    constructor( 
+    constructor(
         private router: Router,
         private authService: AuthService,
         private adresseService: AdresseService,
         private autresInformationsService: AutresInformationsService,
         private offresDomiciliationService: OffresDomiciliationService
-    ) {}
-
+    ) { }
+    generateFourDigitCode(): String {
+        return Math.floor(1000 + Math.random() * 9000).toString();
+    }
+    
+    generateTwentyDigitRIB(): string {
+        let rib = '';
+        for (let i = 0; i < 20; i++) {
+            rib += Math.floor(Math.random() * 10).toString();
+        }
+        return rib;
+    }
+    
 
     sendOTP() {
-        this.otpValue = Math.floor(1000 + Math.random() * 9000); 
+        this.otpValue = Math.floor(1000 + Math.random() * 9000);
 
         let emailbody = `<h2>Your OTP is</h2>${this.otpValue}`;
         Email.send({
@@ -43,7 +54,7 @@ export class ValidationComponent {
             Subject: "OTP Pour Vérifier l'Email pour BFI",
             Body: emailbody,
         }).then(
-            ( message: string) => {
+            (message: string) => {
                 if (message === "OK") {
                     this.showSuccessAlert("OTP sent to your email " + this.email);
                     this.otpVerifyDisplay = "flex";
@@ -73,60 +84,42 @@ export class ValidationComponent {
     }
 
     verifyOTP() {
-        if (this.otpInput === this.otpValue.toString()) {            
-            // Retrieve all the forms data from temporary storage
-            
-            const combinedData = this.authService.getTemporaryRegisterData();
-            const additionalInfoData = this.autresInformationsService.getTemporaryAdditionalInfoData();
-            const offresDomiciliationData = this.offresDomiciliationService.getTemporaryOffersData();
-            const addressData = this.adresseService.getTemporaryAddressData();
-            
-            // Send the forms data to the backend if available
-            if (combinedData && additionalInfoData && offresDomiciliationData && addressData) {
-                this.authService.register(combinedData).subscribe(
-                    (response) => {
-                        console.log('Combined data sent successfully:', response);
-                    },
-                    (error) => {
-                        console.error('Error sending combined data:', error);
-                    }
-                );
-                
-                this.autresInformationsService.saveAdditionalInfo(additionalInfoData).subscribe(
-                    (response) => {
-                        console.log('Additional info data sent successfully:', response);
-                    },
-                    (error) => {
-                        console.error('Error sending additional info data:', error);
-                    }
-                );
-                
-                this.offresDomiciliationService.saveAccountOffer(offresDomiciliationData).subscribe(
-                    (response) => {
-                        console.log('Offres domiciliation data sent successfully:', response);
-                    },
-                    (error) => {
-                        console.error('Error sending offres domiciliation data:', error);
-                    }
-                );
-                
-                this.adresseService.saveAddress(addressData).subscribe(
-                    (response) => {
-                        console.log('Address data sent successfully:', response);
-                    },
-                    (error) => {
-                        console.error('Error sending address data:', error);
-                    }
-                );
-                
-                // Clear all temporary data after successful sending
-                this.authService.clearTemporaryRegisterData();
-                this.autresInformationsService.clearTemporaryAdditionalInfoData();
-                this.offresDomiciliationService.clearTemporaryOffersData();
-                this.adresseService.clearTemporaryAddressData();
-            }
-            this.showSuccessAlert("Email address verified...");
+        if (this.otpInput === this.otpValue.toString()) {
+            const registerData = this.authService.getTemporaryRegisterData();
+            const additionalInfo = this.authService.getTemporaryAdditionalInfo();
+            const address = this.authService.getTemporaryAddress();
+            const authForm = this.authService.getTemporaryauthData();
+           const Login = authForm.login;
+           const Password = authForm.password;
 
+            //   if (registerData && additionalInfoData && addressData && offersData) {
+            const combinedData = {
+                ...registerData,
+                address,
+                login:Login,
+                password:Password,
+                additionalInfo,
+                agencyId: 1,
+                bankAccounts: [{
+                    "rib": this.generateTwentyDigitRIB(),
+                    "code": this.generateFourDigitCode(),
+                }]
+            };
+
+            console.log("dataaaa", combinedData);
+            this.authService.register(combinedData).subscribe(
+                (response) => {
+                    console.log('Combined data sent successfully:', response);
+                },
+                (error) => {
+                    console.error('Error sending combined data:', error);
+                }
+            );
+
+            this.authService.clearTemporaryRegisterData();
+            //  }
+
+            this.showSuccessAlert("Email address verified...");
             this.router.navigate(['/welcome']);
         } else {
             this.showErrorAlert("Invalid OTP");
@@ -139,8 +132,8 @@ export class ValidationComponent {
             icon: 'success',
             title: 'Success',
             text: message,
-            confirmButtonColor:  '#B48F44',
-            timer: 3000 
+            confirmButtonColor: '#B48F44',
+            timer: 3000
         });
     }
 
@@ -150,7 +143,7 @@ export class ValidationComponent {
             icon: 'error',
             title: 'Error',
             text: message,
-            confirmButtonColor:  '#B48F44',
+            confirmButtonColor: '#B48F44',
             timer: 3000
         });
     }

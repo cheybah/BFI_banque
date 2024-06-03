@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class VirementMultipleComponent {
   constructor(private router:Router){}
-  GoToNextStepBamboo() {
+  GoToNextStepDigiBank() {
     this.router.navigate(['transactions/virement/autre-contact/intrabancaire']);
   }
   GoToNextStepAutre() {

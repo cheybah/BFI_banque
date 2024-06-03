@@ -10,7 +10,7 @@ export class InterbancaireComponent {
   successOperationMyAccount: boolean = false;
   constructor(private router: Router) { }
  
-  GoToNextStepBamboo() {
+  GoToNextStepDigiBank() {
     this.router.navigate(['transactions/virement/autre-contact/intrabancaire']);
   }
   GoToNextStepAutre() {

@@ -1,4 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import { AxiosService } from 'src/app/services/axios.service';
@@ -9,59 +11,52 @@ import { AxiosService } from 'src/app/services/axios.service';
   styleUrls: ['./welcome-client.component.css']
 })
 export class WelcomeClientComponent {
-	data: string[] = [];
-  showAnimation: boolean = true;
-  animationTimer: any; // Timer to give the animation a deadline to complete
-  animationDuration: number = 4100; // Duration of the animation in milliseconds
+  @Output() onSubmitLoginEvent = new EventEmitter();
+  @Output() loginEvent = new EventEmitter();
+  
+  login: string ="";
+  password: string="";
+  authenticationError = false; // Add this variable for authentication error
 
 
-  options: AnimationOptions = {    
-    path: '/assets/lottie/welcome2-aniamtion.json' 
-  };  
+  currentYear!: number;
+  data: string[] = [];
 
-  constructor(  
-    private axiosService : AxiosService 
-  ){}
 
-  ngOnDestroy(): void {
-    // Clean up resources when the component is destroyed
-    this.stopAnimationTimer();
-  }
-
-  onAnimate(animationItem: AnimationItem): void {    
-    // Start the animation timer when the animation begins
-    this.startAnimationTimer();
-  }
-
-  startAnimationTimer(): void {
-    // Set a timeout to hide the animation after the specified duration
-    this.animationTimer = setTimeout(() => {
-      this.showAnimation = false;
-    }, this.animationDuration);
-  }
-
-  stopAnimationTimer(): void {
-    // Clear the animation timer to avoid potential memory leaks
-    clearTimeout(this.animationTimer);
-  }
-
+  constructor(
+    private router: Router,
+    private axiosService: AxiosService,
+    private translate: TranslateService
+  ) {this.translate.setDefaultLang('fr');}
 
   ngOnInit(): void {
-    this.axiosService.request(  
-        "GET",
-        "", // Pass an empty string as the endpoint
-        {}).then(
-        (response) => { //if the user is authenticated, the server will return the messages
-            this.data = response.data;
-        }).catch(
-        (error) => {
-            if (error.response.status === 401) {
-                this.axiosService.setAuthToken(null);
-            } else {
-                this.data = error.response.code;
-            }
-  
-        }
+    this.getCurrentYear();
+  }
+
+  onSubmitLogin(): void {
+    // Make a POST request to backend '/login' endpoint with login credentials
+    this.axiosService.request(
+      "POST",
+      "/bfi/login",
+      { login: this.login, password: this.password }
+    ).then(
+      (response: any) => {
+        this.router.navigate(['/transactions-dashboard']);
+      }
+    ).catch(
+      (error: any) => {
+        console.error("Error logging in:", error);
+        this.authenticationError = true;
+        // Handle errors appropriately (e.g., display error message to the user)
+      }
     );
+  }
+
+  getCurrentYear(): void {
+    this.currentYear = new Date().getFullYear();
+  }
+
+  goToHome(): void {
+    this.router.navigate(['/homepage']);
   }
 }

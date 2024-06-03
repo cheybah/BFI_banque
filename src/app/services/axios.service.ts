@@ -22,7 +22,16 @@ export class AxiosService {
       window.localStorage.removeItem("auth_token");
     }
   }
-
+  getUserId(): string | null {
+    return window.localStorage.getItem("user_id");
+  }
+  setUserId(userId: string | null): void {
+    if (userId !== null) {
+      window.localStorage.setItem("user_id", userId);
+    } else {
+      window.localStorage.removeItem("user_id");
+    }
+  }
   request(method: string, url: string, data: any): Promise<any> {
       let headers: any = {};
 
