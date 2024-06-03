@@ -233,7 +233,9 @@
       "title":"Join us as a",
       "type1": "Individual",
       "type2": "Professional", 
-      "type3": "Organization"
+      "type3": "Organization",
+      "tooltipPM" :"Professional bank account is ideal for corporate clients that aim at achieving efficient financial management and optimized cash flow through a range of dedicated services and support.",
+      "tooltipPP" :""
   },
   
   "password":{
@@ -303,7 +305,7 @@
         "piece_number": "Piece Number",
         "enter_valid_number": "Enter a valid number",
         "piece_number_should_contain_only_numbers": "Piece number should contain only numbers",
-        "expiration_date": "Expiration Date of the Piece",
+        "expiration_date": "Release Date of the Piece",
         "piece_photo": "Piece Photo",
         "valid_extensions_are": "Valid extensions are: .jpg, .jpeg, .png, .pdf",
         "referral_code": "Referral Code",

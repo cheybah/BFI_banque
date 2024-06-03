@@ -4,7 +4,7 @@
 }
 
 .card-body {
-    max-width: 540px;
+    max-width: 450px;
     background-color: #fff;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
@@ -13,7 +13,8 @@
 }
 
 .card-body.p-3 {
-    margin: 40px;
+    margin: 40px 0 40px 40px;
+    max-width: 450px;
 }
 
 .search-input {
@@ -36,3 +37,73 @@
     background-image: linear-gradient(310deg, #cca558, #8f7134) !important;
     /* Override with ng-deep */
 }
+
+.icon-text {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease; /* Add a transition to the entire span */
+  }
+  
+  .icon-text i {
+    margin-right: 4px; /* Adjust the spacing between the icon and text as needed */
+    transition: transform 0.3s ease; /* Add a transition to the icon */
+  }
+  
+  .icon-text:hover {
+    transform: translateX(5px); /* Move the entire span to the right on hover */
+  }
+  
+.icon-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.download-icon {
+    font-size: 20px; /* Adjust the size as needed */
+    transition: box-shadow 0.3s ease;
+    border-radius: 50%; /* Makes the icon container circular */
+    cursor: pointer;
+}
+
+.download-icon:hover {
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  

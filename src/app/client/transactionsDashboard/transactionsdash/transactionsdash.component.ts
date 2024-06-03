@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BankAccountService } from 'src/app/services/bankAccountService';
+import { AnimationOptions } from 'ngx-lottie'; // Import Lottie types
 
 
 @Component({
@@ -58,3 +59,4 @@ export class TransactionsdashComponent implements OnInit {
   }
 
 }
+

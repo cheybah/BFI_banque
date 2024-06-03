@@ -1,3 +1,4 @@
+
 /* Global override for z-index */
 @import url('https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-icons.css');
 @import url('https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-svg.css');
@@ -15,6 +16,7 @@
   overflow-x: hidden !important;
   overflow-y: hidden !important;
 }
+
 
 .nav-link {
   cursor: pointer;
@@ -44,6 +46,7 @@
   max-height: 0;
   background-color: transparent;
   color: #3c2f1a !important;
+
   overflow: hidden;
   transition: max-height 0.5s ease-out;
   position: relative;
@@ -57,6 +60,4 @@
   overflow: hidden;
 }
 
-.navbar-nav .nav-item[ng-reflect-expanded="true"] .expandable-content {
-  max-height: 200px;
-}
+

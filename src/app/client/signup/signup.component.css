@@ -133,4 +133,16 @@ a {
     text-decoration: underline !important;
 }
 
+.tooltip {
+    max-width: 200px; /* or any width that you want */
+    background-color: rgb(219, 219, 219) !important;
+    color: rgb(43, 42, 42) !important;
+    border: 1px solid rgb(224, 224, 224) !important;
+  }
+  
+  .tooltip-arrow {
+    border-bottom-color: rgb(82, 82, 82) !important; 
+}
+  
+
 

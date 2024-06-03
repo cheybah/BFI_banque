@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+declare var $: any;
+
 
 
 @Component({
@@ -15,6 +17,15 @@ export class SignupComponent {
 
   ngOnInit(): void {
     this.getCurrentYear();
+
+    // Initialize tooltips
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip({
+        placement: 'left',
+        customElements :'custom-class'
+      })
+    });
+        
   }
 
   getCurrentYear(): void {
