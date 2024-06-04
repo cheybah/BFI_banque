@@ -50,6 +50,16 @@ export class TransactionsdashComponent implements OnInit {
     }
   }
 
+  lottieOptions: AnimationOptions = {
+    path: "/assets/lottie/dash-client.json", // Path to your Lottie JSON file
+  };
+  
+
+  // Function to handle animation creation event
+  animationCreated(animation: any) {
+    console.log('Lottie animation created:', animation);
+  }
+
 
   goToExtrait(): void {
     this.router.navigate(['/transactions-dashboard/extrait']);

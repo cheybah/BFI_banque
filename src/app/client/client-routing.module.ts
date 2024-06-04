@@ -61,7 +61,6 @@ const routes: Routes = [
   { path: 'password', component: PasswordComponent },
   { path: 'updatedpassword', component: UpdatedpasswordComponent },
   { path: 'reset', component: ResetComponent },
-     
   {
     path: 'dash', component: DashboardComponent, children: [
       { path: 'validation', component: ValidationComponent },

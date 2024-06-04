@@ -99,7 +99,7 @@ export const sidebarPP: SideBarData[] = [
   {
     title: 'Service Client',
     icon: 'bi bi-headset',
-    link: '/administration/gestion-utilisateurs',
+    link: 'javascript:void(0)',
     isActive: false,
     expanded: false, // Parent item to be expanded/collapsed
 
