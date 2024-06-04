@@ -1,53 +1,117 @@
- 
-<body class="g-sidenav-show bg-gray-100">  
+<body class="g-sidenav-show bg-gray-100">
     <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100" id="sidenav-main">
-        <div class="sidenav-header">
-            <a class="navbar-brand m-0" href="javascript:;">
-                         
-                <span class="ms-1 font-weight-bold"><img  id="logo" src="../../../assets/img/logos/logo.png"> </span>
-            </a>
-        </div>
-        <hr class="horizontal dark mt-0">
-        <app-transaction-nav></app-transaction-nav>
+      <div class="sidenav-header">
+        <a class="navbar-brand m-0" href="javascript:;">
+          <span class="ms-1 font-weight-bold"><img id="logo" src="../../../assets/img/logos/logo.png"></span>
+        </a>
+      </div>
+      <hr class="horizontal dark mt-0">
+      <app-transaction-nav></app-transaction-nav>
     </div>
-        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-            <app-navbar></app-navbar>
-            <div class="container-fluid py-4">
-                <div class="row">
-                <div class="col-12">
-                <div class="card mb-4">
-                    <div class="card-header pb-0" >
-                        <h4>Historique des demandes de rendez-vous</h4>
-                        <div class="float-right">
-                            <button  type="submit" class="btn btn-secondary butn">
-                                <i class="fas fa-user-plus"></i>
-                                Demandez un rendez-vous
-                            </button>                           
-                        </div>
-                    </div>
-                    
-                <div class="card-body px-0 pt-0 pb-2">
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+      <app-navbar></app-navbar>
+      <div class="container-fluid py-4">
+        <div class="row">
+          <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0 d-flex justify-content-between align-items-center">
+                    <h4>Historique des demandes de rendez-vous</h4>
+                    <button (click)="showModal()" type="button" class="btn btn-secondary butn">
+                      <i class="fas fa-user-plus"></i>
+                      Demandez un rendez-vous
+                    </button>
+                  </div>
+              <div id="illustration" class="illustration text-center">
+                <img src="/assets/img/illustration-rdv.jpg" alt="Illustration" style="max-width: 40%; height: auto;">
+                <p>Aucune activité pour l'instant. Veuillez prendre un rendez-vous.</p>
+              </div>
+              <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                <thead>
-                <tr>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Agence	</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date du rendez-vous </th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Plage horaire</th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Motif</th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Statut</th>
-                </tr>
-                </thead>
-                <tbody>
-               
-
-                </tbody>
-                </table>
+                  <table class="table align-items-center mb-0" *ngIf="appointments.length > 0">
+                    <thead>
+                      <tr [ariaPlaceholder]="">
+                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 agth">Agence</th>
+                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2 dateth">Date du rendez-vous</th>
+                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 pgth">Plage horaire</th>
+                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 motth">Motif</th>
+                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 stth">Statut</th>
+                      </tr>
+                    </thead>
+                    <span class="select-arrow"></span>
+                    <tbody>
+                      <tr *ngFor="let appointment of appointments">
+                        <td>{{ appointment.agence }}</td>
+                        <td>{{ appointment.date }}</td>
+                        <td>{{ appointment.hour }}</td>
+                        <td>{{ appointment.raison }}</td>
+                        <td>
+                            <span class="badge" [ngClass]="{
+                              'badge-warning': appointment.statut === 'Pending',
+                              'badge-success': appointment.statut === 'Approuvé',
+                              'badge-danger': appointment.statut === 'Rejetée'
+                            }">{{ appointment.statut }}</span>
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Modal HTML -->
+      <div id="appointmentModal" class="modal">
+        <div class="booking-form">
+          <form class="form" (submit)="requestRdv($event)">
+            <div class="form-group">
+              <span class="form-label">Agence</span>
+              <select class="form-control" [(ngModel)]="agence" name="agence" required>
+                <option *ngFor="let ag of agences">{{ ag }}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <span class="form-label">Raison de rendez-vous</span>
+              <input class="form-control" type="text" [(ngModel)]="reason" name="reason" placeholder="Entrer la raison de votre visite" required>
+            </div>
+            <div class="row">
+              <div class="col-sm-5">
+                <div class="form-group">
+                  <span class="form-label">Date Souhaitée</span>
+                  <input class="form-control" type="date" [(ngModel)]="date" name="date" required>
                 </div>
+              </div>
+              <div class="col-sm-7">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <div class="form-group">
+                      <span class="form-label">Heure d'arrivage</span>
+                      <select class="form-control" [(ngModel)]="hour" name="hour" required>
+                        <option *ngFor="let h of [1,2,3,4,5,6,7,8,9,10,11,12]">{{ h }}</option>
+                      </select>
+                      <span class="select-arrow"></span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <span class="form-label">AM/PM</span>
+                      <select class="form-control" [(ngModel)]="amPm" name="amPm" required>
+                        <option>AM</option>
+                        <option>PM</option>
+                      </select>
+                      <span class="select-arrow"></span>
+                    </div>
+                  </div>
                 </div>
-                </div>
-                </div>             
-                </div>         
-        </main>   
-</body>
+              </div>
+            </div>
+            <div class="form-btn">
+              <button class="submit-btn" type="submit">Demander un rendez-vous</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+  
