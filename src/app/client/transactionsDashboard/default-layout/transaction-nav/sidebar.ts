@@ -114,7 +114,7 @@ export const sidebarPP: SideBarData[] = [
       },
       {
         title: 'Messageries',
-        link: '/accounts/manage', // Subitem link
+        link: '/service-client/chat', // Subitem link
       },
     ],
   },

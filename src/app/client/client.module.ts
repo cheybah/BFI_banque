@@ -74,6 +74,7 @@ import { RechargeCarteComponent } from './transactionsDashboard/recharge-carte/r
 import { CarteprepayeeComponent } from './transactionsDashboard/carteprepayee/carteprepayee.component';
 import { PlacementsComponent } from './transactionsDashboard/placements/placements.component';
 import { DepotReraitComponent } from './transactionsDashboard/depot-rerait/depot-rerait.component';
+import { ChatComponent } from './transactionsDashboard/chat/chat.component';
 
 
 
@@ -146,7 +147,8 @@ export function playerFactory() {
     RechargeCarteComponent,
     CarteprepayeeComponent,
     PlacementsComponent,
-    DepotReraitComponent
+    DepotReraitComponent,
+    ChatComponent
   ],
   exports: [
   ],
