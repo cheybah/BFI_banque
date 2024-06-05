@@ -39,7 +39,7 @@ export class ChatComponent {
       this.stompClient!.send(
         '/current/resume',
         {},
-        this.newmessage
+        JSON.stringify(this.newmessage)
       );
       this.showMessage(this.newmessage, false);
       this.newmessage = '';
