@@ -106,7 +106,8 @@ export class ValidationComponent {
                 bankAccounts: [{
                     "rib": this.generateTwentyDigitRIB(),
                     "code": this.generateFourDigitCode(),
-                }]
+                }],
+                contacts: [] // Initialize contacts as an empty array
             };
 
             console.log("dataaaa", combinedData);
