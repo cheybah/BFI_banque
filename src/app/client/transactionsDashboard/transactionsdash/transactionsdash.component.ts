@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BankAccountService } from 'src/app/services/bankAccountService';
 import { AnimationOptions } from 'ngx-lottie'; // Import Lottie types
+import { gettingRegisterDetailsPhysical } from 'src/app/services/gettingRegisterDetailsPhysical';
+import { PageTitleService } from 'src/app/services/PageTitleService';
 
 
 @Component({
@@ -15,9 +17,52 @@ export class TransactionsdashComponent implements OnInit {
   bankAccount: any; 
   extractedRIB: string = '';
   solde: number=0;
-  constructor( private route :ActivatedRoute,private router:Router,private bankAccountService :BankAccountService){}
+  clientDetails: any={};
+  firstName: string="";
+  lastName: string="";
+  email: string="";
+  gender: string="";
+  photo: string="";
+  phoneNumber: string="";
+  dateOfBirth:Date =new Date();
+  login: string="";
+  password: string="";
+  status: boolean=true;
+  address: any;
+  agency:any;
+  bankAccountList: any;
+  rendezVous: any;
+  notifications:any;
+  reclamations: any;
+  contacts: any;
+  additionalInfo: any;
+  constructor( private pageTitleService:PageTitleService, private route :ActivatedRoute,private router:Router,private bankAccountService :BankAccountService,private gettingRegisterDetailsPhysical:gettingRegisterDetailsPhysical){}
  
   ngOnInit(): void {
+    this.pageTitleService.changePagePageTitle('Tableau de board');
+
+    this.gettingRegisterDetailsPhysical.GetprofileInfo().then(response => {
+      this.clientDetails = response.data;
+      // Assignation des détails du client aux variables correspondantes
+      this.firstName = this.clientDetails.firstName || '';
+      this.lastName = this.clientDetails.lastName || '';
+      this.email = this.clientDetails.email || '';
+      this.gender = this.clientDetails.gender || '';
+      this.photo = this.clientDetails.photo || '';
+      this.phoneNumber = this.clientDetails.phoneNumber || '';
+      this.dateOfBirth = new Date(this.clientDetails.dateOfBirth) || new Date();
+      this.login = this.clientDetails.login || '';
+      this.password = this.clientDetails.password || '';
+      this.status = this.clientDetails.status || true;
+      this.address = this.clientDetails.address || {};
+      this.agency = this.clientDetails.agency || {};
+      this.bankAccountList = this.clientDetails.bankAccountList || [];
+      this.rendezVous = this.clientDetails.rendezVous || [];
+      this.notifications = this.clientDetails.notifications || [];
+      this.reclamations = this.clientDetails.reclamations || [];
+      this.contacts = this.clientDetails.contacts || [];
+      this.additionalInfo = this.clientDetails.additionalInfo || {};
+    });
     const clientIdStr = localStorage.getItem('userId');
     if (clientIdStr !== null) {
       this.clientId = parseInt(clientIdStr, 10);

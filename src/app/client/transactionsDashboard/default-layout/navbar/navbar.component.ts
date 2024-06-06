@@ -8,8 +8,8 @@ import { PageTitleService } from 'src/app/services/PageTitleService';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  page = "Page Name";
-  pageTitle = 'Page Name';
+  page = "";
+  pageTitle = '';
 
   constructor(private router: Router,private pageTitleService: PageTitleService) { }
 

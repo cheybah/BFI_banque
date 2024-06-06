@@ -2,6 +2,7 @@ import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/
 import { navbarData, navproData } from './nav-data';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { Router } from '@angular/router';
+import { PageTitleService } from 'src/app/services/PageTitleService';
 
 interface SidenavToggle {
   screenWidth: number;
@@ -74,6 +75,8 @@ export class SidenavComponent implements OnInit {
   if (index <= this.activeItemIndex + 1) { // Vérifiez si l'utilisateur peut accéder à cette étape
     this.activeItemIndex = index;
   }
+  
+  
 }
 
 // Fonction pour vérifier si l'étape est accessible ou non

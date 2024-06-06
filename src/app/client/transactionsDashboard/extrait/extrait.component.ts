@@ -18,7 +18,7 @@ export class ExtraitComponent {
     doc.text('Informations du Compte', 10, 10);
     doc.text(`Compte : ${this.accountNumber}`, 10, 20);
     doc.text(`Type : ${this.accountType}`, 10, 30);
-    doc.text(`Solde : ${this.accountBalance} XAF`, 10, 40);
+    doc.text(`Solde : ${this.accountBalance} TND`, 10, 40);
 
     // Télécharge le PDF
     doc.save('account-info.pdf');

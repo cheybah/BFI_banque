@@ -27,8 +27,8 @@
             <div class="row no-gutters">
                 <div class="col-md-6">
                     <div class="card-body">
-                        <p class="mb-1 pt-2 text-bold">type</p>
-                        <h5 class="font-weight-bolder">nom client </h5>
+                        <p class="mb-1 pt-2 text-bold">COMPTE COURANT</p>
+                        <h5 class="font-weight-bolder">{{lastName}} {{ firstName }}</h5>
                         <p><strong>N° Compte : {{extractedRIB}}</strong> </p>
                         <p><strong>Solde Compte :</strong> {{solde }} TND</p>
                         <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
@@ -42,7 +42,7 @@
                       <qrcode [qrdata]="bankaccountqrdata" [width]="200" [imageHeight]="200"></qrcode>
                     </div>
                     <div class="icon-container">
-                      <i class="bi bi-cloud-download download-icon" title="Download PDF" (click)="downloadPDF(bankAccount)"></i>
+                      <i class="bi bi-cloud-download download-icon" title="Download PDF" (click)="downloadPDFmainAccout(bankAccount)"></i>
                     </div>
                 </div>
             </div>
