@@ -11,13 +11,13 @@ import { AnimationOptions } from 'ngx-lottie'; // Import Lottie types
 })
 
 export class TransactionsdashComponent implements OnInit {
-  clientId: number | null = null; // Id du client
+  clientId: number | null = null; 
   bankAccount: any; 
   extractedRIB: string = '';
+  solde: number=0;
   constructor( private route :ActivatedRoute,private router:Router,private bankAccountService :BankAccountService){}
  
   ngOnInit(): void {
-    // Récupérer l'ID du client depuis le localStorage et le convertir en nombre
     const clientIdStr = localStorage.getItem('userId');
     if (clientIdStr !== null) {
       this.clientId = parseInt(clientIdStr, 10);
@@ -32,17 +32,15 @@ export class TransactionsdashComponent implements OnInit {
               console.log("Réponse complète de l'API:", this.bankAccount);
               console.log("RIB:", this.bankAccount.rib);
               this.extractedRIB = this.bankAccount.rib.substring(7, 14);
-
+              this.solde=this.bankAccount.solde;
             } else {
               console.error('No bank account details found');
             }
           }, (error) => {
             console.error('Error fetching bank account details:', error);
-            // Gérer les erreurs, par exemple en affichant un message d'erreur à l'utilisateur
           });
       } else {
         console.error('Invalid user ID format');
-        // Gérer le cas où l'ID utilisateur n'est pas un nombre valide
       }
     } else {
       console.error('User ID is not available in localStorage');
