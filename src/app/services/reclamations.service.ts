@@ -10,7 +10,7 @@ export interface Reclamation {
   date: string;
   reponse: string;
   status: string;
-  client: any;
+  clientId: string | null;  // Change this line
 }
 
 @Injectable({
@@ -25,9 +25,13 @@ export class ReclamationService {
   }
 
   createReclamation(reclamation: Reclamation) {
-    let client = localStorage.getItem('userId'); // Retrieve userId from local storage
-    reclamation.client = client; // Include client in the request body
-    return axios.post<Reclamation>(API_URL, reclamation);
+    let clientId = localStorage.getItem('userId'); // Retrieve userId from local storage
+    if (clientId !== null) {
+      reclamation.clientId = clientId; // Include clientId in the request body
+      return axios.post<Reclamation>(API_URL, reclamation);
+    } else {
+      throw new Error('User ID not found in local storage');
+    }
   }
 }
 
