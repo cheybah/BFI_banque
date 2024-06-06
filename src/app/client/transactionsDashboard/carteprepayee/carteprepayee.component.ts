@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { PageTitleService } from 'src/app/services/PageTitleService';
 
 @Component({
   selector: 'app-carteprepayee',
@@ -7,7 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./carteprepayee.component.css']
 })
 export class CarteprepayeeComponent {
-  constructor(private router: Router) {
+  constructor(private router: Router,private pageTitleService:PageTitleService
+   ) {
 
   }
   GoToRechargeMyCard(): void {
@@ -15,5 +17,9 @@ export class CarteprepayeeComponent {
   }
   GoToRechargeCardTiers(): void {
     this.router.navigate(['transactions/virement/autre-contact/intrabancaire'])
+  }
+  ngOnInit(): void {
+    this.pageTitleService.changePageTitle('Carte Prepayée');
+
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit  } from '@angular/core';
+import { PageTitleService } from 'src/app/services/PageTitleService';
 import { RendezvousService } from 'src/app/services/rendezvous.service';
 
 @Component({
@@ -16,9 +17,11 @@ export class RendezVousComponent {
   agence: string = '';
   agences: string[] = ['AGENCE DE TUNIS', 'AGENCE DE DJERBA', 'AGENCE DE SFAX'];
 
-  constructor(private rendezVousService: RendezvousService) { }
+  constructor(private rendezVousService: RendezvousService,private pageTitleService: PageTitleService) { }
 
   ngOnInit() {
+        this.pageTitleService.changePageTitle('Rendez-Vous');
+
     this.rendezVousService.getAllRendezVous().then(response => {
       this.appointments = response.data;
       this.updateTableVisibility();

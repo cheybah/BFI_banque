@@ -1,15 +1,6 @@
 <body class="g-sidenav-show bg-gray-100">
-  <div
-    class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100"
+  <div class="sidenav navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100"
     id="sidenav-main">
-    <div class="sidenav-header">
-      <a class="navbar-brand m-0" href="#">
-        <span class="ms-1 font-weight-bold">
-          <img id="logo" src="assets/img/logos/logo.png">
-        </span>
-      </a>
-    </div>
-    <hr class="horizontal dark mt-0">
     <app-transaction-nav></app-transaction-nav>
   </div>
 
@@ -24,63 +15,57 @@
           <li class="nav-item"><a class="nav-link " href="transactions/virement/multiple">Multiple</a></li>
           <li class="nav-item"><a class="nav-link" href="transactions/virement/permanent">Permanent</a></li>
         </ul>
-          <div class="card-body">
-            <div class="col-11">
-              <div class="card">
-                <div class="card-header">
-                  Cette transaction permet de virer un montant vers un de vos comptes DigiBank.
-                </div>
-                <div class="card-body">
+        <div class="card-body">
+          <div class="col-11">
+            <div class="card">
+              <div class="card-header">
+                Cette transaction permet de virer un montant vers un de vos comptes DigiBank.
+              </div>
+              <div class="card-body">
+                <form (ngSubmit)="submitTransfer()">
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label>Compte à débiter</label>
-                        <select class="form-control" [(ngModel)]="transfer.account">
-                          <option value="">-- Sélectionner --</option>
-                        </select>
+                        <input class="form-control" [(ngModel)]="transfer.compteADebiter" name="compteADebiter"
+                          required>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label>Compte à créditer</label>
-                        <select class="form-control" [(ngModel)]="transfer.accountToCredit">
-                          <option value="">-- Sélectionner --</option>
-                        </select>
+                        <input class="form-control" [(ngModel)]="transfer.compteACrediter" name="compteACrediter"
+                          required>
+
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label>Montant</label>
-                        <input type="text" class="form-control" [(ngModel)]="transfer.amount">
+                        <input type="number" class="form-control" [(ngModel)]="transfer.montant" name="montant"
+                          required>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label>Motif</label>
-                        <input type="text" class="form-control" [(ngModel)]="transfer.transfReason">
+                        <input type="text" class="form-control" [(ngModel)]="transfer.motif" name="motif">
                       </div>
                     </div>
                   </div>
-  
+
                   <div class="row">
                     <div class="col text-end">
-                      <button class="btn btn-secondary butn">Suivant</button>
+                      <button class="btn btn-secondary butn" type="submit">Suivant</button>
                     </div>
                   </div>
-                </div>
+                </form>
+
               </div>
             </div>
           </div>
-         
-      </div>
-    </div>
-
-      <div class="card-body px-4 pb-2">
-      
-        <div *ngIf="successOperationMyAccount" class="text-center">
-          <h1>Félicitations!</h1>
-          <p>La transaction a été effectuée avec succès.</p>
         </div>
       </div>
+    </div>
   </main>
 </body>

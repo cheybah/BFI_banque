@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AnimationOptions } from 'ngx-lottie'; // Import Lottie types
 import  { Router } from '@angular/router'; // Import Router
 import { AxiosService } from 'src/app/services/axios.service';
+import { PageTitleService } from 'src/app/services/PageTitleService';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class MyContactsComponent {
   userId: string | null = null; // Déclaration de userId
   contacts: any[] = [];
 
-  constructor(private router: Router,private axiosService :AxiosService) { } 
+  constructor(private router: Router,private axiosService :AxiosService,private pageTitleService :PageTitleService) { } 
 
   lottieOptions: AnimationOptions = {
     path: "/assets/lottie/no-favs.json", 
@@ -28,6 +29,8 @@ export class MyContactsComponent {
   ];
 */
   ngOnInit(): void {
+    this.pageTitleService.changePageTitle('Mes contacts');
+
     // Récupérer l'ID de l'utilisateur depuis le localStorage
     this.userId = localStorage.getItem('userId');
     if (this.userId) {

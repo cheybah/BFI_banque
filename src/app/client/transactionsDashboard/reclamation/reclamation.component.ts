@@ -1,6 +1,6 @@
+import { PageTitleService } from 'src/app/services/PageTitleService';
 import { Component, OnInit  } from '@angular/core';
 import { ReclamationService } from 'src/app/services/reclamations.service';
-
 
 @Component({
   selector: 'app-reclamation',
@@ -18,9 +18,11 @@ export class ReclamationComponent implements OnInit {
 
   referenceCounter: number = 0;
 
-  constructor(private reclamationService: ReclamationService) { }
+  constructor(private pageTitleService:PageTitleService,private reclamationService: ReclamationService) { }
 
   ngOnInit() {
+        this.pageTitleService.changePageTitle('Réclamation');
+
     this.reclamationService.getAllReclamations().then(response => {
       this.reclamations = response.data;
       this.updateTableVisibility();

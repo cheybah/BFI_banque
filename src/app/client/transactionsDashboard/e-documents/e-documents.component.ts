@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Document} from './document';
+import { PageTitleService } from 'src/app/services/PageTitleService';
 
 @Component({
   selector: 'app-e-documents',
@@ -15,9 +16,15 @@ export class EDocumentsComponent {
   documentKeywords: string = '';
   documents: Document[] = []; // Use the Document interface
 
+constructor(private pageTitleService :PageTitleService){
 
+}
   showModal = false; // Toggle modal visibility
 
+  ngOnInit(): void {
+    this.pageTitleService.changePageTitle('E-documents');
+
+  }
   openModal() {
     this.showModal = true;
   }

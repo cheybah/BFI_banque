@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PDFDocument } from 'pdf-lib';
-import { Account } from './account'; // Adjust path if needed
+import { Account } from './account'; 
+import { PageTitleService } from 'src/app/services/PageTitleService';
 
 
 
@@ -17,17 +18,20 @@ export class CreateBankAccountComponent {
   selectedCompteType: string = 'COMPTE EPARGNE';
   clientName: string = '';
   qrData: string = '';
-  accountBalance: string = '0'; // Default value for account balance
+  accountBalance: string = '0'; 
 
   showModal: boolean = false;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router,private pageTitleService: PageTitleService ) { }
 
     openModal() {
       this.showModal = true;
       console.log('true you are here');
     }
+    ngOnInit(): void {
+      this.pageTitleService.changePageTitle('Mes Comptes');
   
+    }
     closeModal() {
       this.showModal = false;
     }
@@ -55,7 +59,7 @@ export class CreateBankAccountComponent {
       this.selectedCompteType = 'COMPTE EPARGNE';
       this.clientName = '';
       this.qrData = '';
-      this.accountBalance = '0'; // Reset account balance to 0
+      this.accountBalance = '0'; 
     }
 
     

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PageTitleService } from 'src/app/services/PageTitleService';
 
 @Component({
   selector: 'app-placements',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./placements.component.css']
 })
 export class PlacementsComponent {
+  constructor(private pageTitleService:PageTitleService){}
+  ngOnInit(): void {
+    this.pageTitleService.changePageTitle('Placement');
 
+  }
 }

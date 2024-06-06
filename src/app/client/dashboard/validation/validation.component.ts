@@ -19,7 +19,7 @@ export class ValidationComponent {
     otpVerifyDisplay: string = 'none';
     otpValue: number = 0;
     showCountdown: boolean = false;
-    countdown: number = 60;
+    countdown: number = 30;
     resendButtonText: string = 'Envoyer OTP';
     resendButtonDisabled: boolean = false;
 
@@ -48,13 +48,10 @@ export class ValidationComponent {
 
         let emailbody = `<h2>Your OTP is</h2>${this.otpValue}`;
         Email.send({
-            Host:"smtp.elasticemail.com",
-            Username:"cheymabahroun@gmail.com",
-            Password:"2AE8FE0BC29A65363DE1866214A384F9B549",
-            Port:"2525",
+            SecureToken: "01fe389d-7992-47a3-a455-62b0da19a126",
             To: this.email,
-            From: "cheymabahroun@gmail.com",
-            Subject: "OTP Pour Vérifier l'Email du compte DigiBank",
+            From: "sourour.methni@gmail.com",
+            Subject: "OTP Pour Vérifier l'Email pour BFI",
             Body: emailbody,
         }).then(
             (message: string) => {
@@ -152,3 +149,4 @@ export class ValidationComponent {
         });
     }
 }
+

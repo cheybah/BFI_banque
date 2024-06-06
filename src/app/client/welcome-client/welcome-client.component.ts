@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AnimationItem } from 'lottie-web';
-import { AnimationOptions } from 'ngx-lottie';
 import { AxiosService } from 'src/app/services/axios.service';
 
 @Component({
@@ -26,7 +24,7 @@ export class WelcomeClientComponent {
   constructor(
     private router: Router,
     private axiosService: AxiosService,
-    private translate: TranslateService
+   private translate :TranslateService
   ) {this.translate.setDefaultLang('fr');}
 
   ngOnInit(): void {
