@@ -21,27 +21,27 @@ export class MotDePasseComponent {
     private formBuilder: FormBuilder,
     private authService: AuthService){
       this.authForm = this.formBuilder.group({
-      
-        confirmMotDePasse: ['', [Validators.required]],
-        motDePasse: ['', [Validators.required]],
-        reponse1: ['', [Validators.required]],
-        reponse2: ['', [Validators.required]],
-      })
+        login: [null, Validators.required],
+        password: ['', [Validators.required]],
+      });
     }
 
     Suivant(currentRoute: string): void{
+ 
       const authForm = this.authForm.value;
       this.authService.setTemporaryauthData(authForm);
       // Get the temporary data from the first form
       const temporaryData = this.authService.getTemporaryRegisterData();
-      console.log('Temporary data:', temporaryData); // Log the temporary data for debugging
-      
+      console.log('Temporary data:', temporaryData);
       // Check if temporary data is available
       if (temporaryData) {
         // Concatenate the JSON object from the second form with the one from the temporary storage
         const combinedData = { ...temporaryData, ...this.authForm.value };
         console.log('Combined data:', combinedData); // Log the combined data for debugging
-       // Log the stored combined data for debugging
+        
+        // Store the combined data in the temporary storage
+        this.authService.setTemporaryCombinedData(combinedData);
+        console.log('Temporary combined data stored:', combinedData); // Log the stored combined data for debugging
 
     
         // Navigate to the next step
@@ -59,7 +59,4 @@ export class MotDePasseComponent {
 
     }
     
-    
-    
-
 }

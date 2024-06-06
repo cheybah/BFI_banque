@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation  } from '@angular/core';
+import { PageTitleService } from 'src/app/services/PageTitleService';
 
 @Component({
   selector: 'app-rendez-vous',
@@ -15,7 +16,12 @@ export class RendezVousComponent {
   amPm: string = '';
   agence: string = '';
   agences: string[] = ['AGENCE DE TUNIS', 'AGENCE DE DJERBA', 'AGENCE DE SFAX'];
+constructor(private pageTitleService: PageTitleService ){
 
+}
+  ngOnInit(): void {
+    this.pageTitleService.changePageTitle('Rendez-Vous');
+  }
 
   showModal() {
     this.toggleModal('block');

@@ -61,7 +61,6 @@ import { MyContactsAddComponent } from './transactionsDashboard/my-contacts/my-c
 import { NgxScannerQrcodeModule, LOAD_WASM } from 'ngx-scanner-qrcode';
 import { ProfileSettingsComponent } from './transactionsDashboard/profile-settings/profile-settings.component';
 import { ProfileSettingsSecurityComponent } from './transactionsDashboard/profile-settings/profile-settings-security/profile-settings-security.component';
-import { ProfileSettingsNotificationsComponent } from './transactionsDashboard/profile-settings/profile-settings-notifications/profile-settings-notifications.component';
 import { DemandeCarteComponent } from './dashboard/demande-carte/demande-carte.component';
 import { VirementComponent } from './dashboard/virement/virement.component';
 import { VirementMyContactsComponent } from './dashboard/virement-my-contacts/virement-my-contacts.component';
@@ -133,7 +132,6 @@ export function playerFactory() {
     MyContactsAddComponent,
     ProfileSettingsComponent,
     ProfileSettingsSecurityComponent,
-    ProfileSettingsNotificationsComponent,
     FilterPipe,
     DemandeCarteComponent,
     VirementComponent,
@@ -147,7 +145,7 @@ export function playerFactory() {
     CarteprepayeeComponent,
     PlacementsComponent,
     DepotReraitComponent
-  ],
+    ],
   exports: [
   ],
   imports: [

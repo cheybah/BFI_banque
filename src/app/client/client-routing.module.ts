@@ -35,7 +35,6 @@ import { MyContactsComponent } from './transactionsDashboard/my-contacts/my-cont
 import { MyContactsAddComponent } from './transactionsDashboard/my-contacts/my-contacts-add/my-contacts-add.component';
 import { ProfileSettingsComponent } from './transactionsDashboard/profile-settings/profile-settings.component';
 import { ProfileSettingsSecurityComponent } from './transactionsDashboard/profile-settings/profile-settings-security/profile-settings-security.component';
-import { ProfileSettingsNotificationsComponent } from './transactionsDashboard/profile-settings/profile-settings-notifications/profile-settings-notifications.component';
 import { ExtraitComponent } from './transactionsDashboard/extrait/extrait.component';
 import { DemandeCarteComponent } from './dashboard/demande-carte/demande-carte.component';
 import { VirementComponent } from './dashboard/virement/virement.component';
@@ -101,7 +100,6 @@ const routes: Routes = [
   { path: 'service-client/reclamation', component: ReclamationComponent}, 
   {path: 'settings', component: ProfileSettingsComponent},
   {path: 'settings/security', component: ProfileSettingsSecurityComponent},
-  {path: 'settings/notification', component: ProfileSettingsNotificationsComponent},
   { path: 'transactions-dashboard', component: TransactionsdashComponent },
   { path: 'accounts/e-docs', component: EDocumentsComponent },
   { path: 'transactions/virement', component: VirementComponent },

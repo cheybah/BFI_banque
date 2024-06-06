@@ -4,17 +4,17 @@ import {SideBarData} from './SideBarData'
 export const sidebarPP: SideBarData[] = [
   {
     title: 'Tableau de board',
-    icon: 'bi bi-shop', // Bootstrap icon
-    link: '/transactions-dashboard', // Optional link
-    isActive: false, // Indicate active item
+    icon: 'bi bi-shop', //bootstrap icon
+    link: '/transactions-dashboard', 
+    isActive: false, 
 
   },
   {
     title: 'Comptes',
     icon: 'bi bi-person-vcard',
-    link: 'javascript:void(0)', // Parent item
+    link: 'javascript:void(0)', 
     isActive: false,
-    expanded: false, // Parent item to be expanded/collapsed
+    expanded: false, 
     subitems: [
       {
         title: 'Comptes',
@@ -46,12 +46,6 @@ export const sidebarPP: SideBarData[] = [
  
       },
       {
-        title: 'MassPay',
-        link: '/accounts/manage', 
-        icon: 'bi bi-person-vcard',
-
-      },
-      {
         title: 'Dépôt/Retraits',
         link: '/accounts/manage',
       },
@@ -62,11 +56,7 @@ export const sidebarPP: SideBarData[] = [
       {
         title: 'Placements',
         link: '/accounts/manage',
-      },
-      {
-        title: 'Moyen de paiement',
-        link: '/accounts/manage',
-      },
+      }
     ],
   },
   {
@@ -80,19 +70,19 @@ export const sidebarPP: SideBarData[] = [
     icon: 'bi bi-clock-history',
     link: 'javascript:void(0)',
     isActive: false,
-    expanded: false, // Parent item to be expanded/collapsed
+    expanded: false, 
     subitems: [
       {
         title: 'Comptes',
-        link: '/accounts/create', // Subitem link
+        link: '/accounts/create', 
       },
       {
         title: 'E-Documents',
-        link: '/accounts/manage', // Subitem link
+        link: '/accounts/manage', 
       },
       {
         title: 'Mes contacts',
-        link: '/accounts/manage', // Subitem link
+        link: '/accounts/manage', 
       },
     ]
   },
@@ -101,20 +91,20 @@ export const sidebarPP: SideBarData[] = [
     icon: 'bi bi-headset',
     link: 'javascript:void(0)',
     isActive: false,
-    expanded: false, // Parent item to be expanded/collapsed
+    expanded: false, 
 
     subitems: [
       {
         title: 'Rendez-vous',
-        link: '/service-client/rendez-vous', // Subitem link
+        link: '/service-client/rendez-vous', 
       },
       {
         title: 'Réclamation',
-        link: '/service-client/reclamation', // Subitem link
+        link: '/service-client/reclamation', 
       },
       {
         title: 'Messageries',
-        link: '/accounts/manage', // Subitem link
+        link: '/accounts/manage', 
       },
     ],
   },

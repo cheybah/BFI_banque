@@ -1,74 +1,29 @@
 <div class="card">
     <div class="card-header">
-        <h4>{{ 'dash.authentication.title' | translate }}</h4>
+        <h4>Vos coordonnées d'authentification</h4>
     </div>
     <div class="card-body">
-        <h6>{{ 'professionnel.authentication.description' | translate }}</h6>
-        <form [formGroup]="authForm" >
+        <form [formGroup]="authForm">
             <div class="row">
-
                 <div class="col-md-6">
-                    <label for="motDePasse" class="form-label">{{ 'professionnel.authentication.password' | translate }}</label><span class="required">*</span>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="motDePasse" formControlName="motDePasse" required pattern="[0-9a-zA-ZÀ-ÿ\s\-']{8,}">
-                    </div>
-                           <div *ngIf="authForm.get('motDePasse')?.invalid && (authForm.get('motDePasse')?.dirty || authForm.get('motDePasse')?.touched)" class="text-danger">
-                            <div *ngIf="authForm.get('motDePasse')?.hasError('required')" class="text-danger">{{ 'professionnel.authentication.passwordalerte' | translate }}</div>
-                            <div *ngIf="authForm.get('motDePasse')?.hasError('pattern')" class="text-danger">{{ 'professionnel.authentication.passwordalerte' | translate }}</div>                        
-                        </div>
-                </div>
 
-                
-                <div class="col-md-6">
-                    <label for="confirmMotDePasse" class="form-label">{{ 'professionnel.authentication.confirm_passwordalerte' | translate }}</label><span class="required">*</span>                
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="confirmMotDePasse" formControlName="confirmMotDePasse" required pattern="[0-9a-zA-ZÀ-ÿ\s\-']{8,}">
+                    <div class="form-group">
+                        <div class="input-group">                          
+                            <span class="input-group-text"><i class="bi bi-briefcase-fill"></i></span>
+                            <input type="text" name="login" class="form-control" placeholder="Login" formControlName="login" value=""/>
+                        </div>
                     </div>
-                    <div *ngIf="authForm.get('confirmMotDePasse')?.invalid && (authForm.get('confirmMotDePasse')?.dirty || authForm.get('confirmMotDePasse')?.touched)" class="text-danger">
-                        <div *ngIf="authForm.get('confirmMotDePasse')?.hasError('required')" style="margin-top: 3px;">{{ 'professionnel.authentication.confirm_passwordalerte' | translate }}</div>
-                        <div *ngIf="authForm.get('confirmMotDePasse')?.hasError('pattern')" style="margin-top: 3px;">{{ 'professionnel.authentication.confirm_passwordalerte1' | translate }}</div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <input type="text" name="password" class="form-control" placeholder="Mot de passe" formControlName="password" value=""/>
+                        </div>
                     </div>
+                    
                 </div>
-                
-                    <div class="col-md-6">
-                        <label for="qest1">{{ 'professionnel.authentication.condsec1' | translate }}</label><span class="required">*</span>               
-                        <div class="input-group">
-                            <select id="qest1" name="qest1" class="form-select">
-                                <option value="" disabled selected>{{ 'professionnel.authentication.select_question1' | translate }}</option>
-                                <option value="Quel était le nom de votre premier animal de compagnie ?">Quel était le nom de votre premier animal de compagnie ?</option>
-                                <option value="Quelle est la ville de naissance de votre mère ?">Quelle est la ville de naissance de votre mère ?</option>
-                                <option value="Quel est le titre de votre livre préféré ?">Quel est le titre de votre livre préféré ?</option>                
-                            </select>  
-                        </div>   
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <label for="reponse1" class="form-label">{{ 'professionnel.authentication.rep1' | translate }}</label><span class="required">*</span>                
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="reponse1" >
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <label for="qest2">{{ 'professionnel.authentication.condsec2' | translate }}</label><span class="required">*</span>               
-                        <div class="input-group">
-                            <select id="qest2" name="qest2"  class="form-select">
-                                <option value="" disabled selected>{{ 'professionnel.authentication.select_question2' | translate }}</option>
-                                <option value="Quel était le nom de votre premier animal de compagnie ?">Quel était le nom de votre premier animal de compagnie ?</option>
-                                <option value="Quelle est la ville de naissance de votre mère ?">Quelle est la ville de naissance de votre mère ?</option>
-                                <option value="Quel est le titre de votre livre préféré ?">Quel est le titre de votre livre préféré ?</option>                
-                            </select>                                         
-                        </div>   
-                    </div>
-                    <div class="col-md-6">
-                        <label for="reponse2" class="form-label">{{ 'professionnel.authentication.rep2' | translate }}</label><span class="required">*</span>                
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="reponse2" >
-                        </div>
-                    </div>
-                    
-             </div>
-             <button type="button" class="btn btn-secondary butn" (click)="Suivant('validation')">{{ 'dash.authentication.send_button' | translate }}</button>
-            </form>
+            </div>
+            <button type="button" class="btn btn-secondary butn" (click)="Suivant('validation')">Envoyer</button>
+        </form>
     </div>
 </div>

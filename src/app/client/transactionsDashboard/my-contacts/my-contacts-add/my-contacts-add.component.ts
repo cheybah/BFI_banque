@@ -3,6 +3,7 @@ import { NgxScannerQrcodeComponent, ScannerQRCodeResult } from 'ngx-scanner-qrco
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { AxiosService } from 'src/app/services/axios.service';
+import { PageTitleService } from 'src/app/services/PageTitleService';
 
 @Component({
   selector: 'app-my-contacts-add',
@@ -27,10 +28,10 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
 
   @ViewChild('scanner', { static: false }) scanner!: NgxScannerQrcodeComponent; // Reference to the QR code scanner component
 
-  constructor(private router: Router, private axiosService: AxiosService) { }
+  constructor(private router: Router, private axiosService: AxiosService,private pageTitleService :PageTitleService) { }
 
   ngOnInit(): void {
-
+    this.pageTitleService.changePageTitle('Mes contacts');
   }
 
   ngAfterViewInit(): void {

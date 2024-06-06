@@ -1,9 +1,6 @@
 <body class="g-sidenav-show bg-gray-100">  
-    <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100 side" id="sidenav-main" >
-        <div class="sidenav-header">
-                <span class="ms-1 font-weight-bold"><img  id="logo" src="../../../assets/img/logos/logo.png"> </span>
-        </div>
-        <hr class="horizontal dark mt-0">
+    <div class="sidenav navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100 side" id="sidenav-main" >
+        
         <app-transaction-nav></app-transaction-nav>
         </div>
         <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -13,7 +10,6 @@
                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
                   <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-user me-1"></i> Account</a></li>
                   <li class="nav-item"><a class="nav-link" href="/settings/security"><i class="bx bx-lock-alt me-1"></i> Security</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/settings/notification"><i class="bx bx-bell me-1"></i> Notifications</a></li>
                 </ul>
                 <div class="card mb-4">
                   <h5 class="card-header">Profile Details</h5>
@@ -94,28 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label for="language" class="form-label">Language</label>
-                                <div class="position-relative">
-                                    <select id="language" class="select2 form-select select2-hidden-accessible" data-select2-id="language" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="4">Select Language</option>
-                                        <option value="en">English</option>
-                                        <option value="fr">French</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="currency" class="form-label">Currency</label>
-                                <div class="position-relative">
-                                    <select id="currency" class="select2 form-select select2-hidden-accessible" data-select2-id="currency" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="8">Select Currency</option>
-                                        <option value="usd">TND</option>
-                                        <option value="euro">XAF</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="mt-2">
                             <button type="submit" class="btn btn-primary me-2">Save changes</button>
                             <button type="reset" class="btn btn-label-secondary">Cancel</button>

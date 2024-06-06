@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PageTitleService } from 'src/app/services/PageTitleService';
 
 @Component({
   selector: 'app-reclamation',
@@ -14,7 +15,12 @@ export class ReclamationComponent {
   date: string = '';
 
   referenceCounter: number = 0;
+constructor(private pageTitleService:PageTitleService){
 
+}
+  ngOnInit(): void {
+    this.pageTitleService.changePageTitle('Réclamation');
+  }
 
   
   showModal() {
