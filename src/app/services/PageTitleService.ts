@@ -1,4 +1,3 @@
-// page-title.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -6,8 +5,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class PageTitleService {
-  private pageTitle = new BehaviorSubject<string>('Page Name');
-  private pagepageTitle = new BehaviorSubject<string>('Page Name');
+  private pageTitle = new BehaviorSubject<string>('');
+  private pagepageTitle = new BehaviorSubject<string>('');
 
   currentPageTitle = this.pageTitle.asObservable();
   currentPagePageTitle = this.pagepageTitle.asObservable();
