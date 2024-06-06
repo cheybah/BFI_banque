@@ -46,6 +46,7 @@ import { IntrabancaireComponent } from './dashboard/virement-autre-compte/intrab
 import { InterbancaireComponent } from './dashboard/virement-autre-compte/interbancaire/interbancaire.component';
 import { CarteprepayeeComponent } from './transactionsDashboard/carteprepayee/carteprepayee.component';
 import { DepotReraitComponent } from './transactionsDashboard/depot-rerait/depot-rerait.component';
+import {ChatComponent} from './transactionsDashboard/chat/chat.component';
 
 import { canDeactivateGuard } from '../services/can-deactivate.guard';
 
@@ -117,6 +118,7 @@ const routes: Routes = [
   { path: 'administration/create-user', component: CreateUserComponent },
   { path: 'service-client/rendez-vous', component: RendezVousComponent },
   { path: 'service-client/reclamation', component: ReclamationComponent },
+  {path: 'service-client/chat' , component: ChatComponent},
   { path: 'transactions-dashboard/extrait', component: ExtraitComponent },
   { path: 'demande-carte', component: DemandeCarteComponent },
 

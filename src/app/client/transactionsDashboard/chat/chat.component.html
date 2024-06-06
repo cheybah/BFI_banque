@@ -1,0 +1,41 @@
+<body class="g-sidenav-show bg-gray-100">
+  <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100" id="sidenav-main">
+    <div class="sidenav-header">
+      <a class="navbar-brand m-0" href="javascript:;">
+        <span class="ms-1 font-weight-bold"><img id="logo" src="../../../assets/img/logos/logo.png"></span>
+      </a>
+    </div>
+    <hr class="horizontal dark mt-0">
+    <app-transaction-nav></app-transaction-nav>
+  </div>
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    <app-navbar></app-navbar>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="card">
+            <div class="card-header">
+              Chat Room
+            </div>
+            <div class="card-body">
+              <div class="messages">
+                <div *ngFor="let message of messages" class="message" [ngClass]="{ 'outgoing': message.outgoing, 'incoming': !message.outgoing }">
+                  <div class="bubble">{{ message.text }}</div>
+                  <div class="timestamp">{{ message.timestamp | date: 'mediumTime' }}</div>
+                </div>
+              </div>
+            </div>
+            <form #loginForm="ngForm">
+              <div class="card-footer">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Type your message..." name="newmessage" [(ngModel)]="newmessage" required>
+                  <button class="btn btn-primary" (click)="sendMessage()" [disabled]="!loginForm.valid">Send</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>

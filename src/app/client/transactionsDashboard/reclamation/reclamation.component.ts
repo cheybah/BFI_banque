@@ -1,25 +1,32 @@
-import { Component } from '@angular/core';
 import { PageTitleService } from 'src/app/services/PageTitleService';
+import { Component, OnInit  } from '@angular/core';
+import { ReclamationService } from 'src/app/services/reclamations.service';
 
 @Component({
   selector: 'app-reclamation',
   templateUrl: './reclamation.component.html',
   styleUrls: ['./reclamation.component.css']
 })
-export class ReclamationComponent {
+export class ReclamationComponent implements OnInit {
 
   reclamations: any[] = [];
   reference: string = '';
   sujet: string = '';
   contenu: string = '';
   date: string = '';
+  reponse: string = '';
 
   referenceCounter: number = 0;
-constructor(private pageTitleService:PageTitleService){
 
-}
-  ngOnInit(): void {
-    this.pageTitleService.changePageTitle('Réclamation');
+  constructor(private pageTitleService:PageTitleService,private reclamationService: ReclamationService) { }
+
+  ngOnInit() {
+        this.pageTitleService.changePageTitle('Réclamation');
+
+    this.reclamationService.getAllReclamations().then(response => {
+      this.reclamations = response.data;
+      this.updateTableVisibility();
+    });
   }
 
   
@@ -62,11 +69,15 @@ constructor(private pageTitleService:PageTitleService){
       sujet: this.sujet,
       contenu: this.contenu,
       date: this.date,
-      statut: 'En Cours'
-    };
-    this.reclamations.push(newReclamation);
+      reponse: this.reponse,
+      status: 'Pending',
+      client: localStorage.getItem('userId')
+   };
+    this.reclamationService.createReclamation(newReclamation).then(response => {
+      this.reclamations.push(response.data);
+      this.updateTableVisibility();
+    });
     this.hideModal();
-    this.updateTableVisibility();
   }
 
   updateTableVisibility() {

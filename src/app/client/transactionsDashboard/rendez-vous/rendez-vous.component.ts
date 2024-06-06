@@ -1,26 +1,31 @@
-import { Component, ViewEncapsulation  } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit  } from '@angular/core';
 import { PageTitleService } from 'src/app/services/PageTitleService';
+import { RendezvousService } from 'src/app/services/rendezvous.service';
 
 @Component({
   selector: 'app-rendez-vous',
   templateUrl: './rendez-vous.component.html',
   styleUrls: ['./rendez-vous.component.css'],
-  encapsulation: ViewEncapsulation.Emulated // or ViewEncapsulation.ShadowDom
 
 })
 export class RendezVousComponent {
   appointments: any[] = [];
   reason: string = '';
   date: string = '';
-  hour: string = '';
+  heure: string = '';
   amPm: string = '';
   agence: string = '';
   agences: string[] = ['AGENCE DE TUNIS', 'AGENCE DE DJERBA', 'AGENCE DE SFAX'];
-constructor(private pageTitleService: PageTitleService ){
 
-}
-  ngOnInit(): void {
-    this.pageTitleService.changePageTitle('Rendez-Vous');
+  constructor(private rendezVousService: RendezvousService,private pageTitleService: PageTitleService) { }
+
+  ngOnInit() {
+        this.pageTitleService.changePageTitle('Rendez-Vous');
+
+    this.rendezVousService.getAllRendezVous().then(response => {
+      this.appointments = response.data;
+      this.updateTableVisibility();
+    });
   }
 
   showModal() {
@@ -57,12 +62,16 @@ constructor(private pageTitleService: PageTitleService ){
       agence: this.agence,
       raison: this.reason,
       date: this.date,
-      hour: `${this.hour} ${this.amPm}`,
-      statut: 'Pending'
+      heure: `${this.heure} ${this.amPm}`,
+      status: 'Pending',
+      client: localStorage.getItem('userId')
     };
-    this.appointments.push(newAppointment);
+    console.log('jsson', newAppointment);
+    this.rendezVousService.createRendezVous(newAppointment).then(response => {
+      this.appointments.push(response.data);
+      this.updateTableVisibility();
+    });
     this.hideModal();
-    this.updateTableVisibility();
   }
 
   updateTableVisibility() {

@@ -34,7 +34,7 @@
                         <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2 dateth">Date du rendez-vous</th>
                         <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 pgth">Plage horaire</th>
                         <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 motth">Motif</th>
-                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 stth">Statut</th>
+                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 stth">status</th>
                       </tr>
                     </thead>
                     <span class="select-arrow"></span>
@@ -42,14 +42,14 @@
                       <tr *ngFor="let appointment of appointments">
                         <td>{{ appointment.agence }}</td>
                         <td>{{ appointment.date }}</td>
-                        <td>{{ appointment.hour }}</td>
+                        <td>{{ appointment.heure }}</td>
                         <td>{{ appointment.raison }}</td>
                         <td>
                             <span class="badge" [ngClass]="{
-                              'badge-warning': appointment.statut === 'Pending',
-                              'badge-success': appointment.statut === 'Approuvé',
-                              'badge-danger': appointment.statut === 'Rejetée'
-                            }">{{ appointment.statut }}</span>
+                              'badge-warning': appointment.status === 'Pending',
+                              'badge-success': appointment.status === 'Approuvé',
+                              'badge-danger': appointment.status === 'Rejetée'
+                            }">{{ appointment.status }}</span>
                           </td>
                       </tr>
                     </tbody>
@@ -87,7 +87,7 @@
                   <div class="col-sm-5">
                     <div class="form-group">
                       <span class="form-label">Heure d'arrivage</span>
-                      <select class="form-control" [(ngModel)]="hour" name="hour" required>
+                      <select class="form-control" [(ngModel)]="heure" name="heure" required>
                         <option *ngFor="let h of [1,2,3,4,5,6,7,8,9,10,11,12]">{{ h }}</option>
                       </select>
                       <span class="select-arrow"></span>
