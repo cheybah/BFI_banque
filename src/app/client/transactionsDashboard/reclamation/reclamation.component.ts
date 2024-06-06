@@ -69,8 +69,9 @@ export class ReclamationComponent implements OnInit {
       date: this.date,
       reponse: this.reponse,
       status: 'Pending',
-      client: localStorage.getItem('userId')
+      clientId: localStorage.getItem('userId')
    };
+   console.log('jsson', newReclamation);
     this.reclamationService.createReclamation(newReclamation).then(response => {
       this.reclamations.push(response.data);
       this.updateTableVisibility();

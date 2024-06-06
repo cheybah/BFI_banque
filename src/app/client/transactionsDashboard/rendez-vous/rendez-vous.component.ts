@@ -61,7 +61,7 @@ export class RendezVousComponent {
       date: this.date,
       heure: `${this.heure} ${this.amPm}`,
       status: 'Pending',
-      client: localStorage.getItem('userId')
+      clientId: localStorage.getItem('userId')
     };
     console.log('jsson', newAppointment);
     this.rendezVousService.createRendezVous(newAppointment).then(response => {

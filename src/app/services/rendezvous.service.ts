@@ -10,7 +10,7 @@ export interface RendezVous  {
   date: string;
   heure: string;
   status: string;
-  client: any;
+  clientId: string | null; // Change this line
 }
 
 @Injectable({
@@ -25,8 +25,12 @@ export class RendezvousService {
   }
 
   createRendezVous(rendezVous: RendezVous) {
-    let client = localStorage.getItem('userId'); // Retrieve userId from local storage
-    rendezVous.client = client; // Include client in the request body
-    return axios.post<RendezVous>(API_URL, rendezVous);
+    let clientId = localStorage.getItem('userId'); // Retrieve userId from local storage
+    if (clientId !== null) {
+      rendezVous.clientId = clientId; // Include clientId in the request body
+      return axios.post<RendezVous>(API_URL, rendezVous);
+    } else {
+      throw new Error('User ID not found in local storage');
+    }
   }
 }
