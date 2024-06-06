@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { PDFDocument } from 'pdf-lib';
 import { Account } from './account'; 
 import { PageTitleService } from 'src/app/services/PageTitleService';
+import { BankAccountService } from 'src/app/services/bankAccountService';
 
 
 
@@ -12,17 +13,20 @@ import { PageTitleService } from 'src/app/services/PageTitleService';
   styleUrls: ['./create-bank-account.component.css']
 })
 export class CreateBankAccountComponent {
-
+  clientId: number | null = null; 
   accounts: Account[] = [];
   compteType: string[] = ['COMPTE EPARGNE', 'COMPTE COURANT'];
   selectedCompteType: string = 'COMPTE EPARGNE';
   clientName: string = '';
   qrData: string = '';
+  bankaccountqrdata: string = '';
   accountBalance: string = '0'; 
-
+  bankAccount: any; 
+  extractedRIB: string = '';
+  solde: number=0;
   showModal: boolean = false;
-
-    constructor(private router: Router,private pageTitleService: PageTitleService ) { }
+   
+    constructor(private router: Router,private pageTitleService: PageTitleService,private bankAccountService :BankAccountService ) { }
 
     openModal() {
       this.showModal = true;
@@ -30,7 +34,36 @@ export class CreateBankAccountComponent {
     }
     ngOnInit(): void {
       this.pageTitleService.changePageTitle('Mes Comptes');
-  
+      const clientIdStr = localStorage.getItem('userId');
+      if (clientIdStr !== null) {
+        this.clientId = parseInt(clientIdStr, 10);
+        // Vérifier si la conversion a réussi
+        if (!isNaN(this.clientId)) {
+          // Appeler le service pour récupérer les détails du compte bancaire du client
+          this.bankAccountService.getBankAccountByClientId(this.clientId)
+            .subscribe((data: any) => {
+              // Vérifier si data est un tableau et s'il contient des éléments
+              if (Array.isArray(data) && data.length > 0) {
+                this.bankAccount = data[0]; // Prendre le premier élément du tableau
+                console.log("Réponse complète de l'API:", this.bankAccount);
+                console.log("RIB:", this.bankAccount.rib);
+                this.extractedRIB = this.bankAccount.rib.substring(7, 14);
+                this.solde=this.bankAccount.solde;
+                this.bankaccountqrdata=this.bankAccount.rib;
+
+              } else {
+                console.error('No bank account details found');
+              }
+            }, (error) => {
+              console.error('Error fetching bank account details:', error);
+            });
+        } else {
+          console.error('Invalid user ID format');
+        }
+      } else {
+        console.error('User ID is not available in localStorage');
+        // Gérer le cas où l'ID utilisateur n'est pas disponible dans le localStorage
+      }
     }
     closeModal() {
       this.showModal = false;
