@@ -1,92 +1,98 @@
 <body class="g-sidenav-show bg-gray-100">
-    <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100" id="sidenav-main">
-      <div class="sidenav-header">
-        <a class="navbar-brand m-0" href="javascript:;">
-          <span class="ms-1 font-weight-bold"><img id="logo" src="../../../assets/img/logos/logo.png"></span>
-        </a>
-      </div>
-      <hr class="horizontal dark mt-0">
-      <app-transaction-nav></app-transaction-nav>
+  <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100" id="sidenav-main">
+    <div class="sidenav-header">
+      <a class="navbar-brand m-0" href="javascript:;">
+        <span class="ms-1 font-weight-bold"><img id="logo" src="../../../assets/img/logos/logo.png"></span>
+      </a>
     </div>
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
-      <app-navbar></app-navbar>
-      <div class="container-fluid py-4">
-        <div class="row">
-          <div class="col-12">
-            <div class="card mb-4">
-                <div class="card-header pb-0 d-flex justify-content-between align-items-center">
-                    <h4>Historique des réclamations</h4>
-                    <button (click)="showModal()" type="button" class="btn btn-secondary butn">
-                      <i class="fas fa-user-plus"></i>
-                      Déposez une réclamation
-                    </button>
-                  </div>
-              <div id="illustration" class="illustration text-center">
-                <img src="/assets/img/illustration-rec.jpg" alt="Illustration" style="max-width: 40%; height: auto;">
-                <p>Aucune réclamation déposée pour l'instant.</p>
-              </div>
-              <div class="card-body px-0 pt-0 pb-2">
-                <div class="table-responsive p-0">
-                  <table class="table align-items-center mb-0" *ngIf="reclamations.length > 0">
-                    <thead>
-                      <tr [ariaPlaceholder]="">
-                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 agth">Référence</th>
-                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2 dateth">Sujet</th>
-                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 pgth">Contenu</th>
-                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 motth">Date</th>
-                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 stth">Statut</th>
-                      </tr>
-                    </thead>
-                    <span class="select-arrow"></span>
-                    <tbody>
-                      <tr *ngFor="let reclamation of reclamations">
+    <hr class="horizontal dark mt-0">
+    <app-transaction-nav></app-transaction-nav>
+  </div>
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    <app-navbar></app-navbar>
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-4">
+            <div class="card-header pb-0 d-flex justify-content-between align-items-center">
+              <h4>Historique des réclamations</h4>
+              <button (click)="showModal()" type="button" class="btn btn-secondary butn">
+                <i class="fas fa-user-plus"></i>
+                Déposez une réclamation
+              </button>
+            </div>
+            <div id="illustration" class="illustration text-center">
+              <img src="/assets/img/illustration-rec.jpg" alt="Illustration" style="max-width: 40%; height: auto;">
+              <p>Aucune réclamation déposée pour l'instant.</p>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0" *ngIf="reclamations.length > 0">
+                  <thead>
+                    <tr [ariaPlaceholder]="">
+                      <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 agth">Référence</th>
+                      <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2 dateth">Sujet</th>
+                      <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 pgth">Contenu</th>
+                      <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 motth">Date</th>
+                      <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 stth">status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let reclamation of reclamations">
+                      <tr>
                         <td>{{ reclamation.reference }}</td>
                         <td>{{ reclamation.sujet }}</td>
                         <td>{{ reclamation.contenu }}</td>
                         <td>{{ reclamation.date }}</td>
                         <td>
-                            <span class="badge" [ngClass]="{
-                              'badge-warning': reclamation.statut === 'En Cours',
-                              'badge-success': reclamation.statut === 'Approuvé',
-                              'badge-danger': reclamation.statut === 'Rejetée'
-                            }">{{ reclamation.statut }}</span>
-                          </td>
+                          <span class="badge" [ngClass]="{
+                            'badge-warning': reclamation.status === 'Pending',
+                            'badge-success': reclamation.status === 'Approuvé',
+                            'badge-danger': reclamation.status === 'Rejetée',
+                          }">{{ reclamation.status }}</span>
+                        </td>
                       </tr>
-                    </tbody>
-                  </table>
-                </div>
+                      <tr>
+                        <td colspan="5" class="text-center" style="background-color: lightgrey;">
+                          <strong>Reponse:</strong>
+                          <input class="form-control" type="text" [(ngModel)]="reclamation.reponse" disabled>
+                        </td>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
-  
-      <!-- Modal HTML -->
-      <div id="reclamationModal" class="modal">
-        <div class="booking-form">
-          <form class="form" (submit)="requestRec($event)">
-            <div class="form-group">
-                <span class="form-label">Sujet de réclamation</span>
-                <input class="form-control" type="text" [(ngModel)]="sujet" name="sujet" placeholder="Entrer le sujet de votre réclamation" required>
+    </div>
+
+    <!-- Modal HTML -->
+    <div id="reclamationModal" class="modal">
+      <div class="booking-form">
+        <form class="form" (submit)="requestRec($event)">
+          <div class="form-group">
+            <span class="form-label">Sujet de réclamation</span>
+            <input class="form-control" type="text" [(ngModel)]="sujet" name="sujet" placeholder="Entrer le sujet de votre réclamation" required>
+          </div>
+          <div class="form-group">
+            <span class="form-label">Contenu de réclamation</span>
+            <input class="form-control" type="text" [(ngModel)]="contenu" name="contenu" placeholder="Entrer votre réclamation" required>
+          </div>
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="form-group">
+                <span class="form-label">Date</span>
+                <input class="form-control" type="date" [(ngModel)]="date" name="date" required>
               </div>
-            <div class="form-group">
-              <span class="form-label">Contenu de réclamation</span>
-              <input class="form-control" type="text" [(ngModel)]="contenu" name="contenu" placeholder="Entrer votre réclamation" required>
             </div>
-            <div class="row">
-              <div class="col-sm-5">
-                <div class="form-group">
-                  <span class="form-label">Date</span>
-                  <input class="form-control" type="date" [(ngModel)]="date" name="date" required>
-                </div>
-              </div>
-            </div>
-            <div class="form-btn">
-              <button class="submit-btn" type="submit">Envoyer réclamation</button>
-            </div>
-          </form>
-        </div>
+          </div>
+          <div class="form-btn">
+            <button class="submit-btn" type="submit">Envoyer réclamation</button>
+          </div>
+        </form>
       </div>
-    </main>
-  </body>
-  
+    </div>
+  </main>
+</body>

@@ -56,8 +56,5 @@ export class MotDePasseComponent {
       
 
     }
-    
-    
-    
 
 }
