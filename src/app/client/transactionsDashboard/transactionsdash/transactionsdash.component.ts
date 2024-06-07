@@ -36,6 +36,7 @@ export class TransactionsdashComponent implements OnInit {
   reclamations: any;
   contacts: any;
   additionalInfo: any;
+  showWelcomeMessage = true; // Control the visibility of the welcome message
   constructor( private pageTitleService:PageTitleService, private route :ActivatedRoute,private router:Router,private bankAccountService :BankAccountService,private gettingRegisterDetailsPhysical:gettingRegisterDetailsPhysical){}
  
   ngOnInit(): void {
@@ -62,6 +63,10 @@ export class TransactionsdashComponent implements OnInit {
       this.reclamations = this.clientDetails.reclamations || [];
       this.contacts = this.clientDetails.contacts || [];
       this.additionalInfo = this.clientDetails.additionalInfo || {};
+          // Hide the welcome message after 3 seconds
+    setTimeout(() => {
+      this.showWelcomeMessage = false;
+    }, 3000);
     });
     const clientIdStr = localStorage.getItem('userId');
     if (clientIdStr !== null) {

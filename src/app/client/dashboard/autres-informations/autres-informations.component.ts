@@ -18,7 +18,7 @@ export class AutresInformationsComponent implements OnInit {
   navData = navbarData;
   infoForm: FormGroup;
   today: Date = new Date();
-  verificationResult: boolean | null = null;
+  //verificationResult: boolean | null = null;
   cvReady: boolean = false;
   modelImage: any;
   modelKeypoints: any;
@@ -108,9 +108,9 @@ export class AutresInformationsComponent implements OnInit {
       reader.onload = (e: any) => {
         const imgElement = new Image();
         imgElement.src = e.target.result;
-        imgElement.onload = () => {
-          this.verifyCin(imgElement);
-          this.extractCinNumber(imgElement);
+       imgElement.onload = () => {
+        /*  this.verifyCin(imgElement);
+          this.extractCinNumber(imgElement);*/
         };
         imgElement.onerror = () => {
           console.error('Failed to load input image');
@@ -119,7 +119,7 @@ export class AutresInformationsComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
-
+/*
   verifyCin(imgElement: HTMLImageElement): void {
     try {
       let src = cv.imread(imgElement);
@@ -181,7 +181,7 @@ export class AutresInformationsComponent implements OnInit {
     const formPieceNumber = this.infoForm.get('pieceNumber')?.value;
     return formPieceNumber === this.extractedCinNumber;
   }
-
+*/
   saveAdditionalInfo(form: FormGroup): void {
     if (form.valid) {
       const formData = form.value;
@@ -202,7 +202,7 @@ export class AutresInformationsComponent implements OnInit {
 
   Suivant(currentRoute: string): void {
     if (this.infoForm.valid) {
-      if (this.validatePieceNumber()) {
+      //if (this.validatePieceNumber()) {
         const formData: FormGroup = this.infoForm;
         this.saveAdditionalInfo(formData);
         const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
@@ -211,12 +211,12 @@ export class AutresInformationsComponent implements OnInit {
           const nextComponent = this.navData[currentIndex ].routeLink; // Corrected to navigate to the next component
           this.router.navigate(['/dash/' + nextComponent]);
         }
-      } else {
+      //} else {
         console.error('Piece number does not match the extracted number.');
         // Optionally, provide user feedback here
       }
-    } else {
-      console.error('Form is invalid or addressForm is not initialized.');
-    }
+    //} else {
+      //console.error('Form is invalid or addressForm is not initialized.');
+  //  }
   }
 }

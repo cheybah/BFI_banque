@@ -48,10 +48,13 @@ export class ValidationComponent {
 
         let emailbody = `<h2>Your OTP is</h2>${this.otpValue}`;
         Email.send({
-            SecureToken: "01fe389d-7992-47a3-a455-62b0da19a126",
+            Host:"smtp.elasticemail.com",
+            Username:"cheymabahroun@gmail.com",
+            Password:"2AE8FE0BC29A65363DE1866214A384F9B549",
+            Port:"2525",
             To: this.email,
-            From: "sourour.methni@gmail.com",
-            Subject: "OTP Pour Vérifier l'Email pour BFI",
+            From: "cheymabahroun@gmail.com",
+            Subject: "OTP Pour Vérifier l'Email du compte DigiBank",
             Body: emailbody,
         }).then(
             (message: string) => {

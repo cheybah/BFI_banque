@@ -138,3 +138,7 @@
         transform: translate3d(-50%, 0, 0);
     }
 }
+
+.card .card-body {
+    background-color: white !important;
+}
