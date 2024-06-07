@@ -87,9 +87,9 @@
                     <div *ngIf="infoForm.get('piecePhoto')?.hasError('required')" style="margin-top: 3px;">{{
                         'dash.additionalInfo.valid_extensions_are' | translate }}</div>
                 </div>
-                <!--<div *ngIf="verificationResult !== null">
+                <div *ngIf="verificationResult !== null">
                     <p>{{ verificationResult ? 'La CIN est valide' : 'La CIN est invalide' }}</p>
-                </div>-->
+                </div>
             </div>
 
             <div class="col-12">
