@@ -41,11 +41,11 @@ export class VirementComponent implements OnInit {
     this.axiosService.request('POST', `/virements`, this.transfer)
       .then(response => {
         console.log('Response:', response);
-        console.log('Virement effectué avec succès:');
+        console.log('Virement à étè effectué avec succès:');
         Swal.fire({
           icon: 'success',
           title: 'Success',
-          text: "Votre Virement effectué avec succès",
+          text: "Votre Virement à étè  effectué avec succès",
           confirmButtonColor: '#B48F44',
           timer: 3000
         });
