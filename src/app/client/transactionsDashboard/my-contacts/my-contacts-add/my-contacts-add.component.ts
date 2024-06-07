@@ -11,24 +11,22 @@ import { PageTitleService } from 'src/app/services/PageTitleService';
   styleUrls: ['./my-contacts-add.component.css']
 })
 export class MyContactsAddComponent implements OnInit, AfterViewInit {
-
   scannerEnabled = false;
   scannedData: string | null = null;
   ribValue: string = '';
   gender: string = '';
   accountCards: any[] = [];
-  contactType: string = ''; // Contact type
-  fullName: string = ''; // Contact name
-  address: string = ''; // Address
-  category: string = ''; // Category
-  isFavorite: boolean = false; // Favorites
-  uploadedFileName: string = ''; // Uploaded file name
+  contactType: string = '';
+  fullName: string = '';
+  address: string = '';
+  category: string = '';
+  isFavorite: boolean = false;
+  uploadedFileName: string = '';
   imageContact: string = '';
 
+  @ViewChild('scanner', { static: false }) scanner!: NgxScannerQrcodeComponent;
 
-  @ViewChild('scanner', { static: false }) scanner!: NgxScannerQrcodeComponent; // Reference to the QR code scanner component
-
-  constructor(private router: Router, private axiosService: AxiosService,private pageTitleService :PageTitleService) { }
+  constructor(private router: Router, private axiosService: AxiosService, private pageTitleService: PageTitleService) {}
 
   ngOnInit(): void {
     this.pageTitleService.changePageTitle('Mes contacts');
@@ -43,11 +41,10 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
 
     if (this.scanner) {
       console.log('Scanner is defined.');
-      // Subscribe to the data Observable
       this.scanner.data.subscribe((data: any) => {
         if (data && data.value) {
-          this.ribValue = data.value; // Store the scanned QR code value in ribValue
-          console.log('scanned rib value is', this.ribValue); // Log the extracted RIB value
+          this.ribValue = data.value;
+          console.log('scanned rib value is', this.ribValue);
         }
       });
     } else {
@@ -63,23 +60,20 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
     document.head.appendChild(script);
   }
 
-
-
-  // Toggle scanner visibility
   toggleScanner(): void {
-    this.scannerEnabled = !this.scannerEnabled; // Toggle scanner on/off
-    console.log('Scanner enabled status:', this.scannerEnabled); // Log the status
+    this.scannerEnabled = !this.scannerEnabled;
+    console.log('Scanner enabled status:', this.scannerEnabled);
     if (this.scannerEnabled) {
       console.log('Starting scanner...');
       if (this.scanner) {
-        this.scanner.start(); // Start the scanner when toggled on
+        this.scanner.start();
       } else {
         console.error('Cannot start scanner because it is not defined.');
       }
     } else {
       console.log('Stopping scanner...');
       if (this.scanner) {
-        this.scanner.stop(); // Stop the scanner when toggled off
+        this.scanner.stop();
       } else {
         console.error('Cannot stop scanner because it is not defined.');
       }
@@ -87,29 +81,26 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
   }
 
   onScanResult(event: any): void {
-    console.log('we are rib here now'); // Log the extracted RIB value
-
+    console.log('we are rib here now');
     if (Array.isArray(event) && event.length > 0) {
-      console.log('we are not here now'); // Log the extracted RIB value
-
-      this.ribValue = event[0].value; // Store the scanned QR code value in ribValue
-      this.scannerEnabled = false; // Hide the scanner after scanning
-      console.log('scanned rib value is', this.ribValue); // Log the extracted RIB value
+      console.log('we are not here now');
+      this.ribValue = event[0].value;
+      this.scannerEnabled = false;
+      console.log('scanned rib value is', this.ribValue);
     }
   }
 
-  // Method to handle icon click
   handleIconClick(): void {
     if (this.scannerEnabled) {
-      this.scanner.stop(); // Stop the scanner if it's running
-      this.scannerEnabled = false; // Set to false to hide the scanner
+      this.scanner.stop();
+      this.scannerEnabled = false;
     } else {
-      this.scannerEnabled = true; // Set to true to show the scanner
-      this.scanner.start(); // Start the scanner
+      this.scannerEnabled = true;
+      this.scanner.start();
     }
   }
 
-  addAccount() {
+  addAccount(): void {
     console.log('Adding account...');
     this.accountCards.push({
       accountType: '',
@@ -122,7 +113,7 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
     this.accountCards.splice(index, 1);
   }
 
-  clearFormFields() {
+  clearFormFields(): void {
     this.ribValue = '';
   }
 
@@ -136,22 +127,23 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
       this.uploadedFileName = file.name;
     }
   }
+
   addContactToClient(clientId: number, contactData: any): Promise<any> {
     return this.axiosService.request('POST', `/clients/${clientId}/contacts`, contactData);
   }
+
   finish(): void {
     const contactData = {
       gender: this.gender,
       address: this.address,
       imageContact: this.imageContact,
-      fullName: this.fullName,
-
+      categorie:"famille",
+      fullName: this.fullName
     };
 
     const clientId = 2;
     this.addContactToClient(clientId, contactData)
       .then((response) => {
-        // Affichage d'une boîte de dialogue de succès
         Swal.fire({
           icon: 'success',
           title: 'Success',
@@ -171,7 +163,4 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
         });
       });
   }
-
 }
-
-
