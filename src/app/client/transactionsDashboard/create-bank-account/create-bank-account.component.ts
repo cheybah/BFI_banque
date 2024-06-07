@@ -119,7 +119,6 @@ export class CreateBankAccountComponent {
     const yPosition = (height - contentHeight) / 1.2;
 
     firstPage.drawText('Account Information :', { x: 50, y: yPosition + 40, size: 25 });
-    firstPage.drawText(`Account Type: ${account.compteType}`, { x: 50, y: yPosition, size: 12 });
     firstPage.drawText(`Client Name: ${account.clientName}`, { x: 50, y: yPosition - 40, size: 12 });
     firstPage.drawText(`Account Number: ${account.qrData}`, { x: 50, y: yPosition - 80, size: 12 });
     firstPage.drawText(`Account Balance: ${account.accountBalance}`, { x: 50, y: yPosition - 120, size: 12 });
@@ -145,7 +144,6 @@ export class CreateBankAccountComponent {
     const yPosition = (height - contentHeight) / 1.2;
 
     firstPage.drawText('Account Information :', { x: 50, y: yPosition + 40, size: 25 });
-    firstPage.drawText(`Account Type: ${this.bankAccount.compteType}`, { x: 50, y: yPosition, size: 12 });
     firstPage.drawText(`Client Name: ${this.clientDetails.firstName}`+` ${this.clientDetails.lastName}`, { x: 50, y: yPosition - 40, size: 12 });
     firstPage.drawText(`Account Number: ${this.bankaccountqrdata}`, { x: 50, y: yPosition - 80, size: 12 });
     firstPage.drawText(`Account Balance: ${this.bankAccount.solde}`, { x: 50, y: yPosition - 120, size: 12 });

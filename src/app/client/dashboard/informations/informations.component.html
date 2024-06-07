@@ -54,7 +54,7 @@
             </div>
             <div class="mb-3">
                 <label for="photo" class="form-label">{{ 'dash.informations.photo' | translate }}</label>
-                <input type="file" name="photo" class="form-control" id="photo" formControlName="photo">
+                <input type="file" name="photo" class="form-control" id="photo" formControlName="photo" (change)="handleFileInput($event)">
             </div>
             <div class="col-md-6">
                 <label for="email" class="form-label">{{ 'dash.informations.email' | translate }}</label>

@@ -53,10 +53,10 @@ export const sidebarPP: SideBarData[] = [
         title: 'Carte Prepayée',
         link: '/carteprepayee',
       },
-      {
+     /* {
         title: 'Placements',
         link: '/accounts/manage',
-      }
+      }*/
     ],
   },
   {
@@ -73,16 +73,14 @@ export const sidebarPP: SideBarData[] = [
     expanded: false, 
     subitems: [
       {
-        title: 'Comptes',
-        link: '/accounts/create', 
+        title: 'Virements',
+        link: 'transactions/virement',
+        icon: 'bi bi-person-vcard',
+ 
       },
       {
-        title: 'E-Documents',
-        link: '/accounts/manage', 
-      },
-      {
-        title: 'Mes contacts',
-        link: '/accounts/manage', 
+        title: 'Dépôt/Retraits',
+        link: '/accounts/manage',
       },
     ]
   },
@@ -104,8 +102,7 @@ export const sidebarPP: SideBarData[] = [
       },
       {
         title: 'Messageries',
-
-        link: '/service-client/chat', // Subitem link
+        link: '/service-client/chat',
       },
     ],
   },

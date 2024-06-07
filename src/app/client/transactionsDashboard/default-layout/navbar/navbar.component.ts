@@ -23,7 +23,7 @@ export class NavbarComponent {
       });
   }
   logOut(): void {
-    localStorage.clear;
+    localStorage.clear();
     this.router.navigate(['/bfi/login']);
   }
 }

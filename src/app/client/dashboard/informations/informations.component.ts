@@ -69,8 +69,22 @@ export class InformationsComponent implements OnInit{
 
   navData = navbarData;
 
-  Retour(){
-    this.router.navigate(['/dash/']); 
+  handleFileInput(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const fileName = this.extractFileName(file.name);
+      const filePath = `src/assets/img/${fileName}`;
+      this.informationForm.patchValue({ photo: filePath });
+      console.log('File path set to:', filePath); // Log the full file path for debugging
+    }
+  }
+
+  extractFileName(filePath: string): string {
+    return filePath.split('\\').pop()?.split('/').pop() || '';
+  }
+
+  Retour() {
+    this.router.navigate(['/dash/']);
   }
 
   Suivant(currentRoute: string): void {
@@ -78,13 +92,13 @@ export class InformationsComponent implements OnInit{
     if (this.informationForm?.valid) {
       // Extracting the formatted phone number from the phoneNumber FormControl
       const formattedPhoneNumber = this.informationForm.get('phoneNumber')?.value.internationalNumber;
-  
+
       if (formattedPhoneNumber) {
         // Log the extracted phone number for debugging purposes
         console.log('Formatted phone number:', formattedPhoneNumber);
-  
+
         // Update the phoneNumber field in the form value object
-        this.informationForm.patchValue({ phoneNumber: formattedPhoneNumber });  
+        this.informationForm.patchValue({ phoneNumber: formattedPhoneNumber });
         // Set temporary data for registration
         this.authService.setTemporaryRegisterData(this.informationForm.value);
         console.log('Temporary data saved:', this.informationForm.value); // Log the saved temporary data
@@ -100,7 +114,7 @@ export class InformationsComponent implements OnInit{
     const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
     if (currentIndex < this.navData.length - 1) {
       this.navData[currentIndex].visited = true;
-      const nextComponent = this.navData[currentIndex ].routeLink;
+      const nextComponent = this.navData[currentIndex].routeLink;
       this.router.navigate(['/dash/' + nextComponent]);
     }
   }
