@@ -46,4 +46,7 @@ export class AxiosService {
           headers: headers
       });
   }
+  sendOtpEmail(to: string, subject: string, text: string): Promise<any> {
+    return this.request('post', '/sendOtp', { to, subject, text });
+  }
 }

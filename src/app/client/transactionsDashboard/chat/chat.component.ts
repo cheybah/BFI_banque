@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
+import { PageTitleService } from 'src/app/services/PageTitleService';
 
 @Component({
   selector: 'app-chat',
@@ -13,10 +14,13 @@ export class ChatComponent {
   newmessage: string = '';
   private stompClient: Stomp.Client | null = null;
 
-  constructor() {}
+  constructor(private pageTitleService:PageTitleService) {}
 
   ngOnInit() {
+    this.pageTitleService.changePageTitle('Messagerie');
+
     this.connect();
+    
   }
 
   connect() {

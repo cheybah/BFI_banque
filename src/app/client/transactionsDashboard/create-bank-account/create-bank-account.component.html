@@ -12,7 +12,7 @@
       <app-navbar></app-navbar>
       <div class="d-flex align-items-center" style="width: 100%;">
         <div class="flex-grow-1 p-0 search-input">
-          <input type="text" class="form-control-mvmt search-box search-form" placeholder="Search by Account" style="width: 100%; background-color: #ffffff;">
+          <input type="text" class="form-control-mvmt search-box search-form" placeholder="Chercher par compte" style="width: 100%; background-color: #ffffff;">
         </div>
         <div class="ms-3">
           <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md" (click)="openModal()">
@@ -83,16 +83,16 @@
         <div class="modal-content">
           <span class="close" (click)="closeModal()">&times;</span>
           <div class="form-group">
-            <label for="compteType">Account Type:</label>
+            <label for="compteType">Type du Compte:</label>
             <select id="compteType" [(ngModel)]="selectedCompteType" class="form-control">
               <option *ngFor="let type of compteType" [value]="type">{{ type }}</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="clientName">Client Name:</label>
+            <label for="clientName">Nom du Client:</label>
             <input type="text" id="clientName" [(ngModel)]="clientName" class="form-control">
           </div>
-          <button (click)="addAccount()" class="btn btn-primary butn">Add Account</button>
+          <button (click)="addAccount()" class="btn btn-primary butn">Ajouter Compte</button>
         </div>
       </div>
     </main>

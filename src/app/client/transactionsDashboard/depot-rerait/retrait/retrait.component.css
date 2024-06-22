@@ -1,0 +1,18 @@
+@import '../../../transactionsDashboard/profile-settings/profile-settings.component.css';
+/* versement.component.css */
+.btn-retarit.active {
+    background-color: #87C23C;
+  }
+ /* versement.component.css */
+.card {
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .active-card {
+    border: 2px solid #9c6b21;
+  }

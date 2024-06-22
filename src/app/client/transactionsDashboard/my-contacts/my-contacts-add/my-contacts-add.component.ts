@@ -1,9 +1,11 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { NgxScannerQrcodeComponent, ScannerQRCodeResult } from 'ngx-scanner-qrcode';
+
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { NgxScannerQrcodeComponent } from 'ngx-scanner-qrcode';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { AxiosService } from 'src/app/services/axios.service';
+import { AxiosService } from 'src/app/services/axios.service'; // Veuillez importer votre service AxiosService correctement
 import { PageTitleService } from 'src/app/services/PageTitleService';
+import axios from 'axios';
 
 @Component({
   selector: 'app-my-contacts-add',
@@ -12,23 +14,23 @@ import { PageTitleService } from 'src/app/services/PageTitleService';
 })
 export class MyContactsAddComponent implements OnInit, AfterViewInit {
   scannerEnabled = false;
-  scannedData: string | null = null;
   ribValue: string = '';
   gender: string = '';
   accountCards: any[] = [];
-  contactType: string = '';
   fullName: string = '';
+  contactType: string = '';
   address: string = '';
-  category: string = '';
+  categorie: string = '';
   isFavorite: boolean = false;
   uploadedFileName: string = '';
   imageContact: string = '';
+  contactId: number = 0;
+  clientId: number | null = null;
 
   @ViewChild('scanner', { static: false }) scanner!: NgxScannerQrcodeComponent;
 
-  constructor(private router: Router, private axiosService: AxiosService, private pageTitleService: PageTitleService) {}
-
-  ngOnInit(): void {
+  constructor(private router: Router, private axiosService: AxiosService, private pageTitleService: PageTitleService) { }
+ngOnInit(): void {
     this.pageTitleService.changePageTitle('Mes contacts');
   }
 
@@ -79,14 +81,11 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
       }
     }
   }
-
+ 
   onScanResult(event: any): void {
-    console.log('we are rib here now');
     if (Array.isArray(event) && event.length > 0) {
-      console.log('we are not here now');
       this.ribValue = event[0].value;
       this.scannerEnabled = false;
-      console.log('scanned rib value is', this.ribValue);
     }
   }
 
@@ -101,7 +100,6 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
   }
 
   addAccount(): void {
-    console.log('Adding account...');
     this.accountCards.push({
       accountType: '',
       rib: '',
@@ -128,26 +126,72 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
     }
   }
 
-  addContactToClient(clientId: number, contactData: any): Promise<any> {
-    return this.axiosService.request('POST', `/clients/${clientId}/contacts`, contactData);
+  validateContactData(contactData: any): boolean {
+    if (!contactData.fullName || !contactData.address || !contactData.gender || !contactData.categorie) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Validation Error',
+        text: 'Please fill in all required fields.',
+        confirmButtonColor: '#B48F44'
+      });
+      return false;
+    }
+    return true;
+  }
+ 
+  addContact(contactData: any): Promise<any> {
+    console.log("Sending contact data to server:", contactData);
+
+    return axios.post('/contacts', contactData)
+      .then(response => {
+        console.log("Server response:", response);
+        return response;
+      })
+      .catch(error => {
+        console.error("Error response:", error.response);
+        throw error;
+      });
+  }
+
+  addContactToClient(clientId: number, contactId: number): Promise<any> {
+    return axios.put(`/clients/${clientId}/contacts/${contactId}`, null);
   }
 
   finish(): void {
     const contactData = {
-      gender: this.gender,
-      address: this.address,
-      imageContact: this.imageContact,
-      categorie:"famille",
-      fullName: this.fullName
+      gender: this.gender || "default_gender",
+      address: this.address || "default_address",
+      imageContact: this.imageContact || "default_image",
+      categorie: this.categorie || "famille",
+      fullName: this.fullName || "default_name"
     };
 
-    const clientId = 2;
-    this.addContactToClient(clientId, contactData)
+    if (!this.validateContactData(contactData)) {
+      return;
+    }
+
+    const clientIdStr = localStorage.getItem('userId');
+    if (clientIdStr) {
+      this.clientId = parseInt(clientIdStr, 10);
+      if (isNaN(this.clientId)) {
+        console.error('Invalid client ID');
+        return;
+      }
+    } else {
+      console.error('Client ID is missing');
+      return;
+    }
+
+    this.addContact(contactData)
+      .then((response) => {
+        this.contactId = response.data.contactId;
+        return this.addContactToClient(this.clientId!, this.contactId);
+      })
       .then((response) => {
         Swal.fire({
           icon: 'success',
           title: 'Success',
-          text: 'Contact added successfully!',
+          text: 'Contact added to client successfully!',
           confirmButtonColor: '#B48F44'
         }).then(() => {
           this.router.navigate(['/accounts/my-contacts']);
@@ -155,6 +199,9 @@ export class MyContactsAddComponent implements OnInit, AfterViewInit {
       })
       .catch((error) => {
         console.error('Error adding contact:', error);
+        if (error.response) {
+          console.error('Response data:', error.response.data);
+        }
         Swal.fire({
           icon: 'error',
           title: 'Error',

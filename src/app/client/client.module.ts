@@ -74,6 +74,9 @@ import { CarteprepayeeComponent } from './transactionsDashboard/carteprepayee/ca
 import { PlacementsComponent } from './transactionsDashboard/placements/placements.component';
 import { DepotReraitComponent } from './transactionsDashboard/depot-rerait/depot-rerait.component';
 import { ChatComponent } from './transactionsDashboard/chat/chat.component';
+import { AddcontactComponent } from './transactionsDashboard/my-contacts/addcontact/addcontact.component';
+import { DepotComponent } from './transactionsDashboard/depot-rerait/depot/depot.component';
+import { RetraitComponent } from './transactionsDashboard/depot-rerait/retrait/retrait.component';
 
 
 
@@ -146,7 +149,10 @@ export function playerFactory() {
     CarteprepayeeComponent,
     PlacementsComponent,
     DepotReraitComponent,
-    ChatComponent
+    ChatComponent,
+    AddcontactComponent,
+    DepotComponent,
+    RetraitComponent
   ],
   exports: [
   ],

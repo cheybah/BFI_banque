@@ -75,7 +75,7 @@ export class MyContactsComponent {
     };
 
     this.contacts.push(newContact); // Add new contact to the list
-    this.router.navigate(['/accounts/my-contacts-add']); // Navigate to the add contact page
+    this.router.navigate(['/accounts/addcontact']); // Navigate to the add contact page
   }
 
   animationCreated(animation: any) {

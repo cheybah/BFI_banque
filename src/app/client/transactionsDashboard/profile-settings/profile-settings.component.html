@@ -1,123 +1,125 @@
 <body class="g-sidenav-show bg-gray-100">  
-    <div class="sidenav navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100 side" id="sidenav-main" >
-        
-        <app-transaction-nav></app-transaction-nav>
-        </div>
-        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-            <app-navbar></app-navbar>  
-            <div class="row fv-plugins-icon-container">
-            <div class="col-md-12">
-                <ul class="nav nav-pills flex-column flex-md-row mb-3">
-                  <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-user me-1"></i> Account</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/settings/security"><i class="bx bx-lock-alt me-1"></i> Security</a></li>
-                </ul>
-                <div class="card mb-4">
-                  <h5 class="card-header">Profile Details</h5>
-                  <!-- Account -->
+  <div class="sidenav navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100 side" id="sidenav-main">
+      <app-transaction-nav></app-transaction-nav>
+  </div>
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+      <app-navbar></app-navbar>  
+      <div class="row fv-plugins-icon-container">
+          <div class="col-md-12">
+              <ul class="nav nav-pills flex-column flex-md-row mb-3">
+                  <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-user me-1"></i> Compte</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/settings/security"><i class="bx bx-lock-alt me-1"></i> Sécurité</a></li>
+              </ul>
+              <div class="card mb-4">
+                  <h5 class="card-header">Détails du profil</h5>
+                  <!-- Compte -->
                   <div class="card-body">
-                    <div class="d-flex align-items-start align-items-sm-center gap-4">
-                      <img src="../../../../assets/img/avatars/1.png" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar">
-                      <div class="button-wrapper">
-                        <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-                          <span class="d-none d-sm-block">Upload new photo</span>
-                          <i class="bx bx-upload d-block d-sm-none"></i>
-                          <input type="file" id="upload" class="account-file-input" hidden="" accept="image/png, image/jpeg">
-                        </label>
-                        <button type="button" class="btn btn-label-secondary account-image-reset mb-4">
-                          <i class="bx bx-reset d-block d-sm-none"></i>
-                          <span class="d-none d-sm-block">Reset</span>
-                        </button>
-            
-                        <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                      <div class="d-flex align-items-start align-items-sm-center gap-4">
+                          <img src="../../../../assets/img/avatars/1.png" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar">
+                          <div class="button-wrapper">
+                              <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                                  <span class="d-none d-sm-block">Télécharger une nouvelle photo</span>
+                                  <i class="bx bx-upload d-block d-sm-none"></i>
+                                  <input type="file" id="upload" class="account-file-input" hidden="" accept="image/png, image/jpeg">
+                              </label>
+                              <button type="button" class="btn btn-label-secondary account-image-reset mb-4">
+                                  <i class="bx bx-reset d-block d-sm-none"></i>
+                                  <span class="d-none d-sm-block">Réinitialiser</span>
+                              </button>
+                              <p class="text-muted mb-0">Formats autorisés : JPG, GIF ou PNG. Taille max : 800K</p>
+                          </div>
                       </div>
-                    </div>
                   </div>
                   <hr class="my-0">
                   <div class="card-body">
-                    <form id="formAccountSettings" method="GET" onsubmit="return false" class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
-                        <div class="row">
-                            <div class="mb-3 col-md-6 fv-plugins-icon-container">
-                                <label for="firstName" class="form-label">First Name</label>
-                                <input class="form-control" type="text" id="firstName" name="firstName" value="John" autofocus="">
-                                <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
-                            </div>
-                            <div class="mb-3 col-md-6 fv-plugins-icon-container">
-                                <label for="lastName" class="form-label">Last Name</label>
-                                <input class="form-control" type="text" name="lastName" id="lastName" value="Doe">
-                                <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label for="email" class="form-label">E-mail</label>
-                                <input class="form-control" type="text" id="email" name="email" value="john.doe@example.com" placeholder="john.doe@example.com">
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label class="form-label" for="phoneNumber">Phone Number</label>
-                                <div class="input-group input-group-merge">
-                                    <span class="input-group-text">TUN (+216)</span>
-                                    <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="99 888 777">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label for="address" class="form-label">City</label>
-                                <input type="text" class="form-control" id="city" name="city" placeholder="City">
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="state" class="form-label">Neighbourhood</label>
-                                <input class="form-control" type="text" id="neighbourhood" name="neighbourhood" placeholder="Neighbourhood">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label for="zipCode" class="form-label">Zip Code</label>
-                                <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="0001" maxlength="6">
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label class="form-label" for="country">Country</label>
-                                <div class="position-relative">
-                                    <select id="country" class="select2 form-select select2-hidden-accessible" data-select2-id="country" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="2">Select</option>
-                                        <option value="Tunisia">Tunisia</option>
-                                        <option value="Cameroon">Cameroon</option>
-                                        <option value="Central African Republic">Central African Republic</option>
-                                        <option value="Chad">Chad</option>
-                                        <option value="Republic of the Congo">Republic of the Congo</option>
-                                        <option value="Equatorial Guinea">Equatorial Guinea</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-2">
-                            <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                            <button type="reset" class="btn btn-label-secondary">Cancel</button>
-                        </div>
-                        <input type="hidden">
-                        </form>
-                        </div>
-                        <!-- /Account -->
-                        </div>                        
-                <div class="card">
-                  <h5 class="card-header">Delete Account</h5>
-                  <div class="card-body">
-                    <div class="mb-3 col-12 mb-0">
-                      <div class="alert alert-warning">
-                        <h6 class="alert-heading fw-medium mb-1">Are you sure you want to delete your account?</h6>
-                        <p class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
-                      </div>
-                    </div>
-                    <form id="formAccountDeactivation" onsubmit="return false" class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
-                      <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" name="accountActivation" id="accountActivation">
-                        <label class="form-check-label" for="accountActivation">I confirm my account deactivation</label>
-                      <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div></div>
-                      <button type="submit" class="btn btn-danger deactivate-account">Deactivate Account</button>
-                    <input type="hidden"></form>
+                      <form id="formAccountSettings" method="GET" onsubmit="return false" class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
+                          <div class="row">
+                              <div class="mb-3 col-md-6 fv-plugins-icon-container">
+                                  <label for="firstName" class="form-label">Prénom</label>
+                                  <input class="form-control" type="text" id="firstName" name="firstName" value="Said" autofocus="">
+                                  <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                              </div>
+                              <div class="mb-3 col-md-6 fv-plugins-icon-container">
+                                  <label for="lastName" class="form-label">Nom</label>
+                                  <input class="form-control" type="text" name="lastName" id="lastName" value="Doghri">
+                                  <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="mb-3 col-md-6">
+                                  <label for="email" class="form-label">E-mail</label>
+                                  <input class="form-control" type="text" id="email" name="email" value="doghri.said@gmail.com" placeholder="john.doe@example.com">
+                              </div>
+                              <div class="mb-3 col-md-6">
+                                  <label class="form-label" for="phoneNumber">Numéro de téléphone</label>
+                                  <div class="input-group input-group-merge">
+                                      <span class="input-group-text">TUN (+216)</span>
+                                      <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="99 888 777">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="mb-3 col-md-6">
+                                  <label for="city" class="form-label">Ville</label>
+                                  <input type="text" class="form-control" id="city" name="city" placeholder="Tunis">
+                              </div>
+                              <div class="mb-3 col-md-6">
+                                  <label for="neighbourhood" class="form-label">Quartier</label>
+                                  <input class="form-control" type="text" id="neighbourhood" name="neighbourhood" placeholder="Beb Alioua">
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="mb-3 col-md-6">
+                                  <label for="zipCode" class="form-label">Code Postal</label>
+                                  <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="1001" maxlength="6">
+                              </div>
+                              <div class="mb-3 col-md-6">
+                                  <label class="form-label" for="country">Pays</label>
+                                  <div class="position-relative">
+                                      <select id="country" class="select2 form-select select2-hidden-accessible" data-select2-id="country" tabindex="-1" aria-hidden="true">
+                                          <option value="" data-select2-id="2">Sélectionner</option>
+                                          <option value="Tunisia">Tunisie</option>
+                                          <option value="Cameroon">Cameroun</option>
+                                          <option value="Central African Republic">République Centrafricaine</option>
+                                          <option value="Chad">Tchad</option>
+                                          <option value="Republic of the Congo">République du Congo</option>
+                                          <option value="Equatorial Guinea">Guinée Équatoriale</option>
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="mt-2">
+                              <button type="submit" class="btn btn-primary me-2">Enregistrer les modifications</button>
+                              <button type="reset" class="btn btn-label-secondary">Annuler</button>
+                          </div>
+                          <input type="hidden">
+                      </form>
                   </div>
-                </div>
+                  <!-- /Compte -->
+              </div>                        
+              <!--
+              <div class="card">
+                  <h5 class="card-header">Supprimer le compte</h5>
+                  <div class="card-body">
+                      <div class="mb-3 col-12 mb-0">
+                          <div class="alert alert-warning">
+                              <h6 class="alert-heading fw-medium mb-1">Êtes-vous sûr de vouloir supprimer votre compte ?</h6>
+                              <p class="mb-0">Une fois votre compte supprimé, il n'y a pas de retour en arrière. Veuillez en être certain.</p>
+                          </div>
+                      </div>
+                      <form id="formAccountDeactivation" onsubmit="return false" class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
+                          <div class="form-check mb-3">
+                              <input class="form-check-input" type="checkbox" name="accountActivation" id="accountActivation">
+                              <label class="form-check-label" for="accountActivation">Je confirme la désactivation de mon compte</label>
+                              <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                          </div>
+                          <button type="submit" class="btn btn-danger deactivate-account">Désactiver le compte</button>
+                          <input type="hidden">
+                      </form>
+                  </div>
               </div>
-            </div>
-        </main>
+-->
+          </div>
+      </div>
+  </main>
+</body>

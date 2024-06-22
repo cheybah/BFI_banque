@@ -5,6 +5,7 @@ import { AutresInformationsService } from '../../../services/autres-informations
 import { navbarData } from '../sidenav/nav-data';
 import * as Tesseract from 'tesseract.js';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 declare const cv: any;
 
@@ -212,7 +213,14 @@ export class AutresInformationsComponent implements OnInit {
           this.router.navigate(['/dash/' + nextComponent]);
         }
       } else {
-        console.error('Piece number does not match the extracted number.');
+        Swal.fire({
+          icon: 'error',
+          title: 'erreur',
+          text: "Le numéro de pièce ne correspond pas au numéro extrait.",
+          confirmButtonColor: '#B48F44',
+          timer: 3000
+      });
+        console.error('Le numéro de pièce ne correspond pas au numéro extrait.');
         // Optionally, provide user feedback here
       }
     } else {

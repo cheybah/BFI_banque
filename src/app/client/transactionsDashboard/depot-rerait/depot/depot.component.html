@@ -1,0 +1,76 @@
+<body class="g-sidenav-show bg-gray-100">
+  <div class="sidenav navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100" id="sidenav-main">
+    <app-transaction-nav></app-transaction-nav>
+  </div>
+
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    <app-navbar></app-navbar>
+
+    <div class="row" style="margin-left:70px">
+      <div class="col-md-12">
+        <ul class="nav nav-pills flex-column flex-md-row mb-3">
+          <li class="nav-item"><a class="nav-link active" href="transactions/virement/depot">Dépot</a></li>
+          <li class="nav-item"><a class="nav-link " href="transactions/virement/retrait">Retrait</a></li>
+        </ul>
+        <div class="card-body">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                Comment souhaitez-vous faire  votre dépôt ?
+              </div>
+              <div class="card-body">
+                <form (ngSubmit)="onSubmit()">
+                  <div class="row">
+                    <div class="col-md-6 mb-3" *ngFor="let choice of [1, 2]">
+                      <div class="card" [ngClass]="{'active-card': deposit.depotOption === getChoiceLabel(choice)}"
+                        (click)="choixVersement(getChoiceLabel(choice))" style="border: 2px solid #b8b7b7;">
+                        <div class="card-body text-center">
+                          <i class="fas fa-university p-2" style="color:#9c6b21 !important"></i>
+                          <p>{{ getChoiceLabel(choice) }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3" *ngFor="let choice of [3, 4]">
+                      <div class="card" [ngClass]="{'active-card': deposit.depotOption === getChoiceLabel(choice)}"
+                        (click)="choixVersement(getChoiceLabel(choice))" style="border: 2px solid #b8b7b7;">
+                        <div class="card-body text-center">
+                          <i class="fas fa-university p-2" style="color:#9c6b21 !important"></i>
+                          <p>{{ getChoiceLabel(choice) }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pt-3 pb-3 text-center">
+                    <div class="row justify-content-center pt-3 pb-3">
+                      <label class="col-form-label col-form-para-card">
+                        Dans quel compte souhaitez-vous faire votre dépôt ?
+                      </label>
+                      <div class="col-6">
+                        <input type="text" class="form-control" [(ngModel)]="deposit.ribDepotCompteSource" name="ribDepotCompteSource" required>
+                      </div>
+                    </div>
+                      <label class="col-form-label col-form-para-card">
+                        Saisissez le montant à déposer...
+                      </label>
+                      <div class="col-6">
+                        <input type="number" class="form-control" [(ngModel)]="deposit.montant" name="montant" required>
+                      </div>
+                      <label class="col-form-label col-form-para-card">
+                        Motif
+                      </label>
+                      <div class="col-6">
+                        <input type="text" class="form-control" [(ngModel)]="deposit.motif" name="motif" required>
+                      </div>
+                    <button type="submit" class="btn btn-primary">Déposer</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
