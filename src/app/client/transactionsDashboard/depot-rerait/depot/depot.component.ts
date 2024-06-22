@@ -42,6 +42,8 @@ export class DepotComponent {
     }
 
     console.log('Sending deposit data:', this.deposit);
+    console.log('Sending deposit data:', this.deposit);
+
     this.depotService.makeDeposit(this.deposit).subscribe(
       response => {
         console.log('Dépôt réussi', response);
