@@ -92,7 +92,5 @@ export class VirementComponent implements OnInit {
     this.router.navigate(['transactions/virement/permanent']);
   }
 
-  GoToMultipleContact() {
-    this.router.navigate(['transactions/virement/multiple']);
-  }
+ 
 }

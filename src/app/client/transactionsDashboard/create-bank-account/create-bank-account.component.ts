@@ -107,10 +107,10 @@ export class CreateBankAccountComponent {
 
 
   GoToDepotRetrait(): void {
-    this.router.navigate(['/transactions/virement/depot-retrait']);
+    this.router.navigate(['/transactions/virement/depot']);
   }
   async downloadPDF(account: any) {
-    const existingPdfBytes = await fetch('/assets/bamboo-template.pdf').then(res => res.arrayBuffer());
+    const existingPdfBytes = await fetch('/assets/digibank-template.pdf').then(res => res.arrayBuffer());
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
     const pages = pdfDoc.getPages();
     const firstPage = pages[0];
@@ -118,10 +118,11 @@ export class CreateBankAccountComponent {
     const contentHeight = 5 * 12 + 100;
     const yPosition = (height - contentHeight) / 1.2;
 
-    firstPage.drawText('Account Information :', { x: 50, y: yPosition + 40, size: 25 });
-    firstPage.drawText(`Client Name: ${account.clientName}`, { x: 50, y: yPosition - 40, size: 12 });
-    firstPage.drawText(`Account Number: ${account.qrData}`, { x: 50, y: yPosition - 80, size: 12 });
-    firstPage.drawText(`Account Balance: ${account.accountBalance}`, { x: 50, y: yPosition - 120, size: 12 });
+    firstPage.drawText(`RELEVE D'IDENTITÉ CLIENT :`, { x: 50, y: yPosition + 40, size: 25 });
+    firstPage.drawText(`Type du Compte : ${"COMPTE COURANT"}`, { x: 50, y: yPosition - 8, size: 12 });
+    firstPage.drawText(`Nom du Client : ${account.clientName}`, { x: 50, y: yPosition - 40, size: 12 });
+    firstPage.drawText(`Rib : ${account.qrData}`, { x: 50, y: yPosition - 80, size: 12 });
+    firstPage.drawText(`Solde du compte : ${"0"}`, { x: 50, y: yPosition - 120, size: 12 });
 
     const qrImageBytes = await fetch(`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(account.qrData)}`).then(res => res.arrayBuffer());
     const qrImage = await pdfDoc.embedPng(qrImageBytes);
@@ -135,7 +136,7 @@ export class CreateBankAccountComponent {
     link.click();
   }
   async downloadPDFmainAccout(account: any) {
-    const existingPdfBytes = await fetch('/assets/bamboo-template.pdf').then(res => res.arrayBuffer());
+    const existingPdfBytes = await fetch('/assets/digibank-template.pdf').then(res => res.arrayBuffer());
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
     const pages = pdfDoc.getPages();
     const firstPage = pages[0];
@@ -143,10 +144,11 @@ export class CreateBankAccountComponent {
     const contentHeight = 5 * 12 + 100;
     const yPosition = (height - contentHeight) / 1.2;
 
-    firstPage.drawText('Account Information :', { x: 50, y: yPosition + 40, size: 25 });
-    firstPage.drawText(`Client Name: ${this.clientDetails.firstName}`+` ${this.clientDetails.lastName}`, { x: 50, y: yPosition - 40, size: 12 });
-    firstPage.drawText(`Account Number: ${this.bankaccountqrdata}`, { x: 50, y: yPosition - 80, size: 12 });
-    firstPage.drawText(`Account Balance: ${this.bankAccount.solde}`, { x: 50, y: yPosition - 120, size: 12 });
+    firstPage.drawText(`RELEVE D'IDENTITÉ CLIENT :`, { x: 50, y: yPosition + 40, size: 25 });
+    firstPage.drawText(`Type du Compte : ${"COMPTE COURANT"}`, { x: 50, y: yPosition - 8, size: 12 });
+    firstPage.drawText(`Nom du Client : ${this.clientDetails.firstName}`+` ${this.clientDetails.lastName}`, { x: 50, y: yPosition - 40, size: 12 });
+    firstPage.drawText(`Rib : ${this.bankaccountqrdata}`, { x: 50, y: yPosition - 80, size: 12 });
+    firstPage.drawText(`Solde du compte : ${"0"}`, { x: 50, y: yPosition - 120, size: 12 });
 
     const qrImageBytes = await fetch(`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(account.qrData)}`).then(res => res.arrayBuffer());
     const qrImage = await pdfDoc.embedPng(qrImageBytes);

@@ -39,7 +39,6 @@ import { ExtraitComponent } from './transactionsDashboard/extrait/extrait.compon
 import { DemandeCarteComponent } from './dashboard/demande-carte/demande-carte.component';
 import { VirementComponent } from './dashboard/virement/virement.component';
 import { VirementMyContactsComponent } from './dashboard/virement-my-contacts/virement-my-contacts.component';
-import { VirementMultipleComponent } from './dashboard/virement-multiple/virement-multiple.component';
 import { VirementPermanentComponent } from './dashboard/virement-permanent/virement-permanent.component';
 import { VirementAutreCompteComponent } from './dashboard/virement-autre-compte/virement-autre-compte.component';
 import { IntrabancaireComponent } from './dashboard/virement-autre-compte/intrabancaire/intrabancaire.component';
@@ -49,6 +48,10 @@ import { DepotReraitComponent } from './transactionsDashboard/depot-rerait/depot
 import {ChatComponent} from './transactionsDashboard/chat/chat.component';
 
 import { canDeactivateGuard } from '../services/can-deactivate.guard';
+import { addRandomSuffix } from 'pdf-lib';
+import { AddcontactComponent } from './transactionsDashboard/my-contacts/addcontact/addcontact.component';
+import { DepotComponent } from './transactionsDashboard/depot-rerait/depot/depot.component';
+import { RetraitComponent } from './transactionsDashboard/depot-rerait/retrait/retrait.component';
 
 
 
@@ -92,6 +95,8 @@ const routes: Routes = [
   {path: 'accounts/create', component: CreateBankAccountComponent},
   {path: 'accounts/my-contacts', component: MyContactsComponent},
   {path: 'accounts/my-contacts-add', component: MyContactsAddComponent},
+  {path: 'accounts/addcontact', component: AddcontactComponent},
+
   {path: 'transactions', component: TransactionsdashComponent},
   { path: 'transfert-rapide', component: TransfertRapideComponent}, 
   { path: 'administration/gestion-utilisateurs', component: GestionUtilisateursComponent}, 
@@ -107,8 +112,10 @@ const routes: Routes = [
   { path: 'transactions/virement/my-contacts', component: VirementMyContactsComponent },
   { path: 'transactions/virement/autre-contact', component: VirementAutreCompteComponent },
   { path: 'transactions/virement/permanent', component: VirementPermanentComponent },
-  { path: 'transactions/virement/multiple', component: VirementMultipleComponent },
   { path: 'transactions/virement/depot-retrait', component: DepotReraitComponent },
+  { path: 'transactions/virement/depot', component: DepotComponent },
+  { path: 'transactions/virement/retrait', component: RetraitComponent },
+
   { path: 'transactions/virement/autre-contact/intrabancaire', component: IntrabancaireComponent },
   { path: 'transactions/virement/autre-contact/interbancaire', component: InterbancaireComponent },
   { path: 'carteprepayee', component: CarteprepayeeComponent },

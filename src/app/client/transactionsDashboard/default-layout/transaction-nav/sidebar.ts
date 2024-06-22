@@ -47,16 +47,16 @@ export const sidebarPP: SideBarData[] = [
       },
       {
         title: 'Dépôt/Retraits',
-        link: '/accounts/manage',
+        link: '/transactions/virement/depot',
       },
       {
         title: 'Carte Prepayée',
         link: '/carteprepayee',
       },
-     /* {
+      {
         title: 'Placements',
         link: '/accounts/manage',
-      }*/
+      }
     ],
   },
   {
@@ -101,7 +101,7 @@ export const sidebarPP: SideBarData[] = [
         link: '/service-client/reclamation', 
       },
       {
-        title: 'Messageries',
+        title: 'Messagerie',
         link: '/service-client/chat',
       },
     ],

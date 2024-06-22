@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../services/auth.service'; // Import the AuthService to access temporary stored data
-import { AdresseService } from '../../../services/adresse.service'; // Import the AdresseService to access temporary stored data
-import { AutresInformationsService } from '../../../services/autres-informations.service'; // Import the AutresInformationsService to access temporary stored data
-import { OffresDomiciliationService } from '../../../services/offres-domiciliation.service'; // Import the OffresDomiciliationService to access temporary stored data
+import { AuthService } from '../../../services/auth.service';
+import { AdresseService } from '../../../services/adresse.service';
+import { AutresInformationsService } from '../../../services/autres-informations.service';
+import { OffresDomiciliationService } from '../../../services/offres-domiciliation.service';
+import { AxiosService } from '../../../services/axios.service';
 import Swal from 'sweetalert2';
-
-declare let Email: any;
 
 @Component({
     selector: 'app-validation',
@@ -28,12 +27,14 @@ export class ValidationComponent {
         private authService: AuthService,
         private adresseService: AdresseService,
         private autresInformationsService: AutresInformationsService,
-        private offresDomiciliationService: OffresDomiciliationService
+        private offresDomiciliationService: OffresDomiciliationService,
+        private axiosService: AxiosService
     ) { }
+
     generateFourDigitCode(): String {
         return Math.floor(1000 + Math.random() * 9000).toString();
     }
-    
+
     generateTwentyDigitRIB(): string {
         let rib = '';
         for (let i = 0; i < 20; i++) {
@@ -41,36 +42,23 @@ export class ValidationComponent {
         }
         return rib;
     }
-    
 
     sendOTP() {
         this.otpValue = Math.floor(1000 + Math.random() * 9000);
+        let emailBody = `Votre OTP est : ${this.otpValue}`;
+        this.axiosService.sendOtpEmail(this.email, "OTP Pour Vérifier l'Email pour création de compte DigiBank ", emailBody)
+            .then(() => {
+                this.showSuccessAlert("OTP envoyé à votre adresse email " + this.email);
+                this.otpVerifyDisplay = "flex";
 
-        let emailbody = `<h2>Your OTP is</h2>${this.otpValue}`;
-        Email.send({
-            Host:"smtp.elasticemail.com",
-            Username:"cheymabahroun@gmail.com",
-            Password:"2AE8FE0BC29A65363DE1866214A384F9B549",
-            Port:"2525",
-            To: this.email,
-            From: "cheymabahroun@gmail.com",
-            Subject: "OTP Pour Vérifier l'Email du compte DigiBank",
-            Body: emailbody,
-        }).then(
-            (message: string) => {
-                if (message === "OK") {
-                    this.showSuccessAlert("OTP sent to your email " + this.email);
-                    this.otpVerifyDisplay = "flex";
+                this.showCountdown = true;
+                this.resendButtonDisabled = true;
 
-                    // Enable countdown and disable resend button
-                    this.showCountdown = true;
-                    this.resendButtonDisabled = true;
-
-                    // Start countdown
-                    this.startCountdown();
-                }
-            }
-        );
+                this.startCountdown();
+            })
+            .catch(error => {
+                this.showErrorAlert("Échec de l'envoi d'OTP :" + error.message);
+            });
     }
 
     private startCountdown() {
@@ -78,7 +66,6 @@ export class ValidationComponent {
             if (this.countdown > 0) {
                 this.countdown--;
             } else {
-                // Countdown finished, enable resend button
                 this.resendButtonDisabled = false;
                 this.resendButtonText = 'Re-envoyer OTP';
                 clearInterval(interval);
@@ -92,22 +79,21 @@ export class ValidationComponent {
             const additionalInfo = this.authService.getTemporaryAdditionalInfo();
             const address = this.authService.getTemporaryAddress();
             const authForm = this.authService.getTemporaryauthData();
-           const Login = authForm.login;
-           const Password = authForm.password;
+            const login = authForm.login;
+            const password = authForm.password;
 
-            //   if (registerData && additionalInfoData && addressData && offersData) {
             const combinedData = {
                 ...registerData,
                 address,
-                login:Login,
-                password:Password,
+                login,
+                password,
                 additionalInfo,
                 agencyId: 1,
                 bankAccounts: [{
                     "rib": this.generateTwentyDigitRIB(),
                     "code": this.generateFourDigitCode(),
                 }],
-                contacts: [] // Initialize contacts as an empty array
+                contacts: []
             };
 
             console.log("dataaaa", combinedData);
@@ -121,35 +107,30 @@ export class ValidationComponent {
             );
 
             this.authService.clearTemporaryRegisterData();
-            //  }
-
-            this.showSuccessAlert("Email address verified...");
+            this.showSuccessAlert("Adressse Email  vérifiée...");
             this.router.navigate(['/welcome']);
         } else {
-            this.showErrorAlert("Invalid OTP");
+            this.showErrorAlert("OTP invalide");
         }
     }
 
-    // Show success alert
     showSuccessAlert(message: string): void {
         Swal.fire({
             icon: 'success',
-            title: 'Success',
+            title: 'succès',
             text: message,
             confirmButtonColor: '#B48F44',
             timer: 3000
         });
     }
 
-    // Show error alert
     showErrorAlert(message: string): void {
         Swal.fire({
             icon: 'error',
-            title: 'Error',
+            title: 'erreur',
             text: message,
             confirmButtonColor: '#B48F44',
             timer: 3000
         });
     }
 }
-
