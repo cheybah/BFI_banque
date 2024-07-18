@@ -142,3 +142,4 @@
 .card .card-body {
     background-color: white !important;
 }
+@import '../../transactionsDashboard/profile-settings/profile-settings.component.css';

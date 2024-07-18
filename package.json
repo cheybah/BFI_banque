@@ -49,6 +49,7 @@
     "ngx-captcha": "^13.0.0",
     "ngx-intl-tel-input": "^3.2.0",
     "ngx-lottie": "^10.0.0",
+    "ngx-scanner": "^0.0.0",
     "ngx-scanner-qrcode": "^1.6.9",
     "pdf-lib": "^1.17.1",
     "popper.js": "^1.16.1",

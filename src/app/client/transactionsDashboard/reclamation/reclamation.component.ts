@@ -22,6 +22,7 @@ export class ReclamationComponent implements OnInit {
 
   ngOnInit() {
         this.pageTitleService.changePageTitle('Réclamation');
+        this.date = new Date().toISOString().substring(0, 10);
 
     this.reclamationService.getAllReclamations().then(response => {
       this.reclamations = response.data;

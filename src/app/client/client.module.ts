@@ -77,6 +77,10 @@ import { ChatComponent } from './transactionsDashboard/chat/chat.component';
 import { AddcontactComponent } from './transactionsDashboard/my-contacts/addcontact/addcontact.component';
 import { DepotComponent } from './transactionsDashboard/depot-rerait/depot/depot.component';
 import { RetraitComponent } from './transactionsDashboard/depot-rerait/retrait/retrait.component';
+import { AchatcarteComponent } from './transactionsDashboard/carteprepayee/achatcarte/achatcarte.component';
+import { PlacementComponent } from './transactionsDashboard/placement/placement.component';
+import { HistoriquevirementComponent } from './transactionsDashboard/historique/historiquevirement/historiquevirement.component';
+import { HistoriquedepotComponent } from './transactionsDashboard/historique/historiquedepot/historiquedepot.component';
 
 
 
@@ -152,7 +156,11 @@ export function playerFactory() {
     ChatComponent,
     AddcontactComponent,
     DepotComponent,
-    RetraitComponent
+    RetraitComponent,
+    AchatcarteComponent,
+    PlacementComponent,
+    HistoriquevirementComponent,
+    HistoriquedepotComponent
   ],
   exports: [
   ],

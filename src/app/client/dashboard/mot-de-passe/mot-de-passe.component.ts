@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { navbarData } from '../sidenav/nav-data';
-
-
 
 @Component({
   selector: 'app-mot-de-passe',
@@ -16,47 +14,53 @@ export class MotDePasseComponent {
   authForm: FormGroup;
   navData = navbarData;
 
+  loginPattern = /^[a-zA-Z0-9]{4,}$/;
+  passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-  constructor(private router: Router,
+  validationMessages = {
+    login: {
+      required: 'Le login est obligatoire.',
+      pattern: 'Le login doit contenir au moins 4 caractères alphanumériques.'
+    },
+    password: {
+      required: 'Le mot de passe est obligatoire.',
+      pattern: 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.'
+    }
+  };
+
+  constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
-    private authService: AuthService){
-      this.authForm = this.formBuilder.group({
-        login: [null, Validators.required],
-        password: ['', [Validators.required]],
-      });
+    private authService: AuthService
+  ) {
+    this.authForm = this.formBuilder.group({
+      login: [null, [Validators.required, Validators.pattern(this.loginPattern)]],
+      password: ['', [Validators.required, Validators.pattern(this.passwordPattern)]]
+    });
+  }
+
+  Suivant(currentRoute: string): void {
+    const authFormValue = this.authForm.value;
+    this.authService.setTemporaryauthData(authFormValue);
+
+    const temporaryData = this.authService.getTemporaryRegisterData();
+    console.log('Temporary data:', temporaryData);
+
+    if (temporaryData) {
+      const combinedData = { ...temporaryData, ...authFormValue };
+      console.log('Combined data:', combinedData);
+
+      this.authService.setTemporaryCombinedData(combinedData);
+      console.log('Temporary combined data stored:', combinedData);
+
+      this.router.navigate(['/dash/validation']);
+    } else {
+      console.error('Temporary data not found.');
     }
 
-    Suivant(currentRoute: string): void{
- 
-      const authForm = this.authForm.value;
-      this.authService.setTemporaryauthData(authForm);
-      // Get the temporary data from the first form
-      const temporaryData = this.authService.getTemporaryRegisterData();
-      console.log('Temporary data:', temporaryData);
-      // Check if temporary data is available
-      if (temporaryData) {
-        // Concatenate the JSON object from the second form with the one from the temporary storage
-        const combinedData = { ...temporaryData, ...this.authForm.value };
-        console.log('Combined data:', combinedData); // Log the combined data for debugging
-        
-        // Store the combined data in the temporary storage
-        this.authService.setTemporaryCombinedData(combinedData);
-        console.log('Temporary combined data stored:', combinedData); // Log the stored combined data for debugging
-
-    
-        // Navigate to the next step
-        this.router.navigate(['/dash/validation']);
-      } else {
-        console.error('Temporary data not found.');
-        // Handle missing temporary data
-      }
-    
-      const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
-        this.navData[currentIndex].visited = true;
-        const nextComponent = this.navData[currentIndex ].routeLink;
-        this.router.navigate(['/dash/' + nextComponent]);
-      
-
-    }
-    
+    const currentIndex = this.navData.findIndex(item => item.routeLink === currentRoute);
+    this.navData[currentIndex].visited = true;
+    const nextComponent = this.navData[currentIndex].routeLink;
+    this.router.navigate(['/dash/' + nextComponent]);
+  }
 }

@@ -74,7 +74,7 @@
                 <label for="expirationDate">{{ 'dash.additionalInfo.expiration_date' | translate }}</label><span
                     class="required">*</span>
                 <input type="date" id="expirationDate" name="expirationDate" formControlName="expirationDate"
-                    min="{{ today | date:'yyyy-MM-dd' }}">
+                    max="{{ today | date:'yyyy-MM-dd' }}">
             </div>
 
             <div class="col-12">

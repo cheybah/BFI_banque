@@ -113,8 +113,10 @@ export class TransactionsdashComponent implements OnInit {
     this.router.navigate(['/transactions-dashboard/extrait']);
   }
   GoToContacts(){
-    this.router.navigate(['/accounts/my-contacts-add']);
+    this.router.navigate(['/accounts/addcontact']);
   }
-
+  GoToCartes(){
+    this.router.navigate(['/accounts/carteprepayee']);
+  }
 }
 
