@@ -44,10 +44,11 @@ export class AddcontactComponent {
 
     if (this.scanner) {
       console.log('Scanner is defined.');
+      // Abonnez-vous aux données scannées
       this.scanner.data.subscribe((data: any) => {
         if (data && data.value) {
           this.rib = data.value;
-          console.log('scanned rib value is', this.rib);
+          console.log('Scanned rib value is', this.rib);
         }
       });
     } else {
@@ -95,13 +96,17 @@ export class AddcontactComponent {
     });
   }
 
+ 
+  
   onScanResult(event: any): void {
-    if (Array.isArray(event) && event.length > 0) {
-      this.rib = event[0].value;  // Assurez-vous que rib reçoit la valeur correctement
-      this.scannerEnabled = false;
+    console.log('Scan result:', event); // Vérifiez si l'événement est correctement capturé
+  
+    if (event && event.value) {
+      this.rib = event.value;  // Assurez-vous que rib reçoit la valeur correctement
+      this.scannerEnabled = false; // Désactivez le scanner après avoir obtenu les données
     }
   }
-
+ 
   handleIconClick(): void {
     if (this.scannerEnabled) {
       this.scanner.stop();

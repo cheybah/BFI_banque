@@ -1,0 +1,104 @@
+<body class="g-sidenav-show bg-gray-100">
+    <div class="sidenav navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gray-100"
+      id="sidenav-main">
+      <app-transaction-nav></app-transaction-nav>
+    </div>
+  
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+      <app-navbar></app-navbar>
+  
+      <div class="row" style="margin-left:50px">
+        <div class="col-md-12">
+          <div class="card-body">
+            <div class="col-11">
+              <div class="card">
+                <div class="card-header">
+                    Mise en place dépôt à terme
+                </div>
+                <div class="card-body">
+                  <div class="form-group row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                      <div class="form-group required mb-0">
+                        <div class="signin-control-field p-1 mb-0">
+                          <label class="col-form-label creation-label ng-binding">Compte à débiter<span class="error"style="color: red;">*</span></label>
+                          <input class="form-control"  name="compteADebiter" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                      <div class="form-group required mb-0">
+                        <div class="signin-control-field p-1 mb-0">
+                          <label class="col-form-label creation-label ng-binding">Montant<span class="error"style="color: red;">*</span></label>
+                          <input type="number" class="form-control"  name="montant" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                      <div class="signin-control-field p-1 mb-0">
+                        <label class="col-form-label creation-label ng-binding">Moment de paiement <span class="error"style="color: red;">*</span></label>
+                        <select class="form-control creation-form"  >
+                          <option value="" class="ng-binding" selected="selected">-- Sélectionner un moment de paiement --</option>
+                          <option value="InAdvence" class="ng-binding">A l'ouverture</option>
+                          <option value="Periodic" class="ng-binding">Périodique</option>
+                          <option value="InFine" class="ng-binding">A l'échéance</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                    
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 ng-hide">
+                      <div class="signin-control-field p-1 mb-0">
+                        <label class="col-form-label creation-label ng-binding">Durée <span class="error"style="color: red;">*</span></label>
+                        <input type="text" class="form-control creation-form" >
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 ng-hide" >
+                      <div class="signin-control-field p-1 mb-0">
+                        <label class="col-form-label creation-label ng-binding">Périodicité <span class="error ng-hide" style="color: red;">*</span></label>
+                        <input type="text" class="form-control creation-form" >
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                      <div class="form-group required mb-0">
+                        <div class="signin-control-field p-1 mb-0">
+                          <label class="col-form-label creation-label ng-binding">Taux</label>
+                          <input type="number" class="form-control" name="rate" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                      <div class="signin-control-field p-1 mb-0">
+                        <label class="creation-label col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ng-binding">Régime des intérêts <span class="error"style="color: red;">*</span></label>
+                        <input type="text" class="form-control" name="interestRegime" required>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                      <div class="signin-control-field p-1 mb-0">
+                        <label class="creation-label col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ng-binding">Renouvellement automatique <span class="error"style="color: red;">*</span></label>
+                        <select class="form-control creation-form"  name="autoRenewal" required>
+                          <option value="yes">Oui</option>
+                          <option value="no">Non</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+  
+                  
+                  
+                    <div class="col text-end">
+                      <button class="btn btn-secondary butn" type="submit">Suivant</button>
+                    </div>
+                                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  

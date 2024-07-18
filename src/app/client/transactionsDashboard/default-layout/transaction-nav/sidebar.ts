@@ -55,7 +55,7 @@ export const sidebarPP: SideBarData[] = [
       },
       {
         title: 'Placements',
-        link: '/accounts/manage',
+        link: '/placement',
       }
     ],
   },
@@ -74,14 +74,22 @@ export const sidebarPP: SideBarData[] = [
     subitems: [
       {
         title: 'Virements',
-        link: 'transactions/virement',
+        link: '/historique/transactions/virement',
         icon: 'bi bi-person-vcard',
  
       },
       {
         title: 'Dépôt/Retraits',
-        link: '/accounts/manage',
+        link: '/historique/transactions/depot',
       },
+      {
+        title: 'Carte Prepayée',
+        link: '/carteprepayee',
+      },
+      {
+        title: 'Placements',
+        link: '/historique/placement',
+      }
     ]
   },
   {

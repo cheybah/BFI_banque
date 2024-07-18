@@ -40,14 +40,14 @@ export class OffresEtDomicialisationEntrepriseComponent implements OnInit{
     { label: 'Epargne', value: 'EPARGNE', packs: [
       { name: 'PACK ALTITUDE STANDARD', description: 'Description du PACK ALTITUDE STANDARD' },
       { name: 'PACK OVA', description: 'Description du PACK OVA' }
-    ] },
+    ] }/*,
     { label: 'Les deux', value: 'LES_DEUX', packs: [
       { name: 'PACK_ACTIVIA', description: 'L\'offre jeune vous accompagne dans votre expérience bancaire.<br>- Dépôt initial (13 000 TND)<br>- Dépôt /Retrait via Mobile Money<br>- Carte visa prépayée<br>- Online Banking<br>5950 TND/ mois'}, 
       { name: 'PACK ALTITUDE CLASSIQUE', description: 'Description du PACK ALTITUDE CLASSIQUE' },
       { name: 'PACK ALTITUDE PRIVILEGE', description: 'Description du PACK ALTITUDE PRIVILEGE' },
       { name: 'PACK ALTITUDE STANDARD', description: 'Description du PACK ALTITUDE STANDARD' },
       { name: 'PACK OVA', description: 'Description du PACK OVA' }
-    ] },
+    ] },*/
   ];
   packsAffiches: { name: string, description: string }[] = [];
   selectedPack: string | null = null;

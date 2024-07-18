@@ -51,19 +51,25 @@
                         <input type="text" class="form-control" [(ngModel)]="deposit.ribDepotCompteSource" name="ribDepotCompteSource" required>
                       </div>
                     </div>
+                  </div>
+                  <div class="row ">
+
+                    <div class="col-6">
                       <label class="col-form-label col-form-para-card">
                         Saisissez le montant à déposer...
                       </label>
-                      <div class="col-6">
                         <input type="number" class="form-control" [(ngModel)]="deposit.montant" name="montant" required>
                       </div>
+                      <div class="col-6">
+
                       <label class="col-form-label col-form-para-card">
                         Motif
                       </label>
-                      <div class="col-6">
                         <input type="text" class="form-control" [(ngModel)]="deposit.motif" name="motif" required>
                       </div>
-                    <button type="submit" class="btn btn-primary">Déposer</button>
+                    </div>
+<div class="col text-end">
+                    <button type="submit" class="btn btn-primary ">Déposer</button>
                   </div>
                 </form>
               </div>

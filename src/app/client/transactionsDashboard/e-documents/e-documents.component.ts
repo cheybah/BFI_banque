@@ -54,7 +54,7 @@ uploadFiles() {
     id: String(this.documents.length + 1), // Create a unique ID
     name: this.documentName || 'Untitled Document', // Provide a default name
     extension: fileExtension as string, // Ensure extension is a string
-    description: this.documentDescription || 'No description provided', // Default description
+    description: this.documentDescription || 'Aucune description donnée', // Default description
     keywords: this.documentKeywords,
   };
 

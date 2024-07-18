@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DepotService {
-  private apiUrl = 'http://localhost:8080/depot/makeDeposit';
+  private apiUrl = 'http://localhost:8080/depot/requestDeposit';
 
   constructor(private http: HttpClient) {}
 

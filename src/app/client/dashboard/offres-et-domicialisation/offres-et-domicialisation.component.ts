@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OffresDomiciliationService } from '../../../services/offres-domiciliation.service';
 import { navbarData } from '../sidenav/nav-data';
+import { agencyService } from 'src/app/home/services/agencyService';
 
 
 @Component({
@@ -13,8 +14,8 @@ import { navbarData } from '../sidenav/nav-data';
 export class OffresEtDomicialisationComponent implements OnInit {
   navData = navbarData;
   offerForm: FormGroup;
-
-  constructor(private router: Router,
+agencies: any[] = [];
+  constructor(private router: Router,private agencyService:agencyService,
     private formBuilder: FormBuilder,
     private offresDomiciliationService: OffresDomiciliationService) {
     this.offerForm = this.formBuilder.group({
@@ -27,12 +28,24 @@ export class OffresEtDomicialisationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.fetchAgencies();
+
     const storedOffersData = this.offresDomiciliationService.getTemporaryOffersData();
     if (storedOffersData) {
       this.offerForm.patchValue(storedOffersData);
     }
   }
-
+  fetchAgencies(): void {
+    this.agencyService.getAllAgencies().subscribe(
+      (data) => {
+        this.agencies = data;
+        console.log(data);
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des agences :', error);
+      }
+    );
+  }
   comptes = [
     {
       label: 'Courant', value: 'COURANT', packs: [
@@ -46,7 +59,7 @@ export class OffresEtDomicialisationComponent implements OnInit {
         { name: 'PACK ALTITUDE STANDARD', description: 'Description du PACK ALTITUDE STANDARD' },
         { name: 'PACK OVA', description: 'Description du PACK OVA' }
       ]
-    },
+    }/*,
     {
       label: 'Les deux', value: 'LES_DEUX', packs: [
         { name: 'PACK_ACTIVIA', description: 'L\'offre jeune vous accompagne dans votre expérience bancaire.<br>- Dépôt initial (13 000 XAF)<br>- Dépôt /Retrait via Mobile Money<br>- Carte visa prépayée<br>- Online Banking<br>5950 Fcfa/ mois' },
@@ -55,7 +68,7 @@ export class OffresEtDomicialisationComponent implements OnInit {
         { name: 'PACK ALTITUDE STANDARD', description: 'Description du PACK ALTITUDE STANDARD' },
         { name: 'PACK OVA', description: 'Description du PACK OVA' }
       ]
-    },
+    },*/
   ];
   packsAffiches: { name: string, description: string }[] = [];
   selectedPack: string | null = null;

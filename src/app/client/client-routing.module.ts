@@ -52,6 +52,10 @@ import { addRandomSuffix } from 'pdf-lib';
 import { AddcontactComponent } from './transactionsDashboard/my-contacts/addcontact/addcontact.component';
 import { DepotComponent } from './transactionsDashboard/depot-rerait/depot/depot.component';
 import { RetraitComponent } from './transactionsDashboard/depot-rerait/retrait/retrait.component';
+import { AchatcarteComponent } from './transactionsDashboard/carteprepayee/achatcarte/achatcarte.component';
+import { PlacementComponent } from './transactionsDashboard/placement/placement.component';
+import { HistoriquevirementComponent } from './transactionsDashboard/historique/historiquevirement/historiquevirement.component';
+import { HistoriquedepotComponent } from './transactionsDashboard/historique/historiquedepot/historiquedepot.component';
 
 
 
@@ -119,6 +123,11 @@ const routes: Routes = [
   { path: 'transactions/virement/autre-contact/intrabancaire', component: IntrabancaireComponent },
   { path: 'transactions/virement/autre-contact/interbancaire', component: InterbancaireComponent },
   { path: 'carteprepayee', component: CarteprepayeeComponent },
+  { path: 'achatcarte', component: AchatcarteComponent },
+  { path: 'placement', component: PlacementComponent },
+  { path: 'historique/transactions/virement', component: HistoriquevirementComponent },
+  { path: 'historique/transactions/depot', component: HistoriquedepotComponent },
+
   { path: 'transfert-rapide', component: TransfertRapideComponent },
   { path: 'administration/gestion-utilisateurs', component: GestionUtilisateursComponent },
   { path: 'administration/gestion-profil-utilisateurs', component: GestionProfilUtilisateursComponent },
